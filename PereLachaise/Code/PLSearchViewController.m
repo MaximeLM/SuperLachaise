@@ -372,6 +372,14 @@
             PLInfo(@"NSFetchedResultsChangeDelete");
             [tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
             break;
+            
+        case NSFetchedResultsChangeUpdate:
+            PLInfo(@"NSFetchedResultsChangeUpdate");
+            break;
+            
+        case NSFetchedResultsChangeMove:
+            PLInfo(@"NSFetchedResultsChangeMove");
+            break;
     }
         
     PLTraceOut(@"");

@@ -33,6 +33,6 @@
 + (NSString *)upperCaseFirstLetterOfString:(NSString *)string;
 
 // Renvoie le nombre de personnalités associées au monument
-+ (int)personnalitesCountForMonument:(PLMonument *)monument;
++ (unsigned long)personnalitesCountForMonument:(PLMonument *)monument;
 
 @end

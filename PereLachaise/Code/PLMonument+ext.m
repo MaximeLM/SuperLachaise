@@ -57,11 +57,11 @@
     return result;
 }
 
-+ (int)personnalitesCountForMonument:(PLMonument *)monument
++ (unsigned long)personnalitesCountForMonument:(PLMonument *)monument
 {
     PLTraceIn(@"monument: %@", monument);
     
-    int result = [monument.personnalites count];
+    unsigned long result = [monument.personnalites count];
     
     PLTraceOut(@"result: %d", result);
     return result;
@@ -89,10 +89,10 @@
     // Nombre de personnalités
     
     // Récupération du nombre de personnalités
-    int personnalitesCount = [PLMonument personnalitesCountForMonument:self];
+    unsigned long personnalitesCount = [PLMonument personnalitesCountForMonument:self];
     
     // Mise à jour
-    [self setPrimitiveValue:[NSNumber numberWithInt:personnalitesCount] forKey:@"personnalitesCount"];
+    [self setPrimitiveValue:[NSNumber numberWithUnsignedLong:personnalitesCount] forKey:@"personnalitesCount"];
     
     PLTraceOut(@"");
     [super willSave];
