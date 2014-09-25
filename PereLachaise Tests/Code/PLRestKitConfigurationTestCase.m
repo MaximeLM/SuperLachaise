@@ -96,12 +96,6 @@
     
     // Managed object store
     XCTAssertNotNil(objectManager.managedObjectStore, @"");
-    
-    // Response descriptors
-    XCTAssertEqual(1, [objectManager.responseDescriptors count], @"");
-    
-    // Fetch request blocks
-    XCTAssertEqual(1, [objectManager.fetchRequestBlocks count], @"");
 }
 
 @end

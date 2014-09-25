@@ -6,10 +6,6 @@
 	<string>http://localhost:8000/webservice/</string>
 	<key>URL Web Service - fixture</key>
 	<string>http://localhost:8000/testapplication/</string>
-	<key>URL Web Service - int</key>
-	<string>http://maximelemoine.alwaysdata.net/pere-lachaise-int/webservice/</string>
-	<key>URL Web Service</key>
-	<string>http://maximelemoine.alwaysdata.net/pere-lachaise/webservice/</string>
 	<key>iPhone</key>
 	<dict>
 		<key>Portrait</key>

@@ -46,24 +46,4 @@
     return YES;
 }
 
-# pragma mark - RestKit
-
-- (void)refreshMonuments
-{
-    PLTraceIn(@"");
-    // GET tombe/
-    [[RKObjectManager sharedManager] getObjectsAtPath:@"monument/all/" parameters:nil success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-        PLInfo(@"La requête a réussi.");
-    } failure:^(RKObjectRequestOperation *operation, NSError *error) {
-        PLWarning(@"La requête a échoué : %@", [error localizedDescription]);
-        
-#if TARGET_IPHONE_SIMULATOR
-        // Affichage d'un pop-up d'erreur
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"An Error Has Occurred" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [alertView show];
-#endif
-    }];
-    PLTraceOut(@"");
-}
-
 @end

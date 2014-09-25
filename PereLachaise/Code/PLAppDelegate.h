@@ -25,9 +25,4 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
-#pragma mark - RestKit
-
-// Met à jour les données relatives aux monuments
-- (void)refreshMonuments;
-
 @end

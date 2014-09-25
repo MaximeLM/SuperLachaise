@@ -21,13 +21,8 @@
 
 #import "RestKit.h"
 
-// Classe de configuration de la requête monument/all/
-@interface PLRestKitMonumentAll : NSObject
-
-#pragma mark - Path patterns
-
-// Le path pattern de la requête monument/all/
-+ (NSString *)pathPattern;
+// Classe deconfiguration du mapping Restkit
+@interface PLRestKitMapping : NSObject
 
 #pragma mark - Mappings
 
@@ -42,15 +37,5 @@
 
 // Créée le mapping des monuments
 + (RKEntityMapping *)monumentMapping;
-
-#pragma mark - Response descriptors
-
-// Créée le descripteur de requête
-+ (RKResponseDescriptor *)responseDescriptor;
-
-#pragma mark - Fetch request blocks
-
-// Créée le bloc à annuler/remplacer de la requête
-+ (RKFetchRequestBlock)fetchRequestBlock;
 
 @end

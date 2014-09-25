@@ -22,7 +22,7 @@
 #import "RestKit.h"
 #import "Testing.h"
 
-#import "PLRestKitMonumentAll.h"
+#import "PLRestKitMapping.h"
 #import "PLMonument+ext.h"
 #import "PLNodeOSM.h"
 #import "PLPersonnalite.h"
@@ -62,7 +62,7 @@
     id parsedJSON = [RKTestFixture parsedObjectWithContentsOfFixture:@"monument2.json"];
     
     // Création et exécution du test de mapping
-    RKMappingTest *mappingTest = [RKMappingTest testForMapping:[PLRestKitMonumentAll monumentMapping] sourceObject:parsedJSON destinationObject:nil];
+    RKMappingTest *mappingTest = [RKMappingTest testForMapping:[PLRestKitMapping monumentMapping] sourceObject:parsedJSON destinationObject:nil];
     mappingTest.managedObjectContext = managedObjectContext;
     [mappingTest performMapping];
     
@@ -84,7 +84,7 @@
     id parsedJSON = [RKTestFixture parsedObjectWithContentsOfFixture:@"monument1.json"];
     
     // Création et exécution du test de mapping
-    RKMappingTest *mappingTest = [RKMappingTest testForMapping:[PLRestKitMonumentAll monumentMapping] sourceObject:parsedJSON destinationObject:nil];
+    RKMappingTest *mappingTest = [RKMappingTest testForMapping:[PLRestKitMapping monumentMapping] sourceObject:parsedJSON destinationObject:nil];
     mappingTest.managedObjectContext = managedObjectContext;
     [mappingTest performMapping];
     
@@ -106,7 +106,7 @@
     id parsedJSON = [RKTestFixture parsedObjectWithContentsOfFixture:@"monument2_update2.json"];
     
     // Création et exécution du test de mapping
-    RKMappingTest *mappingTest = [RKMappingTest testForMapping:[PLRestKitMonumentAll monumentMapping] sourceObject:parsedJSON destinationObject:nil];
+    RKMappingTest *mappingTest = [RKMappingTest testForMapping:[PLRestKitMapping monumentMapping] sourceObject:parsedJSON destinationObject:nil];
     mappingTest.managedObjectContext = managedObjectContext;
     [mappingTest performMapping];
     
@@ -157,7 +157,7 @@
     id parsedJSON = [RKTestFixture parsedObjectWithContentsOfFixture:@"monument1.json"];
     
     // Création et exécution du test de mapping
-    RKMappingTest *mappingTest = [RKMappingTest testForMapping:[PLRestKitMonumentAll monumentMapping] sourceObject:parsedJSON destinationObject:nil];
+    RKMappingTest *mappingTest = [RKMappingTest testForMapping:[PLRestKitMapping monumentMapping] sourceObject:parsedJSON destinationObject:nil];
     mappingTest.managedObjectContext = managedObjectContext;
     [mappingTest performMapping];
     
@@ -185,7 +185,7 @@
     id parsedJSON = [RKTestFixture parsedObjectWithContentsOfFixture:@"monument2.json"];
     
     // Création et exécution du test de mapping
-    RKMappingTest *mappingTest = [RKMappingTest testForMapping:[PLRestKitMonumentAll monumentMapping] sourceObject:parsedJSON destinationObject:nil];
+    RKMappingTest *mappingTest = [RKMappingTest testForMapping:[PLRestKitMapping monumentMapping] sourceObject:parsedJSON destinationObject:nil];
     mappingTest.managedObjectContext = managedObjectContext;
     [mappingTest performMapping];
     
@@ -213,7 +213,7 @@
     id parsedJSON = [RKTestFixture parsedObjectWithContentsOfFixture:@"monument3.json"];
     
     // Création et exécution du test de mapping
-    RKMappingTest *mappingTest = [RKMappingTest testForMapping:[PLRestKitMonumentAll monumentMapping] sourceObject:parsedJSON destinationObject:nil];
+    RKMappingTest *mappingTest = [RKMappingTest testForMapping:[PLRestKitMapping monumentMapping] sourceObject:parsedJSON destinationObject:nil];
     mappingTest.managedObjectContext = managedObjectContext;
     [mappingTest performMapping];
     
@@ -243,7 +243,7 @@
     id parsedJSON = [RKTestFixture parsedObjectWithContentsOfFixture:@"monument2.json"];
     
     // Création et exécution du test de mapping
-    RKMappingTest *mappingTest = [RKMappingTest testForMapping:[PLRestKitMonumentAll monumentMapping] sourceObject:parsedJSON destinationObject:nil];
+    RKMappingTest *mappingTest = [RKMappingTest testForMapping:[PLRestKitMapping monumentMapping] sourceObject:parsedJSON destinationObject:nil];
     mappingTest.managedObjectContext = managedObjectContext;
     [mappingTest performMapping];
     
@@ -279,7 +279,7 @@
     id parsedJSON = [RKTestFixture parsedObjectWithContentsOfFixture:@"monument1.json"];
     
     // Création et exécution du test de mapping
-    RKMappingTest *mappingTest = [RKMappingTest testForMapping:[PLRestKitMonumentAll monumentMapping] sourceObject:parsedJSON destinationObject:nil];
+    RKMappingTest *mappingTest = [RKMappingTest testForMapping:[PLRestKitMapping monumentMapping] sourceObject:parsedJSON destinationObject:nil];
     mappingTest.managedObjectContext = managedObjectContext;
     [mappingTest performMapping];
     
@@ -315,7 +315,7 @@
     id parsedJSON = [RKTestFixture parsedObjectWithContentsOfFixture:@"monument2_update2.json"];
     
     // Création et exécution du test de mapping
-    RKMappingTest *mappingTest = [RKMappingTest testForMapping:[PLRestKitMonumentAll monumentMapping] sourceObject:parsedJSON destinationObject:nil];
+    RKMappingTest *mappingTest = [RKMappingTest testForMapping:[PLRestKitMapping monumentMapping] sourceObject:parsedJSON destinationObject:nil];
     mappingTest.managedObjectContext = managedObjectContext;
     [mappingTest performMapping];
     
@@ -353,7 +353,7 @@
     id parsedJSON = [RKTestFixture parsedObjectWithContentsOfFixture:@"monument1.json"];
     
     // Création et exécution du test de mapping
-    RKMappingTest *mappingTest = [RKMappingTest testForMapping:[PLRestKitMonumentAll monumentMapping] sourceObject:parsedJSON destinationObject:nil];
+    RKMappingTest *mappingTest = [RKMappingTest testForMapping:[PLRestKitMapping monumentMapping] sourceObject:parsedJSON destinationObject:nil];
     mappingTest.managedObjectContext = managedObjectContext;
     [mappingTest performMapping];
     
@@ -373,7 +373,7 @@
     id parsedJSON = [RKTestFixture parsedObjectWithContentsOfFixture:@"monument1.json"];
     
     // Création et exécution du test de mapping
-    RKMappingTest *mappingTest = [RKMappingTest testForMapping:[PLRestKitMonumentAll monumentMapping] sourceObject:parsedJSON destinationObject:nil];
+    RKMappingTest *mappingTest = [RKMappingTest testForMapping:[PLRestKitMapping monumentMapping] sourceObject:parsedJSON destinationObject:nil];
     mappingTest.managedObjectContext = managedObjectContext;
     [mappingTest performMapping];
     
@@ -400,7 +400,7 @@
     id parsedJSON = [RKTestFixture parsedObjectWithContentsOfFixture:@"monument1.json"];
     
     // Création et exécution du test de mapping
-    RKMappingTest *mappingTest = [RKMappingTest testForMapping:[PLRestKitMonumentAll monumentMapping] sourceObject:parsedJSON destinationObject:nil];
+    RKMappingTest *mappingTest = [RKMappingTest testForMapping:[PLRestKitMapping monumentMapping] sourceObject:parsedJSON destinationObject:nil];
     mappingTest.managedObjectContext = managedObjectContext;
     [mappingTest performMapping];
     
@@ -436,7 +436,7 @@
     id parsedJSON = [RKTestFixture parsedObjectWithContentsOfFixture:@"monument1.json"];
     
     // Création et exécution du test de mapping
-    RKMappingTest *mappingTest = [RKMappingTest testForMapping:[PLRestKitMonumentAll monumentMapping] sourceObject:parsedJSON destinationObject:nil];
+    RKMappingTest *mappingTest = [RKMappingTest testForMapping:[PLRestKitMapping monumentMapping] sourceObject:parsedJSON destinationObject:nil];
     mappingTest.managedObjectContext = managedObjectContext;
     [mappingTest performMapping];
     
@@ -472,7 +472,7 @@
     id parsedJSON = [RKTestFixture parsedObjectWithContentsOfFixture:@"monument1.json"];
     
     // Création et exécution du test de mapping
-    RKMappingTest *mappingTest = [RKMappingTest testForMapping:[PLRestKitMonumentAll monumentMapping] sourceObject:parsedJSON destinationObject:nil];
+    RKMappingTest *mappingTest = [RKMappingTest testForMapping:[PLRestKitMapping monumentMapping] sourceObject:parsedJSON destinationObject:nil];
     mappingTest.managedObjectContext = managedObjectContext;
     [mappingTest performMapping];
     
@@ -507,7 +507,7 @@
     id parsedJSON = [RKTestFixture parsedObjectWithContentsOfFixture:@"monument1.json"];
     
     // Création et exécution du test de mapping
-    RKMappingTest *mappingTest = [RKMappingTest testForMapping:[PLRestKitMonumentAll monumentMapping] sourceObject:parsedJSON destinationObject:nil];
+    RKMappingTest *mappingTest = [RKMappingTest testForMapping:[PLRestKitMapping monumentMapping] sourceObject:parsedJSON destinationObject:nil];
     mappingTest.managedObjectContext = managedObjectContext;
     [mappingTest performMapping];
     
@@ -542,7 +542,7 @@
     id parsedJSON = [RKTestFixture parsedObjectWithContentsOfFixture:@"monument1.json"];
     
     // Création et exécution du test de mapping
-    RKMappingTest *mappingTest = [RKMappingTest testForMapping:[PLRestKitMonumentAll monumentMapping] sourceObject:parsedJSON destinationObject:nil];
+    RKMappingTest *mappingTest = [RKMappingTest testForMapping:[PLRestKitMapping monumentMapping] sourceObject:parsedJSON destinationObject:nil];
     mappingTest.managedObjectContext = managedObjectContext;
     [mappingTest performMapping];
     
@@ -553,7 +553,7 @@
     parsedJSON = [RKTestFixture parsedObjectWithContentsOfFixture:@"monument2.json"];
     
     // Création et exécution du test de mapping
-    mappingTest = [RKMappingTest testForMapping:[PLRestKitMonumentAll monumentMapping] sourceObject:parsedJSON destinationObject:nil];
+    mappingTest = [RKMappingTest testForMapping:[PLRestKitMapping monumentMapping] sourceObject:parsedJSON destinationObject:nil];
     mappingTest.managedObjectContext = managedObjectContext;
     [mappingTest performMapping];
     
@@ -585,7 +585,7 @@
     id parsedJSON = [RKTestFixture parsedObjectWithContentsOfFixture:@"monument1.json"];
     
     // Création et exécution du test de mapping
-    RKMappingTest *mappingTest = [RKMappingTest testForMapping:[PLRestKitMonumentAll monumentMapping] sourceObject:parsedJSON destinationObject:nil];
+    RKMappingTest *mappingTest = [RKMappingTest testForMapping:[PLRestKitMapping monumentMapping] sourceObject:parsedJSON destinationObject:nil];
     mappingTest.managedObjectContext = managedObjectContext;
     [mappingTest performMapping];
     
@@ -617,7 +617,7 @@
     id parsedJSON = [RKTestFixture parsedObjectWithContentsOfFixture:@"monument1.json"];
     
     // Création et exécution du test de mapping
-    RKMappingTest *mappingTest = [RKMappingTest testForMapping:[PLRestKitMonumentAll monumentMapping] sourceObject:parsedJSON destinationObject:nil];
+    RKMappingTest *mappingTest = [RKMappingTest testForMapping:[PLRestKitMapping monumentMapping] sourceObject:parsedJSON destinationObject:nil];
     mappingTest.managedObjectContext = managedObjectContext;
     [mappingTest performMapping];
     
@@ -648,7 +648,7 @@
     id parsedJSON = [RKTestFixture parsedObjectWithContentsOfFixture:@"monument2_update2.json"];
     
     // Création et exécution du test de mapping
-    RKMappingTest *mappingTest = [RKMappingTest testForMapping:[PLRestKitMonumentAll monumentMapping] sourceObject:parsedJSON destinationObject:nil];
+    RKMappingTest *mappingTest = [RKMappingTest testForMapping:[PLRestKitMapping monumentMapping] sourceObject:parsedJSON destinationObject:nil];
     mappingTest.managedObjectContext = managedObjectContext;
     [mappingTest performMapping];
     
@@ -680,7 +680,7 @@
     id parsedJSON = [RKTestFixture parsedObjectWithContentsOfFixture:@"monument1.json"];
     
     // Création et exécution du test de mapping
-    RKMappingTest *mappingTest = [RKMappingTest testForMapping:[PLRestKitMonumentAll monumentMapping] sourceObject:parsedJSON destinationObject:nil];
+    RKMappingTest *mappingTest = [RKMappingTest testForMapping:[PLRestKitMapping monumentMapping] sourceObject:parsedJSON destinationObject:nil];
     mappingTest.managedObjectContext = managedObjectContext;
     [mappingTest performMapping];
     
@@ -712,7 +712,7 @@
     id parsedJSON = [RKTestFixture parsedObjectWithContentsOfFixture:@"monument1.json"];
     
     // Création et exécution du test de mapping
-    RKMappingTest *mappingTest = [RKMappingTest testForMapping:[PLRestKitMonumentAll monumentMapping] sourceObject:parsedJSON destinationObject:nil];
+    RKMappingTest *mappingTest = [RKMappingTest testForMapping:[PLRestKitMapping monumentMapping] sourceObject:parsedJSON destinationObject:nil];
     mappingTest.managedObjectContext = managedObjectContext;
     [mappingTest performMapping];
     

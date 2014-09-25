@@ -574,8 +574,8 @@
 		55EA7F4D19CA5F8F007137BA /* PLPersonnalite+ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 55EA7F4519CA5F8F007137BA /* PLPersonnalite+ext.m */; };
 		55EA7F5319CA5FD1007137BA /* PLRestKitConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 55EA7F5019CA5FD1007137BA /* PLRestKitConfiguration.m */; };
 		55EA7F5419CA5FD1007137BA /* PLRestKitConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 55EA7F5019CA5FD1007137BA /* PLRestKitConfiguration.m */; };
-		55EA7F5519CA5FD1007137BA /* PLRestKitMonumentAll.m in Sources */ = {isa = PBXBuildFile; fileRef = 55EA7F5219CA5FD1007137BA /* PLRestKitMonumentAll.m */; };
-		55EA7F5619CA5FD1007137BA /* PLRestKitMonumentAll.m in Sources */ = {isa = PBXBuildFile; fileRef = 55EA7F5219CA5FD1007137BA /* PLRestKitMonumentAll.m */; };
+		55EA7F5519CA5FD1007137BA /* PLRestKitMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = 55EA7F5219CA5FD1007137BA /* PLRestKitMapping.m */; };
+		55EA7F5619CA5FD1007137BA /* PLRestKitMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = 55EA7F5219CA5FD1007137BA /* PLRestKitMapping.m */; };
 		55EA7F5C19CA6009007137BA /* NSString+compatibility.m in Sources */ = {isa = PBXBuildFile; fileRef = 55EA7F5819CA6009007137BA /* NSString+compatibility.m */; };
 		55EA7F5D19CA6009007137BA /* NSString+compatibility.m in Sources */ = {isa = PBXBuildFile; fileRef = 55EA7F5819CA6009007137BA /* NSString+compatibility.m */; };
 		55EA7F5E19CA6009007137BA /* PLRectangularRegion.m in Sources */ = {isa = PBXBuildFile; fileRef = 55EA7F5B19CA6009007137BA /* PLRectangularRegion.m */; };
@@ -1067,8 +1067,8 @@
 		55EA7F4519CA5F8F007137BA /* PLPersonnalite+ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "PLPersonnalite+ext.m"; path = "Code/PLPersonnalite+ext.m"; sourceTree = "<group>"; };
 		55EA7F4F19CA5FD1007137BA /* PLRestKitConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLRestKitConfiguration.h; path = Code/PLRestKitConfiguration.h; sourceTree = "<group>"; };
 		55EA7F5019CA5FD1007137BA /* PLRestKitConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLRestKitConfiguration.m; path = Code/PLRestKitConfiguration.m; sourceTree = "<group>"; };
-		55EA7F5119CA5FD1007137BA /* PLRestKitMonumentAll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLRestKitMonumentAll.h; path = Code/PLRestKitMonumentAll.h; sourceTree = "<group>"; };
-		55EA7F5219CA5FD1007137BA /* PLRestKitMonumentAll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLRestKitMonumentAll.m; path = Code/PLRestKitMonumentAll.m; sourceTree = "<group>"; };
+		55EA7F5119CA5FD1007137BA /* PLRestKitMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLRestKitMapping.h; path = Code/PLRestKitMapping.h; sourceTree = "<group>"; };
+		55EA7F5219CA5FD1007137BA /* PLRestKitMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLRestKitMapping.m; path = Code/PLRestKitMapping.m; sourceTree = "<group>"; };
 		55EA7F5719CA6009007137BA /* NSString+compatibility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+compatibility.h"; path = "Code/NSString+compatibility.h"; sourceTree = "<group>"; };
 		55EA7F5819CA6009007137BA /* NSString+compatibility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+compatibility.m"; path = "Code/NSString+compatibility.m"; sourceTree = "<group>"; };
 		55EA7F5919CA6009007137BA /* PLDeprecatedMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLDeprecatedMethods.h; path = Code/PLDeprecatedMethods.h; sourceTree = "<group>"; };
@@ -1648,8 +1648,8 @@
 			children = (
 				55EA7F4F19CA5FD1007137BA /* PLRestKitConfiguration.h */,
 				55EA7F5019CA5FD1007137BA /* PLRestKitConfiguration.m */,
-				55EA7F5119CA5FD1007137BA /* PLRestKitMonumentAll.h */,
-				55EA7F5219CA5FD1007137BA /* PLRestKitMonumentAll.m */,
+				55EA7F5119CA5FD1007137BA /* PLRestKitMapping.h */,
+				55EA7F5219CA5FD1007137BA /* PLRestKitMapping.m */,
 			);
 			name = RestKit;
 			sourceTree = "<group>";
@@ -2585,7 +2585,7 @@
 				55EA7FA119CA60A3007137BA /* PLInfoBoxView.m in Sources */,
 				557E7E541823C1F100FF586B /* main.m in Sources */,
 				55EA7F9319CA60A3007137BA /* PLDetailActiviteCell.m in Sources */,
-				55EA7F5519CA5FD1007137BA /* PLRestKitMonumentAll.m in Sources */,
+				55EA7F5519CA5FD1007137BA /* PLRestKitMapping.m in Sources */,
 				55EA7F9D19CA60A3007137BA /* PLDetailResumeCell.m in Sources */,
 				55DA57861846AD81000D80EC /* PereLachaise.xcdatamodeld in Sources */,
 				55EA7F5319CA5FD1007137BA /* PLRestKitConfiguration.m in Sources */,
@@ -2628,7 +2628,7 @@
 				55EA7F9419CA60A3007137BA /* PLDetailActiviteCell.m in Sources */,
 				55ADA81C18F9D7220002D913 /* PereLachaise.xcdatamodeld in Sources */,
 				55EA7F9E19CA60A3007137BA /* PLDetailResumeCell.m in Sources */,
-				55EA7F5619CA5FD1007137BA /* PLRestKitMonumentAll.m in Sources */,
+				55EA7F5619CA5FD1007137BA /* PLRestKitMapping.m in Sources */,
 				55EA7F5419CA5FD1007137BA /* PLRestKitConfiguration.m in Sources */,
 				55EA7F9819CA60A3007137BA /* PLDetailDatesCell.m in Sources */,
 				55EA7F7519CA604E007137BA /* PLImageCommonsViewController.m in Sources */,
@@ -2931,7 +2931,6 @@
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SuperLachaise.app/SuperLachaise";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(BUILT_PRODUCTS_DIR)/../../Headers",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"\"$(SRCROOT)/RestKit\"/**",
@@ -2946,7 +2945,6 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					"\"$(BUILT_PRODUCTS_DIR)/../../Headers\"",
 					"\"$(SRCROOT)/MapBox-iOS-SDK\"/**",
 					"\"$(SRCROOT)/RestKit\"/**",
 				);
@@ -2969,7 +2967,6 @@
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SuperLachaise.app/SuperLachaise";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(BUILT_PRODUCTS_DIR)/../../Headers",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"\"$(SRCROOT)/RestKit\"/**",
@@ -2980,7 +2977,6 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					"\"$(BUILT_PRODUCTS_DIR)/../../Headers\"",
 					"\"$(SRCROOT)/MapBox-iOS-SDK\"/**",
 					"\"$(SRCROOT)/RestKit\"/**",
 				);
@@ -3073,7 +3069,6 @@
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SuperLachaise.app/SuperLachaise";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(BUILT_PRODUCTS_DIR)/../../Headers",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"\"$(SRCROOT)/RestKit\"/**",
@@ -3088,7 +3083,6 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					"\"$(BUILT_PRODUCTS_DIR)/../../Headers\"",
 					"\"$(SRCROOT)/MapBox-iOS-SDK\"/**",
 					"\"$(SRCROOT)/RestKit\"/**",
 				);

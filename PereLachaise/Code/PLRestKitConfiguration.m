@@ -19,7 +19,7 @@
 
 #import "PLRestKitConfiguration.h"
 #import "PLConfiguration.h"
-#import "PLRestKitMonumentAll.h"
+#import "PLRestKitMapping.h"
 
 @interface PLRestKitConfiguration ()
 
@@ -28,9 +28,6 @@
 
 // Construit l'instance de la classe RKManagedObjectStore
 + (RKManagedObjectStore *)managedObjectStoreForPL;
-
-// Configure les requêtes
-+ (void)configureResponseDescriptors;
 
 @end
 
@@ -61,15 +58,8 @@
     PLTraceIn(@"");
     
     // Récupération de l'URL du web service
-#if TARGET_IPHONE_SIMULATOR
     NSString *webServiceStr = (NSString *)[PLConfiguration valueForKeyPath:@"URL Web Service - dev"];
-#else
-#ifdef DEBUG
-    NSString *webServiceStr = (NSString *)[PLConfiguration valueForKeyPath:@"URL Web Service - int"];
-#else
-    NSString *webServiceStr = (NSString *)[PLConfiguration valueForKeyPath:@"URL Web Service"];
-#endif
-#endif
+    
     NSURL *webServiceURL = [NSURL URLWithString:webServiceStr];
     PLInfo(@"URL Web Service : %@", webServiceURL);
     
@@ -81,9 +71,6 @@
     
     // Construction du RKManagedObjectStore
     objectManager.managedObjectStore = [PLRestKitConfiguration managedObjectStoreForPL];
-    
-    // Configuration des requêtes
-    [PLRestKitConfiguration configureResponseDescriptors];
     
     PLTraceOut(@"result: %@",objectManager);
     NSAssert(objectManager, @"");
@@ -115,18 +102,6 @@
     return managedObjectStore;
 }
 
-+ (void)configureResponseDescriptors
-{
-    PLTraceIn(@"");
-    NSAssert([RKObjectManager sharedManager], @"");
-    
-    // monuments/all/
-    [[RKObjectManager sharedManager] addResponseDescriptor:[PLRestKitMonumentAll responseDescriptor]];
-    [[RKObjectManager sharedManager] addFetchRequestBlock:[PLRestKitMonumentAll fetchRequestBlock]];
-    
-    PLTraceOut(@"");
-}
-
 + (void)createSeedDatabase
 {
     PLTraceIn(@"");
@@ -146,7 +121,7 @@
     NSString *seedStorePath = [RKApplicationDataDirectory() stringByAppendingPathComponent:@"PLDataSeed.sqlite"];
     RKManagedObjectImporter *importer = [[RKManagedObjectImporter alloc] initWithManagedObjectModel:managedObjectModel storePath:seedStorePath];
     [importer importObjectsFromItemAtPath:[[NSBundle mainBundle] pathForResource:@"PLData" ofType:@"json"]
-                              withMapping:[PLRestKitMonumentAll monumentMapping]
+                              withMapping:[PLRestKitMapping monumentMapping]
                                   keyPath:nil
                                     error:&error];
     

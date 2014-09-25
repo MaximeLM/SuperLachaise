@@ -17,19 +17,9 @@
 //  See the License for the specific language governing permissions and
 //  limitations under the License.
 
-#import "PLRestKitMonumentAll.h"
+#import "PLRestKitMapping.h"
 
-@implementation PLRestKitMonumentAll
-
-#pragma mark - Path patterns
-
-+ (NSString *)pathPattern
-{
-    PLTraceIn(@"");
-    
-    PLTraceOut(@"");
-    return @"monument/all/";
-}
+@implementation PLRestKitMapping
 
 #pragma mark - Mappings
 
@@ -111,70 +101,23 @@
     monumentMapping.identificationAttributes = @[@"id"];
     
     // Relation monument / node OSM
-    RKRelationshipMapping *nodeOSMRelationshipMapping = [RKRelationshipMapping relationshipMappingFromKeyPath:@"node_osm" toKeyPath:@"nodeOSM" withMapping:[PLRestKitMonumentAll nodeOSMMapping]];
+    RKRelationshipMapping *nodeOSMRelationshipMapping = [RKRelationshipMapping relationshipMappingFromKeyPath:@"node_osm" toKeyPath:@"nodeOSM" withMapping:[PLRestKitMapping nodeOSMMapping]];
     nodeOSMRelationshipMapping.assignmentPolicy = RKReplaceAssignmentPolicy;
     [monumentMapping addPropertyMapping:nodeOSMRelationshipMapping];
     
     // Relation monument / image Commons
-    RKRelationshipMapping *imageCommonsRelationshipMapping = [RKRelationshipMapping relationshipMappingFromKeyPath:@"image_principale" toKeyPath:@"imagePrincipale" withMapping:[PLRestKitMonumentAll imageCommonsMapping]];
+    RKRelationshipMapping *imageCommonsRelationshipMapping = [RKRelationshipMapping relationshipMappingFromKeyPath:@"image_principale" toKeyPath:@"imagePrincipale" withMapping:[PLRestKitMapping imageCommonsMapping]];
     imageCommonsRelationshipMapping.assignmentPolicy = RKReplaceAssignmentPolicy;
     [monumentMapping addPropertyMapping:imageCommonsRelationshipMapping];
     
     // Relation monument / personnalités
-    RKRelationshipMapping *personnaliteRelationshipMapping = [RKRelationshipMapping relationshipMappingFromKeyPath:@"personnalites" toKeyPath:@"personnalites" withMapping:[PLRestKitMonumentAll personnaliteMapping]];
+    RKRelationshipMapping *personnaliteRelationshipMapping = [RKRelationshipMapping relationshipMappingFromKeyPath:@"personnalites" toKeyPath:@"personnalites" withMapping:[PLRestKitMapping personnaliteMapping]];
     personnaliteRelationshipMapping.assignmentPolicy = RKReplaceAssignmentPolicy;
     [monumentMapping addPropertyMapping:personnaliteRelationshipMapping];
     
     PLTraceOut(@"result: %@", monumentMapping);
     NSAssert(monumentMapping, @"");
     return monumentMapping;
-}
-
-#pragma mark - Response descriptors
-
-+ (RKResponseDescriptor *)responseDescriptor
-{
-    PLTraceIn(@"");
-    
-    // Response descriptor pour la requête monument/all/
-    RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:[PLRestKitMonumentAll monumentMapping] method:RKRequestMethodGET pathPattern:[PLRestKitMonumentAll pathPattern] keyPath:@"monuments" statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
-    
-    PLTraceOut(@"result: %@", responseDescriptor);
-    NSAssert(responseDescriptor, @"");
-    return responseDescriptor;
-}
-
-#pragma mark - Fetch request blocks
-
-+ (RKFetchRequestBlock)fetchRequestBlock
-{
-    PLTraceIn(@"");
-    
-    // Suppression en base des éléments non renvoyés par la requête
-    RKFetchRequestBlock block = ^NSFetchRequest *(NSURL *URL) {
-        RKPathMatcher *pathMatcher = [RKPathMatcher pathMatcherWithPattern:[PLRestKitMonumentAll pathPattern]];
-        PLTrace(@"try match fetchRequestBlock: %@", URL);
-        
-        if (URL) {
-            NSDictionary *argsDict = nil;
-            BOOL match = [pathMatcher matchesPath:[URL relativeString] tokenizeQueryStrings:NO parsedArguments:&argsDict];
-            if (match) {
-                PLTrace(@"match fetchRequestBlock OK");
-                NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"PLMonument"];
-                fetchRequest.sortDescriptors = @[ [NSSortDescriptor sortDescriptorWithKey:@"nomPourTri" ascending:YES] ];
-                return fetchRequest;
-            } else {
-                PLTrace(@"match fetchRequestBlock failed");
-            }
-        } else {
-            PLTrace(@"match fetchRequestBlock no URL");
-        }
-        
-        return nil;
-    };
-    
-    PLTraceOut(@"");
-    return block;
 }
 
 @end

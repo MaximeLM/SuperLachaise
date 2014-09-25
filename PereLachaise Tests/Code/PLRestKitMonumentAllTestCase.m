@@ -23,7 +23,7 @@
 #import "Testing.h"
 
 #import "PLRestKitConfiguration.h"
-#import "PLRestKitMonumentAll.h"
+#import "PLRestKitMapping.h"
 #import "PLNodeOSM.h"
 #import "PLPersonnalite.h"
 #import "PLMonument.h"
@@ -70,7 +70,7 @@
     id parsedJSON = [RKTestFixture parsedObjectWithContentsOfFixture:@"monument1.json"];
     
     // Création et exécution du test de mapping
-    RKMappingTest *mappingTest = [RKMappingTest testForMapping:[PLRestKitMonumentAll monumentMapping] sourceObject:parsedJSON destinationObject:nil];
+    RKMappingTest *mappingTest = [RKMappingTest testForMapping:[PLRestKitMapping monumentMapping] sourceObject:parsedJSON destinationObject:nil];
     mappingTest.managedObjectContext = managedObjectContext;
     [mappingTest performMapping];
     
@@ -106,17 +106,10 @@
 // Vérifie que les méthodes de fabrication d'objets renvoient un résultat
 - (void)testFactoryMethodsNotNil
 {
-    XCTAssertNotNil([PLRestKitMonumentAll nodeOSMMapping], @"");
-    XCTAssertNotNil([PLRestKitMonumentAll personnaliteMapping], @"");
-    XCTAssertNotNil([PLRestKitMonumentAll monumentMapping], @"");
-    XCTAssertNotNil([PLRestKitMonumentAll responseDescriptor], @"");
-    XCTAssertNotNil([PLRestKitMonumentAll imageCommonsMapping], @"");
-}
-
-// Vérifie que le path pattern renvoie le résultat attendu
-- (void)testPathPattern
-{
-    XCTAssertEqualObjects(@"monument/all/", [PLRestKitMonumentAll pathPattern], @"");
+    XCTAssertNotNil([PLRestKitMapping nodeOSMMapping], @"");
+    XCTAssertNotNil([PLRestKitMapping personnaliteMapping], @"");
+    XCTAssertNotNil([PLRestKitMapping monumentMapping], @"");
+    XCTAssertNotNil([PLRestKitMapping imageCommonsMapping], @"");
 }
 
 #pragma mark - nodeOSMMapping
@@ -131,7 +124,7 @@
     id parsedJSON = [RKTestFixture parsedObjectWithContentsOfFixture:@"nodeOSM1.json"];
     
     // Création et exécution du test de mapping
-    RKMappingTest *mappingTest = [RKMappingTest testForMapping:[PLRestKitMonumentAll nodeOSMMapping] sourceObject:parsedJSON destinationObject:nil];
+    RKMappingTest *mappingTest = [RKMappingTest testForMapping:[PLRestKitMapping nodeOSMMapping] sourceObject:parsedJSON destinationObject:nil];
     mappingTest.managedObjectContext = managedObjectContext;
     [mappingTest performMapping];
     
@@ -164,7 +157,7 @@
     id parsedJSON = [RKTestFixture parsedObjectWithContentsOfFixture:@"nodeOSM1.json"];
     
     // Création et exécution du test de mapping
-    RKMappingTest *mappingTest = [RKMappingTest testForMapping:[PLRestKitMonumentAll nodeOSMMapping] sourceObject:parsedJSON destinationObject:nil];
+    RKMappingTest *mappingTest = [RKMappingTest testForMapping:[PLRestKitMapping nodeOSMMapping] sourceObject:parsedJSON destinationObject:nil];
     mappingTest.managedObjectContext = managedObjectContext;
     [mappingTest performMapping];
     
@@ -175,7 +168,7 @@
     parsedJSON = [RKTestFixture parsedObjectWithContentsOfFixture:@"nodeOSM2.json"];
     
     // Création et exécution du test de mapping
-    mappingTest = [RKMappingTest testForMapping:[PLRestKitMonumentAll nodeOSMMapping] sourceObject:parsedJSON destinationObject:nil];
+    mappingTest = [RKMappingTest testForMapping:[PLRestKitMapping nodeOSMMapping] sourceObject:parsedJSON destinationObject:nil];
     mappingTest.managedObjectContext = managedObjectContext;
     [mappingTest performMapping];
     
@@ -216,7 +209,7 @@
     id parsedJSON = [RKTestFixture parsedObjectWithContentsOfFixture:@"nodeOSM1.json"];
     
     // Création et exécution du test de mapping
-    RKMappingTest *mappingTest = [RKMappingTest testForMapping:[PLRestKitMonumentAll nodeOSMMapping] sourceObject:parsedJSON destinationObject:nil];
+    RKMappingTest *mappingTest = [RKMappingTest testForMapping:[PLRestKitMapping nodeOSMMapping] sourceObject:parsedJSON destinationObject:nil];
     mappingTest.managedObjectContext = managedObjectContext;
     [mappingTest performMapping];
     
@@ -224,7 +217,7 @@
     parsedJSON = [RKTestFixture parsedObjectWithContentsOfFixture:@"nodeOSM1_update.json"];
     
     // Création et exécution du test de mapping
-    mappingTest = [RKMappingTest testForMapping:[PLRestKitMonumentAll nodeOSMMapping] sourceObject:parsedJSON destinationObject:nil];
+    mappingTest = [RKMappingTest testForMapping:[PLRestKitMapping nodeOSMMapping] sourceObject:parsedJSON destinationObject:nil];
     mappingTest.managedObjectContext = managedObjectContext;
     [mappingTest performMapping];
     
@@ -258,7 +251,7 @@
     id parsedJSON = [RKTestFixture parsedObjectWithContentsOfFixture:@"nodeOSM1.json"];
     
     // Création et exécution du test de mapping
-    RKMappingTest *mappingTest = [RKMappingTest testForMapping:[PLRestKitMonumentAll nodeOSMMapping] sourceObject:parsedJSON destinationObject:nil];
+    RKMappingTest *mappingTest = [RKMappingTest testForMapping:[PLRestKitMapping nodeOSMMapping] sourceObject:parsedJSON destinationObject:nil];
     mappingTest.managedObjectContext = managedObjectContext;
     [mappingTest performMapping];
     
@@ -269,7 +262,7 @@
     parsedJSON = [RKTestFixture parsedObjectWithContentsOfFixture:@"nodeOSM2.json"];
     
     // Création et exécution du test de mapping
-    mappingTest = [RKMappingTest testForMapping:[PLRestKitMonumentAll nodeOSMMapping] sourceObject:parsedJSON destinationObject:nil];
+    mappingTest = [RKMappingTest testForMapping:[PLRestKitMapping nodeOSMMapping] sourceObject:parsedJSON destinationObject:nil];
     mappingTest.managedObjectContext = managedObjectContext;
     [mappingTest performMapping];
     
@@ -277,7 +270,7 @@
     parsedJSON = [RKTestFixture parsedObjectWithContentsOfFixture:@"nodeOSM2_update.json"];
     
     // Création et exécution du test de mapping
-    mappingTest = [RKMappingTest testForMapping:[PLRestKitMonumentAll nodeOSMMapping] sourceObject:parsedJSON destinationObject:nil];
+    mappingTest = [RKMappingTest testForMapping:[PLRestKitMapping nodeOSMMapping] sourceObject:parsedJSON destinationObject:nil];
     mappingTest.managedObjectContext = managedObjectContext;
     [mappingTest performMapping];
     
@@ -320,7 +313,7 @@
     id parsedJSON = [RKTestFixture parsedObjectWithContentsOfFixture:@"personnalite1.json"];
     
     // Création et exécution du test de mapping
-    RKMappingTest *mappingTest = [RKMappingTest testForMapping:[PLRestKitMonumentAll personnaliteMapping] sourceObject:parsedJSON destinationObject:nil];
+    RKMappingTest *mappingTest = [RKMappingTest testForMapping:[PLRestKitMapping personnaliteMapping] sourceObject:parsedJSON destinationObject:nil];
     mappingTest.managedObjectContext = managedObjectContext;
     [mappingTest performMapping];
     
@@ -359,7 +352,7 @@
     id parsedJSON = [RKTestFixture parsedObjectWithContentsOfFixture:@"personnalite1.json"];
     
     // Création et exécution du test de mapping
-    RKMappingTest *mappingTest = [RKMappingTest testForMapping:[PLRestKitMonumentAll personnaliteMapping] sourceObject:parsedJSON destinationObject:nil];
+    RKMappingTest *mappingTest = [RKMappingTest testForMapping:[PLRestKitMapping personnaliteMapping] sourceObject:parsedJSON destinationObject:nil];
     mappingTest.managedObjectContext = managedObjectContext;
     [mappingTest performMapping];
     
@@ -370,7 +363,7 @@
     parsedJSON = [RKTestFixture parsedObjectWithContentsOfFixture:@"personnalite2.json"];
     
     // Création et exécution du test de mapping
-    mappingTest = [RKMappingTest testForMapping:[PLRestKitMonumentAll personnaliteMapping] sourceObject:parsedJSON destinationObject:nil];
+    mappingTest = [RKMappingTest testForMapping:[PLRestKitMapping personnaliteMapping] sourceObject:parsedJSON destinationObject:nil];
     mappingTest.managedObjectContext = managedObjectContext;
     [mappingTest performMapping];
     
@@ -423,7 +416,7 @@
     id parsedJSON = [RKTestFixture parsedObjectWithContentsOfFixture:@"personnalite1.json"];
     
     // Création et exécution du test de mapping
-    RKMappingTest *mappingTest = [RKMappingTest testForMapping:[PLRestKitMonumentAll personnaliteMapping] sourceObject:parsedJSON destinationObject:nil];
+    RKMappingTest *mappingTest = [RKMappingTest testForMapping:[PLRestKitMapping personnaliteMapping] sourceObject:parsedJSON destinationObject:nil];
     mappingTest.managedObjectContext = managedObjectContext;
     [mappingTest performMapping];
     
@@ -431,7 +424,7 @@
     parsedJSON = [RKTestFixture parsedObjectWithContentsOfFixture:@"personnalite1_update.json"];
     
     // Création et exécution du test de mapping
-    mappingTest = [RKMappingTest testForMapping:[PLRestKitMonumentAll personnaliteMapping] sourceObject:parsedJSON destinationObject:nil];
+    mappingTest = [RKMappingTest testForMapping:[PLRestKitMapping personnaliteMapping] sourceObject:parsedJSON destinationObject:nil];
     mappingTest.managedObjectContext = managedObjectContext;
     [mappingTest performMapping];
     
@@ -471,7 +464,7 @@
     id parsedJSON = [RKTestFixture parsedObjectWithContentsOfFixture:@"personnalite1.json"];
     
     // Création et exécution du test de mapping
-    RKMappingTest *mappingTest = [RKMappingTest testForMapping:[PLRestKitMonumentAll personnaliteMapping] sourceObject:parsedJSON destinationObject:nil];
+    RKMappingTest *mappingTest = [RKMappingTest testForMapping:[PLRestKitMapping personnaliteMapping] sourceObject:parsedJSON destinationObject:nil];
     mappingTest.managedObjectContext = managedObjectContext;
     [mappingTest performMapping];
     
@@ -482,7 +475,7 @@
     parsedJSON = [RKTestFixture parsedObjectWithContentsOfFixture:@"personnalite2.json"];
     
     // Création et exécution du test de mapping
-    mappingTest = [RKMappingTest testForMapping:[PLRestKitMonumentAll personnaliteMapping] sourceObject:parsedJSON destinationObject:nil];
+    mappingTest = [RKMappingTest testForMapping:[PLRestKitMapping personnaliteMapping] sourceObject:parsedJSON destinationObject:nil];
     mappingTest.managedObjectContext = managedObjectContext;
     [mappingTest performMapping];
     
@@ -490,7 +483,7 @@
     parsedJSON = [RKTestFixture parsedObjectWithContentsOfFixture:@"personnalite2_update.json"];
     
     // Création et exécution du test de mapping
-    mappingTest = [RKMappingTest testForMapping:[PLRestKitMonumentAll personnaliteMapping] sourceObject:parsedJSON destinationObject:nil];
+    mappingTest = [RKMappingTest testForMapping:[PLRestKitMapping personnaliteMapping] sourceObject:parsedJSON destinationObject:nil];
     mappingTest.managedObjectContext = managedObjectContext;
     [mappingTest performMapping];
     
@@ -545,7 +538,7 @@
     id parsedJSON = [RKTestFixture parsedObjectWithContentsOfFixture:@"monument1.json"];
     
     // Création et exécution du test de mapping
-    RKMappingTest *mappingTest = [RKMappingTest testForMapping:[PLRestKitMonumentAll monumentMapping] sourceObject:parsedJSON destinationObject:nil];
+    RKMappingTest *mappingTest = [RKMappingTest testForMapping:[PLRestKitMapping monumentMapping] sourceObject:parsedJSON destinationObject:nil];
     mappingTest.managedObjectContext = managedObjectContext;
     [mappingTest performMapping];
     
@@ -632,7 +625,7 @@
     id parsedJSON = [RKTestFixture parsedObjectWithContentsOfFixture:@"monument1.json"];
     
     // Création et exécution du test de mapping
-    RKMappingTest *mappingTest = [RKMappingTest testForMapping:[PLRestKitMonumentAll monumentMapping] sourceObject:parsedJSON destinationObject:nil];
+    RKMappingTest *mappingTest = [RKMappingTest testForMapping:[PLRestKitMapping monumentMapping] sourceObject:parsedJSON destinationObject:nil];
     mappingTest.managedObjectContext = managedObjectContext;
     [mappingTest performMapping];
     
@@ -640,7 +633,7 @@
     parsedJSON = [RKTestFixture parsedObjectWithContentsOfFixture:@"monument1_update.json"];
     
     // Création et exécution du test de mapping
-    mappingTest = [RKMappingTest testForMapping:[PLRestKitMonumentAll monumentMapping] sourceObject:parsedJSON destinationObject:nil];
+    mappingTest = [RKMappingTest testForMapping:[PLRestKitMapping monumentMapping] sourceObject:parsedJSON destinationObject:nil];
     mappingTest.managedObjectContext = managedObjectContext;
     [mappingTest performMapping];
     
@@ -717,7 +710,7 @@
     id parsedJSON = [RKTestFixture parsedObjectWithContentsOfFixture:@"monument1.json"];
     
     // Création et exécution du test de mapping
-    RKMappingTest *mappingTest = [RKMappingTest testForMapping:[PLRestKitMonumentAll monumentMapping] sourceObject:parsedJSON destinationObject:nil];
+    RKMappingTest *mappingTest = [RKMappingTest testForMapping:[PLRestKitMapping monumentMapping] sourceObject:parsedJSON destinationObject:nil];
     mappingTest.managedObjectContext = managedObjectContext;
     [mappingTest performMapping];
     
@@ -728,7 +721,7 @@
     parsedJSON = [RKTestFixture parsedObjectWithContentsOfFixture:@"monument2.json"];
     
     // Création et exécution du test de mapping
-    mappingTest = [RKMappingTest testForMapping:[PLRestKitMonumentAll monumentMapping] sourceObject:parsedJSON destinationObject:nil];
+    mappingTest = [RKMappingTest testForMapping:[PLRestKitMapping monumentMapping] sourceObject:parsedJSON destinationObject:nil];
     mappingTest.managedObjectContext = managedObjectContext;
     [mappingTest performMapping];
     
@@ -846,7 +839,7 @@
     id parsedJSON = [RKTestFixture parsedObjectWithContentsOfFixture:@"monument1.json"];
     
     // Création et exécution du test de mapping
-    RKMappingTest *mappingTest = [RKMappingTest testForMapping:[PLRestKitMonumentAll monumentMapping] sourceObject:parsedJSON destinationObject:nil];
+    RKMappingTest *mappingTest = [RKMappingTest testForMapping:[PLRestKitMapping monumentMapping] sourceObject:parsedJSON destinationObject:nil];
     mappingTest.managedObjectContext = managedObjectContext;
     [mappingTest performMapping];
     
@@ -857,7 +850,7 @@
     parsedJSON = [RKTestFixture parsedObjectWithContentsOfFixture:@"monument2.json"];
     
     // Création et exécution du test de mapping
-    mappingTest = [RKMappingTest testForMapping:[PLRestKitMonumentAll monumentMapping] sourceObject:parsedJSON destinationObject:nil];
+    mappingTest = [RKMappingTest testForMapping:[PLRestKitMapping monumentMapping] sourceObject:parsedJSON destinationObject:nil];
     mappingTest.managedObjectContext = managedObjectContext;
     [mappingTest performMapping];
     
@@ -865,7 +858,7 @@
     parsedJSON = [RKTestFixture parsedObjectWithContentsOfFixture:@"monument2_update1.json"];
     
     // Création et exécution du test de mapping
-    mappingTest = [RKMappingTest testForMapping:[PLRestKitMonumentAll monumentMapping] sourceObject:parsedJSON destinationObject:nil];
+    mappingTest = [RKMappingTest testForMapping:[PLRestKitMapping monumentMapping] sourceObject:parsedJSON destinationObject:nil];
     mappingTest.managedObjectContext = managedObjectContext;
     [mappingTest performMapping];
     
@@ -1010,7 +1003,7 @@
     id parsedJSON = [RKTestFixture parsedObjectWithContentsOfFixture:@"monument1.json"];
     
     // Création et exécution du test de mapping
-    RKMappingTest *mappingTest = [RKMappingTest testForMapping:[PLRestKitMonumentAll monumentMapping] sourceObject:parsedJSON destinationObject:nil];
+    RKMappingTest *mappingTest = [RKMappingTest testForMapping:[PLRestKitMapping monumentMapping] sourceObject:parsedJSON destinationObject:nil];
     mappingTest.managedObjectContext = managedObjectContext;
     [mappingTest performMapping];
     
@@ -1021,7 +1014,7 @@
     parsedJSON = [RKTestFixture parsedObjectWithContentsOfFixture:@"monument2.json"];
     
     // Création et exécution du test de mapping
-    mappingTest = [RKMappingTest testForMapping:[PLRestKitMonumentAll monumentMapping] sourceObject:parsedJSON destinationObject:nil];
+    mappingTest = [RKMappingTest testForMapping:[PLRestKitMapping monumentMapping] sourceObject:parsedJSON destinationObject:nil];
     mappingTest.managedObjectContext = managedObjectContext;
     [mappingTest performMapping];
     
@@ -1029,7 +1022,7 @@
     parsedJSON = [RKTestFixture parsedObjectWithContentsOfFixture:@"monument2_update1.json"];
     
     // Création et exécution du test de mapping
-    mappingTest = [RKMappingTest testForMapping:[PLRestKitMonumentAll monumentMapping] sourceObject:parsedJSON destinationObject:nil];
+    mappingTest = [RKMappingTest testForMapping:[PLRestKitMapping monumentMapping] sourceObject:parsedJSON destinationObject:nil];
     mappingTest.managedObjectContext = managedObjectContext;
     [mappingTest performMapping];
     
@@ -1037,7 +1030,7 @@
     parsedJSON = [RKTestFixture parsedObjectWithContentsOfFixture:@"monument2_update2.json"];
     
     // Création et exécution du test de mapping
-    mappingTest = [RKMappingTest testForMapping:[PLRestKitMonumentAll monumentMapping] sourceObject:parsedJSON destinationObject:nil];
+    mappingTest = [RKMappingTest testForMapping:[PLRestKitMapping monumentMapping] sourceObject:parsedJSON destinationObject:nil];
     mappingTest.managedObjectContext = managedObjectContext;
     [mappingTest performMapping];
     
@@ -1198,7 +1191,7 @@
     id parsedJSON = [RKTestFixture parsedObjectWithContentsOfFixture:@"imageCommons1.json"];
     
     // Création et exécution du test de mapping
-    RKMappingTest *mappingTest = [RKMappingTest testForMapping:[PLRestKitMonumentAll imageCommonsMapping] sourceObject:parsedJSON destinationObject:nil];
+    RKMappingTest *mappingTest = [RKMappingTest testForMapping:[PLRestKitMapping imageCommonsMapping] sourceObject:parsedJSON destinationObject:nil];
     mappingTest.managedObjectContext = managedObjectContext;
     [mappingTest performMapping];
     
@@ -1233,7 +1226,7 @@
     id parsedJSON = [RKTestFixture parsedObjectWithContentsOfFixture:@"imageCommons1.json"];
     
     // Création et exécution du test de mapping
-    RKMappingTest *mappingTest = [RKMappingTest testForMapping:[PLRestKitMonumentAll imageCommonsMapping] sourceObject:parsedJSON destinationObject:nil];
+    RKMappingTest *mappingTest = [RKMappingTest testForMapping:[PLRestKitMapping imageCommonsMapping] sourceObject:parsedJSON destinationObject:nil];
     mappingTest.managedObjectContext = managedObjectContext;
     [mappingTest performMapping];
     
@@ -1244,7 +1237,7 @@
     parsedJSON = [RKTestFixture parsedObjectWithContentsOfFixture:@"imageCommons2.json"];
     
     // Création et exécution du test de mapping
-    mappingTest = [RKMappingTest testForMapping:[PLRestKitMonumentAll imageCommonsMapping] sourceObject:parsedJSON destinationObject:nil];
+    mappingTest = [RKMappingTest testForMapping:[PLRestKitMapping imageCommonsMapping] sourceObject:parsedJSON destinationObject:nil];
     mappingTest.managedObjectContext = managedObjectContext;
     [mappingTest performMapping];
     
@@ -1289,7 +1282,7 @@
     id parsedJSON = [RKTestFixture parsedObjectWithContentsOfFixture:@"imageCommons1.json"];
     
     // Création et exécution du test de mapping
-    RKMappingTest *mappingTest = [RKMappingTest testForMapping:[PLRestKitMonumentAll imageCommonsMapping] sourceObject:parsedJSON destinationObject:nil];
+    RKMappingTest *mappingTest = [RKMappingTest testForMapping:[PLRestKitMapping imageCommonsMapping] sourceObject:parsedJSON destinationObject:nil];
     mappingTest.managedObjectContext = managedObjectContext;
     [mappingTest performMapping];
     
@@ -1297,7 +1290,7 @@
     parsedJSON = [RKTestFixture parsedObjectWithContentsOfFixture:@"imageCommons1_update.json"];
     
     // Création et exécution du test de mapping
-    mappingTest = [RKMappingTest testForMapping:[PLRestKitMonumentAll imageCommonsMapping] sourceObject:parsedJSON destinationObject:nil];
+    mappingTest = [RKMappingTest testForMapping:[PLRestKitMapping imageCommonsMapping] sourceObject:parsedJSON destinationObject:nil];
     mappingTest.managedObjectContext = managedObjectContext;
     [mappingTest performMapping];
     
@@ -1333,7 +1326,7 @@
     id parsedJSON = [RKTestFixture parsedObjectWithContentsOfFixture:@"imageCommons1.json"];
     
     // Création et exécution du test de mapping
-    RKMappingTest *mappingTest = [RKMappingTest testForMapping:[PLRestKitMonumentAll imageCommonsMapping] sourceObject:parsedJSON destinationObject:nil];
+    RKMappingTest *mappingTest = [RKMappingTest testForMapping:[PLRestKitMapping imageCommonsMapping] sourceObject:parsedJSON destinationObject:nil];
     mappingTest.managedObjectContext = managedObjectContext;
     [mappingTest performMapping];
     
@@ -1344,7 +1337,7 @@
     parsedJSON = [RKTestFixture parsedObjectWithContentsOfFixture:@"imageCommons2.json"];
     
     // Création et exécution du test de mapping
-    mappingTest = [RKMappingTest testForMapping:[PLRestKitMonumentAll imageCommonsMapping] sourceObject:parsedJSON destinationObject:nil];
+    mappingTest = [RKMappingTest testForMapping:[PLRestKitMapping imageCommonsMapping] sourceObject:parsedJSON destinationObject:nil];
     mappingTest.managedObjectContext = managedObjectContext;
     [mappingTest performMapping];
     
@@ -1352,7 +1345,7 @@
     parsedJSON = [RKTestFixture parsedObjectWithContentsOfFixture:@"imageCommons2_update.json"];
     
     // Création et exécution du test de mapping
-    mappingTest = [RKMappingTest testForMapping:[PLRestKitMonumentAll imageCommonsMapping] sourceObject:parsedJSON destinationObject:nil];
+    mappingTest = [RKMappingTest testForMapping:[PLRestKitMapping imageCommonsMapping] sourceObject:parsedJSON destinationObject:nil];
     mappingTest.managedObjectContext = managedObjectContext;
     [mappingTest performMapping];
     
@@ -1385,1252 +1378,6 @@
     XCTAssertEqualObjects(fetchedObject1, result1, @"");
     PLImageCommons *fetchedObject2 = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] objectAtIndex:1];
     XCTAssertEqualObjects(fetchedObject2, result2_update, @"");
-}
-
-#pragma mark - Requête
-
-// Vérifie qu'une requête donne le résultat attendu
-- (void)testRequeteCreate
-{
-    // Récupération du managed object context et de l'object manager
-    NSManagedObjectContext *managedObjectContext = [[RKTestFactory managedObjectStore] persistentStoreManagedObjectContext];
-    RKObjectManager *objectManager = [RKObjectManager sharedManager];
-    
-    // Configuration de la requête monument/all/
-    [objectManager addResponseDescriptor:[PLRestKitMonumentAll responseDescriptor]];
-    [objectManager addFetchRequestBlock:[PLRestKitMonumentAll fetchRequestBlock]];
-    
-    // Construction de la requête
-    NSURL *URL = [NSURL URLWithString:@"monument/all/?name=1_ok" relativeToURL:objectManager.baseURL];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL];
-    request.HTTPMethod = @"GET";
-    RKManagedObjectRequestOperation *requestOperation = [objectManager managedObjectRequestOperationWithRequest:request managedObjectContext:[[RKTestFactory managedObjectStore] persistentStoreManagedObjectContext] success:nil failure:nil];
-    
-    // Exécution de la requête
-    [requestOperation start];
-    [requestOperation waitUntilFinished];
-    
-    // Vérification de la bonne exécution de la requête
-    XCTAssertNil(requestOperation.error, @"");
-    XCTAssertEqual(200, requestOperation.HTTPRequestOperation.response.statusCode, @"");
-    
-    // Vérification du nombre d'objets reçus
-    XCTAssertEqual(3, [requestOperation.mappingResult count], @"");
-    
-    // Vérification du nombre d'objets enregistrés
-    XCTAssertEqual(3, [managedObjectContext countForEntityForName:@"PLMonument" predicate:nil error:nil], @"");
-    XCTAssertEqual(3, [managedObjectContext countForEntityForName:@"PLNodeOSM" predicate:nil error:nil], @"");
-    XCTAssertEqual(4, [managedObjectContext countForEntityForName:@"PLPersonnalite" predicate:nil error:nil], @"");
-    XCTAssertEqual(3, [managedObjectContext countForEntityForName:@"PLImageCommons" predicate:nil error:nil], @"");
-    
-    // Récupération des objets enregistrés
-    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"PLMonument"];
-    [fetchRequest setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"nomPourTri" ascending:YES]]];
-    NSArray *fetchedMonuments = [managedObjectContext executeFetchRequest:fetchRequest error:nil];
-    PLMonument *monument1 = [fetchedMonuments objectAtIndex:0];     // Famille d'Aboville
-    PLMonument *monument2 = [fetchedMonuments objectAtIndex:1];     // Jim Morrison
-    PLMonument *monument3 = [fetchedMonuments objectAtIndex:2];     // Mur des Fédérés
-    
-    // Vérification de la correspondance du résultat
-    
-    // Monuments
-    XCTAssertEqualObjects(@(227), monument1.id, @"");
-    XCTAssertEqualObjects(@(120), monument2.id, @"");
-    XCTAssertEqualObjects(@(164), monument3.id, @"");
-    XCTAssertEqualObjects(@"A", monument1.premiereLettreNomPourTri, @"");
-    XCTAssertEqualObjects(@"M", monument2.premiereLettreNomPourTri, @"");
-    XCTAssertEqualObjects(@"M", monument3.premiereLettreNomPourTri, @"");
-    
-    // Nodes OSM
-    XCTAssertEqualObjects(@(2649596674), monument1.nodeOSM.id, @"");
-    XCTAssertEqualObjects(@(1915793663), monument2.nodeOSM.id, @"");
-    XCTAssertEqualObjects(@(1152422864), monument3.nodeOSM.id, @"");
-    
-    // Images Commons
-    XCTAssertEqualObjects(@(1), monument1.imagePrincipale.id, @"");
-    XCTAssertEqualObjects(@(129), monument2.imagePrincipale.id, @"");
-    XCTAssertEqualObjects(@(200), monument3.imagePrincipale.id, @"");
-    
-    // Personnalités
-    XCTAssertEqual(3, [monument1.personnalites count], @"");
-    XCTAssertEqual(1, [monument2.personnalites count], @"");
-    XCTAssertEqual(0, [monument3.personnalites count], @"");
-    XCTAssertEqualObjects(@(272), ((PLPersonnalite *)[monument1.personnalites objectAtIndex:0]).id, @"");
-    XCTAssertEqualObjects(@(273), ((PLPersonnalite *)[monument1.personnalites objectAtIndex:1]).id, @"");
-    XCTAssertEqualObjects(@(230), ((PLPersonnalite *)[monument1.personnalites objectAtIndex:2]).id, @"");
-    XCTAssertEqualObjects(@(120), ((PLPersonnalite *)[monument2.personnalites objectAtIndex:0]).id, @"");
-}
-
-// Vérifie qu'une requête suivie d'une mise à jour donne le résultat attendu
-- (void)testRequeteUpdate
-{
-    // Récupération du managed object context et de l'object manager
-    NSManagedObjectContext *managedObjectContext = [[RKTestFactory managedObjectStore] persistentStoreManagedObjectContext];
-    RKObjectManager *objectManager = [RKObjectManager sharedManager];
-    
-    // Configuration de la requête monument/all/
-    [objectManager addResponseDescriptor:[PLRestKitMonumentAll responseDescriptor]];
-    [objectManager addFetchRequestBlock:[PLRestKitMonumentAll fetchRequestBlock]];
-    
-    // Construction de la requête
-    NSURL *URL = [NSURL URLWithString:@"monument/all/?name=1_ok" relativeToURL:objectManager.baseURL];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL];
-    request.HTTPMethod = @"GET";
-    RKManagedObjectRequestOperation *requestOperation = [objectManager managedObjectRequestOperationWithRequest:request managedObjectContext:[[RKTestFactory managedObjectStore] persistentStoreManagedObjectContext] success:nil failure:nil];
-    
-    // Exécution de la requête
-    [requestOperation start];
-    [requestOperation waitUntilFinished];
-    
-    // Construction de la requête de mise à jour
-    URL = [NSURL URLWithString:@"monument/all/?name=2_ok" relativeToURL:objectManager.baseURL];
-    request = [NSMutableURLRequest requestWithURL:URL];
-    request.HTTPMethod = @"GET";
-    requestOperation = [objectManager managedObjectRequestOperationWithRequest:request managedObjectContext:[[RKTestFactory managedObjectStore] persistentStoreManagedObjectContext] success:nil failure:nil];
-    
-    // Exécution de la requête
-    [requestOperation start];
-    [requestOperation waitUntilFinished];
-    
-    // Vérification de la bonne exécution de la requête
-    XCTAssertNil(requestOperation.error, @"");
-    XCTAssertEqual(200, requestOperation.HTTPRequestOperation.response.statusCode, @"");
-    
-    // Vérification du nombre d'objets reçus
-    XCTAssertEqual(2, [requestOperation.mappingResult count], @"");
-    
-    // Vérification du nombre d'objets enregistrés
-    XCTAssertEqual(2, [managedObjectContext countForEntityForName:@"PLMonument" predicate:nil error:nil], @"");
-    XCTAssertEqual(2, [managedObjectContext countForEntityForName:@"PLNodeOSM" predicate:nil error:nil], @"");
-    XCTAssertEqual(2, [managedObjectContext countForEntityForName:@"PLPersonnalite" predicate:nil error:nil], @"");
-    XCTAssertEqual(2, [managedObjectContext countForEntityForName:@"PLImageCommons" predicate:nil error:nil], @"");
-    
-    // Récupération des objets enregistrés
-    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"PLMonument"];
-    [fetchRequest setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"nomPourTri" ascending:YES]]];
-    NSArray *fetchedMonuments = [managedObjectContext executeFetchRequest:fetchRequest error:nil];
-    PLMonument *monument1 = [fetchedMonuments objectAtIndex:0];     // Henri Barbusse
-    PLMonument *monument2 = [fetchedMonuments objectAtIndex:1];     // Jim Morrison
-    
-    // Vérification de la correspondance du résultat
-    
-    // Monuments
-    XCTAssertEqualObjects(@(92), monument1.id, @"");
-    XCTAssertEqualObjects(@(120), monument2.id, @"");
-    XCTAssertEqualObjects(@"B", monument1.premiereLettreNomPourTri, @"");
-    XCTAssertEqualObjects(@"M", monument2.premiereLettreNomPourTri, @"");
-    
-    // Nodes OSM
-    XCTAssertEqualObjects(@(2628752275), monument1.nodeOSM.id, @"");
-    XCTAssertEqualObjects(@(1915793663), monument2.nodeOSM.id, @"");
-    
-    // Images Commons
-    XCTAssertEqualObjects(@(203), monument1.imagePrincipale.id, @"");
-    XCTAssertEqualObjects(@(129), monument2.imagePrincipale.id, @"");
-    
-    // Personnalités
-    XCTAssertEqual(1, [monument1.personnalites count], @"");
-    XCTAssertEqual(1, [monument2.personnalites count], @"");
-    XCTAssertEqualObjects(@(92), ((PLPersonnalite *)[monument1.personnalites objectAtIndex:0]).id, @"");
-    XCTAssertEqualObjects(@(120), ((PLPersonnalite *)[monument2.personnalites objectAtIndex:0]).id, @"");
-}
-
-// Vérifie qu'une requête suivie d'une mise à jour avec résultat vide donne le résultat attendu
-- (void)testRequeteUpdateVide
-{
-    // Récupération du managed object context et de l'object manager
-    NSManagedObjectContext *managedObjectContext = [[RKTestFactory managedObjectStore] persistentStoreManagedObjectContext];
-    RKObjectManager *objectManager = [RKObjectManager sharedManager];
-    
-    // Configuration de la requête monument/all/
-    [objectManager addResponseDescriptor:[PLRestKitMonumentAll responseDescriptor]];
-    [objectManager addFetchRequestBlock:[PLRestKitMonumentAll fetchRequestBlock]];
-    
-    // Construction de la requête
-    NSURL *URL = [NSURL URLWithString:@"monument/all/?name=1_ok" relativeToURL:objectManager.baseURL];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL];
-    request.HTTPMethod = @"GET";
-    RKManagedObjectRequestOperation *requestOperation = [objectManager managedObjectRequestOperationWithRequest:request managedObjectContext:[[RKTestFactory managedObjectStore] persistentStoreManagedObjectContext] success:nil failure:nil];
-    
-    // Exécution de la requête
-    [requestOperation start];
-    [requestOperation waitUntilFinished];
-    
-    // Construction de la requête de mise à jour
-    URL = [NSURL URLWithString:@"monument/all/?name=3_vide" relativeToURL:objectManager.baseURL];
-    request = [NSMutableURLRequest requestWithURL:URL];
-    request.HTTPMethod = @"GET";
-    requestOperation = [objectManager managedObjectRequestOperationWithRequest:request managedObjectContext:[[RKTestFactory managedObjectStore] persistentStoreManagedObjectContext] success:nil failure:nil];
-    
-    // Exécution de la requête
-    [requestOperation start];
-    [requestOperation waitUntilFinished];
-    
-    // Vérification de la bonne exécution de la requête
-    XCTAssertNil(requestOperation.error, @"");
-    XCTAssertEqual(200, requestOperation.HTTPRequestOperation.response.statusCode, @"");
-    
-    // Vérification du nombre d'objets reçus
-    XCTAssertEqual(0, [requestOperation.mappingResult count], @"");
-    
-    // Vérification du nombre d'objets enregistrés
-    XCTAssertEqual(0, [managedObjectContext countForEntityForName:@"PLMonument" predicate:nil error:nil], @"");
-    XCTAssertEqual(0, [managedObjectContext countForEntityForName:@"PLNodeOSM" predicate:nil error:nil], @"");
-    XCTAssertEqual(0, [managedObjectContext countForEntityForName:@"PLPersonnalite" predicate:nil error:nil], @"");
-    XCTAssertEqual(0, [managedObjectContext countForEntityForName:@"PLImageCommons" predicate:nil error:nil], @"");
-}
-
-// Vérifie qu'une requête sur un autre web service n'est pas prise en compte
-- (void)testRequeteBaseURL
-{
-    // Récupération du managed object context et de l'object manager
-    NSManagedObjectContext *managedObjectContext = [[RKTestFactory managedObjectStore] persistentStoreManagedObjectContext];
-    RKObjectManager *objectManager = [RKObjectManager sharedManager];
-    
-    // Configuration de la requête monument/all/
-    [objectManager addResponseDescriptor:[PLRestKitMonumentAll responseDescriptor]];
-    [objectManager addFetchRequestBlock:[PLRestKitMonumentAll fetchRequestBlock]];
-    
-    // Construction de la requête
-    NSURL *URL = [NSURL URLWithString:@"monument/all/?name=1_ok" relativeToURL:objectManager.baseURL];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL];
-    request.HTTPMethod = @"GET";
-    RKManagedObjectRequestOperation *requestOperation = [objectManager managedObjectRequestOperationWithRequest:request managedObjectContext:[[RKTestFactory managedObjectStore] persistentStoreManagedObjectContext] success:nil failure:nil];
-    XCTAssertEqual(1, [[requestOperation fetchRequestBlocks] count], @"");
-    
-    // Exécution de la requête
-    [requestOperation start];
-    [requestOperation waitUntilFinished];
-    
-    // Construction de la requête sur le web service principal
-    NSString *webServiceURL = (NSString *)[PLConfiguration valueForKeyPath:@"URL Web Service - dev"];
-    URL = [NSURL URLWithString:@"monument/all/" relativeToURL:[NSURL URLWithString:webServiceURL]];
-    
-    request = [NSMutableURLRequest requestWithURL:URL];
-    request.HTTPMethod = @"GET";
-    requestOperation = [objectManager managedObjectRequestOperationWithRequest:request managedObjectContext:[[RKTestFactory managedObjectStore] persistentStoreManagedObjectContext] success:nil failure:nil];
-    
-    // Exécution de la requête
-    [requestOperation start];
-    [requestOperation waitUntilFinished];
-    
-    // Vérification que la requête a réussi mais n'a pas été prise en compte
-    XCTAssertEqual(200, requestOperation.HTTPRequestOperation.response.statusCode, @"");
-    XCTAssertNotNil(requestOperation.error, @"");
-    XCTAssertEqual(1001, [requestOperation.error code], @"");
-    
-    // Vérification du nombre d'objets reçus
-    XCTAssertEqual(0, [requestOperation.mappingResult count], @"");
-    
-    // Vérification du nombre d'objets enregistrés
-    XCTAssertEqual(3, [managedObjectContext countForEntityForName:@"PLMonument" predicate:nil error:nil], @"");
-    XCTAssertEqual(3, [managedObjectContext countForEntityForName:@"PLNodeOSM" predicate:nil error:nil], @"");
-    XCTAssertEqual(4, [managedObjectContext countForEntityForName:@"PLPersonnalite" predicate:nil error:nil], @"");
-    XCTAssertEqual(3, [managedObjectContext countForEntityForName:@"PLImageCommons" predicate:nil error:nil], @"");
-    
-    // Récupération des objets enregistrés
-    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"PLMonument"];
-    [fetchRequest setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"nomPourTri" ascending:YES]]];
-    NSArray *fetchedMonuments = [managedObjectContext executeFetchRequest:fetchRequest error:nil];
-    PLMonument *monument1 = [fetchedMonuments objectAtIndex:0];     // Famille d'Aboville
-    PLMonument *monument2 = [fetchedMonuments objectAtIndex:1];     // Jim Morrison
-    PLMonument *monument3 = [fetchedMonuments objectAtIndex:2];     // Mur des Fédérés
-    
-    // Vérification de la correspondance du résultat
-    
-    // Monuments
-    XCTAssertEqualObjects(@(227), monument1.id, @"");
-    XCTAssertEqualObjects(@(120), monument2.id, @"");
-    XCTAssertEqualObjects(@(164), monument3.id, @"");
-    
-    // Nodes OSM
-    XCTAssertEqualObjects(@(2649596674), monument1.nodeOSM.id, @"");
-    XCTAssertEqualObjects(@(1915793663), monument2.nodeOSM.id, @"");
-    XCTAssertEqualObjects(@(1152422864), monument3.nodeOSM.id, @"");
-    
-    // Images Commons
-    XCTAssertEqualObjects(@(1), monument1.imagePrincipale.id, @"");
-    XCTAssertEqualObjects(@(129), monument2.imagePrincipale.id, @"");
-    XCTAssertEqualObjects(@(200), monument3.imagePrincipale.id, @"");
-    
-    // Personnalités
-    XCTAssertEqual(3, [monument1.personnalites count], @"");
-    XCTAssertEqual(1, [monument2.personnalites count], @"");
-    XCTAssertEqual(0, [monument3.personnalites count], @"");
-    XCTAssertEqualObjects(@(272), ((PLPersonnalite *)[monument1.personnalites objectAtIndex:0]).id, @"");
-    XCTAssertEqualObjects(@(273), ((PLPersonnalite *)[monument1.personnalites objectAtIndex:1]).id, @"");
-    XCTAssertEqualObjects(@(230), ((PLPersonnalite *)[monument1.personnalites objectAtIndex:2]).id, @"");
-    XCTAssertEqualObjects(@(120), ((PLPersonnalite *)[monument2.personnalites objectAtIndex:0]).id, @"");
-}
-
-// Vérifie qu'une requête avec POST n'est pas prise en compte
-- (void)testRequetePOST
-{
-    // Récupération du managed object context et de l'object manager
-    NSManagedObjectContext *managedObjectContext = [[RKTestFactory managedObjectStore] persistentStoreManagedObjectContext];
-    RKObjectManager *objectManager = [RKObjectManager sharedManager];
-    
-    // Configuration de la requête monument/all/
-    [objectManager addResponseDescriptor:[PLRestKitMonumentAll responseDescriptor]];
-    [objectManager addFetchRequestBlock:[PLRestKitMonumentAll fetchRequestBlock]];
-    
-    // Construction de la requête
-    NSURL *URL = [NSURL URLWithString:@"monument/all/?name=1_ok" relativeToURL:objectManager.baseURL];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL];
-    request.HTTPMethod = @"GET";
-    RKManagedObjectRequestOperation *requestOperation = [objectManager managedObjectRequestOperationWithRequest:request managedObjectContext:[[RKTestFactory managedObjectStore] persistentStoreManagedObjectContext] success:nil failure:nil];
-    
-    // Exécution de la requête
-    [requestOperation start];
-    [requestOperation waitUntilFinished];
-    
-    // Construction de la 2e requête
-    URL = [NSURL URLWithString:@"monument/all/?name=2_ok" relativeToURL:objectManager.baseURL];
-    request = [NSMutableURLRequest requestWithURL:URL];
-    request.HTTPMethod = @"POST";
-    requestOperation = [objectManager managedObjectRequestOperationWithRequest:request managedObjectContext:[[RKTestFactory managedObjectStore] persistentStoreManagedObjectContext] success:nil failure:nil];
-    
-    // Exécution de la requête
-    [requestOperation start];
-    [requestOperation waitUntilFinished];
-    
-    // Vérification que la requête a réussi mais n'a pas été prise en compte
-    XCTAssertEqual(200, requestOperation.HTTPRequestOperation.response.statusCode, @"");
-    XCTAssertNotNil(requestOperation.error, @"");
-    XCTAssertEqual(1001, [requestOperation.error code], @"");
-    
-    // Vérification du nombre d'objets reçus
-    XCTAssertEqual(0, [requestOperation.mappingResult count], @"");
-    
-    // Vérification du nombre d'objets enregistrés
-    XCTAssertEqual(3, [managedObjectContext countForEntityForName:@"PLMonument" predicate:nil error:nil], @"");
-    XCTAssertEqual(3, [managedObjectContext countForEntityForName:@"PLNodeOSM" predicate:nil error:nil], @"");
-    XCTAssertEqual(4, [managedObjectContext countForEntityForName:@"PLPersonnalite" predicate:nil error:nil], @"");
-    XCTAssertEqual(3, [managedObjectContext countForEntityForName:@"PLImageCommons" predicate:nil error:nil], @"");
-    
-    // Récupération des objets enregistrés
-    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"PLMonument"];
-    [fetchRequest setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"nomPourTri" ascending:YES]]];
-    NSArray *fetchedMonuments = [managedObjectContext executeFetchRequest:fetchRequest error:nil];
-    PLMonument *monument1 = [fetchedMonuments objectAtIndex:0];     // Famille d'Aboville
-    PLMonument *monument2 = [fetchedMonuments objectAtIndex:1];     // Jim Morrison
-    PLMonument *monument3 = [fetchedMonuments objectAtIndex:2];     // Mur des Fédérés
-    
-    // Vérification de la correspondance du résultat
-    
-    // Monuments
-    XCTAssertEqualObjects(@(227), monument1.id, @"");
-    XCTAssertEqualObjects(@(120), monument2.id, @"");
-    XCTAssertEqualObjects(@(164), monument3.id, @"");
-    
-    // Nodes OSM
-    XCTAssertEqualObjects(@(2649596674), monument1.nodeOSM.id, @"");
-    XCTAssertEqualObjects(@(1915793663), monument2.nodeOSM.id, @"");
-    XCTAssertEqualObjects(@(1152422864), monument3.nodeOSM.id, @"");
-    
-    // Images Commons
-    XCTAssertEqualObjects(@(1), monument1.imagePrincipale.id, @"");
-    XCTAssertEqualObjects(@(129), monument2.imagePrincipale.id, @"");
-    XCTAssertEqualObjects(@(200), monument3.imagePrincipale.id, @"");
-    
-    // Personnalités
-    XCTAssertEqual(3, [monument1.personnalites count], @"");
-    XCTAssertEqual(1, [monument2.personnalites count], @"");
-    XCTAssertEqual(0, [monument3.personnalites count], @"");
-    XCTAssertEqualObjects(@(272), ((PLPersonnalite *)[monument1.personnalites objectAtIndex:0]).id, @"");
-    XCTAssertEqualObjects(@(273), ((PLPersonnalite *)[monument1.personnalites objectAtIndex:1]).id, @"");
-    XCTAssertEqualObjects(@(230), ((PLPersonnalite *)[monument1.personnalites objectAtIndex:2]).id, @"");
-    XCTAssertEqualObjects(@(120), ((PLPersonnalite *)[monument2.personnalites objectAtIndex:0]).id, @"");
-}
-
-// Vérifie qu'une requête avec PUT n'est pas prise en compte
-- (void)testRequetePUT
-{
-    // Récupération du managed object context et de l'object manager
-    NSManagedObjectContext *managedObjectContext = [[RKTestFactory managedObjectStore] persistentStoreManagedObjectContext];
-    RKObjectManager *objectManager = [RKObjectManager sharedManager];
-    
-    // Configuration de la requête monument/all/
-    [objectManager addResponseDescriptor:[PLRestKitMonumentAll responseDescriptor]];
-    [objectManager addFetchRequestBlock:[PLRestKitMonumentAll fetchRequestBlock]];
-    
-    // Construction de la requête
-    NSURL *URL = [NSURL URLWithString:@"monument/all/?name=1_ok" relativeToURL:objectManager.baseURL];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL];
-    request.HTTPMethod = @"GET";
-    RKManagedObjectRequestOperation *requestOperation = [objectManager managedObjectRequestOperationWithRequest:request managedObjectContext:[[RKTestFactory managedObjectStore] persistentStoreManagedObjectContext] success:nil failure:nil];
-    
-    // Exécution de la requête
-    [requestOperation start];
-    [requestOperation waitUntilFinished];
-    
-    // Construction de la 2e requête
-    URL = [NSURL URLWithString:@"monument/all/?name=2_ok" relativeToURL:objectManager.baseURL];
-    request = [NSMutableURLRequest requestWithURL:URL];
-    request.HTTPMethod = @"PUT";
-    requestOperation = [objectManager managedObjectRequestOperationWithRequest:request managedObjectContext:[[RKTestFactory managedObjectStore] persistentStoreManagedObjectContext] success:nil failure:nil];
-    
-    // Exécution de la requête
-    [requestOperation start];
-    [requestOperation waitUntilFinished];
-    
-    // Vérification que la requête a réussi mais n'a pas été prise en compte
-    XCTAssertEqual(200, requestOperation.HTTPRequestOperation.response.statusCode, @"");
-    XCTAssertNotNil(requestOperation.error, @"");
-    XCTAssertEqual(1001, [requestOperation.error code], @"");
-    
-    // Vérification du nombre d'objets reçus
-    XCTAssertEqual(0, [requestOperation.mappingResult count], @"");
-
-    // Vérification du nombre d'objets enregistrés
-    XCTAssertEqual(3, [managedObjectContext countForEntityForName:@"PLMonument" predicate:nil error:nil], @"");
-    XCTAssertEqual(3, [managedObjectContext countForEntityForName:@"PLNodeOSM" predicate:nil error:nil], @"");
-    XCTAssertEqual(4, [managedObjectContext countForEntityForName:@"PLPersonnalite" predicate:nil error:nil], @"");
-    XCTAssertEqual(3, [managedObjectContext countForEntityForName:@"PLImageCommons" predicate:nil error:nil], @"");
-
-    // Récupération des objets enregistrés
-    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"PLMonument"];
-    [fetchRequest setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"nomPourTri" ascending:YES]]];
-    NSArray *fetchedMonuments = [managedObjectContext executeFetchRequest:fetchRequest error:nil];
-    PLMonument *monument1 = [fetchedMonuments objectAtIndex:0];     // Famille d'Aboville
-    PLMonument *monument2 = [fetchedMonuments objectAtIndex:1];     // Jim Morrison
-    PLMonument *monument3 = [fetchedMonuments objectAtIndex:2];     // Mur des Fédérés
-
-    // Vérification de la correspondance du résultat
-
-    // Monuments
-    XCTAssertEqualObjects(@(227), monument1.id, @"");
-    XCTAssertEqualObjects(@(120), monument2.id, @"");
-    XCTAssertEqualObjects(@(164), monument3.id, @"");
-
-    // Nodes OSM
-    XCTAssertEqualObjects(@(2649596674), monument1.nodeOSM.id, @"");
-    XCTAssertEqualObjects(@(1915793663), monument2.nodeOSM.id, @"");
-    XCTAssertEqualObjects(@(1152422864), monument3.nodeOSM.id, @"");
-    
-    // Images Commons
-    XCTAssertEqualObjects(@(1), monument1.imagePrincipale.id, @"");
-    XCTAssertEqualObjects(@(129), monument2.imagePrincipale.id, @"");
-    XCTAssertEqualObjects(@(200), monument3.imagePrincipale.id, @"");
-
-    // Personnalités
-    XCTAssertEqual(3, [monument1.personnalites count], @"");
-    XCTAssertEqual(1, [monument2.personnalites count], @"");
-    XCTAssertEqual(0, [monument3.personnalites count], @"");
-    XCTAssertEqualObjects(@(272), ((PLPersonnalite *)[monument1.personnalites objectAtIndex:0]).id, @"");
-    XCTAssertEqualObjects(@(273), ((PLPersonnalite *)[monument1.personnalites objectAtIndex:1]).id, @"");
-    XCTAssertEqualObjects(@(230), ((PLPersonnalite *)[monument1.personnalites objectAtIndex:2]).id, @"");
-    XCTAssertEqualObjects(@(120), ((PLPersonnalite *)[monument2.personnalites objectAtIndex:0]).id, @"");
-}
-
-// Vérifie qu'une requête avec DELETE n'est pas prise en compte
-- (void)testRequeteDELETE
-{
-    // Récupération du managed object context et de l'object manager
-    NSManagedObjectContext *managedObjectContext = [[RKTestFactory managedObjectStore] persistentStoreManagedObjectContext];
-    RKObjectManager *objectManager = [RKObjectManager sharedManager];
-    
-    // Configuration de la requête monument/all/
-    [objectManager addResponseDescriptor:[PLRestKitMonumentAll responseDescriptor]];
-    [objectManager addFetchRequestBlock:[PLRestKitMonumentAll fetchRequestBlock]];
-    
-    // Construction de la requête
-    NSURL *URL = [NSURL URLWithString:@"monument/all/?name=1_ok" relativeToURL:objectManager.baseURL];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL];
-    request.HTTPMethod = @"GET";
-    RKManagedObjectRequestOperation *requestOperation = [objectManager managedObjectRequestOperationWithRequest:request managedObjectContext:[[RKTestFactory managedObjectStore] persistentStoreManagedObjectContext] success:nil failure:nil];
-    
-    // Exécution de la requête
-    [requestOperation start];
-    [requestOperation waitUntilFinished];
-    
-    // Construction de la 2e requête
-    URL = [NSURL URLWithString:@"monument/all/?name=2_ok" relativeToURL:objectManager.baseURL];
-    request = [NSMutableURLRequest requestWithURL:URL];
-    request.HTTPMethod = @"DELETE";
-    requestOperation = [objectManager managedObjectRequestOperationWithRequest:request managedObjectContext:[[RKTestFactory managedObjectStore] persistentStoreManagedObjectContext] success:nil failure:nil];
-    
-    // Exécution de la requête
-    [requestOperation start];
-    [requestOperation waitUntilFinished];
-    
-#warning RestKit : aucun response descriptor correspondant mais pas d'erreur remontée
-    XCTAssertEqual(200, requestOperation.HTTPRequestOperation.response.statusCode, @"");
-    XCTAssertNil(requestOperation.error, @"");
-    
-    /*
-    // Vérification que la requête a réussi mais n'a pas été prise en compte
-    XCTAssertEqual(200, requestOperation.HTTPRequestOperation.response.statusCode, @"");
-    XCTAssertNotNil(requestOperation.error, @"");
-    XCTAssertEqual(1001, [requestOperation.error code], @"");
-    */
-    // Vérification du nombre d'objets reçus
-    XCTAssertEqual(0, [requestOperation.mappingResult count], @"");
-
-    // Vérification du nombre d'objets enregistrés
-    XCTAssertEqual(3, [managedObjectContext countForEntityForName:@"PLMonument" predicate:nil error:nil], @"");
-    XCTAssertEqual(3, [managedObjectContext countForEntityForName:@"PLNodeOSM" predicate:nil error:nil], @"");
-    XCTAssertEqual(4, [managedObjectContext countForEntityForName:@"PLPersonnalite" predicate:nil error:nil], @"");
-    XCTAssertEqual(3, [managedObjectContext countForEntityForName:@"PLImageCommons" predicate:nil error:nil], @"");
-
-    // Récupération des objets enregistrés
-    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"PLMonument"];
-    [fetchRequest setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"nomPourTri" ascending:YES]]];
-    NSArray *fetchedMonuments = [managedObjectContext executeFetchRequest:fetchRequest error:nil];
-    PLMonument *monument1 = [fetchedMonuments objectAtIndex:0];     // Famille d'Aboville
-    PLMonument *monument2 = [fetchedMonuments objectAtIndex:1];     // Jim Morrison
-    PLMonument *monument3 = [fetchedMonuments objectAtIndex:2];     // Mur des Fédérés
-
-    // Vérification de la correspondance du résultat
-
-    // Monuments
-    XCTAssertEqualObjects(@(227), monument1.id, @"");
-    XCTAssertEqualObjects(@(120), monument2.id, @"");
-    XCTAssertEqualObjects(@(164), monument3.id, @"");
-
-    // Nodes OSM
-    XCTAssertEqualObjects(@(2649596674), monument1.nodeOSM.id, @"");
-    XCTAssertEqualObjects(@(1915793663), monument2.nodeOSM.id, @"");
-    XCTAssertEqualObjects(@(1152422864), monument3.nodeOSM.id, @"");
-    
-    // Images Commons
-    XCTAssertEqualObjects(@(1), monument1.imagePrincipale.id, @"");
-    XCTAssertEqualObjects(@(129), monument2.imagePrincipale.id, @"");
-    XCTAssertEqualObjects(@(200), monument3.imagePrincipale.id, @"");
-
-    // Personnalités
-    XCTAssertEqual(3, [monument1.personnalites count], @"");
-    XCTAssertEqual(1, [monument2.personnalites count], @"");
-    XCTAssertEqual(0, [monument3.personnalites count], @"");
-    XCTAssertEqualObjects(@(272), ((PLPersonnalite *)[monument1.personnalites objectAtIndex:0]).id, @"");
-    XCTAssertEqualObjects(@(273), ((PLPersonnalite *)[monument1.personnalites objectAtIndex:1]).id, @"");
-    XCTAssertEqualObjects(@(230), ((PLPersonnalite *)[monument1.personnalites objectAtIndex:2]).id, @"");
-    XCTAssertEqualObjects(@(120), ((PLPersonnalite *)[monument2.personnalites objectAtIndex:0]).id, @"");
-}
-
-// Vérifie qu'une requête renvoyant un mauvais keypath (sous-clé) n'est pas prise en compte
-- (void)testRequeteSousCle
-{
-    // Récupération du managed object context et de l'object manager
-    NSManagedObjectContext *managedObjectContext = [[RKTestFactory managedObjectStore] persistentStoreManagedObjectContext];
-    RKObjectManager *objectManager = [RKObjectManager sharedManager];
-    
-    // Configuration de la requête monument/all/
-    [objectManager addResponseDescriptor:[PLRestKitMonumentAll responseDescriptor]];
-    [objectManager addFetchRequestBlock:[PLRestKitMonumentAll fetchRequestBlock]];
-    
-    // Construction de la requête
-    NSURL *URL = [NSURL URLWithString:@"monument/all/?name=1_ok" relativeToURL:objectManager.baseURL];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL];
-    request.HTTPMethod = @"GET";
-    RKManagedObjectRequestOperation *requestOperation = [objectManager managedObjectRequestOperationWithRequest:request managedObjectContext:[[RKTestFactory managedObjectStore] persistentStoreManagedObjectContext] success:nil failure:nil];
-    
-    // Exécution de la requête
-    [requestOperation start];
-    [requestOperation waitUntilFinished];
-    
-    // Construction de la 2e requête
-    URL = [NSURL URLWithString:@"monument/all/?name=4_souscle" relativeToURL:objectManager.baseURL];
-    request = [NSMutableURLRequest requestWithURL:URL];
-    request.HTTPMethod = @"GET";
-    requestOperation = [objectManager managedObjectRequestOperationWithRequest:request managedObjectContext:[[RKTestFactory managedObjectStore] persistentStoreManagedObjectContext] success:nil failure:nil];
-    
-    // Exécution de la requête
-    [requestOperation start];
-    [requestOperation waitUntilFinished];
-    
-    // Vérification que la requête a réussi mais n'a pas été prise en compte
-    XCTAssertEqual(200, requestOperation.HTTPRequestOperation.response.statusCode, @"");
-    XCTAssertNotNil(requestOperation.error, @"");
-    XCTAssertEqual(1001, [requestOperation.error code], @"");
-    
-    // Vérification du nombre d'objets reçus
-    XCTAssertEqual(0, [requestOperation.mappingResult count], @"");
-    
-#warning RestKit : pas de response descriptor correspondant mais les objets sont quand même nettoyés
-    XCTAssertEqual(0, [managedObjectContext countForEntityForName:@"PLMonument" predicate:nil error:nil], @"");
-    XCTAssertEqual(0, [managedObjectContext countForEntityForName:@"PLNodeOSM" predicate:nil error:nil], @"");
-    XCTAssertEqual(0, [managedObjectContext countForEntityForName:@"PLPersonnalite" predicate:nil error:nil], @"");
-    XCTAssertEqual(0, [managedObjectContext countForEntityForName:@"PLImageCommons" predicate:nil error:nil], @"");
-    
-    /*
-    // Vérification du nombre d'objets enregistrés
-    XCTAssertEqual(3, [managedObjectContext countForEntityForName:@"PLMonument" predicate:nil error:nil], @"");
-    XCTAssertEqual(3, [managedObjectContext countForEntityForName:@"PLNodeOSM" predicate:nil error:nil], @"");
-    XCTAssertEqual(4, [managedObjectContext countForEntityForName:@"PLPersonnalite" predicate:nil error:nil], @"");
-    
-    // Récupération des objets enregistrés
-    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"PLMonument"];
-    [fetchRequest setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"nomPourTri" ascending:YES]]];
-    NSArray *fetchedMonuments = [managedObjectContext executeFetchRequest:fetchRequest error:nil];
-    PLMonument *monument1 = [fetchedMonuments objectAtIndex:0];     // Famille d'Aboville
-    PLMonument *monument2 = [fetchedMonuments objectAtIndex:1];     // Jim Morrison
-    PLMonument *monument3 = [fetchedMonuments objectAtIndex:2];     // Mur des Fédérés
-    
-    // Vérification de la correspondance du résultat
-    
-    // Monuments
-    XCTAssertEqualObjects(@(227), monument1.id, @"");
-    XCTAssertEqualObjects(@(120), monument2.id, @"");
-    XCTAssertEqualObjects(@(164), monument3.id, @"");
-    
-    // Nodes OSM
-    XCTAssertEqualObjects(@(2649596674), monument1.nodeOSM.id, @"");
-    XCTAssertEqualObjects(@(1915793663), monument2.nodeOSM.id, @"");
-    XCTAssertEqualObjects(@(1152422864), monument3.nodeOSM.id, @"");
-    
-    // Personnalités
-    XCTAssertEqual(3, [monument1.personnalites count], @"");
-    XCTAssertEqual(1, [monument2.personnalites count], @"");
-    XCTAssertEqual(0, [monument3.personnalites count], @"");
-    XCTAssertEqualObjects(@(272), ((PLPersonnalite *)[monument1.personnalites objectAtIndex:0]).id, @"");
-    XCTAssertEqualObjects(@(273), ((PLPersonnalite *)[monument1.personnalites objectAtIndex:1]).id, @"");
-    XCTAssertEqualObjects(@(230), ((PLPersonnalite *)[monument1.personnalites objectAtIndex:2]).id, @"");
-    XCTAssertEqualObjects(@(120), ((PLPersonnalite *)[monument2.personnalites objectAtIndex:0]).id, @"");
-     */
-}
-
-// Vérifie qu'une requête renvoyant un mauvais keypath (sur-clé) n'est pas prise en compte
-- (void)testRequeteSurCle
-{
-    // Récupération du managed object context et de l'object manager
-    NSManagedObjectContext *managedObjectContext = [[RKTestFactory managedObjectStore] persistentStoreManagedObjectContext];
-    RKObjectManager *objectManager = [RKObjectManager sharedManager];
-    
-    // Configuration de la requête monument/all/
-    [objectManager addResponseDescriptor:[PLRestKitMonumentAll responseDescriptor]];
-    [objectManager addFetchRequestBlock:[PLRestKitMonumentAll fetchRequestBlock]];
-    
-    // Construction de la requête
-    NSURL *URL = [NSURL URLWithString:@"monument/all/?name=1_ok" relativeToURL:objectManager.baseURL];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL];
-    request.HTTPMethod = @"GET";
-    RKManagedObjectRequestOperation *requestOperation = [objectManager managedObjectRequestOperationWithRequest:request managedObjectContext:[[RKTestFactory managedObjectStore] persistentStoreManagedObjectContext] success:nil failure:nil];
-    
-    // Exécution de la requête
-    [requestOperation start];
-    [requestOperation waitUntilFinished];
-    
-    // Construction de la 2e requête
-    URL = [NSURL URLWithString:@"monument/all/?name=5_surcle" relativeToURL:objectManager.baseURL];
-    request = [NSMutableURLRequest requestWithURL:URL];
-    request.HTTPMethod = @"GET";
-    requestOperation = [objectManager managedObjectRequestOperationWithRequest:request managedObjectContext:[[RKTestFactory managedObjectStore] persistentStoreManagedObjectContext] success:nil failure:nil];
-    
-    // Exécution de la requête
-    [requestOperation start];
-    [requestOperation waitUntilFinished];
-    
-    // Vérification que la requête a réussi mais n'a pas été prise en compte
-    XCTAssertEqual(200, requestOperation.HTTPRequestOperation.response.statusCode, @"");
-    XCTAssertNotNil(requestOperation.error, @"");
-    XCTAssertEqual(1560, [requestOperation.error code], @"");
-    
-    // Vérification du nombre d'objets reçus
-    XCTAssertEqual(0, [requestOperation.mappingResult count], @"");
-    
-    // Vérification du nombre d'objets enregistrés
-    XCTAssertEqual(3, [managedObjectContext countForEntityForName:@"PLMonument" predicate:nil error:nil], @"");
-    XCTAssertEqual(3, [managedObjectContext countForEntityForName:@"PLNodeOSM" predicate:nil error:nil], @"");
-    XCTAssertEqual(4, [managedObjectContext countForEntityForName:@"PLPersonnalite" predicate:nil error:nil], @"");
-    XCTAssertEqual(3, [managedObjectContext countForEntityForName:@"PLImageCommons" predicate:nil error:nil], @"");
-    
-    // Récupération des objets enregistrés
-    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"PLMonument"];
-    [fetchRequest setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"nomPourTri" ascending:YES]]];
-    NSArray *fetchedMonuments = [managedObjectContext executeFetchRequest:fetchRequest error:nil];
-    PLMonument *monument1 = [fetchedMonuments objectAtIndex:0];     // Famille d'Aboville
-    PLMonument *monument2 = [fetchedMonuments objectAtIndex:1];     // Jim Morrison
-    PLMonument *monument3 = [fetchedMonuments objectAtIndex:2];     // Mur des Fédérés
-    
-    // Vérification de la correspondance du résultat
-    
-    // Monuments
-    XCTAssertEqualObjects(@(227), monument1.id, @"");
-    XCTAssertEqualObjects(@(120), monument2.id, @"");
-    XCTAssertEqualObjects(@(164), monument3.id, @"");
-    
-    // Nodes OSM
-    XCTAssertEqualObjects(@(2649596674), monument1.nodeOSM.id, @"");
-    XCTAssertEqualObjects(@(1915793663), monument2.nodeOSM.id, @"");
-    XCTAssertEqualObjects(@(1152422864), monument3.nodeOSM.id, @"");
-    
-    // Images Commons
-    XCTAssertEqualObjects(@(1), monument1.imagePrincipale.id, @"");
-    XCTAssertEqualObjects(@(129), monument2.imagePrincipale.id, @"");
-    XCTAssertEqualObjects(@(200), monument3.imagePrincipale.id, @"");
-    
-    // Personnalités
-    XCTAssertEqual(3, [monument1.personnalites count], @"");
-    XCTAssertEqual(1, [monument2.personnalites count], @"");
-    XCTAssertEqual(0, [monument3.personnalites count], @"");
-    XCTAssertEqualObjects(@(272), ((PLPersonnalite *)[monument1.personnalites objectAtIndex:0]).id, @"");
-    XCTAssertEqualObjects(@(273), ((PLPersonnalite *)[monument1.personnalites objectAtIndex:1]).id, @"");
-    XCTAssertEqualObjects(@(230), ((PLPersonnalite *)[monument1.personnalites objectAtIndex:2]).id, @"");
-    XCTAssertEqualObjects(@(120), ((PLPersonnalite *)[monument2.personnalites objectAtIndex:0]).id, @"");
-    
-}
-
-// Vérifie qu'une requête renvoyant un mauvais keypath (double clé) n'est pas prise en compte
-- (void)testRequeteDoubleCle
-{
-    // Récupération du managed object context et de l'object manager
-    NSManagedObjectContext *managedObjectContext = [[RKTestFactory managedObjectStore] persistentStoreManagedObjectContext];
-    RKObjectManager *objectManager = [RKObjectManager sharedManager];
-    
-    // Configuration de la requête monument/all/
-    [objectManager addResponseDescriptor:[PLRestKitMonumentAll responseDescriptor]];
-    [objectManager addFetchRequestBlock:[PLRestKitMonumentAll fetchRequestBlock]];
-    
-    // Construction de la requête
-    NSURL *URL = [NSURL URLWithString:@"monument/all/?name=1_ok" relativeToURL:objectManager.baseURL];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL];
-    request.HTTPMethod = @"GET";
-    RKManagedObjectRequestOperation *requestOperation = [objectManager managedObjectRequestOperationWithRequest:request managedObjectContext:[[RKTestFactory managedObjectStore] persistentStoreManagedObjectContext] success:nil failure:nil];
-    
-    // Exécution de la requête
-    [requestOperation start];
-    [requestOperation waitUntilFinished];
-    
-    // Construction de la 2e requête
-    URL = [NSURL URLWithString:@"monument/all/?name=6_doublecle" relativeToURL:objectManager.baseURL];
-    request = [NSMutableURLRequest requestWithURL:URL];
-    request.HTTPMethod = @"GET";
-    requestOperation = [objectManager managedObjectRequestOperationWithRequest:request managedObjectContext:[[RKTestFactory managedObjectStore] persistentStoreManagedObjectContext] success:nil failure:nil];
-    
-    // Exécution de la requête
-    [requestOperation start];
-    [requestOperation waitUntilFinished];
-    
-    // Vérification que la requête a réussi mais n'a pas été prise en compte
-    XCTAssertEqual(200, requestOperation.HTTPRequestOperation.response.statusCode, @"");
-    XCTAssertNotNil(requestOperation.error, @"");
-    XCTAssertEqual(1560, [requestOperation.error code], @"");
-    
-    // Vérification du nombre d'objets reçus
-    XCTAssertEqual(0, [requestOperation.mappingResult count], @"");
-    
-    // Vérification du nombre d'objets enregistrés
-    XCTAssertEqual(3, [managedObjectContext countForEntityForName:@"PLMonument" predicate:nil error:nil], @"");
-    XCTAssertEqual(3, [managedObjectContext countForEntityForName:@"PLNodeOSM" predicate:nil error:nil], @"");
-    XCTAssertEqual(4, [managedObjectContext countForEntityForName:@"PLPersonnalite" predicate:nil error:nil], @"");
-    XCTAssertEqual(3, [managedObjectContext countForEntityForName:@"PLImageCommons" predicate:nil error:nil], @"");
-    
-    // Récupération des objets enregistrés
-    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"PLMonument"];
-    [fetchRequest setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"nomPourTri" ascending:YES]]];
-    NSArray *fetchedMonuments = [managedObjectContext executeFetchRequest:fetchRequest error:nil];
-    PLMonument *monument1 = [fetchedMonuments objectAtIndex:0];     // Famille d'Aboville
-    PLMonument *monument2 = [fetchedMonuments objectAtIndex:1];     // Jim Morrison
-    PLMonument *monument3 = [fetchedMonuments objectAtIndex:2];     // Mur des Fédérés
-    
-    // Vérification de la correspondance du résultat
-    
-    // Monuments
-    XCTAssertEqualObjects(@(227), monument1.id, @"");
-    XCTAssertEqualObjects(@(120), monument2.id, @"");
-    XCTAssertEqualObjects(@(164), monument3.id, @"");
-    
-    // Nodes OSM
-    XCTAssertEqualObjects(@(2649596674), monument1.nodeOSM.id, @"");
-    XCTAssertEqualObjects(@(1915793663), monument2.nodeOSM.id, @"");
-    XCTAssertEqualObjects(@(1152422864), monument3.nodeOSM.id, @"");
-    
-    // Images Commons
-    XCTAssertEqualObjects(@(1), monument1.imagePrincipale.id, @"");
-    XCTAssertEqualObjects(@(129), monument2.imagePrincipale.id, @"");
-    XCTAssertEqualObjects(@(200), monument3.imagePrincipale.id, @"");
-    
-    // Personnalités
-    XCTAssertEqual(3, [monument1.personnalites count], @"");
-    XCTAssertEqual(1, [monument2.personnalites count], @"");
-    XCTAssertEqual(0, [monument3.personnalites count], @"");
-    XCTAssertEqualObjects(@(272), ((PLPersonnalite *)[monument1.personnalites objectAtIndex:0]).id, @"");
-    XCTAssertEqualObjects(@(273), ((PLPersonnalite *)[monument1.personnalites objectAtIndex:1]).id, @"");
-    XCTAssertEqualObjects(@(230), ((PLPersonnalite *)[monument1.personnalites objectAtIndex:2]).id, @"");
-    XCTAssertEqualObjects(@(120), ((PLPersonnalite *)[monument2.personnalites objectAtIndex:0]).id, @"");
-}
-
-// Vérifie qu'une requête renvoyant un mauvais keypath (autre clé) n'est pas prise en compte
-- (void)testRequeteAutreCle
-{
-    // Récupération du managed object context et de l'object manager
-    NSManagedObjectContext *managedObjectContext = [[RKTestFactory managedObjectStore] persistentStoreManagedObjectContext];
-    RKObjectManager *objectManager = [RKObjectManager sharedManager];
-    
-    // Configuration de la requête monument/all/
-    [objectManager addResponseDescriptor:[PLRestKitMonumentAll responseDescriptor]];
-    [objectManager addFetchRequestBlock:[PLRestKitMonumentAll fetchRequestBlock]];
-    
-    // Construction de la requête
-    NSURL *URL = [NSURL URLWithString:@"monument/all/?name=1_ok" relativeToURL:objectManager.baseURL];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL];
-    request.HTTPMethod = @"GET";
-    RKManagedObjectRequestOperation *requestOperation = [objectManager managedObjectRequestOperationWithRequest:request managedObjectContext:[[RKTestFactory managedObjectStore] persistentStoreManagedObjectContext] success:nil failure:nil];
-    
-    // Exécution de la requête
-    [requestOperation start];
-    [requestOperation waitUntilFinished];
-    
-    // Construction de la 2e requête
-    URL = [NSURL URLWithString:@"monument/all/?name=7_autrecle" relativeToURL:objectManager.baseURL];
-    request = [NSMutableURLRequest requestWithURL:URL];
-    request.HTTPMethod = @"GET";
-    requestOperation = [objectManager managedObjectRequestOperationWithRequest:request managedObjectContext:[[RKTestFactory managedObjectStore] persistentStoreManagedObjectContext] success:nil failure:nil];
-    
-    // Exécution de la requête
-    [requestOperation start];
-    [requestOperation waitUntilFinished];
-    
-    // Vérification que la requête a réussi mais n'a pas été prise en compte
-    XCTAssertEqual(200, requestOperation.HTTPRequestOperation.response.statusCode, @"");
-    XCTAssertNotNil(requestOperation.error, @"");
-    XCTAssertEqual(1001, [requestOperation.error code], @"");
-    
-    // Vérification du nombre d'objets reçus
-    XCTAssertEqual(0, [requestOperation.mappingResult count], @"");
-    
-#warning RestKit : pas de response descriptor correspondant mais les objets sont quand même nettoyés
-    XCTAssertEqual(0, [managedObjectContext countForEntityForName:@"PLMonument" predicate:nil error:nil], @"");
-    XCTAssertEqual(0, [managedObjectContext countForEntityForName:@"PLNodeOSM" predicate:nil error:nil], @"");
-    XCTAssertEqual(0, [managedObjectContext countForEntityForName:@"PLPersonnalite" predicate:nil error:nil], @"");
-    XCTAssertEqual(0, [managedObjectContext countForEntityForName:@"PLImageCommons" predicate:nil error:nil], @"");
-    
-    /*
-     // Vérification du nombre d'objets enregistrés
-     XCTAssertEqual(3, [managedObjectContext countForEntityForName:@"PLMonument" predicate:nil error:nil], @"");
-     XCTAssertEqual(3, [managedObjectContext countForEntityForName:@"PLNodeOSM" predicate:nil error:nil], @"");
-     XCTAssertEqual(4, [managedObjectContext countForEntityForName:@"PLPersonnalite" predicate:nil error:nil], @"");
-     
-     // Récupération des objets enregistrés
-     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"PLMonument"];
-     [fetchRequest setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"nomPourTri" ascending:YES]]];
-     NSArray *fetchedMonuments = [managedObjectContext executeFetchRequest:fetchRequest error:nil];
-     PLMonument *monument1 = [fetchedMonuments objectAtIndex:0];     // Famille d'Aboville
-     PLMonument *monument2 = [fetchedMonuments objectAtIndex:1];     // Jim Morrison
-     PLMonument *monument3 = [fetchedMonuments objectAtIndex:2];     // Mur des Fédérés
-     
-     // Vérification de la correspondance du résultat
-     
-     // Monuments
-     XCTAssertEqualObjects(@(227), monument1.id, @"");
-     XCTAssertEqualObjects(@(120), monument2.id, @"");
-     XCTAssertEqualObjects(@(164), monument3.id, @"");
-     
-     // Nodes OSM
-     XCTAssertEqualObjects(@(2649596674), monument1.nodeOSM.id, @"");
-     XCTAssertEqualObjects(@(1915793663), monument2.nodeOSM.id, @"");
-     XCTAssertEqualObjects(@(1152422864), monument3.nodeOSM.id, @"");
-     
-     // Personnalités
-     XCTAssertEqual(3, [monument1.personnalites count], @"");
-     XCTAssertEqual(1, [monument2.personnalites count], @"");
-     XCTAssertEqual(0, [monument3.personnalites count], @"");
-     XCTAssertEqualObjects(@(272), ((PLPersonnalite *)[monument1.personnalites objectAtIndex:0]).id, @"");
-     XCTAssertEqualObjects(@(273), ((PLPersonnalite *)[monument1.personnalites objectAtIndex:1]).id, @"");
-     XCTAssertEqualObjects(@(230), ((PLPersonnalite *)[monument1.personnalites objectAtIndex:2]).id, @"");
-     XCTAssertEqualObjects(@(120), ((PLPersonnalite *)[monument2.personnalites objectAtIndex:0]).id, @"");
-     */
-}
-
-// Vérifie qu'une requête avec un mauvais chemin relatif (préfixe) n'est pas prise en compte
-- (void)testRequetePathPrefixe
-{
-    // Récupération du managed object context et de l'object manager
-    NSManagedObjectContext *managedObjectContext = [[RKTestFactory managedObjectStore] persistentStoreManagedObjectContext];
-    RKObjectManager *objectManager = [RKObjectManager sharedManager];
-    
-    // Configuration de la requête monument/all/
-    [objectManager addResponseDescriptor:[PLRestKitMonumentAll responseDescriptor]];
-    [objectManager addFetchRequestBlock:[PLRestKitMonumentAll fetchRequestBlock]];
-    
-    // Construction de la requête
-    NSURL *URL = [NSURL URLWithString:@"monument/all/?name=1_ok" relativeToURL:objectManager.baseURL];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL];
-    request.HTTPMethod = @"GET";
-    RKManagedObjectRequestOperation *requestOperation = [objectManager managedObjectRequestOperationWithRequest:request managedObjectContext:[[RKTestFactory managedObjectStore] persistentStoreManagedObjectContext] success:nil failure:nil];
-    
-    // Exécution de la requête
-    [requestOperation start];
-    [requestOperation waitUntilFinished];
-    
-    // Construction de la 2e requête
-    URL = [NSURL URLWithString:@"truc/monument/all/" relativeToURL:objectManager.baseURL];
-    request = [NSMutableURLRequest requestWithURL:URL];
-    request.HTTPMethod = @"GET";
-    requestOperation = [objectManager managedObjectRequestOperationWithRequest:request managedObjectContext:[[RKTestFactory managedObjectStore] persistentStoreManagedObjectContext] success:nil failure:nil];
-    
-    // Exécution de la requête
-    [requestOperation start];
-    [requestOperation waitUntilFinished];
-    
-    // Vérification que la requête a réussi mais n'a pas été prise en compte
-    XCTAssertEqual(200, requestOperation.HTTPRequestOperation.response.statusCode, @"");
-    XCTAssertNotNil(requestOperation.error, @"");
-    XCTAssertEqual(1001, [requestOperation.error code], @"");
-    
-    // Vérification du nombre d'objets reçus
-    XCTAssertEqual(0, [requestOperation.mappingResult count], @"");
-    
-    // Vérification du nombre d'objets enregistrés
-    XCTAssertEqual(3, [managedObjectContext countForEntityForName:@"PLMonument" predicate:nil error:nil], @"");
-    XCTAssertEqual(3, [managedObjectContext countForEntityForName:@"PLNodeOSM" predicate:nil error:nil], @"");
-    XCTAssertEqual(4, [managedObjectContext countForEntityForName:@"PLPersonnalite" predicate:nil error:nil], @"");
-    XCTAssertEqual(3, [managedObjectContext countForEntityForName:@"PLImageCommons" predicate:nil error:nil], @"");
-    
-    // Récupération des objets enregistrés
-    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"PLMonument"];
-    [fetchRequest setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"nomPourTri" ascending:YES]]];
-    NSArray *fetchedMonuments = [managedObjectContext executeFetchRequest:fetchRequest error:nil];
-    PLMonument *monument1 = [fetchedMonuments objectAtIndex:0];     // Famille d'Aboville
-    PLMonument *monument2 = [fetchedMonuments objectAtIndex:1];     // Jim Morrison
-    PLMonument *monument3 = [fetchedMonuments objectAtIndex:2];     // Mur des Fédérés
-    
-    // Vérification de la correspondance du résultat
-    
-    // Monuments
-    XCTAssertEqualObjects(@(227), monument1.id, @"");
-    XCTAssertEqualObjects(@(120), monument2.id, @"");
-    XCTAssertEqualObjects(@(164), monument3.id, @"");
-    
-    // Nodes OSM
-    XCTAssertEqualObjects(@(2649596674), monument1.nodeOSM.id, @"");
-    XCTAssertEqualObjects(@(1915793663), monument2.nodeOSM.id, @"");
-    XCTAssertEqualObjects(@(1152422864), monument3.nodeOSM.id, @"");
-    
-    // Images Commons
-    XCTAssertEqualObjects(@(1), monument1.imagePrincipale.id, @"");
-    XCTAssertEqualObjects(@(129), monument2.imagePrincipale.id, @"");
-    XCTAssertEqualObjects(@(200), monument3.imagePrincipale.id, @"");
-    
-    // Personnalités
-    XCTAssertEqual(3, [monument1.personnalites count], @"");
-    XCTAssertEqual(1, [monument2.personnalites count], @"");
-    XCTAssertEqual(0, [monument3.personnalites count], @"");
-    XCTAssertEqualObjects(@(272), ((PLPersonnalite *)[monument1.personnalites objectAtIndex:0]).id, @"");
-    XCTAssertEqualObjects(@(273), ((PLPersonnalite *)[monument1.personnalites objectAtIndex:1]).id, @"");
-    XCTAssertEqualObjects(@(230), ((PLPersonnalite *)[monument1.personnalites objectAtIndex:2]).id, @"");
-    XCTAssertEqualObjects(@(120), ((PLPersonnalite *)[monument2.personnalites objectAtIndex:0]).id, @"");
-}
-
-// Vérifie qu'une requête avec un mauvais chemin relatif (suffixe) n'est pas prise en compte
-- (void)testRequetePathSuffixe
-{
-    // Récupération du managed object context et de l'object manager
-    NSManagedObjectContext *managedObjectContext = [[RKTestFactory managedObjectStore] persistentStoreManagedObjectContext];
-    RKObjectManager *objectManager = [RKObjectManager sharedManager];
-    
-    // Configuration de la requête monument/all/
-    [objectManager addResponseDescriptor:[PLRestKitMonumentAll responseDescriptor]];
-    [objectManager addFetchRequestBlock:[PLRestKitMonumentAll fetchRequestBlock]];
-    
-    // Construction de la requête
-    NSURL *URL = [NSURL URLWithString:@"monument/all/?name=1_ok" relativeToURL:objectManager.baseURL];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL];
-    request.HTTPMethod = @"GET";
-    RKManagedObjectRequestOperation *requestOperation = [objectManager managedObjectRequestOperationWithRequest:request managedObjectContext:[[RKTestFactory managedObjectStore] persistentStoreManagedObjectContext] success:nil failure:nil];
-    
-    // Exécution de la requête
-    [requestOperation start];
-    [requestOperation waitUntilFinished];
-    
-    // Construction de la 2e requête
-    URL = [NSURL URLWithString:@"monument/all/truc/" relativeToURL:objectManager.baseURL];
-    request = [NSMutableURLRequest requestWithURL:URL];
-    request.HTTPMethod = @"GET";
-    requestOperation = [objectManager managedObjectRequestOperationWithRequest:request managedObjectContext:[[RKTestFactory managedObjectStore] persistentStoreManagedObjectContext] success:nil failure:nil];
-    
-    // Exécution de la requête
-    [requestOperation start];
-    [requestOperation waitUntilFinished];
-    
-    // Vérification que la requête a réussi mais n'a pas été prise en compte
-    XCTAssertEqual(200, requestOperation.HTTPRequestOperation.response.statusCode, @"");
-    XCTAssertNotNil(requestOperation.error, @"");
-    XCTAssertEqual(1001, [requestOperation.error code], @"");
-    
-    // Vérification du nombre d'objets reçus
-    XCTAssertEqual(0, [requestOperation.mappingResult count], @"");
-    
-    // Vérification du nombre d'objets enregistrés
-    XCTAssertEqual(3, [managedObjectContext countForEntityForName:@"PLMonument" predicate:nil error:nil], @"");
-    XCTAssertEqual(3, [managedObjectContext countForEntityForName:@"PLNodeOSM" predicate:nil error:nil], @"");
-    XCTAssertEqual(4, [managedObjectContext countForEntityForName:@"PLPersonnalite" predicate:nil error:nil], @"");
-    XCTAssertEqual(3, [managedObjectContext countForEntityForName:@"PLImageCommons" predicate:nil error:nil], @"");
-    
-    // Récupération des objets enregistrés
-    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"PLMonument"];
-    [fetchRequest setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"nomPourTri" ascending:YES]]];
-    NSArray *fetchedMonuments = [managedObjectContext executeFetchRequest:fetchRequest error:nil];
-    PLMonument *monument1 = [fetchedMonuments objectAtIndex:0];     // Famille d'Aboville
-    PLMonument *monument2 = [fetchedMonuments objectAtIndex:1];     // Jim Morrison
-    PLMonument *monument3 = [fetchedMonuments objectAtIndex:2];     // Mur des Fédérés
-    
-    // Vérification de la correspondance du résultat
-    
-    // Monuments
-    XCTAssertEqualObjects(@(227), monument1.id, @"");
-    XCTAssertEqualObjects(@(120), monument2.id, @"");
-    XCTAssertEqualObjects(@(164), monument3.id, @"");
-    
-    // Nodes OSM
-    XCTAssertEqualObjects(@(2649596674), monument1.nodeOSM.id, @"");
-    XCTAssertEqualObjects(@(1915793663), monument2.nodeOSM.id, @"");
-    XCTAssertEqualObjects(@(1152422864), monument3.nodeOSM.id, @"");
-    
-    // Images Commons
-    XCTAssertEqualObjects(@(1), monument1.imagePrincipale.id, @"");
-    XCTAssertEqualObjects(@(129), monument2.imagePrincipale.id, @"");
-    XCTAssertEqualObjects(@(200), monument3.imagePrincipale.id, @"");
-    
-    // Personnalités
-    XCTAssertEqual(3, [monument1.personnalites count], @"");
-    XCTAssertEqual(1, [monument2.personnalites count], @"");
-    XCTAssertEqual(0, [monument3.personnalites count], @"");
-    XCTAssertEqualObjects(@(272), ((PLPersonnalite *)[monument1.personnalites objectAtIndex:0]).id, @"");
-    XCTAssertEqualObjects(@(273), ((PLPersonnalite *)[monument1.personnalites objectAtIndex:1]).id, @"");
-    XCTAssertEqualObjects(@(230), ((PLPersonnalite *)[monument1.personnalites objectAtIndex:2]).id, @"");
-    XCTAssertEqualObjects(@(120), ((PLPersonnalite *)[monument2.personnalites objectAtIndex:0]).id, @"");
-}
-
-// Vérifie qu'une requête avec un mauvais chemin relatif (différent) n'est pas prise en compte
-- (void)testRequetePathAutre
-{
-    // Récupération du managed object context et de l'object manager
-    NSManagedObjectContext *managedObjectContext = [[RKTestFactory managedObjectStore] persistentStoreManagedObjectContext];
-    RKObjectManager *objectManager = [RKObjectManager sharedManager];
-    
-    // Configuration de la requête monument/all/
-    [objectManager addResponseDescriptor:[PLRestKitMonumentAll responseDescriptor]];
-    [objectManager addFetchRequestBlock:[PLRestKitMonumentAll fetchRequestBlock]];
-    
-    // Construction de la requête
-    NSURL *URL = [NSURL URLWithString:@"monument/all/?name=1_ok" relativeToURL:objectManager.baseURL];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL];
-    request.HTTPMethod = @"GET";
-    RKManagedObjectRequestOperation *requestOperation = [objectManager managedObjectRequestOperationWithRequest:request managedObjectContext:[[RKTestFactory managedObjectStore] persistentStoreManagedObjectContext] success:nil failure:nil];
-    
-    // Exécution de la requête
-    [requestOperation start];
-    [requestOperation waitUntilFinished];
-    
-    // Construction de la 2e requête
-    URL = [NSURL URLWithString:@"truc/" relativeToURL:objectManager.baseURL];
-    request = [NSMutableURLRequest requestWithURL:URL];
-    request.HTTPMethod = @"GET";
-    requestOperation = [objectManager managedObjectRequestOperationWithRequest:request managedObjectContext:[[RKTestFactory managedObjectStore] persistentStoreManagedObjectContext] success:nil failure:nil];
-    
-    // Exécution de la requête
-    [requestOperation start];
-    [requestOperation waitUntilFinished];
-    
-    // Vérification que la requête a réussi mais n'a pas été prise en compte
-    XCTAssertEqual(200, requestOperation.HTTPRequestOperation.response.statusCode, @"");
-    XCTAssertNotNil(requestOperation.error, @"");
-    XCTAssertEqual(1001, [requestOperation.error code], @"");
-    
-    // Vérification du nombre d'objets reçus
-    XCTAssertEqual(0, [requestOperation.mappingResult count], @"");
-    
-    // Vérification du nombre d'objets enregistrés
-    XCTAssertEqual(3, [managedObjectContext countForEntityForName:@"PLMonument" predicate:nil error:nil], @"");
-    XCTAssertEqual(3, [managedObjectContext countForEntityForName:@"PLNodeOSM" predicate:nil error:nil], @"");
-    XCTAssertEqual(4, [managedObjectContext countForEntityForName:@"PLPersonnalite" predicate:nil error:nil], @"");
-    XCTAssertEqual(3, [managedObjectContext countForEntityForName:@"PLImageCommons" predicate:nil error:nil], @"");
-    
-    // Récupération des objets enregistrés
-    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"PLMonument"];
-    [fetchRequest setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"nomPourTri" ascending:YES]]];
-    NSArray *fetchedMonuments = [managedObjectContext executeFetchRequest:fetchRequest error:nil];
-    PLMonument *monument1 = [fetchedMonuments objectAtIndex:0];     // Famille d'Aboville
-    PLMonument *monument2 = [fetchedMonuments objectAtIndex:1];     // Jim Morrison
-    PLMonument *monument3 = [fetchedMonuments objectAtIndex:2];     // Mur des Fédérés
-    
-    // Vérification de la correspondance du résultat
-    
-    // Monuments
-    XCTAssertEqualObjects(@(227), monument1.id, @"");
-    XCTAssertEqualObjects(@(120), monument2.id, @"");
-    XCTAssertEqualObjects(@(164), monument3.id, @"");
-    
-    // Nodes OSM
-    XCTAssertEqualObjects(@(2649596674), monument1.nodeOSM.id, @"");
-    XCTAssertEqualObjects(@(1915793663), monument2.nodeOSM.id, @"");
-    XCTAssertEqualObjects(@(1152422864), monument3.nodeOSM.id, @"");
-    
-    // Images Commons
-    XCTAssertEqualObjects(@(1), monument1.imagePrincipale.id, @"");
-    XCTAssertEqualObjects(@(129), monument2.imagePrincipale.id, @"");
-    XCTAssertEqualObjects(@(200), monument3.imagePrincipale.id, @"");
-    
-    // Personnalités
-    XCTAssertEqual(3, [monument1.personnalites count], @"");
-    XCTAssertEqual(1, [monument2.personnalites count], @"");
-    XCTAssertEqual(0, [monument3.personnalites count], @"");
-    XCTAssertEqualObjects(@(272), ((PLPersonnalite *)[monument1.personnalites objectAtIndex:0]).id, @"");
-    XCTAssertEqualObjects(@(273), ((PLPersonnalite *)[monument1.personnalites objectAtIndex:1]).id, @"");
-    XCTAssertEqualObjects(@(230), ((PLPersonnalite *)[monument1.personnalites objectAtIndex:2]).id, @"");
-    XCTAssertEqualObjects(@(120), ((PLPersonnalite *)[monument2.personnalites objectAtIndex:0]).id, @"");
-}
-
-// Vérifie qu'une requête renvoyant un code d'erreur 404 n'est pas prise en compte
-- (void)testRequete404
-{
-    // Récupération du managed object context et de l'object manager
-    NSManagedObjectContext *managedObjectContext = [[RKTestFactory managedObjectStore] persistentStoreManagedObjectContext];
-    RKObjectManager *objectManager = [RKObjectManager sharedManager];
-    
-    // Configuration de la requête monument/all/
-    [objectManager addResponseDescriptor:[PLRestKitMonumentAll responseDescriptor]];
-    [objectManager addFetchRequestBlock:[PLRestKitMonumentAll fetchRequestBlock]];
-    
-    // Construction de la requête
-    NSURL *URL = [NSURL URLWithString:@"monument/all/?name=1_ok" relativeToURL:objectManager.baseURL];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL];
-    request.HTTPMethod = @"GET";
-    RKManagedObjectRequestOperation *requestOperation = [objectManager managedObjectRequestOperationWithRequest:request managedObjectContext:[[RKTestFactory managedObjectStore] persistentStoreManagedObjectContext] success:nil failure:nil];
-    
-    // Exécution de la requête
-    [requestOperation start];
-    [requestOperation waitUntilFinished];
-    
-    // Construction de la 2e requête
-    URL = [NSURL URLWithString:@"monument/all/?name=8_404" relativeToURL:objectManager.baseURL];
-    request = [NSMutableURLRequest requestWithURL:URL];
-    request.HTTPMethod = @"GET";
-    requestOperation = [objectManager managedObjectRequestOperationWithRequest:request managedObjectContext:[[RKTestFactory managedObjectStore] persistentStoreManagedObjectContext] success:nil failure:nil];
-    
-    // Exécution de la requête
-    [requestOperation start];
-    [requestOperation waitUntilFinished];
-    
-    // Vérification que la requête a réussi mais n'a pas été prise en compte
-    XCTAssertEqual(404, requestOperation.HTTPRequestOperation.response.statusCode, @"");
-    XCTAssertNotNil(requestOperation.error, @"");
-    XCTAssertEqual(-1011, [requestOperation.error code], @"");
-    
-    // Vérification du nombre d'objets reçus
-    XCTAssertEqual(0, [requestOperation.mappingResult count], @"");
-    
-    // Vérification du nombre d'objets enregistrés
-    XCTAssertEqual(3, [managedObjectContext countForEntityForName:@"PLMonument" predicate:nil error:nil], @"");
-    XCTAssertEqual(3, [managedObjectContext countForEntityForName:@"PLNodeOSM" predicate:nil error:nil], @"");
-    XCTAssertEqual(4, [managedObjectContext countForEntityForName:@"PLPersonnalite" predicate:nil error:nil], @"");
-    XCTAssertEqual(3, [managedObjectContext countForEntityForName:@"PLImageCommons" predicate:nil error:nil], @"");
-    
-    // Récupération des objets enregistrés
-    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"PLMonument"];
-    [fetchRequest setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"nomPourTri" ascending:YES]]];
-    NSArray *fetchedMonuments = [managedObjectContext executeFetchRequest:fetchRequest error:nil];
-    PLMonument *monument1 = [fetchedMonuments objectAtIndex:0];     // Famille d'Aboville
-    PLMonument *monument2 = [fetchedMonuments objectAtIndex:1];     // Jim Morrison
-    PLMonument *monument3 = [fetchedMonuments objectAtIndex:2];     // Mur des Fédérés
-    
-    // Vérification de la correspondance du résultat
-    
-    // Monuments
-    XCTAssertEqualObjects(@(227), monument1.id, @"");
-    XCTAssertEqualObjects(@(120), monument2.id, @"");
-    XCTAssertEqualObjects(@(164), monument3.id, @"");
-    
-    // Nodes OSM
-    XCTAssertEqualObjects(@(2649596674), monument1.nodeOSM.id, @"");
-    XCTAssertEqualObjects(@(1915793663), monument2.nodeOSM.id, @"");
-    XCTAssertEqualObjects(@(1152422864), monument3.nodeOSM.id, @"");
-    
-    // Images Commons
-    XCTAssertEqualObjects(@(1), monument1.imagePrincipale.id, @"");
-    XCTAssertEqualObjects(@(129), monument2.imagePrincipale.id, @"");
-    XCTAssertEqualObjects(@(200), monument3.imagePrincipale.id, @"");
-    
-    // Personnalités
-    XCTAssertEqual(3, [monument1.personnalites count], @"");
-    XCTAssertEqual(1, [monument2.personnalites count], @"");
-    XCTAssertEqual(0, [monument3.personnalites count], @"");
-    XCTAssertEqualObjects(@(272), ((PLPersonnalite *)[monument1.personnalites objectAtIndex:0]).id, @"");
-    XCTAssertEqualObjects(@(273), ((PLPersonnalite *)[monument1.personnalites objectAtIndex:1]).id, @"");
-    XCTAssertEqualObjects(@(230), ((PLPersonnalite *)[monument1.personnalites objectAtIndex:2]).id, @"");
-    XCTAssertEqualObjects(@(120), ((PLPersonnalite *)[monument2.personnalites objectAtIndex:0]).id, @"");
-}
-
-// Vérifie qu'une requête renvoyant un code d'erreur 500 n'est pas prise en compte
-- (void)testRequete500
-{
-    // Récupération du managed object context et de l'object manager
-    NSManagedObjectContext *managedObjectContext = [[RKTestFactory managedObjectStore] persistentStoreManagedObjectContext];
-    RKObjectManager *objectManager = [RKObjectManager sharedManager];
-    
-    // Configuration de la requête monument/all/
-    [objectManager addResponseDescriptor:[PLRestKitMonumentAll responseDescriptor]];
-    [objectManager addFetchRequestBlock:[PLRestKitMonumentAll fetchRequestBlock]];
-    
-    // Construction de la requête
-    NSURL *URL = [NSURL URLWithString:@"monument/all/?name=1_ok" relativeToURL:objectManager.baseURL];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL];
-    request.HTTPMethod = @"GET";
-    RKManagedObjectRequestOperation *requestOperation = [objectManager managedObjectRequestOperationWithRequest:request managedObjectContext:[[RKTestFactory managedObjectStore] persistentStoreManagedObjectContext] success:nil failure:nil];
-    
-    // Exécution de la requête
-    [requestOperation start];
-    [requestOperation waitUntilFinished];
-    
-    // Construction de la 2e requête
-    URL = [NSURL URLWithString:@"monument/all/?name=9_500" relativeToURL:objectManager.baseURL];
-    request = [NSMutableURLRequest requestWithURL:URL];
-    request.HTTPMethod = @"GET";
-    requestOperation = [objectManager managedObjectRequestOperationWithRequest:request managedObjectContext:[[RKTestFactory managedObjectStore] persistentStoreManagedObjectContext] success:nil failure:nil];
-    
-    // Exécution de la requête
-    [requestOperation start];
-    [requestOperation waitUntilFinished];
-    
-    // Vérification que la requête a réussi mais n'a pas été prise en compte
-    XCTAssertEqual(500, requestOperation.HTTPRequestOperation.response.statusCode, @"");
-    XCTAssertNotNil(requestOperation.error, @"");
-    XCTAssertEqual(-1011, [requestOperation.error code], @"");
-    
-    // Vérification du nombre d'objets reçus
-    XCTAssertEqual(0, [requestOperation.mappingResult count], @"");
-    
-    // Vérification du nombre d'objets enregistrés
-    XCTAssertEqual(3, [managedObjectContext countForEntityForName:@"PLMonument" predicate:nil error:nil], @"");
-    XCTAssertEqual(3, [managedObjectContext countForEntityForName:@"PLNodeOSM" predicate:nil error:nil], @"");
-    XCTAssertEqual(4, [managedObjectContext countForEntityForName:@"PLPersonnalite" predicate:nil error:nil], @"");
-    XCTAssertEqual(3, [managedObjectContext countForEntityForName:@"PLImageCommons" predicate:nil error:nil], @"");
-    
-    // Récupération des objets enregistrés
-    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"PLMonument"];
-    [fetchRequest setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"nomPourTri" ascending:YES]]];
-    NSArray *fetchedMonuments = [managedObjectContext executeFetchRequest:fetchRequest error:nil];
-    PLMonument *monument1 = [fetchedMonuments objectAtIndex:0];     // Famille d'Aboville
-    PLMonument *monument2 = [fetchedMonuments objectAtIndex:1];     // Jim Morrison
-    PLMonument *monument3 = [fetchedMonuments objectAtIndex:2];     // Mur des Fédérés
-    
-    // Vérification de la correspondance du résultat
-    
-    // Monuments
-    XCTAssertEqualObjects(@(227), monument1.id, @"");
-    XCTAssertEqualObjects(@(120), monument2.id, @"");
-    XCTAssertEqualObjects(@(164), monument3.id, @"");
-    
-    // Nodes OSM
-    XCTAssertEqualObjects(@(2649596674), monument1.nodeOSM.id, @"");
-    XCTAssertEqualObjects(@(1915793663), monument2.nodeOSM.id, @"");
-    XCTAssertEqualObjects(@(1152422864), monument3.nodeOSM.id, @"");
-    
-    // Images Commons
-    XCTAssertEqualObjects(@(1), monument1.imagePrincipale.id, @"");
-    XCTAssertEqualObjects(@(129), monument2.imagePrincipale.id, @"");
-    XCTAssertEqualObjects(@(200), monument3.imagePrincipale.id, @"");
-    
-    // Personnalités
-    XCTAssertEqual(3, [monument1.personnalites count], @"");
-    XCTAssertEqual(1, [monument2.personnalites count], @"");
-    XCTAssertEqual(0, [monument3.personnalites count], @"");
-    XCTAssertEqualObjects(@(272), ((PLPersonnalite *)[monument1.personnalites objectAtIndex:0]).id, @"");
-    XCTAssertEqualObjects(@(273), ((PLPersonnalite *)[monument1.personnalites objectAtIndex:1]).id, @"");
-    XCTAssertEqualObjects(@(230), ((PLPersonnalite *)[monument1.personnalites objectAtIndex:2]).id, @"");
-    XCTAssertEqualObjects(@(120), ((PLPersonnalite *)[monument2.personnalites objectAtIndex:0]).id, @"");
 }
 
 @end
