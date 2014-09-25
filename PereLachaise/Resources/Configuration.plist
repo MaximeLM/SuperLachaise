@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>URL Web Service - dev</key>
+	<string>http://localhost:8000/webservice/</string>
+	<key>URL Web Service - fixture</key>
+	<string>http://localhost:8000/testapplication/</string>
+	<key>URL Web Service - int</key>
+	<string>http://maximelemoine.alwaysdata.net/pere-lachaise-int/webservice/</string>
+	<key>URL Web Service</key>
+	<string>http://maximelemoine.alwaysdata.net/pere-lachaise/webservice/</string>
+	<key>iPhone</key>
+	<dict>
+		<key>Portrait</key>
+		<dict>
+			<key>Latitude initiale</key>
+			<real>48.860891</real>
+			<key>Longitude initiale</key>
+			<real>2.39396</real>
+		</dict>
+		<key>Paysage</key>
+		<dict>
+			<key>Latitude initiale</key>
+			<real>48.86115042</real>
+			<key>Longitude initiale</key>
+			<real>2.39395737</real>
+		</dict>
+		<key>Zoom initial</key>
+		<real>15.5</real>
+		<key>Zoom minimum</key>
+		<real>15.1</real>
+		<key>Zoom maximum</key>
+		<real>19</real>
+	</dict>
+	<key>iPad</key>
+	<dict>
+		<key>Portrait</key>
+		<dict>
+			<key>Latitude initiale</key>
+			<real>48.860472</real>
+			<key>Longitude initiale</key>
+			<real>2.394051</real>
+		</dict>
+		<key>Paysage</key>
+		<dict>
+			<key>Latitude initiale</key>
+			<real>48.86115</real>
+			<key>Longitude initiale</key>
+			<real>2.394061</real>
+		</dict>
+		<key>Zoom initial</key>
+		<real>16.5</real>
+		<key>Zoom minimum</key>
+		<real>16.1</real>
+		<key>Zoom maximum</key>
+		<real>19</real>
+	</dict>
+	<key>Map ID - retina</key>
+	<string>maximelm.gni4g2a8</string>
+	<key>Map ID - non retina</key>
+	<string>maximelm.map-vtdn6sx4</string>
+	<key>tileJSON - retina</key>
+	<string>tileJSON_retina.json</string>
+	<key>tileJSON - non retina</key>
+	<string>tileJSON_nonRetina.json</string>
+	<key>latitude min</key>
+	<real>48.851187</real>
+	<key>latitude max</key>
+	<real>48.869483</real>
+	<key>longitude min</key>
+	<real>2.382292</real>
+	<key>longitude max</key>
+	<real>2.406339</real>
+</dict>
+</plist>

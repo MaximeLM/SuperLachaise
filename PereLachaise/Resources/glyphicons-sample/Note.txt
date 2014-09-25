@@ -1,0 +1,3 @@
+Due to copyright constraints, the retina images (@2x) used in the application are not available here.
+
+The project can be built and deployed but the icons will look smaller on a retina display.

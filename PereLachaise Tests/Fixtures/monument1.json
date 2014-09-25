@@ -1,0 +1,32 @@
+{
+    "code_wikipedia": "Mur des Fédérés",
+    "id": 164,
+    "image_principale": {
+        "auteur": "Dayofmayofday",
+        "id": 200,
+        "licence": "CC0",
+        "nom": "Commune2011.jpg",
+        "url_original": "http://upload.wikimedia.org/wikipedia/commons/a/ab/Commune2011.jpg"
+    },
+    "node_osm": {
+        "id": 1152422864,
+        "latitude": "48.8597013",
+        "longitude": "2.4000175"
+    },
+    "nom": "Mur des Fédérés",
+    "nom_pour_tri": "Mur des Fédérés",
+    "personnalites": [
+        {
+            "activite": "chanteur français",
+            "code_wikipedia": "Alain Bashung",
+            "date_deces": "2009-03-14",
+            "date_deces_precision": "J",
+            "date_naissance": "1947-12-01",
+            "date_naissance_precision": "J",
+            "id": 207,
+            "nom": "Alain Bashung",
+            "resume": "<p><b>Alain Bashung</b>, né <b>Alain Baschung</b> (Paris,&#160;<a href=\"/wiki/1er_d%C3%A9cembre\">1<sup>er</sup></a>&#160;<a href=\"/wiki/D%C3%A9cembre_1947\">décembre</a>&#160;<a href=\"/wiki/1947\">1947</a> – Paris,&#160;<a href=\"/wiki/14_mars\">14</a>&#160;<a href=\"/wiki/Mars_2009\">mars</a>&#160;<a href=\"/wiki/2009\">2009</a>), est un <a href=\"/wiki/Auteur-compositeur-interpr%C3%A8te\">auteur-compositeur-interprète</a> et comédien <a href=\"/wiki/France\">français</a>. Il est devenu une figure importante de la <a href=\"/wiki/Chanson_fran%C3%A7aise\">chanson</a> et du <a href=\"/wiki/Rock_fran%C3%A7ais\">rock français</a> à partir du début des <a href=\"/wiki/Ann%C3%A9es_1980\">années 1980</a> et a influencé un grand nombre de chanteurs de la nouvelle scène française. Il est le chanteur le plus primé aux <a href=\"/wiki/Victoires_de_la_musique\">Victoires de la musique</a> avec 12 victoires obtenues tout au long de sa carrière.</p>"
+        }
+    ],
+    "resume": "<p>Le <b>mur des Fédérés</b> est une partie de l'enceinte du <a href=\"/wiki/Cimeti%C3%A8re_du_P%C3%A8re-Lachaise\">cimetière du Père-Lachaise</a>, à <a href=\"/wiki/Paris\">Paris</a>, devant laquelle, le <a href=\"/wiki/28_mai\">28</a>&#160;<a href=\"/wiki/Mai_1871\">mai</a>&#160;<a href=\"/wiki/1871\">1871</a>, cent quarante-sept Fédérés, combattants de la <a href=\"/wiki/Commune_de_Paris_(1871)\">Commune</a>, ont été fusillés et jetés dans une fosse ouverte au pied du mur par les Versaillais. Depuis lors, il symbolise la lutte pour la liberté et les idéaux des <a href=\"/wiki/Communard\">communards</a>, <a href=\"/wiki/Autogestion\">autogestionnaires</a>.</p>\n<p>Le mur est à l'angle sud-est du cimetière.</p>"
+}

@@ -1,0 +1,43 @@
+{
+    "code_wikipedia": "",
+    "id": 120,
+    "image_principale": {
+        "auteur": "PRA",
+        "id": 148,
+        "licence": "CC-BY-2.5",
+        "nom": "Tombeau d'Edith Piaf.JPG",
+        "url_original": "http://upload.wikimedia.org/wikipedia/commons/e/e7/Tombeau_d%27Edith_Piaf.JPG"
+    },
+    "node_osm": {
+        "id": 1915793663,
+        "latitude": "48.8592676",
+        "longitude": "2.3937520"
+    },
+    "nom": "Jim Morrison",
+    "nom_pour_tri": "Morrison",
+    "personnalites": [
+                      {
+                      "activite": "chanteur des Doors",
+                      "code_wikipedia": "Jim Morrison",
+                      "date_deces": "1971-07-03",
+                      "date_deces_precision": "J",
+                      "date_naissance": "1943-12-08",
+                      "date_naissance_precision": "J",
+                      "id": 120,
+                      "nom": "Nouveau nom",
+                      "resume": "Nouveau résumé"
+                      },
+                      {
+                      "activite": "militaire français, compagnon de la Libération",
+                      "code_wikipedia": "François d'Astier de La Vigerie",
+                      "date_deces": "1956-10-09",
+                      "date_deces_precision": "J",
+                      "date_naissance": "1886-03-07",
+                      "date_naissance_precision": "J",
+                      "id": 231,
+                      "nom": "François d'Astier de La Vigerie",
+                      "resume": "<p><b>François d'Astier de La Vigerie</b> est né au <a href=\"/wiki/Le_Mans\">Mans</a> le <a href=\"/wiki/7_mars\">7</a>&#160;<a href=\"/wiki/Mars_1886\">mars</a>&#160;<a href=\"/wiki/1886\">1886</a>, décédé à <a href=\"/wiki/Paris\">Paris</a> le <a href=\"/wiki/9_octobre\">9</a>&#160;<a href=\"/wiki/Octobre_1956\">octobre</a>&#160;<a href=\"/wiki/1956\">1956</a>. Militaire de carrière, il se remarqua surtout par ses faits d'armes dans la <a href=\"/wiki/R%C3%A9sistance_int%C3%A9rieure_fran%C3%A7aise\">Résistance</a> au cours de la <a href=\"/wiki/Seconde_Guerre_mondiale\">Seconde Guerre mondiale</a> et qui lui valurent d'être fait <a href=\"/wiki/Compagnon_de_la_Lib%C3%A9ration\">Compagnon de la Libération</a>.</p>\n<p>Il est le frère d'<a href=\"/wiki/Emmanuel_d%27Astier_de_la_Vigerie\">Emmanuel d'Astier de la Vigerie</a> et d'<a href=\"/wiki/Henri_d%27Astier_de_la_Vigerie\">Henri d'Astier de la Vigerie</a>.</p>"
+                      }
+                      ],
+    "resume": ""
+}

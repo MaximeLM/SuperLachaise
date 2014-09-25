@@ -1,0 +1,29 @@
+This database PLData is made available under the Open Database License: http://opendatacommons.org/licenses/odbl/1.0/. You are free to copy, distribute, transmit and adapt the data, as long as you credit SuperLachaise and its contributors. You are also required to comply with the following terms :
+
+- The "node_osm" objects with all their fields are derived from the OpenStreetMap database and are licensed under the Open Data Commons Open Database License : https://www.openstreetmap.org/copyright/
+- The following fields are extracted or derived from the Wikipedia project (http://en.wikipedia.org) ; their rights are licensed under the Creative Commons Attribution-Sharealike 3.0 Unported License (CC-BY-SA) and the GNU Free Documentation License (GFDL) :
+http://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License
+http://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License
+"resume"
+"personnalites.resume"
+- The following fields are extracted or derived from the Wikidata project (http://www.wikidata.org) ; their rights are licensed under the Creative Commons CC0 Licence :
+https://creativecommons.org/publicdomain/zero/1.0/
+"code_wikipedia"
+"nom"
+"nom_pour_tri"
+"personnalites.activite"
+"personnalites.code_wikipedia"
+"personnalites.date_naissance"
+"personnalites.date_deces"
+"personnalites.date_naissance_precision"
+"personnalites.date_deces_precision"
+"personnalites.nom"
+- The following fields are extracted or derived from the Wikimedia Commons project (http://commons.wikimedia.org) ; their rights are licensed under the Creative Commons Attribution/Share-Alike License (CC-BY-SA) :
+http://creativecommons.org/licenses/by-sa/3.0/
+"image_principale.auteur"
+"image_principale.licence"
+"image_principale.nom"
+"image_principale.url_original"
+- The rights of any other field of the database are licensed under the Database Contents License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+You can download an up-to-date extract of this database on the SuperLachaise Github project : https://github.com/MaximeLM/SuperLachaise

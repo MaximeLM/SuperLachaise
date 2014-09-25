@@ -1,0 +1,67 @@
+//
+//  Prefix header
+//
+//  The contents of this file are implicitly included at the beginning of every source file.
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_5_0
+#warning "This project uses features only available in iOS SDK 5.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <CoreData/CoreData.h>
+    #import <Foundation/Foundation.h>
+    #import <SystemConfiguration/SystemConfiguration.h>
+    #import <MobileCoreServices/MobileCoreServices.h>
+#endif
+
+// Niveaux de log
+#define TRACE 0
+#define INFO 1
+#define WARNING 2
+#define ERROR 3
+
+#define LOG_LEVEL WARNING
+
+#if LOG_LEVEL == TRACE
+    #define PLTrace(args...) NSLog(@"T [%@ %@] (line %d) %@", self, NSStringFromSelector(_cmd), __LINE__, [NSString stringWithFormat: args])
+    #define PLTraceIn(args...) NSLog(@"T in [%@ %@] (line %d) %@", self, NSStringFromSelector(_cmd), __LINE__, [NSString stringWithFormat: args])
+    #define PLTraceOut(args...) NSLog(@"T out [%@ %@] (line %d) %@", self, NSStringFromSelector(_cmd), __LINE__, [NSString stringWithFormat: args])
+    #define PLInfo(args...) NSLog(@"I [%@ %@] (line %d) %@", self, NSStringFromSelector(_cmd), __LINE__, [NSString stringWithFormat: args])
+    #define PLWarning(args...) NSLog(@"W [%@ %@] (line %d) %@", self, NSStringFromSelector(_cmd), __LINE__, [NSString stringWithFormat: args])
+    #define PLError(args...) NSLog(@"E [%@ %@] (line %d) %@", self, NSStringFromSelector(_cmd), __LINE__, [NSString stringWithFormat: args])
+#elif LOG_LEVEL == INFO
+    #define PLTrace(args...)
+    #define PLTraceIn(args...)
+    #define PLTraceOut(args...)
+    #define PLInfo(args...) NSLog(@"I [%@ %@] (line %d) %@", self, NSStringFromSelector(_cmd), __LINE__, [NSString stringWithFormat: args])
+    #define PLWarning(args...) NSLog(@"W [%@ %@] (line %d) %@", self, NSStringFromSelector(_cmd), __LINE__, [NSString stringWithFormat: args])
+    #define PLError(args...) NSLog(@"E [%@ %@] (line %d) %@", self, NSStringFromSelector(_cmd), __LINE__, [NSString stringWithFormat: args])
+#elif LOG_LEVEL == WARNING
+    #define PLTrace(args...)
+    #define PLTraceIn(args...)
+    #define PLTraceOut(args...)
+    #define PLInfo(args...)
+    #define PLWarning(args...) NSLog(@"W [%@ %@] (line %d) %@", self, NSStringFromSelector(_cmd), __LINE__, [NSString stringWithFormat: args])
+    #define PLError(args...) NSLog(@"E [%@ %@] (line %d) %@", self, NSStringFromSelector(_cmd), __LINE__, [NSString stringWithFormat: args])
+#elif LOG_LEVEL == ERROR
+    #define PLTrace(args...)
+    #define PLTraceIn(args...)
+    #define PLTraceOut(args...)
+    #define PLInfo(args...)
+    #define PLWarning(args...)
+    #define PLError(args...) NSLog(@"E [%@ %@] (line %d) %@", self, NSStringFromSelector(_cmd), __LINE__, [NSString stringWithFormat: args])
+#else
+    #define PLTrace(args...)
+    #define PLTraceIn(args...)
+    #define PLTraceOut(args...)
+    #define PLInfo(args...)
+    #define PLWarning(args...)
+    #define PLError(args...)
+#endif
+
+#define PLPostVersion7 (floor(NSFoundationVersionNumber) >  NSFoundationVersionNumber_iOS_6_1)
+#define PLPreVersion7  (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1)

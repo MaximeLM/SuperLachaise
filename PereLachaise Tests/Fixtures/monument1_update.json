@@ -1,0 +1,26 @@
+{
+    "code_wikipedia": "Mur des Fédérés",
+    "id": 164,
+    "image_principale": null,
+    "node_osm": {
+        "id": 1152422864,
+        "latitude": "42.4",
+        "longitude": "-42.4"
+    },
+    "nom": "Mur des Fédérés",
+    "nom_pour_tri": "Mur des Fédérés",
+    "personnalites": [
+                      {
+                      "activite": "Dramaturge français",
+                      "code_wikipedia": "Georges Courteline",
+                      "date_deces": "1929-06-25",
+                      "date_deces_precision": "J",
+                      "date_naissance": "1858-06-25",
+                      "date_naissance_precision": "J",
+                      "id": 76,
+                      "nom": "Georges Courteline",
+                      "resume": "<p><b>Georges Courteline</b>, nom de plume de <b>Georges Victor Marcel Moinaux</b> ou <b>Moineau</b>, est un <a href=\"/wiki/Roman_(litt%C3%A9rature)\">romancier</a> et <a href=\"/wiki/Dramaturge\">dramaturge</a> français, né le <a href=\"/wiki/25_juin\">25</a>&#160;<a href=\"/wiki/Juin_1858\">juin</a>&#160;<a href=\"/wiki/1858\">1858</a> à <a href=\"/wiki/Tours\">Tours</a>, mort le <a href=\"/wiki/25_juin\">25</a>&#160;<a href=\"/wiki/Juin_1929\">juin</a>&#160;<a href=\"/wiki/1929\">1929</a> à <a href=\"/wiki/Paris\">Paris</a>.</p>"
+                      }
+                      ],
+    "resume": "<p>Le <b>mur des Fédérés</b> est une partie de l'enceinte du <a href=\"/wiki/Cimeti%C3%A8re_du_P%C3%A8re-Lachaise\">cimetière du Père-Lachaise</a>, à <a href=\"/wiki/Paris\">Paris</a>, devant laquelle, le <a href=\"/wiki/28_mai\">28</a>&#160;<a href=\"/wiki/Mai_1871\">mai</a>&#160;<a href=\"/wiki/1871\">1871</a>, cent quarante-sept Fédérés, combattants de la <a href=\"/wiki/Commune_de_Paris_(1871)\">Commune</a>, ont été fusillés et jetés dans une fosse ouverte au pied du mur par les Versaillais. Depuis lors, il symbolise la lutte pour la liberté et les idéaux des <a href=\"/wiki/Communard\">communards</a>, <a href=\"/wiki/Autogestion\">autogestionnaires</a>.</p>\n<p>Le mur est à l'angle sud-est du cimetière.</p>"
+}

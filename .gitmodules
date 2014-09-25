@@ -1,0 +1,6 @@
+[submodule "RestKit"]
+	path = RestKit
+url=https://github.com/MaximeLM/RestKit.git
+[submodule "MapBox-iOS-SDK"]
+	path = MapBox-iOS-SDK
+	url = /Users/maximelemoine/pere_lachaise/Appli/MapBox-iOS-SDK

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="13E28" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="PLImageCommons" representedClassName="PLImageCommons" syncable="YES">
+        <attribute name="auteur" attributeType="String" minValueString="1" syncable="YES"/>
+        <attribute name="id" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="licence" attributeType="String" minValueString="1" syncable="YES"/>
+        <attribute name="nom" attributeType="String" minValueString="1" syncable="YES"/>
+        <attribute name="urlOriginal" attributeType="Transformable" syncable="YES"/>
+        <relationship name="monument" maxCount="1" deletionRule="Deny" destinationEntity="PLMonument" inverseName="imagePrincipale" inverseEntity="PLMonument" syncable="YES"/>
+    </entity>
+    <entity name="PLMonument" representedClassName="PLMonument" syncable="YES">
+        <attribute name="circuit" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="codeWikipedia" attributeType="String" syncable="YES"/>
+        <attribute name="id" attributeType="Integer 32" defaultValueString="0" indexed="YES" syncable="YES"/>
+        <attribute name="nom" attributeType="String" minValueString="1" syncable="YES"/>
+        <attribute name="nomPourTri" attributeType="String" minValueString="1" syncable="YES"/>
+        <attribute name="personnalitesCount" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="premiereLettreNomPourTri" optional="YES" attributeType="String" minValueString="1" maxValueString="1" syncable="YES"/>
+        <attribute name="resume" attributeType="String" syncable="YES"/>
+        <relationship name="imagePrincipale" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="PLImageCommons" inverseName="monument" inverseEntity="PLImageCommons" syncable="YES"/>
+        <relationship name="nodeOSM" maxCount="1" deletionRule="Cascade" destinationEntity="PLNodeOSM" inverseName="monument" inverseEntity="PLNodeOSM" syncable="YES"/>
+        <relationship name="personnalites" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="PLPersonnalite" inverseName="monument" inverseEntity="PLPersonnalite" syncable="YES"/>
+    </entity>
+    <entity name="PLNodeOSM" representedClassName="PLNodeOSM" syncable="YES">
+        <attribute name="id" attributeType="Integer 64" defaultValueString="0" indexed="YES" syncable="YES"/>
+        <attribute name="latitude" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="longitude" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="monument" maxCount="1" deletionRule="Deny" destinationEntity="PLMonument" inverseName="nodeOSM" inverseEntity="PLMonument" syncable="YES"/>
+    </entity>
+    <entity name="PLPersonnalite" representedClassName="PLPersonnalite" syncable="YES">
+        <attribute name="activite" attributeType="String" syncable="YES"/>
+        <attribute name="codeWikipedia" attributeType="String" syncable="YES"/>
+        <attribute name="dateDeces" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="dateDecesPrecision" attributeType="String" regularExpressionString="^[AMJ]$" syncable="YES"/>
+        <attribute name="dateNaissance" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="dateNaissancePrecision" attributeType="String" regularExpressionString="^[AMJ]$" syncable="YES"/>
+        <attribute name="id" attributeType="Integer 32" defaultValueString="0" indexed="YES" syncable="YES"/>
+        <attribute name="nom" attributeType="String" minValueString="1" syncable="YES"/>
+        <attribute name="resume" attributeType="String" syncable="YES"/>
+        <relationship name="monument" maxCount="1" deletionRule="Nullify" destinationEntity="PLMonument" inverseName="personnalites" inverseEntity="PLMonument" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="PLImageCommons" positionX="9" positionY="81" width="128" height="135"/>
+        <element name="PLMonument" positionX="0" positionY="0" width="128" height="208"/>
+        <element name="PLNodeOSM" positionX="0" positionY="0" width="128" height="103"/>
+        <element name="PLPersonnalite" positionX="0" positionY="0" width="128" height="193"/>
+    </elements>
+</model>

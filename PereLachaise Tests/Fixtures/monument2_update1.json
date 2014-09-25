@@ -1,0 +1,32 @@
+{
+    "code_wikipedia": "",
+    "id": 120,
+    "image_principale": {
+        "auteur": "test_auteur",
+        "id": 129,
+        "licence": "test_licence",
+        "nom": "test_nom",
+        "url_original": "test_url_original"
+    },
+    "node_osm": {
+        "id": 2661217171,
+        "latitude": "48.8605650",
+        "longitude": "2.3950620"
+    },
+    "nom": "Jim Morrison",
+    "nom_pour_tri": "Morrison",
+    "personnalites": [
+                      {
+                      "activite": "chanteur des Doors",
+                      "code_wikipedia": "Jim Morrison",
+                      "date_deces": "1971-07-03",
+                      "date_deces_precision": "J",
+                      "date_naissance": "1943-12-08",
+                      "date_naissance_precision": "J",
+                      "id": 120,
+                      "nom": "Jim Morrison",
+                      "resume": "<p><dfn>Jim Morrison</dfn> (né <b>James Douglas Morrison</b> le <a href=\"/wiki/8_d%C3%A9cembre\">8</a>&#160;<a href=\"/wiki/D%C3%A9cembre_1943\">décembre</a>&#160;<a href=\"/wiki/1943_en_musique\">1943</a> à <a href=\"/wiki/Melbourne_(Floride)\">Melbourne</a> (<a href=\"/wiki/Floride\">Floride</a>) aux <a href=\"/wiki/%C3%89tats-Unis\">États-Unis</a>, et mort le <a href=\"/wiki/3_juillet\">3</a>&#160;<a href=\"/wiki/Juillet_1971\">juillet</a>&#160;<a href=\"/wiki/1971_en_musique\">1971</a> à <a href=\"/wiki/Paris\">Paris</a>, en <a href=\"/wiki/France\">France</a>) est un <a href=\"/wiki/Chanteur\">chanteur</a>, <a href=\"/wiki/Cin%C3%A9aste\">cinéaste</a> et <a href=\"/wiki/Po%C3%A8te\">poète</a> <a href=\"/wiki/%C3%89tats-Unis\">américain</a>, cofondateur du groupe de <a href=\"/wiki/Rock\">rock</a> américain <a href=\"/wiki/The_Doors\">The Doors</a>, dont il fut membre de 1965 à sa mort.</p>\n<p><a href=\"/wiki/Sex-symbol\">Sex-symbol</a> provocant au comportement volontairement excessif, devenu une véritable idole de la <a href=\"/wiki/Musique_rock\">musique rock</a>, mais aussi intellectuel engagé dans le mouvement du <a href=\"/wiki/Protest_song\">protest song</a>, en particulier contre la <a href=\"/wiki/Guerre_du_Vi%C3%AAt_Nam\">guerre du Viêt Nam</a>, attiré par le <a href=\"/wiki/Chamanisme\">chamanisme</a>, on lui attribue une réputation de «&#160;<a href=\"/wiki/Po%C3%A8te_maudit\">poète maudit</a>&#160;» que sa mort prématurée, à Paris, dans des circonstances mal élucidées, transforme en légende, notamment fondatrice de ce qui est connu sous le nom de <a href=\"/wiki/Club_des_27\">Club des 27</a>.</p>\n<p>Le culte que lui vouent ses fans éclipse cependant une œuvre poétique d'une grande richesse que Morrison lui-même a pu considérer comme sa principale activité, au moins à partir de l'été 1968.</p>"
+                      }
+                      ],
+    "resume": ""
+}

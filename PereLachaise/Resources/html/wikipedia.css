@@ -1,0 +1,63 @@
+<style>
+body {background-color:#f3f0eb;}
+
+a {
+    -webkit-background-clip: border-box;
+    -webkit-background-origin: padding-box;
+    -webkit-background-size: auto;
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: rgba(0, 0, 0, 0);
+    background-image: none;
+    background-origin: padding-box;
+    background-size: auto;
+    color: rgb(6, 69, 173);
+    direction: ltr;
+    display: inline;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    height: auto;
+    line-height: 21px;
+    text-decoration: none;
+    width: auto;
+}
+
+dfn {
+    color: rgb(37, 37, 37);
+    direction: ltr;
+    display: inline;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: bold;
+    height: auto;
+    line-height: 21px;
+    width: auto;
+}
+
+p {
+    color: rgb(37, 37, 37);
+    direction: ltr;
+    display: block;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 21px;
+    margin-bottom: 7px;
+    margin-left: 10px;
+    margin-right: 0px;
+    margin-top: 7px;
+}
+
+sup {
+    color: rgb(37, 37, 37);
+    cursor: help;
+    direction: ltr;
+    display: inline;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    height: auto;
+    line-height: 11px;
+    width: auto;
+}
+
+</style>

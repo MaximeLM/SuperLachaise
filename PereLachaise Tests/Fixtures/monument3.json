@@ -1,0 +1,32 @@
+{
+    "code_wikipedia": "",
+    "id": 218,
+    "image_principale": {
+        "auteur": "PRA",
+        "id": 148,
+        "licence": "CC-BY-2.5",
+        "nom": "Tombeau d'Edith Piaf.JPG",
+        "url_original": "http://upload.wikimedia.org/wikipedia/commons/e/e7/Tombeau_d%27Edith_Piaf.JPG"
+    },
+    "node_osm": {
+        "id": 1915793634,
+        "latitude": "48.8596833",
+        "longitude": "2.3988939"
+    },
+    "nom": "Édith Piaf",
+    "nom_pour_tri": "Édith",
+    "personnalites": [
+                      {
+                      "activite": "chanteuse française",
+                      "code_wikipedia": "Édith Piaf",
+                      "date_deces": "1963-10-10",
+                      "date_deces_precision": "J",
+                      "date_naissance": "1915-12-19",
+                      "date_naissance_precision": "J",
+                      "id": 220,
+                      "nom": "Édith Piaf",
+                      "resume": "<p><b>Édith Piaf</b>, née <b>Édith Giovanna Gassion</b> le <a href=\"/wiki/19_d%C3%A9cembre\">19</a>&#160;<a href=\"/wiki/D%C3%A9cembre_1915\">décembre</a>&#160;<a href=\"/wiki/1915\">1915</a> à <a href=\"/wiki/Paris\">Paris</a> et morte le <a href=\"/wiki/10_octobre\">10</a>&#160;<a href=\"/wiki/Octobre_1963\">octobre</a>&#160;<a href=\"/wiki/1963\">1963</a> à <a href=\"/wiki/Grasse\">Grasse</a>, est une <a href=\"/wiki/Chanteuse\">chanteuse</a> <a href=\"/wiki/France\">française</a> de <a href=\"/wiki/Music-hall\">music-hall</a>. Elle est l'une des dernières interprètes de la <a href=\"/wiki/Chanson_r%C3%A9aliste\">chanson réaliste</a> française. Cinquante ans après sa mort, elle demeure la plus célèbre chanteuse francophone à travers le monde.</p>\n<p>Surnommée à ses débuts «&#160;la Môme Piaf&#160;», elle est à l'origine de nombreux succès devenus des classiques du répertoire, comme <i><a href=\"/wiki/La_Vie_en_rose\">La Vie en rose</a></i>, <i><a href=\"/wiki/Non,_je_ne_regrette_rien\">Non, je ne regrette rien</a></i>, l'<i><a href=\"/wiki/Hymne_%C3%A0_l%27amour\">Hymne à l'amour</a></i>, <i><a href=\"/wiki/Mon_l%C3%A9gionnaire\">Mon légionnaire</a></i>, <i><a href=\"/wiki/La_Foule_(chanson)\">La Foule</a></i>, <i><a href=\"/wiki/Milord\">Milord</a></i>, <i><a href=\"/wiki/Mon_Dieu\">Mon Dieu</a></i> ou encore <i><a href=\"/wiki/L%27Accord%C3%A9oniste\">L'Accordéoniste</a></i>.</p>\n<p>Chanteuse à l'interprétation et la voix saisissante, elle a inspiré de nombreux compositeurs, a été le mentor d'artistes plus jeunes tels qu'<a href=\"/wiki/Yves_Montand\">Yves Montand</a>, <a href=\"/wiki/Charles_Aznavour\">Charles Aznavour</a>, <a href=\"/wiki/Les_Compagnons_de_la_chanson\">Les Compagnons de la chanson</a>, <a href=\"/wiki/Georges_Moustaki\">Georges Moustaki</a>, et a connu une renommée internationale, malgré une fin de carrière rendue difficile par de graves problèmes de santé et une mort survenue à seulement 47 ans.</p>"
+                      }
+                      ],
+    "resume": ""
+}
