@@ -47,7 +47,5 @@
 	</array>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>La localisation permet d&apos;afficher votre position dans le cimetière.</string>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>La localisation permet d&apos;afficher votre position dans le cimetière.</string>
 </dict>
 </plist>
