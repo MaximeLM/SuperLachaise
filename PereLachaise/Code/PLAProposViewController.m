@@ -84,6 +84,17 @@
     PLTraceOut(@"");
 }
 
+- (IBAction)rateThisAppButtonAction:(id)sender
+{
+    PLTraceIn(@"");
+    
+    // Redirection vers l'App Store
+    NSString *iTunesLink = @"https://itunes.apple.com/fr/app/super-lachaise/id918263934?mt=8";
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:iTunesLink]];
+    
+    PLTraceOut(@"");
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     NSInteger result;

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		552112A319DB41AC007DA071 /* glyphicons_343_thumbs_up_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 552112A119DB41AC007DA071 /* glyphicons_343_thumbs_up_selected.png */; };
+		552112A419DB41AC007DA071 /* glyphicons_343_thumbs_up_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 552112A119DB41AC007DA071 /* glyphicons_343_thumbs_up_selected.png */; };
+		552112A519DB41AC007DA071 /* glyphicons_343_thumbs_up_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 552112A219DB41AC007DA071 /* glyphicons_343_thumbs_up_selected@2x.png */; };
+		552112A619DB41AC007DA071 /* glyphicons_343_thumbs_up_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 552112A219DB41AC007DA071 /* glyphicons_343_thumbs_up_selected@2x.png */; };
 		553F2F6C19CC6E2100A977D3 /* LICENCE_database.txt in Resources */ = {isa = PBXBuildFile; fileRef = 553F2F6B19CC646900A977D3 /* LICENCE_database.txt */; };
 		553F2F6D19CC6E2200A977D3 /* LICENCE_database.txt in Resources */ = {isa = PBXBuildFile; fileRef = 553F2F6B19CC646900A977D3 /* LICENCE_database.txt */; };
 		553F2F6F19CC6E8B00A977D3 /* LICENCE_glyphicons.txt in Resources */ = {isa = PBXBuildFile; fileRef = 553F2F6E19CC6E8B00A977D3 /* LICENCE_glyphicons.txt */; };
@@ -755,6 +759,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		552112A119DB41AC007DA071 /* glyphicons_343_thumbs_up_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = glyphicons_343_thumbs_up_selected.png; path = glyphicons/glyphicons_343_thumbs_up_selected.png; sourceTree = "<group>"; };
+		552112A219DB41AC007DA071 /* glyphicons_343_thumbs_up_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "glyphicons_343_thumbs_up_selected@2x.png"; path = "glyphicons/glyphicons_343_thumbs_up_selected@2x.png"; sourceTree = "<group>"; };
 		553F2F6B19CC646900A977D3 /* LICENCE_database.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = LICENCE_database.txt; path = database/LICENCE_database.txt; sourceTree = "<group>"; };
 		553F2F6E19CC6E8B00A977D3 /* LICENCE_glyphicons.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENCE_glyphicons.txt; path = glyphicons/LICENCE_glyphicons.txt; sourceTree = "<group>"; };
 		553F2F7119D34CBF00A977D3 /* LICENCE_commons.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENCE_commons.txt; sourceTree = "<group>"; };
@@ -1740,6 +1746,8 @@
 				55EA7FBC19CA61A9007137BA /* glyphicons_233_direction_selected@2x.png */,
 				55EA7FBD19CA61A9007137BA /* glyphicons_233_direction.png */,
 				55EA7FBE19CA61A9007137BA /* glyphicons_233_direction@2x.png */,
+				552112A119DB41AC007DA071 /* glyphicons_343_thumbs_up_selected.png */,
+				552112A219DB41AC007DA071 /* glyphicons_343_thumbs_up_selected@2x.png */,
 			);
 			name = glyphicons;
 			sourceTree = "<group>";
@@ -2028,6 +2036,7 @@
 				55C673DE19C1D21E00525D61 /* Père-Lachaise - Division 35 - Ponce 01.jpg in Resources */,
 				55C6740419C1D21E00525D61 /* Père-Lachaise - Division 92 - Aubin 01.jpg in Resources */,
 				554DC2D51904716A0019022E /* Perelachaise-Rossini-p1000343.jpg in Resources */,
+				552112A319DB41AC007DA071 /* glyphicons_343_thumbs_up_selected.png in Resources */,
 				55EA7FF019CA62EF007137BA /* a_propos_2.html in Resources */,
 				554DC33F1904716A0019022E /* Père-Lachaise - Division 42 - Mouloudji - 02.jpg in Resources */,
 				55EA7FD719CA61A9007137BA /* glyphicons_195_circle_info.png in Resources */,
@@ -2101,6 +2110,7 @@
 				554DC3071904716A0019022E /* Père-Lachaise - Division 22 - Karel Appel 01.jpg in Resources */,
 				554DC40B1904716A0019022E /* Tombeau des RASPAIL au Père Lachaise.JPG in Resources */,
 				554DC31D1904716A0019022E /* Père-Lachaise - Division 28 - Foy 05.jpg in Resources */,
+				552112A519DB41AC007DA071 /* glyphicons_343_thumbs_up_selected@2x.png in Resources */,
 				554DC3FD1904716A0019022E /* Tombe de Sophie Daumier - Père Lachaise.JPG in Resources */,
 				554AB32C19D35AFA004EC22D /* Main_iPhone.storyboard in Resources */,
 				554DC2AD1904716A0019022E /* Guillaume Apollinaire (Père Lachaise).jpg in Resources */,
@@ -2277,6 +2287,7 @@
 				554DC3961904716A0019022E /* Père-Lachaise - Édouard Branly 01.jpg in Resources */,
 				554DC2BC1904716A0019022E /* Merleau-Ponty's grave.jpeg in Resources */,
 				554DC3FA1904716A0019022E /* Tombe de René Panhard - Père Lachaise.JPG in Resources */,
+				552112A619DB41AC007DA071 /* glyphicons_343_thumbs_up_selected@2x.png in Resources */,
 				554DC2F21904716A0019022E /* Père-Lachaise - Division 16 - Ugür Hüküm 01.jpg in Resources */,
 				554DC3E61904716A0019022E /* Tombe de Jim Morrison - Père Lachaise.jpg in Resources */,
 				554DC3C61904716A0019022E /* Tombe Barras.jpg in Resources */,
@@ -2432,6 +2443,7 @@
 				55EA7FDC19CA61A9007137BA /* glyphicons_233_direction_selected.png in Resources */,
 				554DC3B41904716A0019022E /* Pierre Desproges (Père Lachaise).jpg in Resources */,
 				55EA7FFA19CA6338007137BA /* tileJSON_retina.json in Resources */,
+				552112A419DB41AC007DA071 /* glyphicons_343_thumbs_up_selected.png in Resources */,
 				553F2F6C19CC6E2100A977D3 /* LICENCE_database.txt in Resources */,
 				554DC32A1904716A0019022E /* Père-Lachaise - Division 38 - Dupuytren 01.jpg in Resources */,
 				554DC39C1904716A0019022E /* Père-Lachaise - Georges Guët 01.jpg in Resources */,

@@ -27,6 +27,8 @@
 
 - (IBAction)doneButtonAction:(id)sender;
 
+- (IBAction)rateThisAppButtonAction:(id)sender;
+
 @property (nonatomic, weak) IBOutlet UITableView *osmTable;
 
 @property (nonatomic, weak) IBOutlet UIWebView *webView1;
