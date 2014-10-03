@@ -438,7 +438,7 @@
     NSString *mapID;
     NSString *tileJSONFile;
     if ([[UIScreen mainScreen] respondsToSelector:@selector(displayLinkWithTarget:selector:)] &&
-        ([UIScreen mainScreen].scale == 2.0)) {
+        ([UIScreen mainScreen].scale > 1.0)) {
         PLInfo(@"Retina display");
         mapID = [configuration objectForKey:@"Map ID - retina"];
         tileJSONFile = [configuration objectForKey:@"tileJSON - retina"];
