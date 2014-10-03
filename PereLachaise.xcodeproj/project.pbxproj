@@ -421,6 +421,8 @@
 		554DC4121904716A0019022E /* Verse on Back - Tomb of Oscar Wilde.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 554DC27F1904716A0019022E /* Verse on Back - Tomb of Oscar Wilde.jpg */; };
 		554DC4131904716A0019022E /* Zénobe-Théophile Gramme (Père Lachaise).jpg in Resources */ = {isa = PBXBuildFile; fileRef = 554DC2801904716A0019022E /* Zénobe-Théophile Gramme (Père Lachaise).jpg */; };
 		554DC4141904716A0019022E /* Zénobe-Théophile Gramme (Père Lachaise).jpg in Resources */ = {isa = PBXBuildFile; fileRef = 554DC2801904716A0019022E /* Zénobe-Théophile Gramme (Père Lachaise).jpg */; };
+		556F1C6419DF0C6700A8C73E /* LICENCE_assets.txt in Resources */ = {isa = PBXBuildFile; fileRef = 556F1C6319DF0C6700A8C73E /* LICENCE_assets.txt */; };
+		556F1C6519DF0C6700A8C73E /* LICENCE_assets.txt in Resources */ = {isa = PBXBuildFile; fileRef = 556F1C6319DF0C6700A8C73E /* LICENCE_assets.txt */; };
 		557E3F5A182C5792005EDE91 /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 557E3F51182C56BB005EDE91 /* libRestKit.a */; };
 		557E3F5D182C57AE005EDE91 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 557E3F5B182C57AE005EDE91 /* CFNetwork.framework */; };
 		557E3F5E182C57AE005EDE91 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 557E3F5C182C57AE005EDE91 /* CoreData.framework */; };
@@ -968,6 +970,7 @@
 		554DC27E1904716A0019022E /* Tombelefebvre.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Tombelefebvre.JPG; sourceTree = "<group>"; };
 		554DC27F1904716A0019022E /* Verse on Back - Tomb of Oscar Wilde.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Verse on Back - Tomb of Oscar Wilde.jpg"; sourceTree = "<group>"; };
 		554DC2801904716A0019022E /* Zénobe-Théophile Gramme (Père Lachaise).jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Zénobe-Théophile Gramme (Père Lachaise).jpg"; sourceTree = "<group>"; };
+		556F1C6319DF0C6700A8C73E /* LICENCE_assets.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENCE_assets.txt; path = Images.xcassets/LICENCE_assets.txt; sourceTree = "<group>"; };
 		557E3F48182C56BA005EDE91 /* RestKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RestKit.xcodeproj; path = RestKit/RestKit.xcodeproj; sourceTree = "<group>"; };
 		557E3F5B182C57AE005EDE91 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		557E3F5C182C57AE005EDE91 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -1527,6 +1530,7 @@
 				55EA7F1319CA5E6A007137BA /* PLAppDelegate.h */,
 				55EA7F1419CA5E6A007137BA /* PLAppDelegate.m */,
 				557E7E621823C1F100FF586B /* Images.xcassets */,
+				556F1C6319DF0C6700A8C73E /* LICENCE_assets.txt */,
 				55D7576218D61525006C5566 /* Configuration */,
 				55DA579C184A1756000D80EC /* CoreData */,
 				554AB32419D35AE2004EC22D /* Interface */,
@@ -1989,6 +1993,7 @@
 				553F2F7219D34CBF00A977D3 /* LICENCE_commons.txt in Resources */,
 				554DC3031904716A0019022E /* Père-Lachaise - Division 21 - Marceau 01.jpg in Resources */,
 				554DC3631904716A0019022E /* Père-Lachaise - Division 7 - Abélard 17.jpg in Resources */,
+				556F1C6419DF0C6700A8C73E /* LICENCE_assets.txt in Resources */,
 				55C673F219C1D21E00525D61 /* Père-Lachaise - Division 49 - Lamy 01.jpg in Resources */,
 				554DC3C71904716A0019022E /* Tombe Benjamin Constant.jpg in Resources */,
 				554DC2911904716A0019022E /* Cimetière du Père Lachaise tombe de Claude Chappe.jpg in Resources */,
@@ -2302,6 +2307,7 @@
 				55C673CB19C1D21E00525D61 /* Père-Lachaise - Adolphe Itasse 04.jpg in Resources */,
 				554DC39E1904716A0019022E /* Père-Lachaise - Ignace Joseph Pleyel 04.jpg in Resources */,
 				55C673D519C1D21E00525D61 /* Père-Lachaise - Division 31 - André 01.jpg in Resources */,
+				556F1C6519DF0C6700A8C73E /* LICENCE_assets.txt in Resources */,
 				554DC2D41904716A0019022E /* PereLachaise Charles Etienne Ruty.jpg in Resources */,
 				554DC3461904716A0019022E /* Père-Lachaise - Division 45 - Holgado 01.jpg in Resources */,
 				554DC3221904716A0019022E /* Père-Lachaise - Division 28 - Wallace 01.jpg in Resources */,
