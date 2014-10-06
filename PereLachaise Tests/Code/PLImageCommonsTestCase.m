@@ -166,6 +166,53 @@
     XCTAssertEqualObjects(expectedString, [urlCommons absoluteString], @"");
 }
 
+#pragma mark - imageExistsInBundle
+
+// Vérifie que la méthode renvoie le résultat attendu quand l'image existe
+- (void)testImageExistsInBundleExists
+{
+    // Récupération du managed object context
+    NSManagedObjectContext *managedObjectContext = [[RKTestFactory managedObjectStore] persistentStoreManagedObjectContext];
+    
+    // Chargement de la fixture
+    id parsedJSON = [RKTestFixture parsedObjectWithContentsOfFixture:@"imageCommons1.json"];
+    
+    // Création et exécution du test de mapping
+    RKMappingTest *mappingTest = [RKMappingTest testForMapping:[PLRestKitMapping imageCommonsMapping] sourceObject:parsedJSON destinationObject:nil];
+    mappingTest.managedObjectContext = managedObjectContext;
+    [mappingTest performMapping];
+    
+    // Récupération du résultat
+    PLImageCommons *imageCommons = [mappingTest destinationObject];
+    
+    // Vérification du résultat
+    XCTAssertTrue([imageCommons imageExistsInBundle], @"");
+}
+
+// Vérifie que la méthode renvoie le résultat attendu quand l'image n'existe pas
+- (void)testImageExistsInBundleNotExists
+{
+    // Récupération du managed object context
+    NSManagedObjectContext *managedObjectContext = [[RKTestFactory managedObjectStore] persistentStoreManagedObjectContext];
+    
+    // Chargement de la fixture
+    id parsedJSON = [RKTestFixture parsedObjectWithContentsOfFixture:@"imageCommons1.json"];
+    
+    // Création et exécution du test de mapping
+    RKMappingTest *mappingTest = [RKMappingTest testForMapping:[PLRestKitMapping imageCommonsMapping] sourceObject:parsedJSON destinationObject:nil];
+    mappingTest.managedObjectContext = managedObjectContext;
+    [mappingTest performMapping];
+    
+    // Récupération du résultat
+    PLImageCommons *imageCommons = [mappingTest destinationObject];
+    
+    // Modification du nom de l'image
+    imageCommons.nom = @"not_exist.jpg";
+    
+    // Vérification du résultat
+    XCTAssertFalse([imageCommons imageExistsInBundle], @"");
+}
+
 #pragma mark - Contraintes
 
 // Vérifie que les contraintes de l'entité sont conformes ; cas nominal OK

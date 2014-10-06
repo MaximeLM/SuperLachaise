@@ -58,4 +58,21 @@
     return result;
 }
 
+- (BOOL)imageExistsInBundle
+{
+    PLTraceIn(@"");
+    
+    BOOL result = NO;
+    
+    // Rechercher de l'image dans le bundle principal
+    NSString *imagePath = [[NSBundle mainBundle] pathForResource:self.nom ofType:nil];
+    
+    if (imagePath) {
+        result = YES;
+    }
+    
+    PLTraceOut(@"result: %d", result);
+    return result;
+}
+
 @end

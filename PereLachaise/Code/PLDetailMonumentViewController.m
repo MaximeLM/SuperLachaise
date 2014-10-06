@@ -157,7 +157,12 @@ static NSString *kImageCommonsCell = @"ImageCommons";
     
     // Image Commons
     if (self.monument.imagePrincipale) {
-        [listCells addObject:kImageCommonsCell];
+        // Vérification que l'image associée existe dans le bundle de l'application
+        if ([self.monument.imagePrincipale imageExistsInBundle]) {
+            [listCells addObject:kImageCommonsCell];
+        } else {
+            PLWarning(@"Aucune image trouvée pour le monument %@", self.monument.nom);
+        }
     }
     
     // Wikipédia

@@ -31,4 +31,7 @@
 // Renvoie l'URL de la page Wikimedia Commons associée
 @property(nonatomic, readonly) NSURL *commonsURL;
 
+// Indique si le fichier image associé existe dans le bundle
+- (BOOL)imageExistsInBundle;
+
 @end
