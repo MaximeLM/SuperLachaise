@@ -332,17 +332,17 @@
 {
     PLTraceIn(@"");
     
-    // Construction de la vue
-    RMMapView *mapView = [[RMMapView alloc] initWithFrame:self.view.bounds];
-    
-    // Configuration du layout
-    [mapView setAutoresizingMask:(UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight)];
-    
     // Récupération de la configuration de la carte
     NSDictionary *mapConfiguration = [self getMapConfiguration];
     
     // Construction de la source cartographique
-    mapView.tileSource = [self makeMapBoxSourceWithMapConfiguration:mapConfiguration];
+    id<RMTileSource> tileSource = [self makeMapBoxSourceWithMapConfiguration:mapConfiguration];
+    
+    // Construction de la vue
+    RMMapView *mapView = [[RMMapView alloc] initWithFrame:self.view.bounds andTilesource:tileSource];
+    
+    // Configuration du layout
+    [mapView setAutoresizingMask:(UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight)];
     
     // Limites de position
     NSNumber *latitudeMin = (NSNumber *)[mapConfiguration objectForKey:@"latitude min"];
@@ -387,16 +387,8 @@
 - (RMMapboxSource *)makeMapBoxSourceWithMapConfiguration:(NSDictionary *)mapConfiguration {
     PLTraceIn(@"");
     
-#if TARGET_IPHONE_SIMULATOR
-    PLInfo(@"target simulator");
-    
-    // Construction à partir d'un exemple (dev)
-    RMMapboxSource *mapBoxSource = [[RMMapboxSource alloc] init];
-#else
-    PLInfo(@"target int/prod");
     // Construction à partir du tileJSON
     RMMapboxSource *mapBoxSource = [[RMMapboxSource alloc] initWithTileJSON:[mapConfiguration objectForKey:@"tileJSON"]];
-#endif
     
     NSAssert(mapBoxSource, nil);
     PLTraceOut(@"return: %@",mapBoxSource);
@@ -434,19 +426,18 @@
         orientationConfiguration = [deviceConfiguration objectForKey:@"Paysage"];
     }
     
-    // Récupération du Map ID correspondant à la définition de l'écran
+    // Récupération du Map ID
     NSString *mapID;
     NSString *tileJSONFile;
-    if ([[UIScreen mainScreen] respondsToSelector:@selector(displayLinkWithTarget:selector:)] &&
-        ([UIScreen mainScreen].scale > 1.0)) {
-        PLInfo(@"Retina display");
-        mapID = [configuration objectForKey:@"Map ID - retina"];
-        tileJSONFile = [configuration objectForKey:@"tileJSON - retina"];
-    } else {
-        PLInfo(@"non-Retina display");
-        mapID = [configuration objectForKey:@"Map ID - non retina"];
-        tileJSONFile = [configuration objectForKey:@"tileJSON - non retina"];
-    }
+#if DEBUG
+    PLInfo(@"Debug map");
+    mapID = [configuration objectForKey:@"Map ID - debug"];
+    tileJSONFile = [configuration objectForKey:@"tileJSON - debug"];
+#else
+    PLInfo(@"Release map");
+    mapID = [configuration objectForKey:@"Map ID - release"];
+    tileJSONFile = [configuration objectForKey:@"tileJSON - release"];
+#endif
     
     // Récupération du bundle de l'application
     NSBundle *mainBundle = [NSBundle mainBundle];
