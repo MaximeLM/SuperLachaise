@@ -102,11 +102,6 @@
 // Le controleur de récupération des monuments du circuit
 @property (nonatomic, strong) NSFetchedResultsController *circuitFetchedResultsController;
 
-#pragma mark - Affichage de la liste des monuments
-
-// Bascule de l'affichage du panneau de gauche (iPad)
-- (IBAction)toggleLeftPanel:(id)sender;
-
 #pragma mark - Annotations
 
 // La liste des annotations actuellement affichées, indexée par monument
@@ -404,7 +399,7 @@
     
     // Récupération de la configuration spécifique à l'appareil (iPhone ou iPad)
     NSDictionary *deviceConfiguration = nil;
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+    if (PLIPhone) {
         // iPhone
         PLInfo(@"deviceConfiguration iPhone");
         deviceConfiguration = [configuration objectForKey:@"iPhone"];
@@ -416,7 +411,7 @@
     
     // Récupération de la configuration spécifique à l'orientation initiale de l'appareil (portrait ou paysage)
     NSDictionary *orientationConfiguration = nil;
-    if (UIInterfaceOrientationIsPortrait([[UIApplication sharedApplication] statusBarOrientation])) {
+    if (PLPortrait) {
         PLInfo(@"orientationConfiguration portrait");
         // Portrait
         orientationConfiguration = [deviceConfiguration objectForKey:@"Portrait"];
@@ -492,7 +487,7 @@
     PLTraceIn(@"");
     
     CGFloat borderWidth;
-    if (PLPostVersion7) {
+    if (PLRetina) {
         borderWidth = 0.5;
     } else {
         borderWidth = 1.0;
@@ -740,51 +735,7 @@
 {
     PLTraceIn(@"");
     
-    if (self.leftPanel) {
-        PLInfo(@"iPad");
-        [self toggleLeftPanel:self];
-    } else {
-        PLInfo(@"iPhone");
-        [self dismissViewControllerAnimated:YES completion:nil];
-    }
-    
-    PLTraceOut(@"");
-}
-
-- (IBAction)toggleLeftPanel:(id)sender
-{
-    PLTraceIn(@"");
-    
-    if (!_leftPanelVisible) {
-        CGFloat newConstraint = 0.0;
-        PLInfo(@"Affichage, leftPanelLeadingConstraint.constant old: %f new: %f", self.leftPanelLeadingConstraint.constant, newConstraint);
-        
-        _leftPanelVisible = YES;
-        self.leftPanel.hidden = NO;
-        
-        [UIView animateWithDuration:0.3 delay:0.0 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
-            self.leftPanelLeadingConstraint.constant = newConstraint;
-            [self.view layoutIfNeeded];
-        }completion:^(BOOL finished){
-            self.leftPanel.hidden = NO;
-            
-            PLInfo(@"Fin affichage finished:%d hidden:%d constraint:%f", finished, self.leftPanel.hidden, self.leftPanelLeadingConstraint.constant);
-        }];
-    } else {
-        CGFloat newConstraint = -self.leftPanel.frame.size.width;
-        PLInfo(@"Retrait, leftPanelLeadingConstraint.constant old: %f new: %f", self.leftPanelLeadingConstraint.constant, newConstraint);
-        
-        _leftPanelVisible = NO;
-        
-        [UIView animateWithDuration:0.3 delay:0.0 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
-            self.leftPanelLeadingConstraint.constant = newConstraint;
-            [self.view layoutIfNeeded];
-        }completion:^(BOOL finished){
-            self.leftPanel.hidden = YES;
-            
-            PLInfo(@"Fin retrait finished:%d hidden:%d constraint:%f",finished,self.leftPanel.hidden,self.leftPanelLeadingConstraint.constant);
-        }];
-    }
+    [self dismissViewControllerAnimated:YES completion:nil];
     
     PLTraceOut(@"");
 }
@@ -1112,53 +1063,6 @@
         
         // forcePosition = YES au cas où l'animation de la carte a été interrompue
         [self trySelectMonument:self.selectedMonument forcePosition:YES];
-    }
-    
-    PLTraceOut(@"");
-}
-
-- (void)tapOnCalloutAccessoryControl:(UIControl *)control forAnnotation:(RMAnnotation *)annotation onMap:(RMMapView *)map
-{
-    PLTraceIn(@"annotation: %@",annotation);
-    
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
-        // iPhone
-        UINavigationController *navigationController = [[self storyboard] instantiateViewControllerWithIdentifier:@"Navigation Controller"];
-        PLSearchViewController *searchViewController = (PLSearchViewController *)[navigationController topViewController];
-        searchViewController.mapViewController = self;
-        
-        PLDetailMonumentViewController *detailViewController = [[self storyboard] instantiateViewControllerWithIdentifier:@"DetailMonument"];
-        detailViewController.monument = annotation.userInfo;
-        detailViewController.mapViewController = self;
-        
-        [navigationController pushViewController:detailViewController animated:NO];
-        [self presentViewController:navigationController animated:YES completion:nil];
-    } else {
-        // iPad
-        UINavigationController *navigationController = [self.childViewControllers objectAtIndex:0];
-        
-        UIViewController *topViewController = [navigationController topViewController];
-        PLDetailMonumentViewController *detailViewController;
-        
-        if ([topViewController isKindOfClass:[PLDetailMonumentViewController class]]) {
-            detailViewController = (PLDetailMonumentViewController *)topViewController;
-        } else if ([topViewController isKindOfClass:[PLSearchViewController class]]) {
-            detailViewController = [[self storyboard] instantiateViewControllerWithIdentifier:@"DetailMonument"];
-            detailViewController.mapViewController = self;
-        } else {
-            for (UIViewController *viewController in navigationController.viewControllers) {
-                if ([viewController isKindOfClass:[PLDetailMonumentViewController class]]) {
-                    detailViewController = (PLDetailMonumentViewController *)viewController;
-                    [navigationController popToViewController:detailViewController animated:_leftPanelVisible];
-                    break;
-                }
-            }
-        }
-        
-        detailViewController.monument = annotation.userInfo;
-        if (!_leftPanelVisible) {
-            [self toggleLeftPanel:self];
-        }
     }
     
     PLTraceOut(@"");

@@ -614,4 +614,13 @@ static NSString *kImageCommonsCell = @"ImageCommons";
     }
 }
 
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    PLTraceIn(@"");
+    
+    [cell setBackgroundColor:[UIColor clearColor]];
+    
+    PLTraceOut(@"");
+}
+
 @end

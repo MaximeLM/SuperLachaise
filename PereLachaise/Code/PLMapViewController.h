@@ -25,12 +25,6 @@
 
 #pragma mark - Eléments d'interface
 
-// Le panneau gauche contenant la liste des monuments (iPad)
-@property (nonatomic, weak) IBOutlet UIView *leftPanel;
-
-// La barre d'outils
-@property (nonatomic, weak) IBOutlet UIToolbar *toolbar;
-
 // Le bouton de recherche
 @property (nonatomic, weak) IBOutlet UIButton *searchButton;
 

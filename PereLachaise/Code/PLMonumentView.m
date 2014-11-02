@@ -74,7 +74,7 @@
     }
     
     CGFloat borderWidth;
-    if (PLPostVersion7) {
+    if (PLRetina) {
         borderWidth = 0.5;
     } else {
         borderWidth = 1.0;

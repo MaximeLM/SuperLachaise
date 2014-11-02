@@ -65,3 +65,12 @@
 
 #define PLPostVersion7 (floor(NSFoundationVersionNumber) >  NSFoundationVersionNumber_iOS_6_1)
 #define PLPreVersion7  (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1)
+
+#define PLIPhone (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+#define PLIPad (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+
+#define PLRetina ([[UIScreen mainScreen] respondsToSelector:@selector(displayLinkWithTarget:selector:)] && ([UIScreen mainScreen].scale > 1.0))
+#define PLNonRetina (![[UIScreen mainScreen] respondsToSelector:@selector(displayLinkWithTarget:selector:)] || ([UIScreen mainScreen].scale < 2.0))
+
+#define PLPortrait (UIInterfaceOrientationIsPortrait([[UIApplication sharedApplication] statusBarOrientation]))
+#define PLPaysage (UIInterfaceOrientationIsLandscape([[UIApplication sharedApplication] statusBarOrientation]))
