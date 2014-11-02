@@ -1189,15 +1189,33 @@
 {
     PLTraceIn(@"");
     
+    NSAssert([annotations count] > 0, nil);
     PLInfo(@"%d annotations", [annotations count]);
     
     NSString *title = @"Quelle tombe voulez-vous sélectionner ?";
     
     UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:title delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil];
     
+    // Rectangle aggrégé contenant les annotations
+    CGRect annotationsRect = CGRectNull;
+    
     for (RMAnnotation *annotation in annotations) {
         PLMonument *monument = annotation.userInfo;
         [actionSheet addButtonWithTitle:monument.nom];
+        
+        if (PLIPad) {
+            CGRect annotationRect = annotation.layer.frame;
+            
+            // Division par deux en hauteur
+            CGRect remainder;
+            CGRectDivide(annotationRect, &annotationRect, &remainder, annotationRect.size.height / 2.0, CGRectMinYEdge);
+            
+            if (CGRectIsNull(annotationsRect)) {
+                annotationsRect = annotationRect;
+            } else {
+                annotationsRect = CGRectUnion(annotationsRect, annotationRect);
+            }
+        }
     }
     
     [actionSheet addButtonWithTitle:@"Annuler"];
@@ -1205,7 +1223,11 @@
     
     self.annotationsForActionSheet = annotations;
     
-    [actionSheet showInView:self.view];
+    if (PLIPhone) {
+        [actionSheet showInView:self.view];
+    } else {
+        [actionSheet showFromRect:annotationsRect inView:self.view animated:YES];
+    }
     
     PLTraceOut(@"");
 }
