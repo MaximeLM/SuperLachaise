@@ -47,6 +47,9 @@
 // La bordure supérieure de la vue
 @property (nonatomic, weak) CALayer *topBorder;
 
+// La bordure latérale de la vue (iPad)
+@property (nonatomic, weak) CALayer *leftBorder;
+
 #pragma mark - Contraintes
 
 // La contrainte sur la hauteur du label nomLabel
@@ -72,8 +75,10 @@
 
 #pragma mark - Mise à jour de l'affichage
 
-// Calcule la hauteur de la vue pour une largeur et un monument donnés
-+ (CGFloat)heightForWidth:(CGFloat)width andMonument:(PLMonument *)monument;
+// Calcule la taille de la vue pour une largeur maximum et un monument donnés
++ (CGSize)sizeForMaxWidth:(CGFloat)maxWidth andMonument:(PLMonument *)monument;
+
+@property (nonatomic) CGFloat width;
 
 // Redessine les layers de la vue
 - (void)updateLayers;

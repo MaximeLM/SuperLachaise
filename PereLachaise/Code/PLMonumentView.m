@@ -73,6 +73,14 @@
         self.topBorder = topBorder;
     }
     
+    if (!self.leftBorder && PLIPad) {
+        // Création de la bordure
+        CALayer *leftBorder = [CALayer layer];
+        leftBorder.backgroundColor = [UIColor blackColor].CGColor;
+        [self.layer addSublayer:leftBorder];
+        self.leftBorder = leftBorder;
+    }
+    
     CGFloat borderWidth;
     if (PLRetina) {
         borderWidth = 0.5;
@@ -81,7 +89,9 @@
     }
     
     // Redessin de la bordure avec la largeur actuelle de la vue
-    self.topBorder.frame = CGRectMake(0.0f, 0.0f, self.frame.size.width, borderWidth);
+    self.topBorder.frame = CGRectMake(0.0f, 0.0f, self.frame.size.width * 2, borderWidth);
+    
+    self.leftBorder.frame = CGRectMake(0.0f, 0.0f, borderWidth, self.frame.size.height * 2);
     
     PLTraceOut(@"");
 }
@@ -170,10 +180,11 @@
 {
     PLTraceIn(@"");
     
+    CGFloat margins = 20 + 20;
+    
     // Largeur disponible pour l'affichage des labels
     // = largeur de la vue moins les marges
-    CGFloat largeurPourNom = self.frame.size.width - 20 - self.nomLabelTrailingConstraint.constant;
-    CGFloat largeurPourLabels = self.frame.size.width - 20 - self.activiteLabelTrailingConstraint.constant;
+    CGFloat largeurPourLabels = self.frame.size.width - margins;
     
     // Constante de hauteur séparant 2 labels
     CGFloat verticalSpacing = 8.0;
@@ -181,7 +192,7 @@
     CGSize maxSize;
     
     // Hauteur label nom
-    maxSize = CGSizeMake(largeurPourNom, NSUIntegerMax);
+    maxSize = CGSizeMake(largeurPourLabels, NSUIntegerMax);
     CGSize size = [self.nomLabel.text compatibilitySizeWithFont:self.nomLabel.font constrainedToSize:maxSize];
     self.nomLabelHeigthConstraint.constant = ceil(size.height);
     
@@ -229,11 +240,15 @@
     PLTraceOut(@"");
 }
 
-+ (CGFloat)heightForWidth:(CGFloat)width andMonument:(PLMonument *)monument
++ (CGSize)sizeForMaxWidth:(CGFloat)maxWidth andMonument:(PLMonument *)monument
 {
+    PLTraceIn(@"");
+    
+    CGFloat margins = 20 + 20;
+    
     // Largeur disponible pour l'affichage des labels
     // = largeur de la vue moins les marges
-    CGFloat largeurPourLabels = width - 20 - 20;
+    CGFloat largeurPourLabels = maxWidth - margins;
     
     // Constante de hauteur séparant 2 labels
     CGFloat verticalSpacing = 8.0;
@@ -243,30 +258,40 @@
     
     CGSize maxSize;
     
-    CGFloat result = 1.0;
+    CGSize result;
     
-    // Hauteur label nom
+    CGFloat result_width = 280;
+    CGFloat result_height = 1.0;
+    
+    // Taille label nom
     maxSize = CGSizeMake(largeurPourLabels, NSUIntegerMax);
     CGSize size = [monument.nom compatibilitySizeWithFont:[UIFont boldSystemFontOfSize:18] constrainedToSize:maxSize];
-    result += marginSpacing + ceil(size.height);
+    result_height += marginSpacing + ceil(size.height);
+    result_width = MAX(result_width, ceil(size.width));
     
-    // Hauteur label dates
+    // Taille label dates
     PLPersonnalite *uniquePersonnalite = monument.uniquePersonnalite;
     if (uniquePersonnalite && uniquePersonnalite.hasAllDates) {
-        result += verticalSpacing + 18.0;
+        result_height += verticalSpacing + 18.0;
     }
     
-    // Hauteur label activité
+    // Taille label activité
     if (uniquePersonnalite && ![uniquePersonnalite.activite isEqualToString:@""]) {
         maxSize = CGSizeMake(largeurPourLabels, NSUIntegerMax);
         CGSize size = [uniquePersonnalite.activite compatibilitySizeWithFont:[UIFont systemFontOfSize:15] constrainedToSize:maxSize];
         
-        result += verticalSpacing + ceil(size.height);
+        result_height += verticalSpacing + ceil(size.height);
+        result_width = MAX(result_width, ceil(size.width));
     }
     
-    // Hauteur bouton circuit
-    result += marginSpacing + 44;
+    // Taille bouton circuit
+    result_height += marginSpacing + 44;
+    result_width = MAX(result_width, 202);
     
+    result.width = result_width + margins;
+    result.height = result_height;
+    
+    PLTraceOut(@"result %f %f",result.width,result.height);
     return result;
 }
 
