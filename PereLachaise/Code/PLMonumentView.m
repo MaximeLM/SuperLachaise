@@ -65,22 +65,6 @@
 {
     PLTraceIn(@"");
     
-    if (!self.topBorder) {
-        // Création de la bordure
-        CALayer *topBorder = [CALayer layer];
-        topBorder.backgroundColor = [UIColor blackColor].CGColor;
-        [self.layer addSublayer:topBorder];
-        self.topBorder = topBorder;
-    }
-    
-    if (!self.leftBorder && PLIPad) {
-        // Création de la bordure
-        CALayer *leftBorder = [CALayer layer];
-        leftBorder.backgroundColor = [UIColor blackColor].CGColor;
-        [self.layer addSublayer:leftBorder];
-        self.leftBorder = leftBorder;
-    }
-    
     CGFloat borderWidth;
     if (PLRetina) {
         borderWidth = 0.5;
@@ -88,10 +72,32 @@
         borderWidth = 1.0;
     }
     
-    // Redessin de la bordure avec la largeur actuelle de la vue
-    self.topBorder.frame = CGRectMake(0.0f, 0.0f, self.frame.size.width * 2, borderWidth);
+    if (PLIPhone && !self.topBorder && PLIPhone) {
+        // Création de la bordure supérieure
+        CALayer *topBorder = [CALayer layer];
+        topBorder.backgroundColor = [UIColor blackColor].CGColor;
+        [self.layer addSublayer:topBorder];
+        self.topBorder = topBorder;
+    }
     
-    self.leftBorder.frame = CGRectMake(0.0f, 0.0f, borderWidth, self.frame.size.height * 2);
+    if (PLIPad && !self.iPadBorderCreated) {
+        // Création de la bordure
+        self.layer.cornerRadius = 4.0f;
+        self.layer.masksToBounds = NO;
+        self.layer.borderWidth = borderWidth;
+        
+        self.iPadBorderCreated = YES;
+    }
+    
+    if (PLIPhone) {
+        // Redessin de la bordure avec la largeur actuelle de la vue
+        self.topBorder.frame = CGRectMake(0.0f, 0.0f, self.frame.size.width * 2, borderWidth);
+    }
+    
+    self.layer.shadowColor = [UIColor blackColor].CGColor;
+    self.layer.shadowOpacity = 0.8;
+    self.layer.shadowRadius = 4;
+    self.layer.shadowOffset = CGSizeMake(2.0f, 2.0f);
     
     PLTraceOut(@"");
 }

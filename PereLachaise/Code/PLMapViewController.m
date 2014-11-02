@@ -740,7 +740,7 @@
                                               toItem:self.monumentView.superview
                                               attribute:NSLayoutAttributeTrailing
                                               multiplier:1.0
-                                              constant:0.0];
+                                              constant:-10.0];
         
         [self.view addConstraint:self.monumentViewConstraintHidden];
         
@@ -760,7 +760,7 @@
                                                     toItem:self.monumentView.superview
                                                     attribute:NSLayoutAttributeBottom
                                                     multiplier:1.0
-                                                    constant:0.0];
+                                                    constant:-10.0];
         
         [self.view addConstraint:self.monumentViewConstraintHiddenSecond];
         
@@ -1428,7 +1428,7 @@
     if (PLIPhone) {
         insetBottom = monumentViewHeight + 10.0 + 44.0 + 10.0;
     } else {
-        insetBottom = monumentViewHeight + 10.0;
+        insetBottom = monumentViewHeight + 10.0 + 10.0;
     }
 
     CGRect targetRect;

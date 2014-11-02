@@ -47,8 +47,8 @@
 // La bordure supérieure de la vue
 @property (nonatomic, weak) CALayer *topBorder;
 
-// La bordure latérale de la vue (iPad)
-@property (nonatomic, weak) CALayer *leftBorder;
+// Indique si la bordure pour iPad a été créée
+@property (nonatomic) BOOL iPadBorderCreated;
 
 #pragma mark - Contraintes
 
