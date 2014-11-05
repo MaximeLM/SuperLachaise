@@ -186,11 +186,10 @@
 {
     PLTraceIn(@"");
     
-    CGFloat margins = 20 + 20;
-    
     // Largeur disponible pour l'affichage des labels
     // = largeur de la vue moins les marges
-    CGFloat largeurPourLabels = self.frame.size.width - margins;
+    CGFloat largeurPourNom = self.frame.size.width - 20 - self.nomLabelTrailingConstraint.constant;
+    CGFloat largeurPourLabels = self.frame.size.width - 20 - self.activiteLabelTrailingConstraint.constant;
     
     // Constante de hauteur séparant 2 labels
     CGFloat verticalSpacing = 8.0;
@@ -198,7 +197,7 @@
     CGSize maxSize;
     
     // Hauteur label nom
-    maxSize = CGSizeMake(largeurPourLabels, NSUIntegerMax);
+    maxSize = CGSizeMake(largeurPourNom, NSUIntegerMax);
     CGSize size = [self.nomLabel.text compatibilitySizeWithFont:self.nomLabel.font constrainedToSize:maxSize];
     self.nomLabelHeigthConstraint.constant = ceil(size.height);
     
@@ -254,7 +253,8 @@
     
     // Largeur disponible pour l'affichage des labels
     // = largeur de la vue moins les marges
-    CGFloat largeurPourLabels = maxWidth - margins;
+    CGFloat largeurPourNom = maxWidth - 20.0 - 35.0;
+    CGFloat largeurPourLabels = maxWidth - 20.0 - 20.0;
     
     // Constante de hauteur séparant 2 labels
     CGFloat verticalSpacing = 8.0;
@@ -270,11 +270,10 @@
     CGFloat result_height = 1.0;
     
     // Taille label nom
-    maxSize = CGSizeMake(largeurPourLabels, NSUIntegerMax);
+    maxSize = CGSizeMake(largeurPourNom, NSUIntegerMax);
     CGSize size = [monument.nom compatibilitySizeWithFont:[UIFont boldSystemFontOfSize:18] constrainedToSize:maxSize];
     result_height += marginSpacing + ceil(size.height);
-    result_width = MAX(result_width, ceil(size.width));
-    
+    result_width = MAX(result_width, ceil(size.width) + 25.0);  // Décalage par rapport au bouton +
     // Taille label dates
     PLPersonnalite *uniquePersonnalite = monument.uniquePersonnalite;
     if (uniquePersonnalite && uniquePersonnalite.hasAllDates) {
