@@ -32,8 +32,16 @@
 
 + (NSURL *)baseURL
 {
-    NSURL *baseURL = [NSURL URLWithString:@"http://fr.m.wikipedia.org/wiki/"];
+    PLTraceIn(@"");
+    NSURL *baseURL;
     
+    if (PLIPhone) {
+        baseURL = [NSURL URLWithString:@"http://fr.m.wikipedia.org/wiki/"];
+    } else {
+        baseURL = [NSURL URLWithString:@"http://fr.wikipedia.org/wiki/"];
+    }
+    
+    PLTraceOut(@"result: %@", baseURL);
     return baseURL;
 }
 
@@ -55,6 +63,11 @@
 {
     [super viewDidLoad];
     
+    // Modification du texte du bouton Safari (iPad)
+    if (PLIPad) {
+        self.navigationItem.rightBarButtonItem.title = @"Ouvrir dans Safari";
+    }
+    
     // Chargement de la page Wikipedia
     NSURLRequest *request = [NSURLRequest requestWithURL:self.urlToLoad];
     [self.webView loadRequest:request];
@@ -65,14 +78,22 @@
 - (IBAction)safariButtonAction:(id)sender {
     PLTraceIn(@"sender: %@", sender);
     
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil];
-    
-    [actionSheet addButtonWithTitle:@"Ouvrir dans Safari"];
-    
-    [actionSheet addButtonWithTitle:@"Annuler"];
-    actionSheet.cancelButtonIndex = [actionSheet numberOfButtons] - 1;
-    
-    [actionSheet showFromBarButtonItem:sender animated:YES];
+    // Pas de confirmation si iPad
+    if (PLIPad) {
+        NSURL *url = self.webView.request.URL;
+        PLTrace(@"url: %@", url);
+        
+        [[UIApplication sharedApplication] openURL:url];
+    } else {
+        UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil];
+        
+        [actionSheet addButtonWithTitle:@"Ouvrir dans Safari"];
+        
+        [actionSheet addButtonWithTitle:@"Annuler"];
+        actionSheet.cancelButtonIndex = [actionSheet numberOfButtons] - 1;
+        
+        [actionSheet showFromBarButtonItem:sender animated:YES];
+    }
     
     PLTraceOut(@"");
 }

@@ -129,6 +129,11 @@
         }
     }
     
+    // Suppression de l'accessoire droit sur iPad
+    if (PLIPad) {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
+    
     NSAssert(cell, nil);
     PLTraceOut(@"return: %@", cell);
     return cell;

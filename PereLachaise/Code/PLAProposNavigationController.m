@@ -19,6 +19,8 @@
 
 #import "PLAProposNavigationController.h"
 
+#import "PLWikipediaViewController.h"
+
 @interface PLAProposNavigationController ()
 
 @end
@@ -30,14 +32,38 @@
     PLTraceIn(@"");
     [super viewDidLoad];
     
-    // Gestion de la taille du pop-over sur iPad
-    self.preferredContentSize = CGSizeMake(self.preferredContentSize.width, 680.0);
+    self.delegate = self;
     
     PLTraceOut(@"");
 }
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    PLTraceIn(@"");
+    [super viewWillDisappear:animated];
+    
+    self.delegate = nil;
+    
+    PLTraceOut(@"");
+}
+
 - (NSUInteger)supportedInterfaceOrientations
 {
     return UIInterfaceOrientationMaskPortrait;
+}
+
+- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
+{
+    PLTraceIn(@"");
+    
+    // Gestion de la taille du pop-over sur iPad (aucun effet sur iPhone)
+    if ([viewController isKindOfClass:[PLWikipediaViewController class]]) {
+        self.preferredContentSize = CGSizeMake(self.presentingViewController.view.frame.size.width, self.presentingViewController.view.frame.size.height);
+    } else {
+        self.preferredContentSize = CGSizeMake(320.0, 680.0);
+    }
+    
+    PLTraceOut(@"");
 }
 
 @end

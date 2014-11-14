@@ -19,6 +19,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PLAProposNavigationController : UINavigationController
+@interface PLAProposNavigationController : UINavigationController <UINavigationControllerDelegate>
 
 @end

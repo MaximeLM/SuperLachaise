@@ -209,7 +209,7 @@
                     </webView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="FpJ-bV-lCz">
-                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="Hrx-O5-z4e">
+                        <barButtonItem key="rightBarButtonItem" title="Safari" style="done" id="Hrx-O5-z4e">
                             <connections>
                                 <action selector="safariButtonAction:" destination="o7B-uy-bHI" id="ACt-mV-XAm"/>
                             </connections>
