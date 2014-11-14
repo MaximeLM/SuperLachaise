@@ -3,4 +3,4 @@
 url=https://github.com/MaximeLM/RestKit.git
 [submodule "MapBox-iOS-SDK"]
 	path = MapBox-iOS-SDK
-	url = /Users/maximelemoine/pere_lachaise/Appli/MapBox-iOS-SDK
+url=https://github.com/MaximeLM/mapbox-ios-sdk.git
