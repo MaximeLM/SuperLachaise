@@ -25,6 +25,16 @@
 
 @implementation PLAProposNavigationController
 
+- (void)viewDidLoad
+{
+    PLTraceIn(@"");
+    [super viewDidLoad];
+    
+    // Gestion de la taille du pop-over sur iPad
+    self.preferredContentSize = CGSizeMake(self.preferredContentSize.width, 680.0);
+    
+    PLTraceOut(@"");
+}
 - (NSUInteger)supportedInterfaceOrientations
 {
     return UIInterfaceOrientationMaskPortrait;
