@@ -21,10 +21,8 @@
 		5541C3A219ABDA18008F130D /* imageCommons1.json in Resources */ = {isa = PBXBuildFile; fileRef = 5541C39E19ABDA18008F130D /* imageCommons1.json */; };
 		5541C3A319ABDA18008F130D /* imageCommons2_update.json in Resources */ = {isa = PBXBuildFile; fileRef = 5541C39F19ABDA18008F130D /* imageCommons2_update.json */; };
 		5541C3A419ABDA18008F130D /* imageCommons2.json in Resources */ = {isa = PBXBuildFile; fileRef = 5541C3A019ABDA18008F130D /* imageCommons2.json */; };
-		554AB32A19D35AFA004EC22D /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 554AB32519D35AFA004EC22D /* Main_iPad.storyboard */; };
-		554AB32B19D35AFA004EC22D /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 554AB32519D35AFA004EC22D /* Main_iPad.storyboard */; };
-		554AB32C19D35AFA004EC22D /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 554AB32719D35AFA004EC22D /* Main_iPhone.storyboard */; };
-		554AB32D19D35AFA004EC22D /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 554AB32719D35AFA004EC22D /* Main_iPhone.storyboard */; };
+		554AB32C19D35AFA004EC22D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 554AB32719D35AFA004EC22D /* Main.storyboard */; };
+		554AB32D19D35AFA004EC22D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 554AB32719D35AFA004EC22D /* Main.storyboard */; };
 		554AB32E19D35AFA004EC22D /* PLMonumentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 554AB32919D35AFA004EC22D /* PLMonumentView.xib */; };
 		554AB32F19D35AFA004EC22D /* PLMonumentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 554AB32919D35AFA004EC22D /* PLMonumentView.xib */; };
 		554DC2811904716A0019022E /* Achille Zavatta's commemorative plaque.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 554DC1B7190471690019022E /* Achille Zavatta's commemorative plaque.JPG */; };
@@ -770,8 +768,7 @@
 		5541C39E19ABDA18008F130D /* imageCommons1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = imageCommons1.json; path = Fixtures/imageCommons1.json; sourceTree = "<group>"; };
 		5541C39F19ABDA18008F130D /* imageCommons2_update.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = imageCommons2_update.json; path = Fixtures/imageCommons2_update.json; sourceTree = "<group>"; };
 		5541C3A019ABDA18008F130D /* imageCommons2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = imageCommons2.json; path = Fixtures/imageCommons2.json; sourceTree = "<group>"; };
-		554AB32619D35AFA004EC22D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Interface/Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		554AB32819D35AFA004EC22D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Interface/Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		554AB32819D35AFA004EC22D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Interface/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		554AB32919D35AFA004EC22D /* PLMonumentView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PLMonumentView.xib; path = Interface/PLMonumentView.xib; sourceTree = "<group>"; };
 		554DC1B7190471690019022E /* Achille Zavatta's commemorative plaque.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Achille Zavatta's commemorative plaque.JPG"; sourceTree = "<group>"; };
 		554DC1B8190471690019022E /* Asturias grave.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Asturias grave.jpg"; sourceTree = "<group>"; };
@@ -1219,8 +1216,7 @@
 		554AB32419D35AE2004EC22D /* Interface */ = {
 			isa = PBXGroup;
 			children = (
-				554AB32719D35AFA004EC22D /* Main_iPhone.storyboard */,
-				554AB32519D35AFA004EC22D /* Main_iPad.storyboard */,
+				554AB32719D35AFA004EC22D /* Main.storyboard */,
 				554AB32919D35AFA004EC22D /* PLMonumentView.xib */,
 			);
 			name = Interface;
@@ -2117,7 +2113,7 @@
 				554DC31D1904716A0019022E /* Père-Lachaise - Division 28 - Foy 05.jpg in Resources */,
 				552112A519DB41AC007DA071 /* glyphicons_343_thumbs_up_selected@2x.png in Resources */,
 				554DC3FD1904716A0019022E /* Tombe de Sophie Daumier - Père Lachaise.JPG in Resources */,
-				554AB32C19D35AFA004EC22D /* Main_iPhone.storyboard in Resources */,
+				554AB32C19D35AFA004EC22D /* Main.storyboard in Resources */,
 				554DC2AD1904716A0019022E /* Guillaume Apollinaire (Père Lachaise).jpg in Resources */,
 				554DC38D1904716A0019022E /* Père-Lachaise - Division 97 - Eluard 01.jpg in Resources */,
 				554DC3511904716A0019022E /* Père-Lachaise - Division 53 - Del Duca 01.jpg in Resources */,
@@ -2139,7 +2135,6 @@
 				554DC2B71904716A0019022E /* Marcel Proust (Père Lachaise).jpg in Resources */,
 				554DC30B1904716A0019022E /* Père-Lachaise - Division 22 - Willy Rizzo 01.jpg in Resources */,
 				55C673F619C1D21E00525D61 /* Père-Lachaise - Division 57 - Galli-Marié 01.jpg in Resources */,
-				554AB32A19D35AFA004EC22D /* Main_iPad.storyboard in Resources */,
 				554DC3091904716A0019022E /* Père-Lachaise - Division 22 - Roger Planchon 01.jpg in Resources */,
 				55EA7FE119CA61A9007137BA /* glyphicons_233_direction@2x.png in Resources */,
 				554DC33D1904716A0019022E /* Père-Lachaise - Division 42 - Hernandez - 01.jpg in Resources */,
@@ -2285,7 +2280,6 @@
 				554DC3E81904716A0019022E /* Tombe de Kellermann au Père Lachaise.jpg in Resources */,
 				554DC3F21904716A0019022E /* Tombe de Marie Laurencin - Père Lachaise.JPG in Resources */,
 				554DC3801904716A0019022E /* Père-Lachaise - Division 94 - Alain 01.jpg in Resources */,
-				554AB32B19D35AFA004EC22D /* Main_iPad.storyboard in Resources */,
 				554DC31A1904716A0019022E /* Père-Lachaise - Division 28 - Bourdieu 01.jpg in Resources */,
 				554DC3A01904716A0019022E /* Père-Lachaise - James Pradier 01.jpg in Resources */,
 				554DC3921904716A0019022E /* Père-Lachaise - Division 97 - Thorez 02.jpg in Resources */,
@@ -2376,7 +2370,7 @@
 				554DC3541904716A0019022E /* Père-Lachaise - Division 55 - Thiers 01.jpg in Resources */,
 				55EA7FD219CA61A9007137BA /* glyphicons_060_compass_selected@2x.png in Resources */,
 				554DC2961904716A0019022E /* Claude henri rouvroy Saint simon grave.jpg in Resources */,
-				554AB32D19D35AFA004EC22D /* Main_iPhone.storyboard in Resources */,
+				554AB32D19D35AFA004EC22D /* Main.storyboard in Resources */,
 				554DC34C1904716A0019022E /* Père-Lachaise - Division 49 - Girardot 03.jpg in Resources */,
 				554DC3261904716A0019022E /* Père-Lachaise - Division 32 - Claude Brosset 01.jpg in Resources */,
 				55EA7FE619CA6205007137BA /* PLData.json in Resources */,
@@ -2702,20 +2696,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		554AB32519D35AFA004EC22D /* Main_iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				554AB32619D35AFA004EC22D /* Base */,
-			);
-			name = Main_iPad.storyboard;
-			sourceTree = "<group>";
-		};
-		554AB32719D35AFA004EC22D /* Main_iPhone.storyboard */ = {
+		554AB32719D35AFA004EC22D /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				554AB32819D35AFA004EC22D /* Base */,
 			);
-			name = Main_iPhone.storyboard;
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -2818,7 +2804,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -2847,7 +2833,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -3073,7 +3059,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Test;

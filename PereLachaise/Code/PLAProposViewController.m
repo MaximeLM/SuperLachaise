@@ -178,6 +178,11 @@
                 self.webViewHeightConstraint2.constant = contentHeight + 16.0;
             }
             
+            // Correction de la taille du texte
+            NSString *jsString = [[NSString alloc] initWithFormat:@"document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '%d%%'",
+                                  100];
+            [webView stringByEvaluatingJavaScriptFromString:jsString];
+            
             return NO;
         }
     }

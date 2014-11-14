@@ -43,11 +43,11 @@
 // La vue affichant la carte
 @property (nonatomic, weak) RMMapView *mapView;
 
-// La contrainte de position horizontale du panneau de gauche (iPad)
-@property (nonatomic, weak) IBOutlet NSLayoutConstraint *leftPanelLeadingConstraint;
-
 // La contrainte de position verticale du bouton de recherche
 @property (nonatomic, weak) IBOutlet NSLayoutConstraint *searchButtonBottomConstraint;
+
+// La contrainte de position horizontale du bouton de localisation
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint *localisationButtonTrailingConstraint;
 
 // La contrainte de position horizontale du bouton de circuit
 @property (nonatomic, weak) IBOutlet NSLayoutConstraint *circuitButtonHorizontalConstraint;
@@ -80,11 +80,20 @@
 // La vue détaillant le monument sélectionné
 @property (nonatomic, weak) PLMonumentView *monumentView;
 
-// La contrainte de position verticale de la vue monumentView quand elle est cachée
-@property (nonatomic, strong) NSLayoutConstraint *monumentViewVerticalHiddenConstraint;
+// La contrainte de position de la vue monumentView quand elle est cachée
+@property (nonatomic, strong) NSLayoutConstraint *monumentViewConstraintHidden;
 
-// La contrainte de position verticale de la vue monumentView quand elle est visible
-@property (nonatomic, strong) NSLayoutConstraint *monumentViewVerticalVisibleConstraint;
+// La contrainte de position de la vue monumentView quand elle est visible
+@property (nonatomic, strong) NSLayoutConstraint *monumentViewConstraintVisible;
+
+// La 2e contrainte de position de la vue monumentView quand elle est cachée
+@property (nonatomic, strong) NSLayoutConstraint *monumentViewConstraintHiddenSecond;
+
+// La 2e contrainte de position de la vue monumentView quand elle est visible
+@property (nonatomic, strong) NSLayoutConstraint *monumentViewConstraintVisibleSecond;
+
+// La contrainte de largeur de la vue monumentView (iPad)
+@property (nonatomic, strong) NSLayoutConstraint *monumentViewWidthConstraint;
 
 // Construit la vue détaillant le monument sélectionné
 - (void)makeMonumentView;
@@ -101,11 +110,6 @@
 
 // Le controleur de récupération des monuments du circuit
 @property (nonatomic, strong) NSFetchedResultsController *circuitFetchedResultsController;
-
-#pragma mark - Affichage de la liste des monuments
-
-// Bascule de l'affichage du panneau de gauche (iPad)
-- (IBAction)toggleLeftPanel:(id)sender;
 
 #pragma mark - Annotations
 
@@ -236,36 +240,6 @@
     PLTraceOut(@"");
 }
 
-- (void)didReceiveMemoryWarning
-{
-    PLTraceIn(@"");
-    
-    [super didReceiveMemoryWarning];
-    
-    // Suppression de la vue du monument sélectionné si elle est cachée
-    if (self.monumentView.hidden) {
-        [self.monumentView.circuitButton removeTarget:self action:nil forControlEvents:UIControlEventAllEvents];
-        [self.monumentView.detailButton removeTarget:self action:nil forControlEvents:UIControlEventAllEvents];
-        
-        self.monumentViewVerticalVisibleConstraint = nil;
-        self.monumentViewVerticalHiddenConstraint = nil;
-        [self.monumentView removeFromSuperview];
-        
-        // Rétablissement de la contrainte initiale des boutons
-        self.searchButtonBottomConstraint =[NSLayoutConstraint
-                                            constraintWithItem:self.view
-                                            attribute:NSLayoutAttributeBottom
-                                            relatedBy:NSLayoutRelationEqual
-                                            toItem:self.searchButton
-                                            attribute:NSLayoutAttributeBottom
-                                            multiplier:1.0
-                                            constant:10.0];
-        [self.view addConstraint:self.searchButtonBottomConstraint];
-    }
-    
-    PLTraceOut(@"");
-}
-
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     PLTraceIn(@"");
@@ -332,17 +306,17 @@
 {
     PLTraceIn(@"");
     
-    // Construction de la vue
-    RMMapView *mapView = [[RMMapView alloc] initWithFrame:self.view.bounds];
-    
-    // Configuration du layout
-    [mapView setAutoresizingMask:(UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight)];
-    
     // Récupération de la configuration de la carte
     NSDictionary *mapConfiguration = [self getMapConfiguration];
     
     // Construction de la source cartographique
-    mapView.tileSource = [self makeMapBoxSourceWithMapConfiguration:mapConfiguration];
+    id<RMTileSource> tileSource = [self makeMapBoxSourceWithMapConfiguration:mapConfiguration];
+    
+    // Construction de la vue
+    RMMapView *mapView = [[RMMapView alloc] initWithFrame:self.view.bounds andTilesource:tileSource];
+    
+    // Configuration du layout
+    [mapView setAutoresizingMask:(UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight)];
     
     // Limites de position
     NSNumber *latitudeMin = (NSNumber *)[mapConfiguration objectForKey:@"latitude min"];
@@ -387,16 +361,8 @@
 - (RMMapboxSource *)makeMapBoxSourceWithMapConfiguration:(NSDictionary *)mapConfiguration {
     PLTraceIn(@"");
     
-#if TARGET_IPHONE_SIMULATOR
-    PLInfo(@"target simulator");
-    
-    // Construction à partir d'un exemple (dev)
-    RMMapboxSource *mapBoxSource = [[RMMapboxSource alloc] init];
-#else
-    PLInfo(@"target int/prod");
     // Construction à partir du tileJSON
     RMMapboxSource *mapBoxSource = [[RMMapboxSource alloc] initWithTileJSON:[mapConfiguration objectForKey:@"tileJSON"]];
-#endif
     
     NSAssert(mapBoxSource, nil);
     PLTraceOut(@"return: %@",mapBoxSource);
@@ -412,7 +378,7 @@
     
     // Récupération de la configuration spécifique à l'appareil (iPhone ou iPad)
     NSDictionary *deviceConfiguration = nil;
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+    if (PLIPhone) {
         // iPhone
         PLInfo(@"deviceConfiguration iPhone");
         deviceConfiguration = [configuration objectForKey:@"iPhone"];
@@ -424,7 +390,7 @@
     
     // Récupération de la configuration spécifique à l'orientation initiale de l'appareil (portrait ou paysage)
     NSDictionary *orientationConfiguration = nil;
-    if (UIInterfaceOrientationIsPortrait([[UIApplication sharedApplication] statusBarOrientation])) {
+    if (PLPortrait) {
         PLInfo(@"orientationConfiguration portrait");
         // Portrait
         orientationConfiguration = [deviceConfiguration objectForKey:@"Portrait"];
@@ -434,19 +400,18 @@
         orientationConfiguration = [deviceConfiguration objectForKey:@"Paysage"];
     }
     
-    // Récupération du Map ID correspondant à la définition de l'écran
+    // Récupération du Map ID
     NSString *mapID;
     NSString *tileJSONFile;
-    if ([[UIScreen mainScreen] respondsToSelector:@selector(displayLinkWithTarget:selector:)] &&
-        ([UIScreen mainScreen].scale == 2.0)) {
-        PLInfo(@"Retina display");
-        mapID = [configuration objectForKey:@"Map ID - retina"];
-        tileJSONFile = [configuration objectForKey:@"tileJSON - retina"];
-    } else {
-        PLInfo(@"non-Retina display");
-        mapID = [configuration objectForKey:@"Map ID - non retina"];
-        tileJSONFile = [configuration objectForKey:@"tileJSON - non retina"];
-    }
+#if DEBUG
+    PLInfo(@"Debug map");
+    mapID = [configuration objectForKey:@"Map ID - debug"];
+    tileJSONFile = [configuration objectForKey:@"tileJSON - debug"];
+#else
+    PLInfo(@"Release map");
+    mapID = [configuration objectForKey:@"Map ID - release"];
+    tileJSONFile = [configuration objectForKey:@"tileJSON - release"];
+#endif
     
     // Récupération du bundle de l'application
     NSBundle *mainBundle = [NSBundle mainBundle];
@@ -501,7 +466,7 @@
     PLTraceIn(@"");
     
     CGFloat borderWidth;
-    if (PLPostVersion7) {
+    if (PLRetina) {
         borderWidth = 0.5;
     } else {
         borderWidth = 1.0;
@@ -663,68 +628,164 @@
     
     // Définition des contraintes de position à l'écran
     
-    // Contrainte à gauche
-    NSLayoutConstraint *leadingConstraint =[NSLayoutConstraint
-                                            constraintWithItem:self.monumentView
-                                            attribute:NSLayoutAttributeLeading
-                                            relatedBy:NSLayoutRelationEqual
-                                            toItem:self.monumentView.superview
-                                            attribute:NSLayoutAttributeLeading
-                                            multiplier:1.0
-                                            constant:0.0];
-    [self.view addConstraint:leadingConstraint];
-    
-    // Contrainte à droite
-    NSLayoutConstraint *trailingConstraint =[NSLayoutConstraint
+    if (PLIPhone) {
+        // Contrainte à gauche
+        NSLayoutConstraint *leadingConstraint =[NSLayoutConstraint
+                                                constraintWithItem:self.monumentView
+                                                attribute:NSLayoutAttributeLeading
+                                                relatedBy:NSLayoutRelationEqual
+                                                toItem:self.monumentView.superview
+                                                attribute:NSLayoutAttributeLeading
+                                                multiplier:1.0
+                                                constant:0.0];
+        [self.view addConstraint:leadingConstraint];
+        
+        // Contrainte à droite
+        NSLayoutConstraint *trailingConstraint =[NSLayoutConstraint
+                                                 constraintWithItem:self.monumentView
+                                                 attribute:NSLayoutAttributeTrailing
+                                                 relatedBy:NSLayoutRelationEqual
+                                                 toItem:self.monumentView.superview
+                                                 attribute:NSLayoutAttributeTrailing
+                                                 multiplier:1.0
+                                                 constant:0.0];
+        [self.view addConstraint:trailingConstraint];
+        
+        // Création des contraintes de position verticale alternatives
+        
+        self.monumentViewConstraintHidden = [NSLayoutConstraint
                                              constraintWithItem:self.monumentView
-                                             attribute:NSLayoutAttributeTrailing
+                                             attribute:NSLayoutAttributeTop
+                                             relatedBy:NSLayoutRelationEqual
+                                             toItem:self.monumentView.superview
+                                             attribute:NSLayoutAttributeBottom
+                                             multiplier:1.0
+                                             constant:0.0];
+        
+        self.monumentViewConstraintVisible = [NSLayoutConstraint
+                                              constraintWithItem:self.monumentView
+                                              attribute:NSLayoutAttributeBottom
+                                              relatedBy:NSLayoutRelationEqual
+                                              toItem:self.monumentView.superview
+                                              attribute:NSLayoutAttributeBottom
+                                              multiplier:1.0
+                                              constant:0.0];
+        
+        [self.view addConstraint:self.monumentViewConstraintHidden];
+        
+        // Redéfinition de la contrainte de position verticale des boutons
+        [self.view removeConstraint:self.searchButtonBottomConstraint];
+        self.searchButtonBottomConstraint =[NSLayoutConstraint
+                                            constraintWithItem:self.monumentView
+                                            attribute:NSLayoutAttributeTop
+                                            relatedBy:NSLayoutRelationEqual
+                                            toItem:self.searchButton
+                                            attribute:NSLayoutAttributeBottom
+                                            multiplier:1.0
+                                            constant:10.0];
+        [self.view addConstraint:self.searchButtonBottomConstraint];
+        
+        self.monumentView.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.size.height, self.view.frame.size.width, self.monumentView.frame.size.height);
+    } else {
+        // Contrainte de largeur
+        self.monumentViewWidthConstraint = [NSLayoutConstraint
+                                            constraintWithItem:self.monumentView
+                                            attribute:NSLayoutAttributeWidth
+                                            relatedBy:NSLayoutRelationEqual
+                                            toItem:nil
+                                            attribute:NSLayoutAttributeNotAnAttribute
+                                            multiplier:1.0
+                                            constant:320.0];
+        self.monumentViewWidthConstraint.priority = UILayoutPriorityDefaultHigh;
+        [self.view addConstraint:self.monumentViewWidthConstraint];
+        
+        // Contrainte de largeur minimale
+        NSLayoutConstraint *minWidthConstraint =[NSLayoutConstraint
+                                                 constraintWithItem:self.monumentView
+                                                 attribute:NSLayoutAttributeWidth
+                                                 relatedBy:NSLayoutRelationGreaterThanOrEqual
+                                                 toItem:nil
+                                                 attribute:NSLayoutAttributeNotAnAttribute
+                                                 multiplier:1.0
+                                                 constant:320.0];
+        [self.view addConstraint:minWidthConstraint];
+        
+        // Contrainte de largeur maximale
+        NSLayoutConstraint *maxWidthConstraint =[NSLayoutConstraint
+                                                 constraintWithItem:self.monumentView
+                                                 attribute:NSLayoutAttributeWidth
+                                                 relatedBy:NSLayoutRelationLessThanOrEqual
+                                                 toItem:self.monumentView.superview
+                                                 attribute:NSLayoutAttributeWidth
+                                                 multiplier:0.5
+                                                 constant:0.0];
+        [self.view addConstraint:maxWidthConstraint];
+        
+        // Création des contraintes de position horizontales alternatives
+        
+        self.monumentViewConstraintHidden = [NSLayoutConstraint
+                                             constraintWithItem:self.monumentView
+                                             attribute:NSLayoutAttributeLeading
                                              relatedBy:NSLayoutRelationEqual
                                              toItem:self.monumentView.superview
                                              attribute:NSLayoutAttributeTrailing
                                              multiplier:1.0
                                              constant:0.0];
-    [self.view addConstraint:trailingConstraint];
     
-    // Création des contraintes de position verticale alternatives
-    
-    self.monumentViewVerticalHiddenConstraint = [NSLayoutConstraint
-                                      constraintWithItem:self.monumentView
-                                      attribute:NSLayoutAttributeTop
-                                      relatedBy:NSLayoutRelationEqual
-                                      toItem:self.monumentView.superview
-                                      attribute:NSLayoutAttributeBottom
-                                      multiplier:1.0
-                                      constant:0.0];
-    
-    self.monumentViewVerticalVisibleConstraint = [NSLayoutConstraint
-                                         constraintWithItem:self.monumentView
-                                         attribute:NSLayoutAttributeBottom
-                                         relatedBy:NSLayoutRelationEqual
-                                         toItem:self.monumentView.superview
-                                         attribute:NSLayoutAttributeBottom
-                                         multiplier:1.0
-                                         constant:0.0];
-    
-    // Redéfinition de la contrainte de position verticale des boutons
-    [self.view removeConstraint:self.searchButtonBottomConstraint];
-    self.searchButtonBottomConstraint =[NSLayoutConstraint
-                                        constraintWithItem:self.monumentView
-                                        attribute:NSLayoutAttributeTop
-                                        relatedBy:NSLayoutRelationEqual
-                                        toItem:self.searchButton
-                                        attribute:NSLayoutAttributeBottom
-                                        multiplier:1.0
-                                        constant:10.0];
-    [self.view addConstraint:self.searchButtonBottomConstraint];
+        
+        self.monumentViewConstraintVisible = [NSLayoutConstraint
+                                              constraintWithItem:self.monumentView
+                                              attribute:NSLayoutAttributeTrailing
+                                              relatedBy:NSLayoutRelationEqual
+                                              toItem:self.monumentView.superview
+                                              attribute:NSLayoutAttributeTrailing
+                                              multiplier:1.0
+                                              constant:-10.0];
+        
+        [self.view addConstraint:self.monumentViewConstraintHidden];
+        
+        self.monumentViewConstraintHiddenSecond = [NSLayoutConstraint
+                                                   constraintWithItem:self.monumentView
+                                                   attribute:NSLayoutAttributeTop
+                                                   relatedBy:NSLayoutRelationEqual
+                                                   toItem:self.monumentView.superview
+                                                   attribute:NSLayoutAttributeBottom
+                                                   multiplier:1.0
+                                                   constant:0.0];
+        
+        self.monumentViewConstraintVisibleSecond = [NSLayoutConstraint
+                                                    constraintWithItem:self.monumentView
+                                                    attribute:NSLayoutAttributeBottom
+                                                    relatedBy:NSLayoutRelationEqual
+                                                    toItem:self.monumentView.superview
+                                                    attribute:NSLayoutAttributeBottom
+                                                    multiplier:1.0
+                                                    constant:-10.0];
+        
+        [self.view addConstraint:self.monumentViewConstraintHiddenSecond];
+        
+        // Redéfinition de la contrainte de position horizontale des boutons
+        [self.view removeConstraint:self.localisationButtonTrailingConstraint];
+        self.localisationButtonTrailingConstraint =[NSLayoutConstraint
+                                                    constraintWithItem:self.monumentView
+                                                    attribute:NSLayoutAttributeLeading
+                                                    relatedBy:NSLayoutRelationEqual
+                                                    toItem:self.localisationButton
+                                                    attribute:NSLayoutAttributeTrailing
+                                                    multiplier:1.0
+                                                    constant:10.0];
+        [self.view addConstraint:self.localisationButtonTrailingConstraint];
+        
+        self.monumentView.frame = CGRectMake(self.view.frame.size.width, self.view.frame.size.height, self.view.frame.size.width, self.view.frame.size.height);
+    }
     
     // Ajout des évènements sur les boutons
     [self.monumentView.detailButton addTarget:self action:@selector(detailButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [self.monumentView.circuitButton addTarget:self action:@selector(circuitButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     
     // A l'initialisation : position cachée
-    [self.view addConstraint:self.monumentViewVerticalHiddenConstraint];
+    [self.view addConstraint:self.monumentViewConstraintHidden];
     self.monumentView.hidden = YES;
-    self.monumentView.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.size.height, self.view.frame.size.width, self.monumentView.frame.size.height);
     
     PLTraceOut(@"");
 }
@@ -749,51 +810,7 @@
 {
     PLTraceIn(@"");
     
-    if (self.leftPanel) {
-        PLInfo(@"iPad");
-        [self toggleLeftPanel:self];
-    } else {
-        PLInfo(@"iPhone");
-        [self dismissViewControllerAnimated:YES completion:nil];
-    }
-    
-    PLTraceOut(@"");
-}
-
-- (IBAction)toggleLeftPanel:(id)sender
-{
-    PLTraceIn(@"");
-    
-    if (!_leftPanelVisible) {
-        CGFloat newConstraint = 0.0;
-        PLInfo(@"Affichage, leftPanelLeadingConstraint.constant old: %f new: %f", self.leftPanelLeadingConstraint.constant, newConstraint);
-        
-        _leftPanelVisible = YES;
-        self.leftPanel.hidden = NO;
-        
-        [UIView animateWithDuration:0.3 delay:0.0 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
-            self.leftPanelLeadingConstraint.constant = newConstraint;
-            [self.view layoutIfNeeded];
-        }completion:^(BOOL finished){
-            self.leftPanel.hidden = NO;
-            
-            PLInfo(@"Fin affichage finished:%d hidden:%d constraint:%f", finished, self.leftPanel.hidden, self.leftPanelLeadingConstraint.constant);
-        }];
-    } else {
-        CGFloat newConstraint = -self.leftPanel.frame.size.width;
-        PLInfo(@"Retrait, leftPanelLeadingConstraint.constant old: %f new: %f", self.leftPanelLeadingConstraint.constant, newConstraint);
-        
-        _leftPanelVisible = NO;
-        
-        [UIView animateWithDuration:0.3 delay:0.0 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
-            self.leftPanelLeadingConstraint.constant = newConstraint;
-            [self.view layoutIfNeeded];
-        }completion:^(BOOL finished){
-            self.leftPanel.hidden = YES;
-            
-            PLInfo(@"Fin retrait finished:%d hidden:%d constraint:%f",finished,self.leftPanel.hidden,self.leftPanelLeadingConstraint.constant);
-        }];
-    }
+    [self dismissViewControllerAnimated:YES completion:nil];
     
     PLTraceOut(@"");
 }
@@ -1051,6 +1068,12 @@
     // Modification du monument sur la vue
     self.monumentView.monument = self.selectedMonument;
     
+    if (PLIPad) {
+        // Mise à jour de la largeur
+        CGSize size = [PLMonumentView sizeForMaxWidth:self.view.frame.size.width andMonument:self.selectedMonument];
+        self.monumentViewWidthConstraint.constant = size.width;
+    }
+
     // Redimensionnement immédiat de la vue si elle est cachée
     if (self.monumentView.hidden) {
         [self.monumentView layoutIfNeeded];
@@ -1058,12 +1081,18 @@
     
     self.monumentView.hidden = NO;
     
-    // Mise à jour de la contrainte de position verticale de la vue
+    // Mise à jour de la contrainte de position de la vue
     
-    [self.view removeConstraint:self.monumentViewVerticalHiddenConstraint];
-    [self.view removeConstraint:self.monumentViewVerticalVisibleConstraint];
-    [self.view addConstraint:self.monumentViewVerticalVisibleConstraint];
+    [self.view removeConstraint:self.monumentViewConstraintHidden];
+    [self.view removeConstraint:self.monumentViewConstraintVisible];
+    [self.view addConstraint:self.monumentViewConstraintVisible];
     
+    if (PLIPad) {
+        [self.view removeConstraint:self.monumentViewConstraintHiddenSecond];
+        [self.view removeConstraint:self.monumentViewConstraintVisibleSecond];
+        [self.view addConstraint:self.monumentViewConstraintVisibleSecond];
+    }
+
     // Animation du changement de contraintes
     self.monumentViewShouldDisappear = NO;
     [UIView animateWithDuration:0.3 delay:0.0 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
@@ -1092,11 +1121,17 @@
     [mapView removeAnnotation:annotation];
     [mapView addAnnotation:annotation];
     
-    // Mise à jour de la contrainte de position verticale de la vue
-    [self.view removeConstraint:self.monumentViewVerticalHiddenConstraint];
-    [self.view removeConstraint:self.monumentViewVerticalVisibleConstraint];
-    [self.view addConstraint:self.monumentViewVerticalHiddenConstraint];
+    // Mise à jour de la contrainte de position de la vue
+    [self.view removeConstraint:self.monumentViewConstraintHidden];
+    [self.view removeConstraint:self.monumentViewConstraintVisible];
+    [self.view addConstraint:self.monumentViewConstraintHidden];
     
+    if (PLIPad) {
+        [self.view removeConstraint:self.monumentViewConstraintHiddenSecond];
+        [self.view removeConstraint:self.monumentViewConstraintVisibleSecond];
+        [self.view addConstraint:self.monumentViewConstraintHiddenSecond];
+    }
+
     // Animation du changement de contraintes
     self.monumentViewShouldDisappear = YES;
     [UIView animateWithDuration:0.3 delay:0.0 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
@@ -1121,53 +1156,6 @@
         
         // forcePosition = YES au cas où l'animation de la carte a été interrompue
         [self trySelectMonument:self.selectedMonument forcePosition:YES];
-    }
-    
-    PLTraceOut(@"");
-}
-
-- (void)tapOnCalloutAccessoryControl:(UIControl *)control forAnnotation:(RMAnnotation *)annotation onMap:(RMMapView *)map
-{
-    PLTraceIn(@"annotation: %@",annotation);
-    
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
-        // iPhone
-        UINavigationController *navigationController = [[self storyboard] instantiateViewControllerWithIdentifier:@"Navigation Controller"];
-        PLSearchViewController *searchViewController = (PLSearchViewController *)[navigationController topViewController];
-        searchViewController.mapViewController = self;
-        
-        PLDetailMonumentViewController *detailViewController = [[self storyboard] instantiateViewControllerWithIdentifier:@"DetailMonument"];
-        detailViewController.monument = annotation.userInfo;
-        detailViewController.mapViewController = self;
-        
-        [navigationController pushViewController:detailViewController animated:NO];
-        [self presentViewController:navigationController animated:YES completion:nil];
-    } else {
-        // iPad
-        UINavigationController *navigationController = [self.childViewControllers objectAtIndex:0];
-        
-        UIViewController *topViewController = [navigationController topViewController];
-        PLDetailMonumentViewController *detailViewController;
-        
-        if ([topViewController isKindOfClass:[PLDetailMonumentViewController class]]) {
-            detailViewController = (PLDetailMonumentViewController *)topViewController;
-        } else if ([topViewController isKindOfClass:[PLSearchViewController class]]) {
-            detailViewController = [[self storyboard] instantiateViewControllerWithIdentifier:@"DetailMonument"];
-            detailViewController.mapViewController = self;
-        } else {
-            for (UIViewController *viewController in navigationController.viewControllers) {
-                if ([viewController isKindOfClass:[PLDetailMonumentViewController class]]) {
-                    detailViewController = (PLDetailMonumentViewController *)viewController;
-                    [navigationController popToViewController:detailViewController animated:_leftPanelVisible];
-                    break;
-                }
-            }
-        }
-        
-        detailViewController.monument = annotation.userInfo;
-        if (!_leftPanelVisible) {
-            [self toggleLeftPanel:self];
-        }
     }
     
     PLTraceOut(@"");
@@ -1201,15 +1189,33 @@
 {
     PLTraceIn(@"");
     
+    NSAssert([annotations count] > 0, nil);
     PLInfo(@"%d annotations", [annotations count]);
     
     NSString *title = @"Quelle tombe voulez-vous sélectionner ?";
     
     UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:title delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil];
     
+    // Rectangle aggrégé contenant les annotations
+    CGRect annotationsRect = CGRectNull;
+    
     for (RMAnnotation *annotation in annotations) {
         PLMonument *monument = annotation.userInfo;
         [actionSheet addButtonWithTitle:monument.nom];
+        
+        if (PLIPad) {
+            CGRect annotationRect = annotation.layer.frame;
+            
+            // Division par deux en hauteur
+            CGRect remainder;
+            CGRectDivide(annotationRect, &annotationRect, &remainder, annotationRect.size.height / 2.0, CGRectMinYEdge);
+            
+            if (CGRectIsNull(annotationsRect)) {
+                annotationsRect = annotationRect;
+            } else {
+                annotationsRect = CGRectUnion(annotationsRect, annotationRect);
+            }
+        }
     }
     
     [actionSheet addButtonWithTitle:@"Annuler"];
@@ -1217,7 +1223,11 @@
     
     self.annotationsForActionSheet = annotations;
     
-    [actionSheet showInView:self.view];
+    if (PLIPhone) {
+        [actionSheet showInView:self.view];
+    } else {
+        [actionSheet showFromRect:annotationsRect inView:self.view animated:YES];
+    }
     
     PLTraceOut(@"");
 }
@@ -1411,11 +1421,16 @@
     insetTop = 20.0;
     
     // Hauteur prévue de la vue du monument
-    CGFloat monumentViewHeight = [PLMonumentView heightForWidth:visibleRect.size.width andMonument:monument];
+    CGFloat monumentViewHeight = [PLMonumentView sizeForMaxWidth:(visibleRect.size.width / 2.0) andMonument:monument].height;
     PLInfo(@"monumentViewHeight: %f", monumentViewHeight);
     
-    insetBottom = monumentViewHeight + 44.0 + 10.0 + 10.0;
-    
+    // Vue monument + marge + hauteur bouton + marge
+    if (PLIPhone) {
+        insetBottom = monumentViewHeight + 10.0 + 44.0 + 10.0;
+    } else {
+        insetBottom = monumentViewHeight + 10.0 + 10.0;
+    }
+
     CGRect targetRect;
     targetRect.origin = CGPointMake(visibleRect.origin.x + insetLeft, visibleRect.origin.y + insetTop);
     targetRect.size = CGSizeMake(visibleRect.size.width - insetLeft - insetRight, visibleRect.size.height - insetTop - insetBottom);

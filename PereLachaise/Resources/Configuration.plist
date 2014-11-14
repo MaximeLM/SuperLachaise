@@ -52,13 +52,13 @@
 		<key>Zoom maximum</key>
 		<real>19</real>
 	</dict>
-	<key>Map ID - retina</key>
+	<key>Map ID - release</key>
 	<string>maximelm.gni4g2a8</string>
-	<key>Map ID - non retina</key>
+	<key>Map ID - debug</key>
 	<string>maximelm.map-vtdn6sx4</string>
-	<key>tileJSON - retina</key>
+	<key>tileJSON - release</key>
 	<string>tileJSON_retina.json</string>
-	<key>tileJSON - non retina</key>
+	<key>tileJSON - debug</key>
 	<string>tileJSON_nonRetina.json</string>
 	<key>latitude min</key>
 	<real>48.851187</real>

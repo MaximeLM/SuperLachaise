@@ -346,6 +346,15 @@
     return result;
 }
 
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    PLTraceIn(@"");
+    
+    [cell setBackgroundColor:[UIColor clearColor]];
+    
+    PLTraceOut(@"");
+}
+
 #pragma mark - NSFetchedResultsControllerDelegate
 
 - (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id <NSFetchedResultsSectionInfo>)sectionInfo

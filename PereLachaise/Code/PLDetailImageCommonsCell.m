@@ -26,8 +26,6 @@
 
 #pragma mark - Eléments d'interface
 
-static float kMinDimensionImage = 320.0;
-
 - (void)prepareForReuse
 {
     _monument = nil;
@@ -53,7 +51,9 @@ static float kMinDimensionImage = 320.0;
     CGFloat imageRatio = image.size.height / image.size.width;
     
     // Aspect fit
-    CGFloat hauteurImage = MIN(kMinDimensionImage, ceil(width * imageRatio));
+    CGSize screenSize = [UIScreen mainScreen].bounds.size;
+    CGFloat minScreenSize = MIN(screenSize.width, screenSize.height);
+    CGFloat hauteurImage = MIN(minScreenSize, ceil(width * imageRatio));
     
     PLInfo(@"hauteurImage: %f", hauteurImage);
     
@@ -145,7 +145,9 @@ static float kMinDimensionImage = 320.0;
     CGFloat width = self.contentView.frame.size.width;
     
     // Aspect fit
-    CGFloat hauteurImage = MIN(kMinDimensionImage, ceil(width * imageRatio));
+    CGSize screenSize = [UIScreen mainScreen].bounds.size;
+    CGFloat minScreenSize = MIN(screenSize.width, screenSize.height);
+    CGFloat hauteurImage = MIN(minScreenSize, ceil(width * imageRatio));
     
     self.imageContainerViewHeigthConstraint.constant = hauteurImage;
     

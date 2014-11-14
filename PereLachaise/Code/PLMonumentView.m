@@ -65,23 +65,39 @@
 {
     PLTraceIn(@"");
     
-    if (!self.topBorder) {
-        // Création de la bordure
+    CGFloat borderWidth;
+    if (PLRetina) {
+        borderWidth = 0.5;
+    } else {
+        borderWidth = 1.0;
+    }
+    
+    if (PLIPhone && !self.topBorder && PLIPhone) {
+        // Création de la bordure supérieure
         CALayer *topBorder = [CALayer layer];
         topBorder.backgroundColor = [UIColor blackColor].CGColor;
         [self.layer addSublayer:topBorder];
         self.topBorder = topBorder;
     }
     
-    CGFloat borderWidth;
-    if (PLPostVersion7) {
-        borderWidth = 0.5;
-    } else {
-        borderWidth = 1.0;
+    if (PLIPad && !self.iPadBorderCreated) {
+        // Création de la bordure
+        self.layer.cornerRadius = 4.0f;
+        self.layer.masksToBounds = NO;
+        self.layer.borderWidth = borderWidth;
+        
+        self.iPadBorderCreated = YES;
     }
     
-    // Redessin de la bordure avec la largeur actuelle de la vue
-    self.topBorder.frame = CGRectMake(0.0f, 0.0f, self.frame.size.width, borderWidth);
+    if (PLIPhone) {
+        // Redessin de la bordure avec la largeur actuelle de la vue
+        self.topBorder.frame = CGRectMake(0.0f, 0.0f, self.frame.size.width * 2, borderWidth);
+    }
+    
+    self.layer.shadowColor = [UIColor blackColor].CGColor;
+    self.layer.shadowOpacity = 0.8;
+    self.layer.shadowRadius = 4;
+    self.layer.shadowOffset = CGSizeMake(2.0f, 2.0f);
     
     PLTraceOut(@"");
 }
@@ -229,11 +245,16 @@
     PLTraceOut(@"");
 }
 
-+ (CGFloat)heightForWidth:(CGFloat)width andMonument:(PLMonument *)monument
++ (CGSize)sizeForMaxWidth:(CGFloat)maxWidth andMonument:(PLMonument *)monument
 {
+    PLTraceIn(@"");
+    
+    CGFloat margins = 20 + 20;
+    
     // Largeur disponible pour l'affichage des labels
     // = largeur de la vue moins les marges
-    CGFloat largeurPourLabels = width - 20 - 20;
+    CGFloat largeurPourNom = maxWidth - 20.0 - 35.0;
+    CGFloat largeurPourLabels = maxWidth - 20.0 - 20.0;
     
     // Constante de hauteur séparant 2 labels
     CGFloat verticalSpacing = 8.0;
@@ -243,30 +264,39 @@
     
     CGSize maxSize;
     
-    CGFloat result = 1.0;
+    CGSize result;
     
-    // Hauteur label nom
-    maxSize = CGSizeMake(largeurPourLabels, NSUIntegerMax);
+    CGFloat result_width = 280;
+    CGFloat result_height = 1.0;
+    
+    // Taille label nom
+    maxSize = CGSizeMake(largeurPourNom, NSUIntegerMax);
     CGSize size = [monument.nom compatibilitySizeWithFont:[UIFont boldSystemFontOfSize:18] constrainedToSize:maxSize];
-    result += marginSpacing + ceil(size.height);
-    
-    // Hauteur label dates
+    result_height += marginSpacing + ceil(size.height);
+    result_width = MAX(result_width, ceil(size.width) + 25.0);  // Décalage par rapport au bouton +
+    // Taille label dates
     PLPersonnalite *uniquePersonnalite = monument.uniquePersonnalite;
     if (uniquePersonnalite && uniquePersonnalite.hasAllDates) {
-        result += verticalSpacing + 18.0;
+        result_height += verticalSpacing + 18.0;
     }
     
-    // Hauteur label activité
+    // Taille label activité
     if (uniquePersonnalite && ![uniquePersonnalite.activite isEqualToString:@""]) {
         maxSize = CGSizeMake(largeurPourLabels, NSUIntegerMax);
         CGSize size = [uniquePersonnalite.activite compatibilitySizeWithFont:[UIFont systemFontOfSize:15] constrainedToSize:maxSize];
         
-        result += verticalSpacing + ceil(size.height);
+        result_height += verticalSpacing + ceil(size.height);
+        result_width = MAX(result_width, ceil(size.width));
     }
     
-    // Hauteur bouton circuit
-    result += marginSpacing + 44;
+    // Taille bouton circuit
+    result_height += marginSpacing + 44;
+    result_width = MAX(result_width, 202);
     
+    result.width = result_width + margins;
+    result.height = result_height;
+    
+    PLTraceOut(@"result %f %f",result.width,result.height);
     return result;
 }
 
