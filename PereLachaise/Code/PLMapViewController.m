@@ -142,6 +142,9 @@
 // Le bouton d'ajout/retrait du circuit a été pressé
 - (void)circuitButtonPressed:(id)sender;
 
+// Le bouton de recherche a été pressé
+- (IBAction)searchButtonPressed:(id)sender;
+
 // Repositionne si besoin la carte lors de la sélection d'une annotation
 - (void)scrollAnnotationToVisible:(RMAnnotation *)annotation;
 
@@ -265,6 +268,20 @@
     }
     
     PLTraceOut(@"");
+}
+
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
+{
+    PLTraceIn(@"identifier: %@", identifier);
+    
+    BOOL result = [super shouldPerformSegueWithIdentifier:identifier sender:sender];
+    
+    if (PLIPad && [identifier isEqualToString:@"iPhoneSearchSegue"]) {
+        result = NO;
+    }
+    
+    PLTraceOut(@"result: %d", result);
+    return result;
 }
 
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
@@ -1301,6 +1318,21 @@
     NSError *error;
     [self.selectedMonument.managedObjectContext saveToPersistentStore:&error];
     NSAssert(!error, nil);
+    
+    PLTraceOut(@"");
+}
+
+- (void)searchButtonPressed:(id)sender
+{
+    PLTraceIn(@"");
+    
+    if (PLIPad) {
+        UIViewController *iPadSplitViewController = [[self storyboard] instantiateViewControllerWithIdentifier:@"iPadSplitView"];
+        
+        self.mapView.userTrackingMode = RMUserTrackingModeNone;
+        
+        [self presentViewController:iPadSplitViewController animated:YES completion:nil];
+    }
     
     PLTraceOut(@"");
 }

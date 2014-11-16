@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		551AFE0F1A1962F00092BCB4 /* PLIPadSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 551AFE0E1A1962F00092BCB4 /* PLIPadSplitViewController.m */; };
+		551AFE101A1962F00092BCB4 /* PLIPadSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 551AFE0E1A1962F00092BCB4 /* PLIPadSplitViewController.m */; };
 		552112A319DB41AC007DA071 /* glyphicons_343_thumbs_up_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 552112A119DB41AC007DA071 /* glyphicons_343_thumbs_up_selected.png */; };
 		552112A419DB41AC007DA071 /* glyphicons_343_thumbs_up_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 552112A119DB41AC007DA071 /* glyphicons_343_thumbs_up_selected.png */; };
 		552112A519DB41AC007DA071 /* glyphicons_343_thumbs_up_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 552112A219DB41AC007DA071 /* glyphicons_343_thumbs_up_selected@2x.png */; };
@@ -285,6 +287,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		551AFE0D1A1962F00092BCB4 /* PLIPadSplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLIPadSplitViewController.h; path = Code/PLIPadSplitViewController.h; sourceTree = "<group>"; };
+		551AFE0E1A1962F00092BCB4 /* PLIPadSplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLIPadSplitViewController.m; path = Code/PLIPadSplitViewController.m; sourceTree = "<group>"; };
 		552112A119DB41AC007DA071 /* glyphicons_343_thumbs_up_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = glyphicons_343_thumbs_up_selected.png; path = glyphicons/glyphicons_343_thumbs_up_selected.png; sourceTree = "<group>"; };
 		552112A219DB41AC007DA071 /* glyphicons_343_thumbs_up_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "glyphicons_343_thumbs_up_selected@2x.png"; path = "glyphicons/glyphicons_343_thumbs_up_selected@2x.png"; sourceTree = "<group>"; };
 		553F2F6B19CC646900A977D3 /* LICENCE_database.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = LICENCE_database.txt; path = database/LICENCE_database.txt; sourceTree = "<group>"; };
@@ -749,6 +753,8 @@
 				55EA7F6119CA604E007137BA /* PLAProposNavigationController.m */,
 				55EA7F6219CA604E007137BA /* PLAProposViewController.h */,
 				55EA7F6319CA604E007137BA /* PLAProposViewController.m */,
+				551AFE0D1A1962F00092BCB4 /* PLIPadSplitViewController.h */,
+				551AFE0E1A1962F00092BCB4 /* PLIPadSplitViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -1174,6 +1180,7 @@
 				55EA7F3C19CA5F64007137BA /* PLPersonnalite.m in Sources */,
 				55EA7F3619CA5F64007137BA /* PLImageCommons.m in Sources */,
 				55EA7FA519CA60A3007137BA /* PLMonumentView.m in Sources */,
+				551AFE0F1A1962F00092BCB4 /* PLIPadSplitViewController.m in Sources */,
 				55EA7F3819CA5F64007137BA /* PLMonument.m in Sources */,
 				55EA7F6E19CA604E007137BA /* PLAProposNavigationController.m in Sources */,
 				55EA7F4819CA5F8F007137BA /* PLMonument+ext.m in Sources */,
@@ -1215,6 +1222,7 @@
 				55EA7F3D19CA5F64007137BA /* PLPersonnalite.m in Sources */,
 				55EA7F3719CA5F64007137BA /* PLImageCommons.m in Sources */,
 				55EA7FA619CA60A3007137BA /* PLMonumentView.m in Sources */,
+				551AFE101A1962F00092BCB4 /* PLIPadSplitViewController.m in Sources */,
 				55EA7F6F19CA604E007137BA /* PLAProposNavigationController.m in Sources */,
 				55EA7F7319CA604E007137BA /* PLDetailMonumentViewController.m in Sources */,
 				55EA7F3919CA5F64007137BA /* PLMonument.m in Sources */,
