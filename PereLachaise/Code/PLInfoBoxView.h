@@ -52,4 +52,7 @@
 // Met à jour le contenu des labels
 - (void)updateLabels;
 
+// Adapte le message d'erreur à l'iPad
+- (void)configureInfoBoxForIPad;
+
 @end

@@ -95,9 +95,9 @@
         // Pas de conversion de l'autoresize en contraintes
         [self setTranslatesAutoresizingMaskIntoConstraints:NO];
     }
-    return self;
     
     PLTraceOut(@"");
+    return self;
 }
 
 - (void)layoutSubviews
@@ -167,6 +167,16 @@
     result += statusBarHeight + verticalSpacing + marginSpacing;
     
     return result;
+}
+
+- (void)configureInfoBoxForIPad
+{
+    PLTraceIn(@"");
+    
+    // Texte centré
+    self.messageLabel.textAlignment = NSTextAlignmentCenter;
+    
+    PLTraceOut(@"");
 }
 
 @end

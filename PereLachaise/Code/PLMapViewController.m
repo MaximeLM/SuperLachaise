@@ -238,6 +238,11 @@
     [self.view addSubview:self.mapView];
     [self.view sendSubviewToBack:self.mapView];
     
+    // Configuration du message d'erreur pour iPad
+    if (PLIPad) {
+        [self.infoBoxView configureInfoBoxForIPad];
+    }
+    
     PLTraceOut(@"");
 }
 
