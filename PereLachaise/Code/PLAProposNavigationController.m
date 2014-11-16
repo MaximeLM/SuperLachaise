@@ -56,6 +56,15 @@
 {
     PLTraceIn(@"");
     
+    [self updateSizeForViewController:viewController];
+    
+    PLTraceOut(@"");
+}
+
+- (void)updateSizeForViewController:(UIViewController *)viewController
+{
+    PLTraceIn(@"viewController: %@", viewController);
+    
     // Gestion de la taille du pop-over sur iPad (aucun effet sur iPhone)
     if ([viewController isKindOfClass:[PLWikipediaViewController class]]) {
         self.preferredContentSize = CGSizeMake(self.presentingViewController.view.frame.size.width, self.presentingViewController.view.frame.size.height);

@@ -21,4 +21,7 @@
 
 @interface PLAProposNavigationController : UINavigationController <UINavigationControllerDelegate>
 
+// Met à jour la taille de la vue pop-over en fonction de la vue affichée
+- (void)updateSizeForViewController:(UIViewController *)viewController;
+
 @end

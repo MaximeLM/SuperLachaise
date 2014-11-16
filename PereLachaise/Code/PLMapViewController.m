@@ -33,6 +33,7 @@
 #import "PLAProposViewController.h"
 #import "PLInfoBoxView.h"
 #import "PLRectangularRegion.h"
+#import "PLAProposNavigationController.h"
 
 @interface PLMapViewController () <NSFetchedResultsControllerDelegate, RMMapViewDelegate, UIActionSheetDelegate> {
     BOOL _leftPanelVisible;
@@ -264,6 +265,7 @@
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
 {
     PLTraceIn(@"toInterfaceOrientation: %d", toInterfaceOrientation);
+    [super willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
     
     // Retour au mode de localisation normal pour éviter un bug de freeze du scrolling
     if (self.mapView.userTrackingMode == RMUserTrackingModeFollowWithHeading) {
@@ -278,8 +280,15 @@
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
 {
     PLTraceIn(@"fromInterfaceOrientation: %d", fromInterfaceOrientation);
+    [super didRotateFromInterfaceOrientation:fromInterfaceOrientation];
     
     [self.mapView frameAnimationDidFinish];
+    
+    // Mise à jour de la vue pop-over
+    if ([self.presentedViewController isKindOfClass:[PLAProposNavigationController class]]) {
+        PLAProposNavigationController *viewController = (PLAProposNavigationController *)self.presentedViewController;
+        [viewController updateSizeForViewController:viewController.topViewController];
+    }
     
     PLTraceOut(@"");
 }
