@@ -25,6 +25,10 @@
 
 @interface PLIPadSplitViewController : UIViewController
 
+#pragma mark - Position
+
+- (void)setShowSearchView:(BOOL)show;
+
 #pragma mark -  Autres controleurs
 
 // Le controleur de la carte

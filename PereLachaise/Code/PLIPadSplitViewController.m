@@ -213,4 +213,24 @@
     PLTraceOut(@"");
 }
 
+#pragma mark - Position
+
+- (void)setShowSearchView:(BOOL)show
+{
+    PLTraceIn(@"");
+    
+    if (show) {
+        self.searchViewLeadingVisibleConstraint.priority = UILayoutPriorityDefaultHigh;
+    } else {
+        self.searchViewLeadingVisibleConstraint.priority = UILayoutPriorityDefaultLow;
+    }
+    
+    // Animation du changement de contraintes
+    [UIView animateWithDuration:0.3 delay:0.0 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
+        [self.view layoutIfNeeded];
+    }completion:nil];
+    
+    PLTraceOut(@"");
+}
+
 @end

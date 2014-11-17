@@ -32,6 +32,7 @@
 #import "PLDetailImageCommonsCell.h"
 #import "PLImageCommonsViewController.h"
 #import "PLImageCommons+ext.h"
+#import "PLIPadSplitViewController.h"
 
 static NSString *kNomCell = @"Nom";
 static NSString *kActiviteCell = @"Activité";
@@ -64,6 +65,11 @@ static NSString *kImageCommonsCell = @"ImageCommons";
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    if (PLIPad) {
+        PLIPadSplitViewController *iPadSplitViewController = (PLIPadSplitViewController *)self.navigationController.parentViewController;
+        [iPadSplitViewController setShowSearchView:YES];
+    }
+    
     self.resumeView = nil;
     [self updateListCells];
     
@@ -325,6 +331,11 @@ static NSString *kImageCommonsCell = @"ImageCommons";
             NSURL *url = [NSURL URLWithString:[codeWikipedia stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] relativeToURL:baseURL];
             
             wikipediaVC.urlToLoad = url;
+            
+            if (PLIPad) {
+                PLIPadSplitViewController *iPadSplitViewController = (PLIPadSplitViewController *)self.navigationController.parentViewController;
+                [iPadSplitViewController setShowSearchView:NO];
+            }
         }
     } else if ([[segue destinationViewController] isKindOfClass:[PLImageCommonsViewController class]]) {
         PLImageCommonsViewController *imageViewController = [segue destinationViewController];
@@ -593,6 +604,11 @@ static NSString *kImageCommonsCell = @"ImageCommons";
     if (navigationType == UIWebViewNavigationTypeLinkClicked) {
         PLWikipediaViewController *wikipediaViewController = [[self storyboard] instantiateViewControllerWithIdentifier:@"Wikipedia"];
         wikipediaViewController.urlToLoad = url;
+        
+        if (PLIPad) {
+            PLIPadSplitViewController *iPadSplitViewController = (PLIPadSplitViewController *)self.navigationController.parentViewController;
+            [iPadSplitViewController setShowSearchView:NO];
+        }
         
         [self.navigationController pushViewController:wikipediaViewController animated:YES];
         
