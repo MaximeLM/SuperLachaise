@@ -535,7 +535,7 @@
                                     <outlet property="nomLabelHeigthConstraint" destination="z2k-RR-bug" id="THR-3B-thm"/>
                                     <outlet property="nomLabelTrailingConstraint" destination="LRV-DO-gwn" id="AV0-uz-x18"/>
                                     <outlet property="starImageView" destination="viL-he-BJa" id="zOg-wA-XLW"/>
-                                    <segue destination="0xA-g4-Dqo" kind="push" id="eBV-Ok-AAI"/>
+                                    <segue destination="0xA-g4-Dqo" kind="push" identifier="SearchToDetailSegue" id="eBV-Ok-AAI"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

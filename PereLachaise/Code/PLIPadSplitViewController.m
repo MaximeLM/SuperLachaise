@@ -26,6 +26,9 @@
 // Prépare l'affichage de la vue de recherche
 - (void)makeSearchView;
 
+// Prépare l'affichage de la vue de détail + web
+- (void)makeDetailView;
+
 // Contrainte à gauche visible de la vue recherche
 @property (nonatomic, strong) NSLayoutConstraint *searchViewLeadingVisibleConstraint;
 
@@ -42,6 +45,9 @@
     
     // Initialisation de la vue de recherche
     [self makeSearchView];
+    
+    // Initialisation de la vue de détail
+    [self makeDetailView];
     
     PLTraceOut(@"");
 }
@@ -123,6 +129,86 @@
     
     // Envoi de l'évènement d'ajout
     [navigationController didMoveToParentViewController:self];
+    
+    self.searchNavigationController = navigationController;
+    self.searchViewController = searchViewController;
+    
+    // Personnalisation des vues
+    self.searchViewController.navigationItem.rightBarButtonItem = nil;
+    
+    PLTraceOut(@"");
+}
+
+- (void)makeDetailView
+{
+    PLTraceIn(@"");
+    
+    // Création du détail view controller
+    PLDetailMonumentViewController *detailMonumentViewController = [[self storyboard] instantiateViewControllerWithIdentifier:@"DetailMonument"];
+    
+    // Vue d'un monument par défaut
+    detailMonumentViewController.monument = self.searchViewController.selectedMonument;
+    
+    // Création du NavigationViewController
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:detailMonumentViewController];
+    detailMonumentViewController.mapViewController = self.mapViewController;
+    
+    // Ajout du ViewController et de sa vue dans la hiérarchie
+    [self addChildViewController:navigationController];
+    [self.view addSubview:navigationController.view];
+    navigationController.view.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    // Ajout des contraintes sur la vue
+    
+    // Contrainte en haut
+    NSLayoutConstraint *topConstraint = [NSLayoutConstraint
+                                         constraintWithItem:navigationController.view
+                                         attribute:NSLayoutAttributeTop
+                                         relatedBy:NSLayoutRelationEqual
+                                         toItem:self.view
+                                         attribute:NSLayoutAttributeTop
+                                         multiplier:1.0
+                                         constant:0.0];
+    [self.view addConstraint:topConstraint];
+    
+    // Contrainte en bas
+    NSLayoutConstraint *bottomConstraint = [NSLayoutConstraint
+                                            constraintWithItem:navigationController.view
+                                            attribute:NSLayoutAttributeBottom
+                                            relatedBy:NSLayoutRelationEqual
+                                            toItem:self.view
+                                            attribute:NSLayoutAttributeBottom
+                                            multiplier:1.0
+                                            constant:0.0];
+    [self.view addConstraint:bottomConstraint];
+    
+    // Contrainte à gauche
+    NSLayoutConstraint *leadingConstraint = [NSLayoutConstraint
+                                             constraintWithItem:navigationController.view
+                                             attribute:NSLayoutAttributeLeading
+                                             relatedBy:NSLayoutRelationEqual
+                                             toItem:self.searchNavigationController.view
+                                             attribute:NSLayoutAttributeTrailing
+                                             multiplier:1.0
+                                             constant:0.0];
+    [self.view addConstraint:leadingConstraint];
+    
+    // Contrainte à gauche visible (active à l'init)
+    NSLayoutConstraint *trailingConstraint = [NSLayoutConstraint
+                                              constraintWithItem:navigationController.view
+                                              attribute:NSLayoutAttributeTrailing
+                                              relatedBy:NSLayoutRelationEqual
+                                              toItem:self.view
+                                              attribute:NSLayoutAttributeTrailing
+                                              multiplier:1.0
+                                              constant:0.0];
+    [self.view addConstraint:trailingConstraint];
+    
+    // Envoi de l'évènement d'ajout
+    [navigationController didMoveToParentViewController:self];
+    
+    self.detailNavigationController = navigationController;
+    self.detailMonumentViewController = detailMonumentViewController;
     
     PLTraceOut(@"");
 }

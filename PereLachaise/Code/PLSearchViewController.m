@@ -25,6 +25,7 @@
 #import "PLAppDelegate.h"
 #import "PLDetailMonumentViewController.h"
 #import "PLMonumentTableViewCell.h"
+#import "PLIPadSplitViewController.h"
 
 @interface PLSearchViewController () <NSFetchedResultsControllerDelegate>
 
@@ -85,6 +86,19 @@
     self.filteredFetchedResultsController = nil;
     
     PLTraceOut(@"");
+}
+
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
+{
+    PLTraceIn(@"identifier: %@", identifier);
+    BOOL result = [super shouldPerformSegueWithIdentifier:identifier sender:sender];
+    
+    if (PLIPad && [identifier isEqualToString:@"SearchToDetailSegue"]) {
+        result = NO;
+    }
+    
+    PLTraceOut(@"result: %d", result);
+    return result;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -358,6 +372,29 @@
     PLTraceOut(@"");
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    PLTraceIn(@"");
+    
+    if (PLIPad) {
+        PLMonument *monument = nil;
+        
+        if (tableView == self.tableView) {
+            PLInfo(@"fetchedResultsController");
+            monument = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        } else {
+            PLInfo(@"filteredFetchedResultsController");
+            monument = [self.filteredFetchedResultsController objectAtIndexPath:indexPath];
+        }
+        PLInfo(@"monument: %@", monument);
+        
+        PLIPadSplitViewController *iPadSplitViewController = (PLIPadSplitViewController *)self.navigationController.parentViewController;
+        iPadSplitViewController.detailMonumentViewController.monument = monument;
+    }
+    
+    PLTraceOut(@"");
+}
+
 #pragma mark - NSFetchedResultsControllerDelegate
 
 - (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id <NSFetchedResultsSectionInfo>)sectionInfo
@@ -487,6 +524,21 @@
     // Return YES to cause the search result table view to be reloaded.
     PLTraceOut(@"return: YES");
     return YES;
+}
+
+#pragma mark - Données
+
+- (PLMonument *)selectedMonument
+{
+    PLTraceIn(@"");
+    PLMonument *result = [self.fetchedResultsController objectAtIndexPath:[self.tableView indexPathForSelectedRow]];
+    
+    if (!result) {
+        result = [self.fetchedResultsController objectAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+    }
+    
+    PLTraceOut(@"result: %@", result);
+    return result;
 }
 
 @end

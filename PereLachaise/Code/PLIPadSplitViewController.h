@@ -21,6 +21,7 @@
 
 #import "PLSearchViewController.h"
 #import "PLMapViewController.h"
+#import "PLDetailMonumentViewController.h"
 
 @interface PLIPadSplitViewController : UIViewController
 
@@ -28,5 +29,17 @@
 
 // Le controleur de la carte
 @property (nonatomic, weak) PLMapViewController *mapViewController;
+
+// Le controleur de la vue de navigation de recherche
+@property (nonatomic, weak) UINavigationController *searchNavigationController;
+
+// Le controleur de la vue de navigation de détail
+@property (nonatomic, weak) UINavigationController *detailNavigationController;
+
+// Le controleur de la vue de recherche
+@property (nonatomic, weak) PLSearchViewController *searchViewController;
+
+// Le controleur de la vue de détail
+@property (nonatomic, weak) PLDetailMonumentViewController *detailMonumentViewController;
 
 @end
