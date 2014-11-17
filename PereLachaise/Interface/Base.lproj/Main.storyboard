@@ -244,7 +244,7 @@
         <!--iPad Split View-->
         <scene sceneID="OSI-wT-3lY">
             <objects>
-                <viewController storyboardIdentifier="iPadSplitView" title="iPad Split View" modalTransitionStyle="crossDissolve" modalPresentationStyle="overFullScreen" id="ZEB-V1-wej" customClass="PLIPadSplitViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="iPadSplitView" title="iPad Split View" modalTransitionStyle="crossDissolve" id="ZEB-V1-wej" customClass="PLIPadSplitViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="DgP-WF-VRa"/>
                         <viewControllerLayoutGuide type="bottom" id="bmA-L3-fvo"/>
@@ -252,25 +252,7 @@
                     <view key="view" opaque="NO" contentMode="scaleToFill" id="CID-mr-bYB">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" alpha="0.49999999999999994" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7sb-At-PMI">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <color key="backgroundColor" red="0.95294117649999999" green="0.94117647059999998" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="emptyButtonPressed:" destination="ZEB-V1-wej" eventType="touchUpInside" id="aZc-0h-NKk"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="bottom" secondItem="7sb-At-PMI" secondAttribute="bottom" id="VyA-VJ-iD9"/>
-                            <constraint firstItem="7sb-At-PMI" firstAttribute="leading" secondItem="CID-mr-bYB" secondAttribute="leading" id="kfT-Pj-3sB"/>
-                            <constraint firstAttribute="trailing" secondItem="7sb-At-PMI" secondAttribute="trailing" id="nNK-8C-sGL"/>
-                            <constraint firstItem="7sb-At-PMI" firstAttribute="top" secondItem="CID-mr-bYB" secondAttribute="top" id="pfD-yv-i0C"/>
-                        </constraints>
+                        <color key="backgroundColor" red="0.95294117649999999" green="0.94117647059999998" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9dx-mz-qEY" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -336,11 +336,14 @@
     }
     PLInfo(@"monument: %@", monument);
     
-    // 6+ : 52
-    // 6 : 49
-    // autres : 48
+    CGFloat offset;
+    if (PLIPhone) {
+        offset = 48.0;
+    } else {
+        offset = 68.0;
+    }
     
-    CGFloat result = [PLMonumentTableViewCell heightForWidth:(self.tableView.frame.size.width - 48.0) andMonument:monument];
+    CGFloat result = [PLMonumentTableViewCell heightForWidth:(self.tableView.frame.size.width - offset) andMonument:monument];
     
     PLTraceOut(@"return: %f", result);
     return result;

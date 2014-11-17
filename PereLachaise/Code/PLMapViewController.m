@@ -34,6 +34,7 @@
 #import "PLInfoBoxView.h"
 #import "PLRectangularRegion.h"
 #import "PLAProposNavigationController.h"
+#import "PLIPadSplitViewController.h"
 
 @interface PLMapViewController () <NSFetchedResultsControllerDelegate, RMMapViewDelegate, UIActionSheetDelegate> {
     BOOL _leftPanelVisible;
@@ -1327,10 +1328,11 @@
     PLTraceIn(@"");
     
     if (PLIPad) {
-        UIViewController *iPadSplitViewController = [[self storyboard] instantiateViewControllerWithIdentifier:@"iPadSplitView"];
+        PLIPadSplitViewController *iPadSplitViewController = [[self storyboard] instantiateViewControllerWithIdentifier:@"iPadSplitView"];
         
         self.mapView.userTrackingMode = RMUserTrackingModeNone;
         
+        iPadSplitViewController.mapViewController = self;
         [self presentViewController:iPadSplitViewController animated:YES completion:nil];
     }
     

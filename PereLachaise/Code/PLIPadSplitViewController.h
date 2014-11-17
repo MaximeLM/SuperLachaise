@@ -19,11 +19,14 @@
 
 #import <UIKit/UIKit.h>
 
+#import "PLSearchViewController.h"
+#import "PLMapViewController.h"
+
 @interface PLIPadSplitViewController : UIViewController
 
-#pragma mark - Eléments d'interface
+#pragma mark -  Autres controleurs
 
-// Le "bouton" correspondant à la vue vide est pressé
-- (IBAction)emptyButtonPressed:(id)sender;
+// Le controleur de la carte
+@property (nonatomic, weak) PLMapViewController *mapViewController;
 
 @end
