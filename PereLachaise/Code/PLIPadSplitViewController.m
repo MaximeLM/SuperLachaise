@@ -134,6 +134,9 @@
     self.searchViewController = searchViewController;
     
     // Personnalisation des vues
+    
+    // Inversion de la position du boutons de fermeture de l'écran
+    self.searchViewController.navigationItem.leftBarButtonItem = self.searchViewController.navigationItem.rightBarButtonItem;
     self.searchViewController.navigationItem.rightBarButtonItem = nil;
     
     PLTraceOut(@"");
@@ -219,6 +222,11 @@
 {
     PLTraceIn(@"");
     
+    if (show == (self.searchViewLeadingVisibleConstraint.priority == UILayoutPriorityDefaultHigh)) {
+        // Pas de modification si déjà à la bonne position
+        return;
+    }
+    
     if (show) {
         self.searchViewLeadingVisibleConstraint.priority = UILayoutPriorityDefaultHigh;
     } else {
@@ -229,6 +237,24 @@
     [UIView animateWithDuration:0.3 delay:0.0 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
         [self.view layoutIfNeeded];
     }completion:nil];
+    
+    PLTraceOut(@"");
+}
+
+#pragma mark - Sélection
+
+- (void)showMonumentInDetailView:(PLMonument *)monument
+{
+    PLTraceIn(@"monument: %@", monument);
+    
+    // Retour à l'écran monument si l'écran personnalité était sélectionné
+    [self.detailNavigationController popToRootViewControllerAnimated:YES];
+    
+    // Modification du monument
+    self.detailMonumentViewController.monument = monument;
+    
+    // Scroll jusqu'en haut de l'écran
+    [self.detailMonumentViewController.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
     
     PLTraceOut(@"");
 }

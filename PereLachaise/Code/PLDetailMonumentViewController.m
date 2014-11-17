@@ -83,13 +83,15 @@ static NSString *kImageCommonsCell = @"ImageCommons";
 {
     PLTraceIn(@"monument: %@", monument);
     
+    self.resumeView = nil;
+    
     // Affectation du monument
     [self willChangeValueForKey:@"monument"];
     _monument = monument;
     [self didChangeValueForKey:@"monument"];
     
     // Mise à jour du titre
-    if ([monument.id intValue] != [self.mapViewController.selectedMonument.id intValue]) {
+    if (PLIPad || [monument.id intValue] != [self.mapViewController.selectedMonument.id intValue]) {
         self.navigationItem.rightBarButtonItem.title = @"Sélectionner";
         self.selectOnClose = YES;
     } else {
@@ -110,6 +112,8 @@ static NSString *kImageCommonsCell = @"ImageCommons";
 - (void)setPersonnalite:(PLPersonnalite *)personnalite
 {
     PLTraceIn(@"personnalite: %@", personnalite);
+    
+    self.resumeView = nil;
     
     // Affectation du monument
     [self willChangeValueForKey:@"personnalite"];
@@ -575,6 +579,11 @@ static NSString *kImageCommonsCell = @"ImageCommons";
         NSError *error;
         [self.monument.managedObjectContext saveToPersistentStore:&error];
         NSAssert(!error, nil);
+        
+        if (PLIPad) {
+            PLIPadSplitViewController *iPadSplitViewController = (PLIPadSplitViewController *)self.navigationController.parentViewController;
+            [iPadSplitViewController.searchViewController updateRowForMonument:self.monument];
+        }
     });
     
     PLTraceOut(@"");

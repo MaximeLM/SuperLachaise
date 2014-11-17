@@ -128,6 +128,23 @@
     PLTraceOut(@"");
 }
 
+- (void)updateRowForMonument:(PLMonument *)monument
+{
+    PLTraceIn(@"");
+    
+    // Table non filtrée
+    NSIndexPath *indexPath = [self.fetchedResultsController indexPathForObject:monument];
+    PLMonumentTableViewCell *cell = (PLMonumentTableViewCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+    [cell updateLabels];
+    
+    // Table filtrée
+    indexPath = [self.filteredFetchedResultsController indexPathForObject:monument];
+    cell = (PLMonumentTableViewCell *)[self.searchDisplayController.searchResultsTableView cellForRowAtIndexPath:indexPath];
+    [cell updateLabels];
+    
+    PLTraceOut(@"");
+}
+
 #pragma mark - Chargement des monuments
 
 - (NSFetchedResultsController *)fetchedResultsController
@@ -389,7 +406,7 @@
         PLInfo(@"monument: %@", monument);
         
         PLIPadSplitViewController *iPadSplitViewController = (PLIPadSplitViewController *)self.navigationController.parentViewController;
-        iPadSplitViewController.detailMonumentViewController.monument = monument;
+        [iPadSplitViewController showMonumentInDetailView:monument];
     }
     
     PLTraceOut(@"");

@@ -29,6 +29,10 @@
 
 - (void)setShowSearchView:(BOOL)show;
 
+#pragma mark - Sélection
+
+- (void)showMonumentInDetailView:(PLMonument *)monument;
+
 #pragma mark -  Autres controleurs
 
 // Le controleur de la carte

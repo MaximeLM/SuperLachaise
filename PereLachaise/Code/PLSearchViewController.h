@@ -37,6 +37,9 @@
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 
+// Met à jour la cellule pour le monument indiqué
+- (void)updateRowForMonument:(PLMonument *)monument;
+
 #pragma mark - Autres controleurs
 
 @property (nonatomic, weak) PLMapViewController *mapViewController;

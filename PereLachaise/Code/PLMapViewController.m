@@ -1292,20 +1292,30 @@
 {
     PLTraceIn(@"");
     
-    UINavigationController *navigationController = [[self storyboard] instantiateViewControllerWithIdentifier:@"Navigation Controller"];
-    PLSearchViewController *searchViewController = (PLSearchViewController *)[navigationController topViewController];
-    searchViewController.mapViewController = self;
-    NSIndexPath *indexPath = [searchViewController.fetchedResultsController indexPathForObject:self.selectedMonument];
-    [searchViewController.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionMiddle];
-    
-    PLDetailMonumentViewController *detailViewController = [[self storyboard] instantiateViewControllerWithIdentifier:@"DetailMonument"];
-    detailViewController.mapViewController = self;
-    detailViewController.monument = self.selectedMonument;
-    
-    self.mapView.userTrackingMode = RMUserTrackingModeNone;
-    
-    [navigationController pushViewController:detailViewController animated:NO];
-    [self presentViewController:navigationController animated:YES completion:nil];
+    if (PLIPhone) {
+        UINavigationController *navigationController = [[self storyboard] instantiateViewControllerWithIdentifier:@"Navigation Controller"];
+        PLSearchViewController *searchViewController = (PLSearchViewController *)[navigationController topViewController];
+        searchViewController.mapViewController = self;
+        NSIndexPath *indexPath = [searchViewController.fetchedResultsController indexPathForObject:self.selectedMonument];
+        [searchViewController.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionMiddle];
+        
+        PLDetailMonumentViewController *detailViewController = [[self storyboard] instantiateViewControllerWithIdentifier:@"DetailMonument"];
+        detailViewController.mapViewController = self;
+        detailViewController.monument = self.selectedMonument;
+        
+        self.mapView.userTrackingMode = RMUserTrackingModeNone;
+        
+        [navigationController pushViewController:detailViewController animated:NO];
+        [self presentViewController:navigationController animated:YES completion:nil];
+    } else {
+        PLIPadSplitViewController *iPadSplitViewController = [[self storyboard] instantiateViewControllerWithIdentifier:@"iPadSplitView"];
+        
+        self.mapView.userTrackingMode = RMUserTrackingModeNone;
+        
+        iPadSplitViewController.mapViewController = self;
+        
+        [self presentViewController:iPadSplitViewController animated:YES completion:nil];
+    }
     
     PLTraceOut(@"");
 }
