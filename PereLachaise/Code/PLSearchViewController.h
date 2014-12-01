@@ -24,12 +24,6 @@
 
 @interface PLSearchViewController : UITableViewController
 
-#pragma mark - Données
-
-// Renvoie le dernier élément sélectionné ou le premier élément de la liste si aucun n'est sélectionné
-// Conservé entre 2 affichage du menu
-- (PLMonument *)selectedMonument;
-
 #pragma mark - Eléments d'interface
 
 // Ferme ou dissimule la fenêtre

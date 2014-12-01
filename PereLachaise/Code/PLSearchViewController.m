@@ -393,18 +393,18 @@
 {
     PLTraceIn(@"");
     
+    PLMonument *monument = nil;
+    
+    if (tableView == self.tableView) {
+        PLInfo(@"fetchedResultsController");
+        monument = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    } else {
+        PLInfo(@"filteredFetchedResultsController");
+        monument = [self.filteredFetchedResultsController objectAtIndexPath:indexPath];
+    }
+    PLInfo(@"monument: %@", monument);
+    
     if (PLIPad) {
-        PLMonument *monument = nil;
-        
-        if (tableView == self.tableView) {
-            PLInfo(@"fetchedResultsController");
-            monument = [self.fetchedResultsController objectAtIndexPath:indexPath];
-        } else {
-            PLInfo(@"filteredFetchedResultsController");
-            monument = [self.filteredFetchedResultsController objectAtIndexPath:indexPath];
-        }
-        PLInfo(@"monument: %@", monument);
-        
         PLIPadSplitViewController *iPadSplitViewController = (PLIPadSplitViewController *)self.navigationController.parentViewController;
         [iPadSplitViewController showMonumentInDetailView:monument];
     }
@@ -541,21 +541,6 @@
     // Return YES to cause the search result table view to be reloaded.
     PLTraceOut(@"return: YES");
     return YES;
-}
-
-#pragma mark - Données
-
-- (PLMonument *)selectedMonument
-{
-    PLTraceIn(@"");
-    PLMonument *result = [self.fetchedResultsController objectAtIndexPath:[self.tableView indexPathForSelectedRow]];
-    
-    if (!result) {
-        result = [self.fetchedResultsController objectAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-    }
-    
-    PLTraceOut(@"result: %@", result);
-    return result;
 }
 
 @end

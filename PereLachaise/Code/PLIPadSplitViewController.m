@@ -19,6 +19,9 @@
 
 #import "PLIPadSplitViewController.h"
 
+// Monument sélectionné par défaut (conservé entre plusieurs affichages de l'écran)
+static __weak PLMonument *_initialSelectedMonument;
+
 @interface PLIPadSplitViewController ()
 
 #pragma mark - Eléments d'interface
@@ -31,6 +34,12 @@
 
 // Contrainte à gauche visible de la vue recherche
 @property (nonatomic, strong) NSLayoutConstraint *searchViewLeadingVisibleConstraint;
+
+#pragma mark - Données
+
+// Renvoie le dernier élément sélectionné ou le premier élément de la liste si aucun n'est sélectionné
+// Conservé entre 2 affichage du menu
+@property (nonatomic, weak) PLMonument *initialSelectedMonument;
 
 @end
 
@@ -150,7 +159,7 @@
     PLDetailMonumentViewController *detailMonumentViewController = [[self storyboard] instantiateViewControllerWithIdentifier:@"DetailMonument"];
     
     // Vue d'un monument par défaut
-    detailMonumentViewController.monument = self.searchViewController.selectedMonument;
+    detailMonumentViewController.monument = self.initialSelectedMonument;
     
     // Création du NavigationViewController
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:detailMonumentViewController];
@@ -254,7 +263,36 @@
     self.detailMonumentViewController.monument = monument;
     
     // Scroll jusqu'en haut de l'écran
-    [self.detailMonumentViewController.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    [self.detailMonumentViewController.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:NO];
+    
+    self.initialSelectedMonument = monument;
+    
+    PLTraceOut(@"");
+}
+
+#pragma mark - Données
+
+- (PLMonument *)initialSelectedMonument
+{
+    PLTraceIn(@"");
+    
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _initialSelectedMonument = [self.searchViewController.fetchedResultsController objectAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+    });
+    
+    PLMonument *result = _initialSelectedMonument;
+    
+    NSAssert(result, @"");
+    PLTraceOut(@"result: %@", result);
+    return result;
+}
+
+- (void)setInitialSelectedMonument:(PLMonument *)initialSelectedMonument
+{
+    PLTraceIn(@"initialSelectedMonument: %@", initialSelectedMonument);
+    
+    _initialSelectedMonument = initialSelectedMonument;
     
     PLTraceOut(@"");
 }
