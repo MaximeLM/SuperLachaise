@@ -1313,6 +1313,7 @@
         self.mapView.userTrackingMode = RMUserTrackingModeNone;
         
         iPadSplitViewController.mapViewController = self;
+        iPadSplitViewController.initialMonument = self.selectedMonument;
         
         [self presentViewController:iPadSplitViewController animated:YES completion:nil];
     }

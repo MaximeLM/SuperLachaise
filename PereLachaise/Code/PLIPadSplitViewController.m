@@ -19,8 +19,8 @@
 
 #import "PLIPadSplitViewController.h"
 
-// Monument sélectionné par défaut (conservé entre plusieurs affichages de l'écran)
-static __weak PLMonument *_initialSelectedMonument;
+// Monument sélectionné dans la vue détail (conservé entre plusieurs affichages de l'écran)
+static __weak PLMonument *_staticDetailMonument;
 
 @interface PLIPadSplitViewController ()
 
@@ -37,9 +37,8 @@ static __weak PLMonument *_initialSelectedMonument;
 
 #pragma mark - Données
 
-// Renvoie le dernier élément sélectionné ou le premier élément de la liste si aucun n'est sélectionné
-// Conservé entre 2 affichage du menu
-@property (nonatomic, weak) PLMonument *initialSelectedMonument;
+// Monument sélectionné dans la vue détail (conservé entre plusieurs affichages de l'écran)
+@property (nonatomic, weak) PLMonument *detailMonument;
 
 @end
 
@@ -51,6 +50,11 @@ static __weak PLMonument *_initialSelectedMonument;
 {
     PLTraceIn(@"");
     [super viewDidLoad];
+    
+    if (self.initialMonument) {
+        // Sélection initiale dans la vue Détail (si vue appelée depuis une sélection sur la carte)
+        self.detailMonument = self.initialMonument;
+    }
     
     // Initialisation de la vue de recherche
     [self makeSearchView];
@@ -148,6 +152,12 @@ static __weak PLMonument *_initialSelectedMonument;
     self.searchViewController.navigationItem.leftBarButtonItem = self.searchViewController.navigationItem.rightBarButtonItem;
     self.searchViewController.navigationItem.rightBarButtonItem = nil;
     
+    // Scroll jusqu'au monument sélectionné si sélection depuis la carte
+    if (self.initialMonument) {
+        NSIndexPath *indexPath = [searchViewController.fetchedResultsController indexPathForObject:self.initialMonument];
+        [searchViewController.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
+    }
+    
     PLTraceOut(@"");
 }
 
@@ -159,7 +169,7 @@ static __weak PLMonument *_initialSelectedMonument;
     PLDetailMonumentViewController *detailMonumentViewController = [[self storyboard] instantiateViewControllerWithIdentifier:@"DetailMonument"];
     
     // Vue d'un monument par défaut
-    detailMonumentViewController.monument = self.initialSelectedMonument;
+    detailMonumentViewController.monument = self.detailMonument;
     
     // Création du NavigationViewController
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:detailMonumentViewController];
@@ -265,34 +275,36 @@ static __weak PLMonument *_initialSelectedMonument;
     // Scroll jusqu'en haut de l'écran
     [self.detailMonumentViewController.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:NO];
     
-    self.initialSelectedMonument = monument;
+    self.detailMonument = monument;
     
     PLTraceOut(@"");
 }
 
 #pragma mark - Données
 
-- (PLMonument *)initialSelectedMonument
+- (PLMonument *)detailMonument
 {
     PLTraceIn(@"");
     
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _initialSelectedMonument = [self.searchViewController.fetchedResultsController objectAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+        if (!_staticDetailMonument) {
+            _staticDetailMonument = [self.searchViewController.fetchedResultsController objectAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+        }
     });
     
-    PLMonument *result = _initialSelectedMonument;
+    PLMonument *result = _staticDetailMonument;
     
     NSAssert(result, @"");
     PLTraceOut(@"result: %@", result);
     return result;
 }
 
-- (void)setInitialSelectedMonument:(PLMonument *)initialSelectedMonument
+- (void)setDetailMonument:(PLMonument *)detailMonument
 {
-    PLTraceIn(@"initialSelectedMonument: %@", initialSelectedMonument);
+    PLTraceIn(@"detailMonument: %@", detailMonument);
     
-    _initialSelectedMonument = initialSelectedMonument;
+    _staticDetailMonument = detailMonument;
     
     PLTraceOut(@"");
 }

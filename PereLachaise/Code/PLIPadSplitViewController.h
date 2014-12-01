@@ -31,6 +31,10 @@
 
 #pragma mark - Sélection
 
+// Le monument qui doit être sélectionné à l'initialisation de la vue
+@property (nonatomic, weak) PLMonument *initialMonument;
+
+// Affiche le monument indiqué dans la vue Détail
 - (void)showMonumentInDetailView:(PLMonument *)monument;
 
 #pragma mark -  Autres controleurs
