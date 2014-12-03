@@ -125,6 +125,17 @@ static NSString *starPrefix = @"★ ";
     return result;
 }
 
++ (UIColor *)colorForSelectedCell
+{
+    static dispatch_once_t once;
+    static UIColor *sharedColor;
+    dispatch_once(&once, ^{
+        sharedColor = [UIColor colorWithWhite:0.85 alpha:1.0];
+    });
+    
+    return sharedColor;
+}
+
 // Surchargé pour adapter la vue lors du changement de monument
 - (void)setMonument:(PLMonument *)monument
 {

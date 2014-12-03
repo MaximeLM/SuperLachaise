@@ -50,6 +50,9 @@
 // Calcule la hauteur de la vue pour une largeur et une personnalité données
 + (CGFloat)heightForWidth:(CGFloat)width andPersonnalite:(PLPersonnalite *)personnalite;
 
+// La couleur d'une cellule sélectionnée
++ (UIColor *)colorForSelectedCell;
+
 #pragma mark - Contraintes
 
 // La contrainte sur la hauteur du label nomLabel

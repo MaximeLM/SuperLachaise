@@ -73,11 +73,6 @@
     [super viewWillAppear:animated];
 }
 
-- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return indexPath;
-}
-
 - (void)didReceiveMemoryWarning
 {
     PLTraceIn(@"");
@@ -285,6 +280,14 @@
     }
     PLInfo(@"monument: %@", monument);
     
+    cell.backgroundColor = [UIColor clearColor];
+    if (PLIPad) {
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        if ([[tableView indexPathForSelectedRow] isEqual:indexPath]) {
+            cell.backgroundColor = [PLMonumentTableViewCell colorForSelectedCell];
+        }
+    }
+    
     cell.monument = monument;
     
     PLTraceOut(@"return: %@", cell);
@@ -387,7 +390,19 @@
 {
     PLTraceIn(@"");
     
-    [cell setBackgroundColor:[UIColor clearColor]];
+    if (PLIPhone) {
+        [cell setBackgroundColor:[UIColor clearColor]];
+    } else if (tableView == self.tableView) {
+        PLIPadSplitViewController *iPadSplitViewController = (PLIPadSplitViewController *)self.navigationController.parentViewController;
+        if (iPadSplitViewController.initialMonument) {
+            NSIndexPath *indexPathForInitialMonument = [self.fetchedResultsController indexPathForObject:iPadSplitViewController.initialMonument];
+            if ([indexPathForInitialMonument isEqual:indexPath]) {
+                iPadSplitViewController.initialMonument = nil;
+                [self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
+                cell.backgroundColor = [PLMonumentTableViewCell colorForSelectedCell];
+            }
+        }
+    }
     
     PLTraceOut(@"");
 }
@@ -410,6 +425,21 @@
     if (PLIPad) {
         PLIPadSplitViewController *iPadSplitViewController = (PLIPadSplitViewController *)self.navigationController.parentViewController;
         [iPadSplitViewController showMonumentInDetailView:monument];
+        
+        UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+        cell.backgroundColor = [PLMonumentTableViewCell colorForSelectedCell];
+    }
+    
+    PLTraceOut(@"");
+}
+
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    PLTraceIn(@"");
+    
+    if (PLIPad) {
+        UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+        cell.backgroundColor = [UIColor clearColor];
     }
     
     PLTraceOut(@"");
