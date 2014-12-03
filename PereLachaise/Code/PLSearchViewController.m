@@ -360,23 +360,24 @@
     
     PLMonument *monument = nil;
     
+    CGFloat offset;
+    if (PLIPhone) {
+        offset = 49.0;
+    } else {
+        offset = 68.0;
+    }
+    
     if (tableView == self.tableView) {
         PLInfo(@"fetchedResultsController");
         monument = [self.fetchedResultsController objectAtIndexPath:indexPath];
     } else {
         PLInfo(@"filteredFetchedResultsController");
         monument = [self.filteredFetchedResultsController objectAtIndexPath:indexPath];
+        offset = offset - 1.0;
     }
     PLInfo(@"monument: %@", monument);
     
-    CGFloat offset;
-    if (PLIPhone) {
-        offset = 48.0;
-    } else {
-        offset = 68.0;
-    }
-    
-    CGFloat result = [PLMonumentTableViewCell heightForWidth:(self.tableView.frame.size.width - offset) andMonument:monument];
+    CGFloat result = [PLMonumentTableViewCell heightForWidth:(tableView.frame.size.width - offset) andMonument:monument];
     
     PLTraceOut(@"return: %f", result);
     return result;
