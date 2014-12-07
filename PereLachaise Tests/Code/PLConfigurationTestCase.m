@@ -58,7 +58,7 @@
     NSDictionary *dictionary = [PLConfiguration sharedDictionary];
     
     // Récupération d'une valeur
-    id result = [dictionary objectForKey:@"Map ID - retina"];
+    id result = [dictionary objectForKey:@"Map ID - release"];
     XCTAssertNotNil(result, @"");
     XCTAssertTrue([result isKindOfClass:[NSString class]], @"");
 }
@@ -94,7 +94,7 @@
 - (void)testValueForKeyPathNSString
 {
     // Récupération d'une valeur
-    id result = [PLConfiguration valueForKeyPath:@"Map ID - retina"];
+    id result = [PLConfiguration valueForKeyPath:@"Map ID - release"];
     XCTAssertNotNil(result, @"");
     XCTAssertTrue([result isKindOfClass:[NSString class]], @"");
 }
