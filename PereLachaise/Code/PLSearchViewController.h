@@ -22,9 +22,11 @@
 
 #import "PLMapViewController.h"
 
-@interface PLSearchViewController : UITableViewController
+@interface PLSearchViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 #pragma mark - Eléments d'interface
+
+@property (nonatomic, weak) IBOutlet UITableView *tableView;
 
 // Ferme ou dissimule la fenêtre
 - (IBAction)doneButtonAction:(id)sender;
