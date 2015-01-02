@@ -207,6 +207,10 @@
     
     [super viewDidLoad];
     
+    // iOS 8 : affiche la barre de statut en mode paysage
+    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
+    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationNone];
+    
     // Configuration des boutons
     [self configureButtons];
     
