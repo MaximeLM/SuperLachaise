@@ -154,8 +154,7 @@ static __weak PLMonument *_staticDetailMonument;
     
     // Scroll jusqu'au monument sélectionné si sélection depuis la carte
     if (self.initialMonument) {
-        NSIndexPath *indexPath = [searchViewController.fetchedResultsController indexPathForObject:self.initialMonument];
-        [searchViewController.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
+        searchViewController.initialMonument = self.initialMonument;
     }
     
     PLTraceOut(@"");

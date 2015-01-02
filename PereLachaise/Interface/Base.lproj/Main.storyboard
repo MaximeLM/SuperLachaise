@@ -349,7 +349,7 @@
                                             <outlet property="nomLabelHeigthConstraint" destination="Ibg-OA-Y1p" id="J85-FL-8jR"/>
                                             <outlet property="nomLabelTrailingConstraint" destination="P2H-wx-6AG" id="Fq9-3w-wQz"/>
                                             <outlet property="starImageView" destination="i25-2U-wka" id="aUO-sN-Ihs"/>
-                                            <segue destination="0xA-g4-Dqo" kind="push" id="oQ4-8o-8du"/>
+                                            <segue destination="0xA-g4-Dqo" kind="push" identifier="SearchToDetailSegue" id="oQ4-8o-8du"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

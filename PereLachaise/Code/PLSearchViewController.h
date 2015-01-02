@@ -40,4 +40,8 @@
 
 @property (nonatomic, weak) PLMapViewController *mapViewController;
 
+#pragma mark - Sélection
+
+@property (nonatomic, weak) PLMonument *initialMonument;
+
 @end

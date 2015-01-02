@@ -404,6 +404,13 @@
         }
     }
     
+    if(self.initialMonument && [indexPath row] == [tableView numberOfRowsInSection: [tableView numberOfSections] - 1] - 1){
+        //end of loading
+        NSIndexPath *indexPath = [self.fetchedResultsController indexPathForObject:self.initialMonument];
+        [self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionMiddle];
+        self.initialMonument = nil;
+    }
+    
     PLTraceOut(@"");
 }
 

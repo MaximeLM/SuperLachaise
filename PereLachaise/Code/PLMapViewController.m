@@ -1300,8 +1300,7 @@
         UINavigationController *navigationController = [[self storyboard] instantiateViewControllerWithIdentifier:@"Navigation Controller"];
         PLSearchViewController *searchViewController = (PLSearchViewController *)[navigationController topViewController];
         searchViewController.mapViewController = self;
-        NSIndexPath *indexPath = [searchViewController.fetchedResultsController indexPathForObject:self.selectedMonument];
-        [searchViewController.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionMiddle];
+        searchViewController.initialMonument = self.selectedMonument;
         
         PLDetailMonumentViewController *detailViewController = [[self storyboard] instantiateViewControllerWithIdentifier:@"DetailMonument"];
         detailViewController.mapViewController = self;
