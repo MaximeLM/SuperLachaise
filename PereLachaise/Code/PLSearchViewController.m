@@ -26,6 +26,7 @@
 #import "PLDetailMonumentViewController.h"
 #import "PLMonumentTableViewCell.h"
 #import "PLIPadSplitViewController.h"
+#import "PLDeprecatedMethods.h"
 
 @interface PLSearchViewController () <NSFetchedResultsControllerDelegate>
 
@@ -54,7 +55,8 @@
 {
     [super viewDidLoad];
     
-    self.searchDisplayController.searchResultsTableView.backgroundColor = self.tableView.backgroundColor;
+    
+    ((id<PLDeprecatedMethods>)self).searchDisplayController.searchResultsTableView.backgroundColor = self.tableView.backgroundColor;
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -140,7 +142,7 @@
     
     // Table filtrée
     indexPath = [self.filteredFetchedResultsController indexPathForObject:monument];
-    cell = (PLMonumentTableViewCell *)[self.searchDisplayController.searchResultsTableView cellForRowAtIndexPath:indexPath];
+    cell = (PLMonumentTableViewCell *)[((id<PLDeprecatedMethods>)self).searchDisplayController.searchResultsTableView cellForRowAtIndexPath:indexPath];
     [cell updateLabels];
     
     PLTraceOut(@"");
@@ -232,7 +234,7 @@
     
     NSInteger result;
     
-    if (tableView == self.searchDisplayController.searchResultsTableView) {
+    if (tableView == ((id<PLDeprecatedMethods>)self).searchDisplayController.searchResultsTableView) {
         PLInfo(@"filteredFetchedResultsController");
         result = [[self.filteredFetchedResultsController sections] count];
     } else {
@@ -440,7 +442,7 @@
         PLIPadSplitViewController *iPadSplitViewController = (PLIPadSplitViewController *)self.navigationController.parentViewController;
         [iPadSplitViewController showMonumentInDetailView:monument];
         
-        NSArray *tables = @[self.tableView, self.searchDisplayController.searchResultsTableView];
+        NSArray *tables = @[self.tableView, ((id<PLDeprecatedMethods>)self).searchDisplayController.searchResultsTableView];
         NSArray *fRCs = @[self.fetchedResultsController, self.filteredFetchedResultsController];
         for (int i = 0 ; i<2 ; i++) {
             UITableView *table = [tables objectAtIndex:i];
@@ -481,7 +483,7 @@
         tableView = self.tableView;
     } else {
         PLInfo(@"filteredFetchedResultsController");
-        tableView = self.searchDisplayController.searchResultsTableView;
+        tableView = ((id<PLDeprecatedMethods>)self).searchDisplayController.searchResultsTableView;
     }
     
     switch(type) {
@@ -519,7 +521,7 @@
         tableView = self.tableView;
     } else {
         PLInfo(@"filteredFetchedResultsController");
-        tableView = self.searchDisplayController.searchResultsTableView;
+        tableView = ((id<PLDeprecatedMethods>)self).searchDisplayController.searchResultsTableView;
     }
     
     switch(type) {
@@ -549,7 +551,7 @@
 
 #pragma mark - UISearchDisplayDelegate Delegate Methods
 
-- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
+- (BOOL)searchDisplayController:(id)controller shouldReloadTableForSearchString:(NSString *)searchString
 {
     PLTraceIn(@"searchString: %@", searchString);
     

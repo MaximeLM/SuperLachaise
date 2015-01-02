@@ -17,10 +17,16 @@
 //  See the License for the specific language governing permissions and
 //  limitations under the License.
 
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
 #import <Foundation/Foundation.h>
 
 @protocol PLDeprecatedMethods <NSObject>
 
+// deprecated in iOS 7
 - (CGSize)sizeWithFont:(UIFont *)font constrainedToSize:(CGSize)size;
+
+// deprecated in iOS 8
+- (UISearchDisplayController *)searchDisplayController;
 
 @end
