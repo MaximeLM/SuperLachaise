@@ -33,6 +33,10 @@
 
 @property (strong, nonatomic) NSFetchedResultsController *filteredFetchedResultsController;
 
+#pragma mark - Sélection
+
+@property (nonatomic, weak) PLMonument *selectedMonument;
+
 @end
 
 #pragma mark -
@@ -283,7 +287,7 @@
     cell.backgroundColor = [UIColor clearColor];
     if (PLIPad) {
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        if ([[tableView indexPathForSelectedRow] isEqual:indexPath]) {
+        if (monument == self.selectedMonument) {
             cell.backgroundColor = [PLMonumentTableViewCell colorForSelectedCell];
         }
     }
@@ -409,6 +413,7 @@
         NSIndexPath *indexPath = [self.fetchedResultsController indexPathForObject:self.initialMonument];
         [self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionMiddle];
         self.initialMonument = nil;
+        [self tableView:self.tableView didSelectRowAtIndexPath:indexPath];
     }
     
     PLTraceOut(@"");
@@ -419,13 +424,15 @@
     PLTraceIn(@"");
     
     PLMonument *monument = nil;
-    
+    NSIndexPath *oldIndexPath;
     if (tableView == self.tableView) {
         PLInfo(@"fetchedResultsController");
         monument = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        oldIndexPath = [self.fetchedResultsController indexPathForObject:self.selectedMonument];
     } else {
         PLInfo(@"filteredFetchedResultsController");
         monument = [self.filteredFetchedResultsController objectAtIndexPath:indexPath];
+        oldIndexPath = [self.filteredFetchedResultsController indexPathForObject:self.selectedMonument];
     }
     PLInfo(@"monument: %@", monument);
     
@@ -433,21 +440,30 @@
         PLIPadSplitViewController *iPadSplitViewController = (PLIPadSplitViewController *)self.navigationController.parentViewController;
         [iPadSplitViewController showMonumentInDetailView:monument];
         
-        UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-        cell.backgroundColor = [PLMonumentTableViewCell colorForSelectedCell];
+        NSArray *tables = @[self.tableView, self.searchDisplayController.searchResultsTableView];
+        NSArray *fRCs = @[self.fetchedResultsController, self.filteredFetchedResultsController];
+        for (int i = 0 ; i<2 ; i++) {
+            UITableView *table = [tables objectAtIndex:i];
+            NSFetchedResultsController *fRC = [fRCs objectAtIndex:i];
+            
+            UITableViewCell *cell, *oldCell;
+            if (table == tableView) {
+                cell = [tableView cellForRowAtIndexPath:indexPath];
+                oldCell = [tableView cellForRowAtIndexPath:oldIndexPath];
+            } else {
+                NSIndexPath *indexPathForTable = [fRC indexPathForObject:monument];
+                cell = [table cellForRowAtIndexPath:indexPathForTable];
+                
+                NSIndexPath *oldIndexPathForTable = [fRC indexPathForObject:self.selectedMonument];
+                oldCell = [table cellForRowAtIndexPath:oldIndexPathForTable];
+            }
+            
+            cell.backgroundColor = [PLMonumentTableViewCell colorForSelectedCell];
+            oldCell.backgroundColor = [UIColor clearColor];
+        }
     }
     
-    PLTraceOut(@"");
-}
-
-- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    PLTraceIn(@"");
-    
-    if (PLIPad) {
-        UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-        cell.backgroundColor = [UIColor clearColor];
-    }
+    self.selectedMonument = monument;
     
     PLTraceOut(@"");
 }
