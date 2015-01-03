@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		551AFE0F1A1962F00092BCB4 /* PLIPadSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 551AFE0E1A1962F00092BCB4 /* PLIPadSplitViewController.m */; };
 		551AFE101A1962F00092BCB4 /* PLIPadSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 551AFE0E1A1962F00092BCB4 /* PLIPadSplitViewController.m */; };
+		551B283A1A5779DB00633151 /* a_propos.css in Resources */ = {isa = PBXBuildFile; fileRef = 551B28391A5779DB00633151 /* a_propos.css */; };
+		551B283B1A5779DB00633151 /* a_propos.css in Resources */ = {isa = PBXBuildFile; fileRef = 551B28391A5779DB00633151 /* a_propos.css */; };
 		552112A319DB41AC007DA071 /* glyphicons_343_thumbs_up_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 552112A119DB41AC007DA071 /* glyphicons_343_thumbs_up_selected.png */; };
 		552112A419DB41AC007DA071 /* glyphicons_343_thumbs_up_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 552112A119DB41AC007DA071 /* glyphicons_343_thumbs_up_selected.png */; };
 		552112A519DB41AC007DA071 /* glyphicons_343_thumbs_up_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 552112A219DB41AC007DA071 /* glyphicons_343_thumbs_up_selected@2x.png */; };
@@ -192,8 +194,8 @@
 		55EA7FEF19CA62EF007137BA /* a_propos.html in Resources */ = {isa = PBXBuildFile; fileRef = 55EA7FEB19CA62EF007137BA /* a_propos.html */; };
 		55EA7FF019CA62EF007137BA /* a_propos_2.html in Resources */ = {isa = PBXBuildFile; fileRef = 55EA7FEC19CA62EF007137BA /* a_propos_2.html */; };
 		55EA7FF119CA62EF007137BA /* a_propos_2.html in Resources */ = {isa = PBXBuildFile; fileRef = 55EA7FEC19CA62EF007137BA /* a_propos_2.html */; };
-		55EA7FF219CA62EF007137BA /* a_propos.css in Resources */ = {isa = PBXBuildFile; fileRef = 55EA7FED19CA62EF007137BA /* a_propos.css */; };
-		55EA7FF319CA62EF007137BA /* a_propos.css in Resources */ = {isa = PBXBuildFile; fileRef = 55EA7FED19CA62EF007137BA /* a_propos.css */; };
+		55EA7FF219CA62EF007137BA /* wikipedia.css in Resources */ = {isa = PBXBuildFile; fileRef = 55EA7FED19CA62EF007137BA /* wikipedia.css */; };
+		55EA7FF319CA62EF007137BA /* wikipedia.css in Resources */ = {isa = PBXBuildFile; fileRef = 55EA7FED19CA62EF007137BA /* wikipedia.css */; };
 		55EA7FF719CA6338007137BA /* tileJSON_nonRetina.json in Resources */ = {isa = PBXBuildFile; fileRef = 55EA7FF519CA6338007137BA /* tileJSON_nonRetina.json */; };
 		55EA7FF819CA6338007137BA /* tileJSON_nonRetina.json in Resources */ = {isa = PBXBuildFile; fileRef = 55EA7FF519CA6338007137BA /* tileJSON_nonRetina.json */; };
 		55EA7FF919CA6338007137BA /* tileJSON_retina.json in Resources */ = {isa = PBXBuildFile; fileRef = 55EA7FF619CA6338007137BA /* tileJSON_retina.json */; };
@@ -289,6 +291,7 @@
 /* Begin PBXFileReference section */
 		551AFE0D1A1962F00092BCB4 /* PLIPadSplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLIPadSplitViewController.h; path = Code/PLIPadSplitViewController.h; sourceTree = "<group>"; };
 		551AFE0E1A1962F00092BCB4 /* PLIPadSplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLIPadSplitViewController.m; path = Code/PLIPadSplitViewController.m; sourceTree = "<group>"; };
+		551B28391A5779DB00633151 /* a_propos.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = a_propos.css; path = html/a_propos.css; sourceTree = "<group>"; };
 		552112A119DB41AC007DA071 /* glyphicons_343_thumbs_up_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = glyphicons_343_thumbs_up_selected.png; path = glyphicons/glyphicons_343_thumbs_up_selected.png; sourceTree = "<group>"; };
 		552112A219DB41AC007DA071 /* glyphicons_343_thumbs_up_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "glyphicons_343_thumbs_up_selected@2x.png"; path = "glyphicons/glyphicons_343_thumbs_up_selected@2x.png"; sourceTree = "<group>"; };
 		553F2F6B19CC646900A977D3 /* LICENCE_database.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = LICENCE_database.txt; path = database/LICENCE_database.txt; sourceTree = "<group>"; };
@@ -431,7 +434,7 @@
 		55EA7FE419CA6205007137BA /* PLDataSeed.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = PLDataSeed.sqlite; path = database/PLDataSeed.sqlite; sourceTree = "<group>"; };
 		55EA7FEB19CA62EF007137BA /* a_propos.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = a_propos.html; path = html/a_propos.html; sourceTree = "<group>"; };
 		55EA7FEC19CA62EF007137BA /* a_propos_2.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = a_propos_2.html; path = html/a_propos_2.html; sourceTree = "<group>"; };
-		55EA7FED19CA62EF007137BA /* a_propos.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = a_propos.css; path = html/a_propos.css; sourceTree = "<group>"; };
+		55EA7FED19CA62EF007137BA /* wikipedia.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = wikipedia.css; path = html/wikipedia.css; sourceTree = "<group>"; };
 		55EA7FF519CA6338007137BA /* tileJSON_nonRetina.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = tileJSON_nonRetina.json; path = mapbox/tileJSON_nonRetina.json; sourceTree = "<group>"; };
 		55EA7FF619CA6338007137BA /* tileJSON_retina.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = tileJSON_retina.json; path = mapbox/tileJSON_retina.json; sourceTree = "<group>"; };
 		55F59E3318DA4D9F00F41D6B /* monument1_update.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = monument1_update.json; path = Fixtures/monument1_update.json; sourceTree = "<group>"; };
@@ -815,9 +818,10 @@
 		55EA7FEA19CA62DB007137BA /* HTML */ = {
 			isa = PBXGroup;
 			children = (
+				551B28391A5779DB00633151 /* a_propos.css */,
 				55EA7FEB19CA62EF007137BA /* a_propos.html */,
 				55EA7FEC19CA62EF007137BA /* a_propos_2.html */,
-				55EA7FED19CA62EF007137BA /* a_propos.css */,
+				55EA7FED19CA62EF007137BA /* wikipedia.css */,
 			);
 			name = HTML;
 			sourceTree = "<group>";
@@ -1039,13 +1043,14 @@
 				556F1C6419DF0C6700A8C73E /* LICENCE_assets.txt in Resources */,
 				55EA7FC919CA61A9007137BA /* glyphicons_049_star_selected@2x.png in Resources */,
 				55EA7FF919CA6338007137BA /* tileJSON_retina.json in Resources */,
-				55EA7FF219CA62EF007137BA /* a_propos.css in Resources */,
+				55EA7FF219CA62EF007137BA /* wikipedia.css in Resources */,
 				55EA7FD519CA61A9007137BA /* glyphicons_190_circle_plus@2x.png in Resources */,
 				55EA7FDB19CA61A9007137BA /* glyphicons_233_direction_selected.png in Resources */,
 				552112A319DB41AC007DA071 /* glyphicons_343_thumbs_up_selected.png in Resources */,
 				55EA7FF019CA62EF007137BA /* a_propos_2.html in Resources */,
 				55EA7FD719CA61A9007137BA /* glyphicons_195_circle_info.png in Resources */,
 				55EA7FDF19CA61A9007137BA /* glyphicons_233_direction.png in Resources */,
+				551B283A1A5779DB00633151 /* a_propos.css in Resources */,
 				55EA7FE519CA6205007137BA /* PLData.json in Resources */,
 				55EA7FC719CA61A9007137BA /* glyphicons_049_star_selected.png in Resources */,
 				55EA7EDB19CA5165007137BA /* Configuration.plist in Resources */,
@@ -1106,8 +1111,9 @@
 				55EA7FE219CA61A9007137BA /* glyphicons_233_direction@2x.png in Resources */,
 				55EA7FF119CA62EF007137BA /* a_propos_2.html in Resources */,
 				55EA7FCC19CA61A9007137BA /* glyphicons_049_star.png in Resources */,
+				551B283B1A5779DB00633151 /* a_propos.css in Resources */,
 				554AB32F19D35AFA004EC22D /* PLMonumentView.xib in Resources */,
-				55EA7FF319CA62EF007137BA /* a_propos.css in Resources */,
+				55EA7FF319CA62EF007137BA /* wikipedia.css in Resources */,
 				55EA7FC619CA61A9007137BA /* glyphicons_048_dislikes@2x.png in Resources */,
 				55ADA85318F9D7220002D913 /* Mapbox.bundle in Resources */,
 				553F2F7019CC6E8B00A977D3 /* LICENCE_glyphicons.txt in Resources */,

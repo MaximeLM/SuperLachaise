@@ -20,14 +20,9 @@
 #import <MessageUI/MFMailComposeViewController.h>
 
 #import "PLAProposViewController.h"
-
 #import "PLWikipediaViewController.h"
 
 @interface PLAProposViewController () <UIWebViewDelegate, MFMailComposeViewControllerDelegate>
-
-@property (nonatomic, weak) IBOutlet NSLayoutConstraint *webViewHeightConstraint;
-
-@property (nonatomic, strong) NSString *webContent;
 
 @end
 
@@ -40,21 +35,15 @@
     // Récupération du bundle de l'application
     NSBundle *mainBundle = [NSBundle mainBundle];
     
-    // Récupération du chemin d'accès au fichier de configuration de la carte
-    NSString *cssFile = [mainBundle pathForResource:@"a_propos" ofType:@"css"];
+    NSString *path = [mainBundle bundlePath];
+    NSURL *baseURL = [NSURL fileURLWithPath:path];
     
-    NSString *cssString = [NSString stringWithContentsOfFile:cssFile encoding:NSUTF8StringEncoding error:nil];
-    
-    NSString *javaScriptString = @"<script type=\"text/javascript\">window.onload = function() {window.location.href = \"ready://\" + document.body.offsetHeight;}</script>";
-    javaScriptString = @"";
     NSString *htmlFile = [mainBundle pathForResource:@"a_propos" ofType:@"html"];
     NSString *htmlString = [NSString stringWithContentsOfFile:htmlFile encoding:NSUTF8StringEncoding error:nil];
     
-    self.webContent = [NSString stringWithFormat:@"%@\n%@\n%@", javaScriptString, cssString, htmlString];
-    
     self.webView.delegate = self;
     
-    [self.webView loadHTMLString:self.webContent baseURL:[PLWikipediaViewController baseURL]];
+    [self.webView loadHTMLString:htmlString baseURL:baseURL];
 }
 
 - (IBAction)doneButtonAction:(id)sender
@@ -110,21 +99,6 @@
     
     NSURL *url = [request URL];
     PLInfo(@"URL: %@", url);
-    
-    if (navigationType == UIWebViewNavigationTypeOther) {
-        if ([[url scheme] isEqualToString:@"ready"]) {
-            float contentHeight = [[url host] floatValue];
-            
-            self.webViewHeightConstraint.constant = contentHeight + 16.0;
-            
-            // Correction de la taille du texte
-            NSString *jsString = [[NSString alloc] initWithFormat:@"document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '%d%%'",
-                                  100];
-            [webView stringByEvaluatingJavaScriptFromString:jsString];
-            
-            return NO;
-        }
-    }
     
     if (navigationType == UIWebViewNavigationTypeLinkClicked) {
         if ([[url scheme] isEqualToString:@"http"]) {
