@@ -60,11 +60,6 @@
     NSURL *url = [request URL];
     PLInfo(@"URL: %@", url);
     
-    if ([[url scheme] isEqualToString:@"app"] && [[url host] isEqualToString:@"licences"]) {
-        // Affichage de l'écran des licences
-        return NO;
-    }
-    
     if (navigationType == UIWebViewNavigationTypeLinkClicked) {
         if ([[url host] isEqualToString:@"itunes.apple.com"]) {
             // Redirection vers l'App Store
