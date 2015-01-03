@@ -1,7 +1,66 @@
 <style>
 
-body {
-    background-color:#f3f0eb;
+html {
+    -webkit-text-size-adjust: none; /* Never autoresize text */
+}
+
+table {
+    margin-bottom: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 20px;
+    width: calc(100% - 20px);
+}
+
+td {
+    vertical-align: text-top;
+}
+
+.largeImgTd {
+    width: 40px;
+}
+
+.largeImgTr {
+    min-height: 40px;
+}
+
+.smallImgTd {
+    width: 30px;
+}
+
+.smallImgTr {
+    min-height: 30px;
+}
+
+img {
+    zoom: 50%;
+    vertical-align: text-top;
+}
+
+#rateThisAppP {
+    text-align: center;
+}
+
+#rateThisAppA {
+    font-size: 18px;
+    color: rgb(0, 122, 255);
+    font-weight: bold;
+}
+
+#rateThisAppImg {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+    vertical-align: baseline;
+}
+
+.tdSpan {
+    color: rgb(37, 37, 37);
+    direction: ltr;
+    display: block;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 21px;
 }
 
 a {
@@ -25,19 +84,6 @@ a {
     width: auto;
 }
 
-dfn {
-    color: rgb(37, 37, 37);
-    direction: ltr;
-    display: inline;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: bold;
-    height: auto;
-    line-height: 21px;
-    width: auto;
-}
-
 p {
     color: rgb(37, 37, 37);
     direction: ltr;
@@ -51,73 +97,15 @@ p {
     margin-top: 20px;
 }
 
-sup {
-    color: rgb(37, 37, 37);
-    cursor: help;
-    direction: ltr;
-    display: inline;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-size: 12px;
-    height: auto;
-    line-height: 11px;
-    width: auto;
-}
-
-html {
-    -webkit-text-size-adjust: none; /* Never autoresize text */
-}
-
-#rateThisAppP {
-    text-align: center;
-}
-
-#rateThisAppA {
-    font-size: 18px;
-    color: rgb(0, 122, 255);
-    font-weight: bold;
-}
-
-#rateThisAppImg {
-    width: 24px;
-    height: 24px;
-    float: none;
-}
-
-img {
-    width: 36px;
-    height: 36px;
-    margin-right: 10px;
-    float: left;
-}
-
-#listA {
-    margin-left: 50px;
+body {
+    background-color:#f3f0eb;
 }
 
 .listImg {
     width: 13px;
     height: 10px;
-    float: none;
-}
-
-#imgWikipedia {
-    width: 36px;
-    height: 33px;
-}
-
-.thanksImg {
-    width: 24px;
-    height: 21px;
-}
-
-.hammerImg {
-    width: 27px;
-    height: 26px;
-}
-
-.brushImg {
-    width: 25px;
-    height: 23px;
+    margin-right: 10px;
+    vertical-align: baseline;
 }
 
 </style>
