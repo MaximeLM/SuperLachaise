@@ -61,6 +61,7 @@ img {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 14px;
     line-height: 21px;
+     -webkit-text-size-adjust: none;
 }
 
 a {

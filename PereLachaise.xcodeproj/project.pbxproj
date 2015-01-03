@@ -27,6 +27,7 @@
 		551B28661A5860A100633151 /* glyphicons_374_claw_hammer@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 551B28601A5860A100633151 /* glyphicons_374_claw_hammer@2x.png */; };
 		551B28681A5860ED00633151 /* glyphicons_345_hand_right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 551B28671A5860ED00633151 /* glyphicons_345_hand_right@2x.png */; };
 		551B28691A5860ED00633151 /* glyphicons_345_hand_right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 551B28671A5860ED00633151 /* glyphicons_345_hand_right@2x.png */; };
+		551B286F1A588C8100633151 /* glyphicons_376_hand_saw@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 551B286E1A588C8100633151 /* glyphicons_376_hand_saw@2x.png */; };
 		552112A319DB41AC007DA071 /* glyphicons_343_thumbs_up_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 552112A119DB41AC007DA071 /* glyphicons_343_thumbs_up_selected.png */; };
 		552112A419DB41AC007DA071 /* glyphicons_343_thumbs_up_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 552112A119DB41AC007DA071 /* glyphicons_343_thumbs_up_selected.png */; };
 		552112A519DB41AC007DA071 /* glyphicons_343_thumbs_up_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 552112A219DB41AC007DA071 /* glyphicons_343_thumbs_up_selected@2x.png */; };
@@ -314,6 +315,7 @@
 		551B285F1A5860A100633151 /* glyphicons_343_thumbs_up@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "glyphicons_343_thumbs_up@2x.png"; path = "html/img/glyphicons_343_thumbs_up@2x.png"; sourceTree = "<group>"; };
 		551B28601A5860A100633151 /* glyphicons_374_claw_hammer@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "glyphicons_374_claw_hammer@2x.png"; path = "html/img/glyphicons_374_claw_hammer@2x.png"; sourceTree = "<group>"; };
 		551B28671A5860ED00633151 /* glyphicons_345_hand_right@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "glyphicons_345_hand_right@2x.png"; path = "html/img/glyphicons_345_hand_right@2x.png"; sourceTree = "<group>"; };
+		551B286E1A588C8100633151 /* glyphicons_376_hand_saw@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "glyphicons_376_hand_saw@2x.png"; path = "html/img/glyphicons_376_hand_saw@2x.png"; sourceTree = "<group>"; };
 		552112A119DB41AC007DA071 /* glyphicons_343_thumbs_up_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = glyphicons_343_thumbs_up_selected.png; path = glyphicons/glyphicons_343_thumbs_up_selected.png; sourceTree = "<group>"; };
 		552112A219DB41AC007DA071 /* glyphicons_343_thumbs_up_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "glyphicons_343_thumbs_up_selected@2x.png"; path = "glyphicons/glyphicons_343_thumbs_up_selected@2x.png"; sourceTree = "<group>"; };
 		553F2F6B19CC646900A977D3 /* LICENCE_database.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = LICENCE_database.txt; path = database/LICENCE_database.txt; sourceTree = "<group>"; };
@@ -525,6 +527,7 @@
 		551B284B1A583B5400633151 /* img */ = {
 			isa = PBXGroup;
 			children = (
+				551B286E1A588C8100633151 /* glyphicons_376_hand_saw@2x.png */,
 				551B28671A5860ED00633151 /* glyphicons_345_hand_right@2x.png */,
 				551B285E1A5860A100633151 /* glyphicons_234_brush@2x.png */,
 				551B285F1A5860A100633151 /* glyphicons_343_thumbs_up@2x.png */,
@@ -1118,6 +1121,7 @@
 				55EA7FCF19CA61A9007137BA /* glyphicons_060_compass_selected.png in Resources */,
 				55EA7FD919CA61A9007137BA /* glyphicons_195_circle_info@2x.png in Resources */,
 				553F2F6D19CC6E2200A977D3 /* LICENCE_database.txt in Resources */,
+				551B286F1A588C8100633151 /* glyphicons_376_hand_saw@2x.png in Resources */,
 				55EA7FF719CA6338007137BA /* tileJSON_nonRetina.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

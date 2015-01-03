@@ -55,39 +55,15 @@
     PLTraceOut(@"");
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    NSInteger index = [indexPath indexAtPosition:1];
-    
-    if (YES) {
-        NSURL *url;
-        NSString *title;
-        
-        if (index == 0) {
-            url = [NSURL URLWithString:@"http://www.openstreetmap.org/about"];
-            title = @"OpenStreetMap";
-        } else if (index == 1) {
-            url = [NSURL URLWithString:@"http://www.openstreetmap.org/copyright"];
-            title = @"Licence";
-        } else if (index == 2) {
-            url = [NSURL URLWithString:@"http://www.mapbox.com/about/maps/"];
-            title = @"Mapbox Streets";
-        } else {
-            NSAssert(NO, nil);
-        }
-        
-        PLWikipediaViewController *webViewController = [[self storyboard] instantiateViewControllerWithIdentifier:@"Wikipedia"];
-        webViewController.urlToLoad = url;
-        webViewController.navigationTitle = title;
-        
-        [self.navigationController pushViewController:webViewController animated:YES];
-    }
-}
-
 - (BOOL)webView:(UIWebView*)webView shouldStartLoadWithRequest:(NSURLRequest*)request navigationType:(UIWebViewNavigationType)navigationType {
     
     NSURL *url = [request URL];
     PLInfo(@"URL: %@", url);
+    
+    if ([[url scheme] isEqualToString:@"app"] && [[url host] isEqualToString:@"licences"]) {
+        // Affichage de l'écran des licences
+        return NO;
+    }
     
     if (navigationType == UIWebViewNavigationTypeLinkClicked) {
         if ([[url host] isEqualToString:@"itunes.apple.com"]) {
