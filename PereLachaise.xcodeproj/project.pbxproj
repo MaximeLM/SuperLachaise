@@ -11,6 +11,8 @@
 		551AFE101A1962F00092BCB4 /* PLIPadSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 551AFE0E1A1962F00092BCB4 /* PLIPadSplitViewController.m */; };
 		551B283A1A5779DB00633151 /* a_propos.css in Resources */ = {isa = PBXBuildFile; fileRef = 551B28391A5779DB00633151 /* a_propos.css */; };
 		551B283B1A5779DB00633151 /* a_propos.css in Resources */ = {isa = PBXBuildFile; fileRef = 551B28391A5779DB00633151 /* a_propos.css */; };
+		551B284D1A583C0F00633151 /* superlachaise.png in Resources */ = {isa = PBXBuildFile; fileRef = 551B284C1A583C0F00633151 /* superlachaise.png */; };
+		551B284E1A583C0F00633151 /* superlachaise.png in Resources */ = {isa = PBXBuildFile; fileRef = 551B284C1A583C0F00633151 /* superlachaise.png */; };
 		552112A319DB41AC007DA071 /* glyphicons_343_thumbs_up_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 552112A119DB41AC007DA071 /* glyphicons_343_thumbs_up_selected.png */; };
 		552112A419DB41AC007DA071 /* glyphicons_343_thumbs_up_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 552112A119DB41AC007DA071 /* glyphicons_343_thumbs_up_selected.png */; };
 		552112A519DB41AC007DA071 /* glyphicons_343_thumbs_up_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 552112A219DB41AC007DA071 /* glyphicons_343_thumbs_up_selected@2x.png */; };
@@ -292,6 +294,7 @@
 		551AFE0D1A1962F00092BCB4 /* PLIPadSplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLIPadSplitViewController.h; path = Code/PLIPadSplitViewController.h; sourceTree = "<group>"; };
 		551AFE0E1A1962F00092BCB4 /* PLIPadSplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLIPadSplitViewController.m; path = Code/PLIPadSplitViewController.m; sourceTree = "<group>"; };
 		551B28391A5779DB00633151 /* a_propos.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = a_propos.css; path = html/a_propos.css; sourceTree = "<group>"; };
+		551B284C1A583C0F00633151 /* superlachaise.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = superlachaise.png; path = html/img/superlachaise.png; sourceTree = "<group>"; };
 		552112A119DB41AC007DA071 /* glyphicons_343_thumbs_up_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = glyphicons_343_thumbs_up_selected.png; path = glyphicons/glyphicons_343_thumbs_up_selected.png; sourceTree = "<group>"; };
 		552112A219DB41AC007DA071 /* glyphicons_343_thumbs_up_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "glyphicons_343_thumbs_up_selected@2x.png"; path = "glyphicons/glyphicons_343_thumbs_up_selected@2x.png"; sourceTree = "<group>"; };
 		553F2F6B19CC646900A977D3 /* LICENCE_database.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = LICENCE_database.txt; path = database/LICENCE_database.txt; sourceTree = "<group>"; };
@@ -501,6 +504,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		551B284B1A583B5400633151 /* img */ = {
+			isa = PBXGroup;
+			children = (
+				551B284C1A583C0F00633151 /* superlachaise.png */,
+			);
+			name = img;
+			sourceTree = "<group>";
+		};
 		5541C3A919AFC02B008F130D /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -822,6 +833,7 @@
 				55EA7FEB19CA62EF007137BA /* a_propos.html */,
 				55EA7FEC19CA62EF007137BA /* a_propos_2.html */,
 				55EA7FED19CA62EF007137BA /* wikipedia.css */,
+				551B284B1A583B5400633151 /* img */,
 			);
 			name = HTML;
 			sourceTree = "<group>";
@@ -1053,6 +1065,7 @@
 				551B283A1A5779DB00633151 /* a_propos.css in Resources */,
 				55EA7FE519CA6205007137BA /* PLData.json in Resources */,
 				55EA7FC719CA61A9007137BA /* glyphicons_049_star_selected.png in Resources */,
+				551B284D1A583C0F00633151 /* superlachaise.png in Resources */,
 				55EA7EDB19CA5165007137BA /* Configuration.plist in Resources */,
 				557E7E631823C1F100FF586B /* Images.xcassets in Resources */,
 				55EA7FDD19CA61A9007137BA /* glyphicons_233_direction_selected@2x.png in Resources */,
@@ -1092,6 +1105,7 @@
 				55EA7FD819CA61A9007137BA /* glyphicons_195_circle_info.png in Resources */,
 				55ADA83C18F9D7220002D913 /* Images.xcassets in Resources */,
 				55EA7FD419CA61A9007137BA /* glyphicons_190_circle_plus.png in Resources */,
+				551B284E1A583C0F00633151 /* superlachaise.png in Resources */,
 				55EA7FD219CA61A9007137BA /* glyphicons_060_compass_selected@2x.png in Resources */,
 				554AB32D19D35AFA004EC22D /* Main.storyboard in Resources */,
 				55EA7FE619CA6205007137BA /* PLData.json in Resources */,

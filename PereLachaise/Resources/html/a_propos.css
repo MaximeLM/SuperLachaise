@@ -79,8 +79,15 @@ html {
 
 #rateThisAppImg {
     width: 24px;
-    height: 21px;
+    height: 24px;
+    float: none;
+}
+
+img {
+    width: 36px;
+    height: 36px;
     margin-right: 10px;
+    float: left;
 }
 
 </style>
