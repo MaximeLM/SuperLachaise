@@ -422,153 +422,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sLQ-zq-AgG">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
-                                <subviews>
-                                    <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mSc-2X-KTG">
-                                        <rect key="frame" x="0.0" y="58" width="320" height="111"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" priority="750" constant="111" id="wUs-OB-tOh"/>
-                                        </constraints>
-                                    </webView>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="qz2-Bn-Ufb">
-                                        <rect key="frame" x="0.0" y="177" width="320" height="153"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" priority="750" constant="131" id="FgL-Ce-wdd"/>
-                                            <constraint firstAttribute="height" constant="153" placeholder="YES" id="tVo-ps-CqZ"/>
-                                        </constraints>
-                                        <prototypes>
-                                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SiteOSM" textLabel="q4y-cp-KXf" detailTextLabel="zCd-AV-RtA" style="IBUITableViewCellStyleSubtitle" id="LEs-f7-1ub">
-                                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
-                                                <autoresizingMask key="autoresizingMask"/>
-                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LEs-f7-1ub" id="VGJ-5c-8D1">
-                                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <subviews>
-                                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="En savoir plus" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="q4y-cp-KXf">
-                                                            <rect key="frame" x="15" y="3" width="113" height="22"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="openstreetmap.org/about" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zCd-AV-RtA">
-                                                            <rect key="frame" x="15" y="25" width="142" height="15"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                </tableViewCellContentView>
-                                            </tableViewCell>
-                                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CopyrightOSM" textLabel="CgF-Oy-KJ7" detailTextLabel="0N3-sC-6N5" style="IBUITableViewCellStyleSubtitle" id="lfS-yI-pdf">
-                                                <rect key="frame" x="0.0" y="66" width="320" height="44"/>
-                                                <autoresizingMask key="autoresizingMask"/>
-                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lfS-yI-pdf" id="S8u-GR-Gne">
-                                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <subviews>
-                                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Droits d’auteur et licence" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="CgF-Oy-KJ7">
-                                                            <rect key="frame" x="15" y="3" width="202" height="22"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="© Les contributeurs d’OpenStreetMap" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0N3-sC-6N5">
-                                                            <rect key="frame" x="15" y="25" width="214" height="15"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                </tableViewCellContentView>
-                                            </tableViewCell>
-                                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CopyrightMapbox" textLabel="ymy-ou-771" detailTextLabel="Jh7-Cw-jRS" style="IBUITableViewCellStyleSubtitle" id="1pu-kV-kPv">
-                                                <rect key="frame" x="0.0" y="110" width="320" height="44"/>
-                                                <autoresizingMask key="autoresizingMask"/>
-                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1pu-kV-kPv" id="NGq-Vf-JOd">
-                                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <subviews>
-                                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Mapbox Streets" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ymy-ou-771">
-                                                            <rect key="frame" x="15" y="3" width="129" height="22"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Préparation de la carte" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Jh7-Cw-jRS">
-                                                            <rect key="frame" x="15" y="25" width="127" height="15"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                </tableViewCellContentView>
-                                            </tableViewCell>
-                                        </prototypes>
-                                        <sections/>
-                                        <connections>
-                                            <outlet property="dataSource" destination="Th6-eC-HxS" id="6wW-2h-g0W"/>
-                                            <outlet property="delegate" destination="Th6-eC-HxS" id="8rC-pW-MTQ"/>
-                                        </connections>
-                                    </tableView>
-                                    <webView contentMode="scaleAspectFit" allowsInlineMediaPlayback="NO" mediaPlaybackRequiresUserAction="NO" mediaPlaybackAllowsAirPlay="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O8a-WV-zZQ">
-                                        <rect key="frame" x="0.0" y="340" width="320" height="128"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="128" placeholder="YES" id="Zle-dD-MzB"/>
-                                            <constraint firstAttribute="height" priority="750" id="zcK-KA-fwH"/>
-                                        </constraints>
-                                        <dataDetectorType key="dataDetectorTypes" link="YES"/>
-                                    </webView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tgE-qj-RPP">
-                                        <rect key="frame" x="0.0" y="12" width="320" height="44"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="44" id="dYt-HE-91n"/>
-                                        </constraints>
-                                        <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                        <state key="normal" title="Notez cette application !" image="glyphicons_343_thumbs_up_selected.png">
-                                            <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="selected" title="Retirer de mon circuit" image="glyphicons_049_star.png"/>
-                                        <connections>
-                                            <action selector="rateThisAppButtonAction:" destination="Th6-eC-HxS" eventType="touchUpInside" id="8H1-Mr-Rxf"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="mSc-2X-KTG" secondAttribute="trailing" id="IJz-tw-tdD"/>
-                                    <constraint firstAttribute="trailing" secondItem="O8a-WV-zZQ" secondAttribute="trailing" id="SmS-m0-Ihl"/>
-                                    <constraint firstItem="O8a-WV-zZQ" firstAttribute="leading" secondItem="sLQ-zq-AgG" secondAttribute="leading" id="VlO-s2-ajZ"/>
-                                    <constraint firstItem="tgE-qj-RPP" firstAttribute="top" secondItem="sLQ-zq-AgG" secondAttribute="top" constant="12" id="WSF-6Q-RQQ"/>
-                                    <constraint firstItem="qz2-Bn-Ufb" firstAttribute="top" secondItem="mSc-2X-KTG" secondAttribute="bottom" constant="8" id="Yor-vt-5iH"/>
-                                    <constraint firstItem="tgE-qj-RPP" firstAttribute="leading" secondItem="sLQ-zq-AgG" secondAttribute="leading" id="Zsc-G9-BIU"/>
-                                    <constraint firstAttribute="trailing" secondItem="tgE-qj-RPP" secondAttribute="trailing" id="lW0-z5-jXa"/>
-                                    <constraint firstItem="O8a-WV-zZQ" firstAttribute="top" secondItem="qz2-Bn-Ufb" secondAttribute="bottom" constant="10" id="lva-Nw-tPM"/>
-                                    <constraint firstItem="mSc-2X-KTG" firstAttribute="leading" secondItem="sLQ-zq-AgG" secondAttribute="leading" id="mNa-yc-3KH"/>
-                                    <constraint firstAttribute="bottom" secondItem="O8a-WV-zZQ" secondAttribute="bottom" constant="10" id="ogH-dp-rvt"/>
-                                    <constraint firstAttribute="trailing" secondItem="qz2-Bn-Ufb" secondAttribute="trailing" id="qnn-49-crk"/>
-                                    <constraint firstItem="qz2-Bn-Ufb" firstAttribute="leading" secondItem="sLQ-zq-AgG" secondAttribute="leading" id="xe5-Wi-aoR"/>
-                                    <constraint firstItem="mSc-2X-KTG" firstAttribute="top" secondItem="tgE-qj-RPP" secondAttribute="bottom" constant="2" id="ycc-qu-fRO"/>
-                                </constraints>
-                            </scrollView>
+                            <webView contentMode="redraw" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mSc-2X-KTG">
+                                <rect key="frame" x="0.0" y="34" width="320" height="500"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </webView>
                         </subviews>
                         <color key="backgroundColor" red="0.95294117649999999" green="0.94117647059999998" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="sLQ-zq-AgG" secondAttribute="width" id="2a4-iR-X02"/>
-                            <constraint firstAttribute="bottom" secondItem="sLQ-zq-AgG" secondAttribute="bottom" id="DCk-1n-sYu"/>
-                            <constraint firstItem="sLQ-zq-AgG" firstAttribute="leading" secondItem="rMl-dB-lW4" secondAttribute="leading" id="drZ-9k-xb8"/>
-                            <constraint firstAttribute="width" secondItem="mSc-2X-KTG" secondAttribute="width" id="knn-gV-csj"/>
-                            <constraint firstItem="sLQ-zq-AgG" firstAttribute="top" secondItem="Bgs-3T-1lx" secondAttribute="top" priority="800" id="kqw-4R-LsS"/>
-                            <constraint firstAttribute="trailing" secondItem="sLQ-zq-AgG" secondAttribute="trailing" id="r40-oy-lAO"/>
+                            <constraint firstAttribute="bottom" secondItem="mSc-2X-KTG" secondAttribute="bottom" id="SLC-E0-1XO"/>
+                            <constraint firstItem="mSc-2X-KTG" firstAttribute="leading" secondItem="rMl-dB-lW4" secondAttribute="leading" id="XJR-it-A0s"/>
+                            <constraint firstAttribute="trailing" secondItem="mSc-2X-KTG" secondAttribute="trailing" id="b6l-WJ-8nT"/>
+                            <constraint firstItem="mSc-2X-KTG" firstAttribute="top" secondItem="rMl-dB-lW4" secondAttribute="top" id="h3k-gl-4zq"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Super Lachaise" id="QaD-SI-Me0">
@@ -579,11 +443,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="osmTable" destination="qz2-Bn-Ufb" id="vhb-hG-JT1"/>
-                        <outlet property="webView1" destination="mSc-2X-KTG" id="ect-o5-xpX"/>
-                        <outlet property="webView2" destination="O8a-WV-zZQ" id="xg6-mP-lGU"/>
-                        <outlet property="webViewHeightConstraint1" destination="wUs-OB-tOh" id="MuP-Q8-SF3"/>
-                        <outlet property="webViewHeightConstraint2" destination="zcK-KA-fwH" id="PGR-E8-3PY"/>
+                        <outlet property="webView" destination="mSc-2X-KTG" id="V8O-8y-QvE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sVE-Kg-Efo" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -925,7 +785,6 @@
         <image name="glyphicons_049_star_selected.png" width="25" height="24"/>
         <image name="glyphicons_195_circle_info.png" width="26" height="26"/>
         <image name="glyphicons_233_direction.png" width="25" height="26"/>
-        <image name="glyphicons_343_thumbs_up_selected.png" width="24" height="21"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

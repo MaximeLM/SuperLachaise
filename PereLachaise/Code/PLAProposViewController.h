@@ -21,7 +21,7 @@
 
 #import "PLMapViewController.h"
 
-@interface PLAProposViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface PLAProposViewController : UIViewController
 
 @property (nonatomic, weak) PLMapViewController *mapViewController;
 
@@ -29,10 +29,6 @@
 
 - (IBAction)rateThisAppButtonAction:(id)sender;
 
-@property (nonatomic, weak) IBOutlet UITableView *osmTable;
-
-@property (nonatomic, weak) IBOutlet UIWebView *webView1;
-
-@property (nonatomic, weak) IBOutlet UIWebView *webView2;
+@property (nonatomic, weak) IBOutlet UIWebView *webView;
 
 @end

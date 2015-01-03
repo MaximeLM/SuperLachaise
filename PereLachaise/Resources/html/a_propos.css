@@ -60,4 +60,8 @@ sup {
     width: auto;
 }
 
+html {
+    -webkit-text-size-adjust: none; /* Never autoresize text */
+}
+
 </style>

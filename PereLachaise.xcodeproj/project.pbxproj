@@ -188,12 +188,12 @@
 		55EA7FE619CA6205007137BA /* PLData.json in Resources */ = {isa = PBXBuildFile; fileRef = 55EA7FE319CA6205007137BA /* PLData.json */; };
 		55EA7FE719CA6205007137BA /* PLDataSeed.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 55EA7FE419CA6205007137BA /* PLDataSeed.sqlite */; };
 		55EA7FE819CA6205007137BA /* PLDataSeed.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 55EA7FE419CA6205007137BA /* PLDataSeed.sqlite */; };
-		55EA7FEE19CA62EF007137BA /* a_propos_1.html in Resources */ = {isa = PBXBuildFile; fileRef = 55EA7FEB19CA62EF007137BA /* a_propos_1.html */; };
-		55EA7FEF19CA62EF007137BA /* a_propos_1.html in Resources */ = {isa = PBXBuildFile; fileRef = 55EA7FEB19CA62EF007137BA /* a_propos_1.html */; };
+		55EA7FEE19CA62EF007137BA /* a_propos.html in Resources */ = {isa = PBXBuildFile; fileRef = 55EA7FEB19CA62EF007137BA /* a_propos.html */; };
+		55EA7FEF19CA62EF007137BA /* a_propos.html in Resources */ = {isa = PBXBuildFile; fileRef = 55EA7FEB19CA62EF007137BA /* a_propos.html */; };
 		55EA7FF019CA62EF007137BA /* a_propos_2.html in Resources */ = {isa = PBXBuildFile; fileRef = 55EA7FEC19CA62EF007137BA /* a_propos_2.html */; };
 		55EA7FF119CA62EF007137BA /* a_propos_2.html in Resources */ = {isa = PBXBuildFile; fileRef = 55EA7FEC19CA62EF007137BA /* a_propos_2.html */; };
-		55EA7FF219CA62EF007137BA /* wikipedia.css in Resources */ = {isa = PBXBuildFile; fileRef = 55EA7FED19CA62EF007137BA /* wikipedia.css */; };
-		55EA7FF319CA62EF007137BA /* wikipedia.css in Resources */ = {isa = PBXBuildFile; fileRef = 55EA7FED19CA62EF007137BA /* wikipedia.css */; };
+		55EA7FF219CA62EF007137BA /* a_propos.css in Resources */ = {isa = PBXBuildFile; fileRef = 55EA7FED19CA62EF007137BA /* a_propos.css */; };
+		55EA7FF319CA62EF007137BA /* a_propos.css in Resources */ = {isa = PBXBuildFile; fileRef = 55EA7FED19CA62EF007137BA /* a_propos.css */; };
 		55EA7FF719CA6338007137BA /* tileJSON_nonRetina.json in Resources */ = {isa = PBXBuildFile; fileRef = 55EA7FF519CA6338007137BA /* tileJSON_nonRetina.json */; };
 		55EA7FF819CA6338007137BA /* tileJSON_nonRetina.json in Resources */ = {isa = PBXBuildFile; fileRef = 55EA7FF519CA6338007137BA /* tileJSON_nonRetina.json */; };
 		55EA7FF919CA6338007137BA /* tileJSON_retina.json in Resources */ = {isa = PBXBuildFile; fileRef = 55EA7FF619CA6338007137BA /* tileJSON_retina.json */; };
@@ -429,9 +429,9 @@
 		55EA7FBE19CA61A9007137BA /* glyphicons_233_direction@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "glyphicons_233_direction@2x.png"; path = "glyphicons/glyphicons_233_direction@2x.png"; sourceTree = "<group>"; };
 		55EA7FE319CA6205007137BA /* PLData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = PLData.json; path = database/PLData.json; sourceTree = "<group>"; };
 		55EA7FE419CA6205007137BA /* PLDataSeed.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = PLDataSeed.sqlite; path = database/PLDataSeed.sqlite; sourceTree = "<group>"; };
-		55EA7FEB19CA62EF007137BA /* a_propos_1.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = a_propos_1.html; path = html/a_propos_1.html; sourceTree = "<group>"; };
+		55EA7FEB19CA62EF007137BA /* a_propos.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = a_propos.html; path = html/a_propos.html; sourceTree = "<group>"; };
 		55EA7FEC19CA62EF007137BA /* a_propos_2.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = a_propos_2.html; path = html/a_propos_2.html; sourceTree = "<group>"; };
-		55EA7FED19CA62EF007137BA /* wikipedia.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = wikipedia.css; path = html/wikipedia.css; sourceTree = "<group>"; };
+		55EA7FED19CA62EF007137BA /* a_propos.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = a_propos.css; path = html/a_propos.css; sourceTree = "<group>"; };
 		55EA7FF519CA6338007137BA /* tileJSON_nonRetina.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = tileJSON_nonRetina.json; path = mapbox/tileJSON_nonRetina.json; sourceTree = "<group>"; };
 		55EA7FF619CA6338007137BA /* tileJSON_retina.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = tileJSON_retina.json; path = mapbox/tileJSON_retina.json; sourceTree = "<group>"; };
 		55F59E3318DA4D9F00F41D6B /* monument1_update.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = monument1_update.json; path = Fixtures/monument1_update.json; sourceTree = "<group>"; };
@@ -815,9 +815,9 @@
 		55EA7FEA19CA62DB007137BA /* HTML */ = {
 			isa = PBXGroup;
 			children = (
-				55EA7FEB19CA62EF007137BA /* a_propos_1.html */,
+				55EA7FEB19CA62EF007137BA /* a_propos.html */,
 				55EA7FEC19CA62EF007137BA /* a_propos_2.html */,
-				55EA7FED19CA62EF007137BA /* wikipedia.css */,
+				55EA7FED19CA62EF007137BA /* a_propos.css */,
 			);
 			name = HTML;
 			sourceTree = "<group>";
@@ -1039,7 +1039,7 @@
 				556F1C6419DF0C6700A8C73E /* LICENCE_assets.txt in Resources */,
 				55EA7FC919CA61A9007137BA /* glyphicons_049_star_selected@2x.png in Resources */,
 				55EA7FF919CA6338007137BA /* tileJSON_retina.json in Resources */,
-				55EA7FF219CA62EF007137BA /* wikipedia.css in Resources */,
+				55EA7FF219CA62EF007137BA /* a_propos.css in Resources */,
 				55EA7FD519CA61A9007137BA /* glyphicons_190_circle_plus@2x.png in Resources */,
 				55EA7FDB19CA61A9007137BA /* glyphicons_233_direction_selected.png in Resources */,
 				552112A319DB41AC007DA071 /* glyphicons_343_thumbs_up_selected.png in Resources */,
@@ -1052,7 +1052,7 @@
 				557E7E631823C1F100FF586B /* Images.xcassets in Resources */,
 				55EA7FDD19CA61A9007137BA /* glyphicons_233_direction_selected@2x.png in Resources */,
 				55EA7FD119CA61A9007137BA /* glyphicons_060_compass_selected@2x.png in Resources */,
-				55EA7FEE19CA62EF007137BA /* a_propos_1.html in Resources */,
+				55EA7FEE19CA62EF007137BA /* a_propos.html in Resources */,
 				552112A519DB41AC007DA071 /* glyphicons_343_thumbs_up_selected@2x.png in Resources */,
 				554AB32C19D35AFA004EC22D /* Main.storyboard in Resources */,
 				55EA7FBF19CA61A9007137BA /* glyphicons_027_search.png in Resources */,
@@ -1079,7 +1079,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				55EA7FC019CA61A9007137BA /* glyphicons_027_search.png in Resources */,
-				55EA7FEF19CA62EF007137BA /* a_propos_1.html in Resources */,
+				55EA7FEF19CA62EF007137BA /* a_propos.html in Resources */,
 				55EA7FD019CA61A9007137BA /* glyphicons_060_compass_selected.png in Resources */,
 				552112A619DB41AC007DA071 /* glyphicons_343_thumbs_up_selected@2x.png in Resources */,
 				556F1C6519DF0C6700A8C73E /* LICENCE_assets.txt in Resources */,
@@ -1107,7 +1107,7 @@
 				55EA7FF119CA62EF007137BA /* a_propos_2.html in Resources */,
 				55EA7FCC19CA61A9007137BA /* glyphicons_049_star.png in Resources */,
 				554AB32F19D35AFA004EC22D /* PLMonumentView.xib in Resources */,
-				55EA7FF319CA62EF007137BA /* wikipedia.css in Resources */,
+				55EA7FF319CA62EF007137BA /* a_propos.css in Resources */,
 				55EA7FC619CA61A9007137BA /* glyphicons_048_dislikes@2x.png in Resources */,
 				55ADA85318F9D7220002D913 /* Mapbox.bundle in Resources */,
 				553F2F7019CC6E8B00A977D3 /* LICENCE_glyphicons.txt in Resources */,

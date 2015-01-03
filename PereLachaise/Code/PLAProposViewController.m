@@ -25,54 +25,36 @@
 
 @interface PLAProposViewController () <UIWebViewDelegate, MFMailComposeViewControllerDelegate>
 
-@property (nonatomic, weak) IBOutlet NSLayoutConstraint *webViewHeightConstraint1;
-@property (nonatomic, weak) IBOutlet NSLayoutConstraint *webViewHeightConstraint2;
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint *webViewHeightConstraint;
 
-@property (nonatomic, strong) NSString *webContent1;
-@property (nonatomic, strong) NSString *webContent2;
+@property (nonatomic, strong) NSString *webContent;
 
 @end
 
 @implementation PLAProposViewController
 
-- (void)viewDidAppear:(BOOL)animated
-{
-    [self.osmTable deselectRowAtIndexPath:[self.osmTable indexPathForSelectedRow] animated:YES];
-    
-    [super viewDidAppear:animated];
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    self.webView1.scrollView.scrollEnabled = NO;
-    self.webView2.scrollView.scrollEnabled = NO;
     
     // Récupération du bundle de l'application
     NSBundle *mainBundle = [NSBundle mainBundle];
     
     // Récupération du chemin d'accès au fichier de configuration de la carte
-    NSString *cssFile = [mainBundle pathForResource:@"wikipedia" ofType:@"css"];
+    NSString *cssFile = [mainBundle pathForResource:@"a_propos" ofType:@"css"];
     
     NSString *cssString = [NSString stringWithContentsOfFile:cssFile encoding:NSUTF8StringEncoding error:nil];
     
     NSString *javaScriptString = @"<script type=\"text/javascript\">window.onload = function() {window.location.href = \"ready://\" + document.body.offsetHeight;}</script>";
+    javaScriptString = @"";
+    NSString *htmlFile = [mainBundle pathForResource:@"a_propos" ofType:@"html"];
+    NSString *htmlString = [NSString stringWithContentsOfFile:htmlFile encoding:NSUTF8StringEncoding error:nil];
     
-    NSString *htmlFile1 = [mainBundle pathForResource:@"a_propos_1" ofType:@"html"];
-    NSString *htmlString1 = [NSString stringWithContentsOfFile:htmlFile1 encoding:NSUTF8StringEncoding error:nil];
+    self.webContent = [NSString stringWithFormat:@"%@\n%@\n%@", javaScriptString, cssString, htmlString];
     
-    NSString *htmlFile2 = [mainBundle pathForResource:@"a_propos_2" ofType:@"html"];
-    NSString *htmlString2 = [NSString stringWithContentsOfFile:htmlFile2 encoding:NSUTF8StringEncoding error:nil];
+    self.webView.delegate = self;
     
-    self.webContent1 = [NSString stringWithFormat:@"%@\n%@\n%@", javaScriptString, cssString, htmlString1];
-    self.webContent2 = [NSString stringWithFormat:@"%@\n%@\n%@", javaScriptString, cssString, htmlString2];
-    
-    self.webView1.delegate = self;
-    self.webView2.delegate = self;
-    
-    [self.webView1 loadHTMLString:self.webContent1 baseURL:[PLWikipediaViewController baseURL]];
-    [self.webView2 loadHTMLString:self.webContent2 baseURL:[PLWikipediaViewController baseURL]];
+    [self.webView loadHTMLString:self.webContent baseURL:[PLWikipediaViewController baseURL]];
 }
 
 - (IBAction)doneButtonAction:(id)sender
@@ -95,55 +77,11 @@
     PLTraceOut(@"");
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    NSInteger result;
-    
-    if (tableView == self.osmTable) {
-        result = 3;
-    } else {
-        NSAssert(NO, nil);
-        return 0;
-    }
-    
-    return result;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    PLTraceIn(@"tableView: %@ indexPath: %@", tableView, indexPath);
-    
-	UITableViewCell *cell;
-    NSInteger index = [indexPath indexAtPosition:1];
-    
-    if (tableView == self.osmTable) {
-        if (index == 0) {
-            static NSString *kSiteOSM = @"SiteOSM";
-            cell = [tableView dequeueReusableCellWithIdentifier:kSiteOSM];
-        } else if (index == 1) {
-            static NSString *kCopyrightOSMID = @"CopyrightOSM";
-            cell = [tableView dequeueReusableCellWithIdentifier:kCopyrightOSMID];
-        } else if (index == 2) {
-            static NSString *kCopyrightMapbox = @"CopyrightMapbox";
-            cell = [tableView dequeueReusableCellWithIdentifier:kCopyrightMapbox];
-        }
-    }
-    
-    // Suppression de l'accessoire droit sur iPad
-    if (PLIPad) {
-        cell.accessoryType = UITableViewCellAccessoryNone;
-    }
-    
-    NSAssert(cell, nil);
-    PLTraceOut(@"return: %@", cell);
-    return cell;
-}
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSInteger index = [indexPath indexAtPosition:1];
     
-    if (tableView == self.osmTable) {
+    if (YES) {
         NSURL *url;
         NSString *title;
         
@@ -177,11 +115,7 @@
         if ([[url scheme] isEqualToString:@"ready"]) {
             float contentHeight = [[url host] floatValue];
             
-            if (webView == self.webView1) {
-                self.webViewHeightConstraint1.constant = contentHeight + 8.0;
-            } else if (webView == self.webView2) {
-                self.webViewHeightConstraint2.constant = contentHeight + 16.0;
-            }
+            self.webViewHeightConstraint.constant = contentHeight + 16.0;
             
             // Correction de la taille du texte
             NSString *jsString = [[NSString alloc] initWithFormat:@"document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '%d%%'",
