@@ -13,6 +13,10 @@
 		551B283B1A5779DB00633151 /* a_propos.css in Resources */ = {isa = PBXBuildFile; fileRef = 551B28391A5779DB00633151 /* a_propos.css */; };
 		551B284D1A583C0F00633151 /* superlachaise.png in Resources */ = {isa = PBXBuildFile; fileRef = 551B284C1A583C0F00633151 /* superlachaise.png */; };
 		551B284E1A583C0F00633151 /* superlachaise.png in Resources */ = {isa = PBXBuildFile; fileRef = 551B284C1A583C0F00633151 /* superlachaise.png */; };
+		551B28501A58453D00633151 /* newosmlogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 551B284F1A58453D00633151 /* newosmlogo.png */; };
+		551B28511A58453D00633151 /* newosmlogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 551B284F1A58453D00633151 /* newosmlogo.png */; };
+		551B28531A5849E000633151 /* glyphicons_345_hand_right.png in Resources */ = {isa = PBXBuildFile; fileRef = 551B28521A5849E000633151 /* glyphicons_345_hand_right.png */; };
+		551B28541A5849E000633151 /* glyphicons_345_hand_right.png in Resources */ = {isa = PBXBuildFile; fileRef = 551B28521A5849E000633151 /* glyphicons_345_hand_right.png */; };
 		552112A319DB41AC007DA071 /* glyphicons_343_thumbs_up_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 552112A119DB41AC007DA071 /* glyphicons_343_thumbs_up_selected.png */; };
 		552112A419DB41AC007DA071 /* glyphicons_343_thumbs_up_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 552112A119DB41AC007DA071 /* glyphicons_343_thumbs_up_selected.png */; };
 		552112A519DB41AC007DA071 /* glyphicons_343_thumbs_up_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 552112A219DB41AC007DA071 /* glyphicons_343_thumbs_up_selected@2x.png */; };
@@ -295,6 +299,8 @@
 		551AFE0E1A1962F00092BCB4 /* PLIPadSplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLIPadSplitViewController.m; path = Code/PLIPadSplitViewController.m; sourceTree = "<group>"; };
 		551B28391A5779DB00633151 /* a_propos.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = a_propos.css; path = html/a_propos.css; sourceTree = "<group>"; };
 		551B284C1A583C0F00633151 /* superlachaise.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = superlachaise.png; path = html/img/superlachaise.png; sourceTree = "<group>"; };
+		551B284F1A58453D00633151 /* newosmlogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = newosmlogo.png; path = html/img/newosmlogo.png; sourceTree = "<group>"; };
+		551B28521A5849E000633151 /* glyphicons_345_hand_right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = glyphicons_345_hand_right.png; path = html/img/glyphicons_345_hand_right.png; sourceTree = "<group>"; };
 		552112A119DB41AC007DA071 /* glyphicons_343_thumbs_up_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = glyphicons_343_thumbs_up_selected.png; path = glyphicons/glyphicons_343_thumbs_up_selected.png; sourceTree = "<group>"; };
 		552112A219DB41AC007DA071 /* glyphicons_343_thumbs_up_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "glyphicons_343_thumbs_up_selected@2x.png"; path = "glyphicons/glyphicons_343_thumbs_up_selected@2x.png"; sourceTree = "<group>"; };
 		553F2F6B19CC646900A977D3 /* LICENCE_database.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = LICENCE_database.txt; path = database/LICENCE_database.txt; sourceTree = "<group>"; };
@@ -507,6 +513,8 @@
 		551B284B1A583B5400633151 /* img */ = {
 			isa = PBXGroup;
 			children = (
+				551B28521A5849E000633151 /* glyphicons_345_hand_right.png */,
+				551B284F1A58453D00633151 /* newosmlogo.png */,
 				551B284C1A583C0F00633151 /* superlachaise.png */,
 			);
 			name = img;
@@ -1066,6 +1074,7 @@
 				55EA7FE519CA6205007137BA /* PLData.json in Resources */,
 				55EA7FC719CA61A9007137BA /* glyphicons_049_star_selected.png in Resources */,
 				551B284D1A583C0F00633151 /* superlachaise.png in Resources */,
+				551B28531A5849E000633151 /* glyphicons_345_hand_right.png in Resources */,
 				55EA7EDB19CA5165007137BA /* Configuration.plist in Resources */,
 				557E7E631823C1F100FF586B /* Images.xcassets in Resources */,
 				55EA7FDD19CA61A9007137BA /* glyphicons_233_direction_selected@2x.png in Resources */,
@@ -1077,6 +1086,7 @@
 				55EA7FE119CA61A9007137BA /* glyphicons_233_direction@2x.png in Resources */,
 				553F2F6F19CC6E8B00A977D3 /* LICENCE_glyphicons.txt in Resources */,
 				55EA7FC119CA61A9007137BA /* glyphicons_027_search@2x.png in Resources */,
+				551B28501A58453D00633151 /* newosmlogo.png in Resources */,
 				55EA7FC519CA61A9007137BA /* glyphicons_048_dislikes@2x.png in Resources */,
 				55EA7FC319CA61A9007137BA /* glyphicons_048_dislikes.png in Resources */,
 				55EA7FCD19CA61A9007137BA /* glyphicons_049_star@2x.png in Resources */,
@@ -1112,11 +1122,13 @@
 				55EA7FC419CA61A9007137BA /* glyphicons_048_dislikes.png in Resources */,
 				55EA7FC219CA61A9007137BA /* glyphicons_027_search@2x.png in Resources */,
 				55EA7FDE19CA61A9007137BA /* glyphicons_233_direction_selected@2x.png in Resources */,
+				551B28511A58453D00633151 /* newosmlogo.png in Resources */,
 				55EA7FF819CA6338007137BA /* tileJSON_nonRetina.json in Resources */,
 				55EA7FD619CA61A9007137BA /* glyphicons_190_circle_plus@2x.png in Resources */,
 				55EA7FCA19CA61A9007137BA /* glyphicons_049_star_selected@2x.png in Resources */,
 				55EA7FCE19CA61A9007137BA /* glyphicons_049_star@2x.png in Resources */,
 				55EA7FC819CA61A9007137BA /* glyphicons_049_star_selected.png in Resources */,
+				551B28541A5849E000633151 /* glyphicons_345_hand_right.png in Resources */,
 				55EA7FE819CA6205007137BA /* PLDataSeed.sqlite in Resources */,
 				55EA7FDC19CA61A9007137BA /* glyphicons_233_direction_selected.png in Resources */,
 				55EA7FFA19CA6338007137BA /* tileJSON_retina.json in Resources */,

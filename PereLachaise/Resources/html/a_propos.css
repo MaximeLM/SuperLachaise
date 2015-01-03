@@ -14,7 +14,7 @@ a {
     background-image: none;
     background-origin: padding-box;
     background-size: auto;
-    color: rgb(6, 69, 173);
+    color: rgb(0, 122, 255);
     direction: ltr;
     display: inline;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -88,6 +88,16 @@ img {
     height: 36px;
     margin-right: 10px;
     float: left;
+}
+
+#listA {
+    margin-left: 50px;
+}
+
+.listImg {
+    width: 13px;
+    height: 10px;
+    float: none;
 }
 
 </style>
