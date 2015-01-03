@@ -27,8 +27,6 @@
 
 - (IBAction)doneButtonAction:(id)sender;
 
-- (IBAction)rateThisAppButtonAction:(id)sender;
-
 @property (nonatomic, weak) IBOutlet UIWebView *webView;
 
 @end

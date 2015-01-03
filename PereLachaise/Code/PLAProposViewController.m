@@ -55,17 +55,6 @@
     PLTraceOut(@"");
 }
 
-- (IBAction)rateThisAppButtonAction:(id)sender
-{
-    PLTraceIn(@"");
-    
-    // Redirection vers l'App Store
-    NSString *iTunesLink = @"https://itunes.apple.com/fr/app/super-lachaise/id918263934?mt=8";
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:iTunesLink]];
-    
-    PLTraceOut(@"");
-}
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSInteger index = [indexPath indexAtPosition:1];
@@ -101,7 +90,10 @@
     PLInfo(@"URL: %@", url);
     
     if (navigationType == UIWebViewNavigationTypeLinkClicked) {
-        if ([[url scheme] isEqualToString:@"http"]) {
+        if ([[url host] isEqualToString:@"itunes.apple.com"]) {
+            // Redirection vers l'App Store
+            [[UIApplication sharedApplication] openURL:url];
+        } else if ([[url scheme] hasPrefix:@"http"]) {
             PLWikipediaViewController *wikipediaViewController = [[self storyboard] instantiateViewControllerWithIdentifier:@"Wikipedia"];
             wikipediaViewController.urlToLoad = url;
             
