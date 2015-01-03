@@ -15,12 +15,18 @@
 		551B284E1A583C0F00633151 /* superlachaise.png in Resources */ = {isa = PBXBuildFile; fileRef = 551B284C1A583C0F00633151 /* superlachaise.png */; };
 		551B28501A58453D00633151 /* newosmlogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 551B284F1A58453D00633151 /* newosmlogo.png */; };
 		551B28511A58453D00633151 /* newosmlogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 551B284F1A58453D00633151 /* newosmlogo.png */; };
-		551B28531A5849E000633151 /* glyphicons_345_hand_right.png in Resources */ = {isa = PBXBuildFile; fileRef = 551B28521A5849E000633151 /* glyphicons_345_hand_right.png */; };
-		551B28541A5849E000633151 /* glyphicons_345_hand_right.png in Resources */ = {isa = PBXBuildFile; fileRef = 551B28521A5849E000633151 /* glyphicons_345_hand_right.png */; };
 		551B28561A584EB000633151 /* mapboxlogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 551B28551A584EB000633151 /* mapboxlogo.png */; };
 		551B28571A584EB000633151 /* mapboxlogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 551B28551A584EB000633151 /* mapboxlogo.png */; };
 		551B285C1A5854B500633151 /* wikipedialogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 551B285B1A5854B500633151 /* wikipedialogo.png */; };
 		551B285D1A5854B500633151 /* wikipedialogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 551B285B1A5854B500633151 /* wikipedialogo.png */; };
+		551B28611A5860A100633151 /* glyphicons_234_brush@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 551B285E1A5860A100633151 /* glyphicons_234_brush@2x.png */; };
+		551B28621A5860A100633151 /* glyphicons_234_brush@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 551B285E1A5860A100633151 /* glyphicons_234_brush@2x.png */; };
+		551B28631A5860A100633151 /* glyphicons_343_thumbs_up@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 551B285F1A5860A100633151 /* glyphicons_343_thumbs_up@2x.png */; };
+		551B28641A5860A100633151 /* glyphicons_343_thumbs_up@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 551B285F1A5860A100633151 /* glyphicons_343_thumbs_up@2x.png */; };
+		551B28651A5860A100633151 /* glyphicons_374_claw_hammer@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 551B28601A5860A100633151 /* glyphicons_374_claw_hammer@2x.png */; };
+		551B28661A5860A100633151 /* glyphicons_374_claw_hammer@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 551B28601A5860A100633151 /* glyphicons_374_claw_hammer@2x.png */; };
+		551B28681A5860ED00633151 /* glyphicons_345_hand_right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 551B28671A5860ED00633151 /* glyphicons_345_hand_right@2x.png */; };
+		551B28691A5860ED00633151 /* glyphicons_345_hand_right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 551B28671A5860ED00633151 /* glyphicons_345_hand_right@2x.png */; };
 		552112A319DB41AC007DA071 /* glyphicons_343_thumbs_up_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 552112A119DB41AC007DA071 /* glyphicons_343_thumbs_up_selected.png */; };
 		552112A419DB41AC007DA071 /* glyphicons_343_thumbs_up_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 552112A119DB41AC007DA071 /* glyphicons_343_thumbs_up_selected.png */; };
 		552112A519DB41AC007DA071 /* glyphicons_343_thumbs_up_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 552112A219DB41AC007DA071 /* glyphicons_343_thumbs_up_selected@2x.png */; };
@@ -304,9 +310,12 @@
 		551B28391A5779DB00633151 /* a_propos.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = a_propos.css; path = html/a_propos.css; sourceTree = "<group>"; };
 		551B284C1A583C0F00633151 /* superlachaise.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = superlachaise.png; path = html/img/superlachaise.png; sourceTree = "<group>"; };
 		551B284F1A58453D00633151 /* newosmlogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = newosmlogo.png; path = html/img/newosmlogo.png; sourceTree = "<group>"; };
-		551B28521A5849E000633151 /* glyphicons_345_hand_right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = glyphicons_345_hand_right.png; path = html/img/glyphicons_345_hand_right.png; sourceTree = "<group>"; };
 		551B28551A584EB000633151 /* mapboxlogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mapboxlogo.png; path = html/img/mapboxlogo.png; sourceTree = "<group>"; };
 		551B285B1A5854B500633151 /* wikipedialogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = wikipedialogo.png; path = html/img/wikipedialogo.png; sourceTree = "<group>"; };
+		551B285E1A5860A100633151 /* glyphicons_234_brush@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "glyphicons_234_brush@2x.png"; path = "html/img/glyphicons_234_brush@2x.png"; sourceTree = "<group>"; };
+		551B285F1A5860A100633151 /* glyphicons_343_thumbs_up@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "glyphicons_343_thumbs_up@2x.png"; path = "html/img/glyphicons_343_thumbs_up@2x.png"; sourceTree = "<group>"; };
+		551B28601A5860A100633151 /* glyphicons_374_claw_hammer@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "glyphicons_374_claw_hammer@2x.png"; path = "html/img/glyphicons_374_claw_hammer@2x.png"; sourceTree = "<group>"; };
+		551B28671A5860ED00633151 /* glyphicons_345_hand_right@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "glyphicons_345_hand_right@2x.png"; path = "html/img/glyphicons_345_hand_right@2x.png"; sourceTree = "<group>"; };
 		552112A119DB41AC007DA071 /* glyphicons_343_thumbs_up_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = glyphicons_343_thumbs_up_selected.png; path = glyphicons/glyphicons_343_thumbs_up_selected.png; sourceTree = "<group>"; };
 		552112A219DB41AC007DA071 /* glyphicons_343_thumbs_up_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "glyphicons_343_thumbs_up_selected@2x.png"; path = "glyphicons/glyphicons_343_thumbs_up_selected@2x.png"; sourceTree = "<group>"; };
 		553F2F6B19CC646900A977D3 /* LICENCE_database.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = LICENCE_database.txt; path = database/LICENCE_database.txt; sourceTree = "<group>"; };
@@ -519,9 +528,12 @@
 		551B284B1A583B5400633151 /* img */ = {
 			isa = PBXGroup;
 			children = (
+				551B28671A5860ED00633151 /* glyphicons_345_hand_right@2x.png */,
+				551B285E1A5860A100633151 /* glyphicons_234_brush@2x.png */,
+				551B285F1A5860A100633151 /* glyphicons_343_thumbs_up@2x.png */,
+				551B28601A5860A100633151 /* glyphicons_374_claw_hammer@2x.png */,
 				551B285B1A5854B500633151 /* wikipedialogo.png */,
 				551B28551A584EB000633151 /* mapboxlogo.png */,
-				551B28521A5849E000633151 /* glyphicons_345_hand_right.png */,
 				551B284F1A58453D00633151 /* newosmlogo.png */,
 				551B284C1A583C0F00633151 /* superlachaise.png */,
 			);
@@ -1070,6 +1082,7 @@
 			files = (
 				556F1C6419DF0C6700A8C73E /* LICENCE_assets.txt in Resources */,
 				551B28561A584EB000633151 /* mapboxlogo.png in Resources */,
+				551B28651A5860A100633151 /* glyphicons_374_claw_hammer@2x.png in Resources */,
 				55EA7FC919CA61A9007137BA /* glyphicons_049_star_selected@2x.png in Resources */,
 				55EA7FF919CA6338007137BA /* tileJSON_retina.json in Resources */,
 				55EA7FF219CA62EF007137BA /* wikipedia.css in Resources */,
@@ -1083,8 +1096,8 @@
 				55EA7FE519CA6205007137BA /* PLData.json in Resources */,
 				55EA7FC719CA61A9007137BA /* glyphicons_049_star_selected.png in Resources */,
 				551B284D1A583C0F00633151 /* superlachaise.png in Resources */,
-				551B28531A5849E000633151 /* glyphicons_345_hand_right.png in Resources */,
 				55EA7EDB19CA5165007137BA /* Configuration.plist in Resources */,
+				551B28611A5860A100633151 /* glyphicons_234_brush@2x.png in Resources */,
 				557E7E631823C1F100FF586B /* Images.xcassets in Resources */,
 				55EA7FDD19CA61A9007137BA /* glyphicons_233_direction_selected@2x.png in Resources */,
 				551B285C1A5854B500633151 /* wikipedialogo.png in Resources */,
@@ -1093,6 +1106,7 @@
 				552112A519DB41AC007DA071 /* glyphicons_343_thumbs_up_selected@2x.png in Resources */,
 				554AB32C19D35AFA004EC22D /* Main.storyboard in Resources */,
 				55EA7FBF19CA61A9007137BA /* glyphicons_027_search.png in Resources */,
+				551B28631A5860A100633151 /* glyphicons_343_thumbs_up@2x.png in Resources */,
 				55EA7FE119CA61A9007137BA /* glyphicons_233_direction@2x.png in Resources */,
 				553F2F6F19CC6E8B00A977D3 /* LICENCE_glyphicons.txt in Resources */,
 				55EA7FC119CA61A9007137BA /* glyphicons_027_search@2x.png in Resources */,
@@ -1104,6 +1118,7 @@
 				554AB32E19D35AFA004EC22D /* PLMonumentView.xib in Resources */,
 				55EA7FCB19CA61A9007137BA /* glyphicons_049_star.png in Resources */,
 				55EA7FE719CA6205007137BA /* PLDataSeed.sqlite in Resources */,
+				551B28681A5860ED00633151 /* glyphicons_345_hand_right@2x.png in Resources */,
 				55E31C6C1823C5DF0057ED97 /* Mapbox.bundle in Resources */,
 				55EA7FCF19CA61A9007137BA /* glyphicons_060_compass_selected.png in Resources */,
 				55EA7FD919CA61A9007137BA /* glyphicons_195_circle_info@2x.png in Resources */,
@@ -1116,8 +1131,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				551B28661A5860A100633151 /* glyphicons_374_claw_hammer@2x.png in Resources */,
 				55EA7FC019CA61A9007137BA /* glyphicons_027_search.png in Resources */,
 				55EA7FEF19CA62EF007137BA /* a_propos.html in Resources */,
+				551B28621A5860A100633151 /* glyphicons_234_brush@2x.png in Resources */,
+				551B28691A5860ED00633151 /* glyphicons_345_hand_right@2x.png in Resources */,
 				55EA7FD019CA61A9007137BA /* glyphicons_060_compass_selected.png in Resources */,
 				552112A619DB41AC007DA071 /* glyphicons_343_thumbs_up_selected@2x.png in Resources */,
 				556F1C6519DF0C6700A8C73E /* LICENCE_assets.txt in Resources */,
@@ -1126,6 +1144,7 @@
 				55ADA83C18F9D7220002D913 /* Images.xcassets in Resources */,
 				55EA7FD419CA61A9007137BA /* glyphicons_190_circle_plus.png in Resources */,
 				551B284E1A583C0F00633151 /* superlachaise.png in Resources */,
+				551B28641A5860A100633151 /* glyphicons_343_thumbs_up@2x.png in Resources */,
 				55EA7FD219CA61A9007137BA /* glyphicons_060_compass_selected@2x.png in Resources */,
 				554AB32D19D35AFA004EC22D /* Main.storyboard in Resources */,
 				551B285D1A5854B500633151 /* wikipedialogo.png in Resources */,
@@ -1139,7 +1158,6 @@
 				55EA7FCA19CA61A9007137BA /* glyphicons_049_star_selected@2x.png in Resources */,
 				55EA7FCE19CA61A9007137BA /* glyphicons_049_star@2x.png in Resources */,
 				55EA7FC819CA61A9007137BA /* glyphicons_049_star_selected.png in Resources */,
-				551B28541A5849E000633151 /* glyphicons_345_hand_right.png in Resources */,
 				55EA7FE819CA6205007137BA /* PLDataSeed.sqlite in Resources */,
 				55EA7FDC19CA61A9007137BA /* glyphicons_233_direction_selected.png in Resources */,
 				55EA7FFA19CA6338007137BA /* tileJSON_retina.json in Resources */,
