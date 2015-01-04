@@ -65,6 +65,10 @@
 {
     [super viewDidLoad];
     
+    // Création de la barre de recherche
+    self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width, 44.0)];
+    self.tableView.tableHeaderView = self.searchBar;
+    
     self.mySearchDisplayController = [[UISearchDisplayController alloc] initWithSearchBar:self.searchBar contentsController:self];
     self.mySearchDisplayController.delegate = self;
     self.mySearchDisplayController.searchResultsDataSource = self;

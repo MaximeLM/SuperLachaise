@@ -28,7 +28,7 @@
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 
-@property (nonatomic, strong) IBOutlet UISearchBar *searchBar;
+@property (nonatomic, strong) UISearchBar *searchBar;
 
 // Ferme ou dissimule la fenêtre
 - (IBAction)doneButtonAction:(id)sender;

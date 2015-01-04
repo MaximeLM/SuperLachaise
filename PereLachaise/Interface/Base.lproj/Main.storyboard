@@ -270,15 +270,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="na0-Ht-tue">
-                                <rect key="frame" x="0.0" y="64" width="320" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="t9q-Oc-tzs"/>
-                                </constraints>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                             <tableView opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="bZP-r1-JPv">
-                                <rect key="frame" x="0.0" y="108" width="320" height="460"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" red="0.95294117649999999" green="0.94117647059999998" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Monument Cell" rowHeight="91" id="qfY-oX-aeK" customClass="PLMonumentTableViewCell">
@@ -362,10 +355,7 @@
                         <constraints>
                             <constraint firstItem="bZP-r1-JPv" firstAttribute="leading" secondItem="JPf-CC-JF5" secondAttribute="leading" id="4E5-4I-N43"/>
                             <constraint firstAttribute="trailing" secondItem="bZP-r1-JPv" secondAttribute="trailing" id="7pn-Bv-Fe7"/>
-                            <constraint firstItem="na0-Ht-tue" firstAttribute="leading" secondItem="JPf-CC-JF5" secondAttribute="leading" id="CiX-cZ-YsO"/>
-                            <constraint firstAttribute="trailing" secondItem="na0-Ht-tue" secondAttribute="trailing" id="Erd-gm-6MR"/>
-                            <constraint firstItem="na0-Ht-tue" firstAttribute="top" secondItem="RTb-9r-qgT" secondAttribute="bottom" id="aMq-IN-9ZW"/>
-                            <constraint firstItem="bZP-r1-JPv" firstAttribute="top" secondItem="RTb-9r-qgT" secondAttribute="bottom" constant="44" id="dm4-M6-Gkv"/>
+                            <constraint firstItem="bZP-r1-JPv" firstAttribute="top" secondItem="JPf-CC-JF5" secondAttribute="top" id="KyC-Mi-eAN"/>
                             <constraint firstAttribute="bottom" secondItem="bZP-r1-JPv" secondAttribute="bottom" id="j0b-F7-plb"/>
                         </constraints>
                     </view>
@@ -377,7 +367,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="searchBar" destination="na0-Ht-tue" id="nVG-Ch-sHl"/>
                         <outlet property="tableView" destination="bZP-r1-JPv" id="wjJ-gn-gjt"/>
                     </connections>
                 </viewController>
