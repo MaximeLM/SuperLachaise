@@ -38,8 +38,14 @@
     NSString *path = [mainBundle bundlePath];
     NSURL *baseURL = [NSURL fileURLWithPath:path];
     
-    NSString *htmlFile = [mainBundle pathForResource:@"a_propos" ofType:@"html"];
-    NSString *htmlString = [NSString stringWithContentsOfFile:htmlFile encoding:NSUTF8StringEncoding error:nil];
+    NSString *headName = (PLIPhone) ? @"head_iphone" : @"head_ipad";
+    NSString *headFile = [mainBundle pathForResource:headName ofType:@"html"];
+    NSString *headString = [NSString stringWithContentsOfFile:headFile encoding:NSUTF8StringEncoding error:nil];
+    
+    NSString *bodyFile = [mainBundle pathForResource:@"a_propos" ofType:@"html"];
+    NSString *bodyString = [NSString stringWithContentsOfFile:bodyFile encoding:NSUTF8StringEncoding error:nil];
+    
+    NSString *htmlString = [headString stringByAppendingString:bodyString];
     
     self.webView.delegate = self;
     

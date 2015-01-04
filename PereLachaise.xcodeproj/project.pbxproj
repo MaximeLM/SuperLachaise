@@ -28,6 +28,10 @@
 		551B28681A5860ED00633151 /* glyphicons_345_hand_right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 551B28671A5860ED00633151 /* glyphicons_345_hand_right@2x.png */; };
 		551B28691A5860ED00633151 /* glyphicons_345_hand_right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 551B28671A5860ED00633151 /* glyphicons_345_hand_right@2x.png */; };
 		551B286F1A588C8100633151 /* glyphicons_376_hand_saw@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 551B286E1A588C8100633151 /* glyphicons_376_hand_saw@2x.png */; };
+		551B28891A58C26700633151 /* head_ipad.html in Resources */ = {isa = PBXBuildFile; fileRef = 551B28871A58C26700633151 /* head_ipad.html */; };
+		551B288A1A58C26700633151 /* head_ipad.html in Resources */ = {isa = PBXBuildFile; fileRef = 551B28871A58C26700633151 /* head_ipad.html */; };
+		551B288B1A58C26700633151 /* head_iphone.html in Resources */ = {isa = PBXBuildFile; fileRef = 551B28881A58C26700633151 /* head_iphone.html */; };
+		551B288C1A58C26700633151 /* head_iphone.html in Resources */ = {isa = PBXBuildFile; fileRef = 551B28881A58C26700633151 /* head_iphone.html */; };
 		552112A319DB41AC007DA071 /* glyphicons_343_thumbs_up_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 552112A119DB41AC007DA071 /* glyphicons_343_thumbs_up_selected.png */; };
 		552112A419DB41AC007DA071 /* glyphicons_343_thumbs_up_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 552112A119DB41AC007DA071 /* glyphicons_343_thumbs_up_selected.png */; };
 		552112A519DB41AC007DA071 /* glyphicons_343_thumbs_up_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 552112A219DB41AC007DA071 /* glyphicons_343_thumbs_up_selected@2x.png */; };
@@ -316,6 +320,8 @@
 		551B28601A5860A100633151 /* glyphicons_374_claw_hammer@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "glyphicons_374_claw_hammer@2x.png"; path = "html/img/glyphicons_374_claw_hammer@2x.png"; sourceTree = "<group>"; };
 		551B28671A5860ED00633151 /* glyphicons_345_hand_right@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "glyphicons_345_hand_right@2x.png"; path = "html/img/glyphicons_345_hand_right@2x.png"; sourceTree = "<group>"; };
 		551B286E1A588C8100633151 /* glyphicons_376_hand_saw@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "glyphicons_376_hand_saw@2x.png"; path = "html/img/glyphicons_376_hand_saw@2x.png"; sourceTree = "<group>"; };
+		551B28871A58C26700633151 /* head_ipad.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = head_ipad.html; path = html/head_ipad.html; sourceTree = "<group>"; };
+		551B28881A58C26700633151 /* head_iphone.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = head_iphone.html; path = html/head_iphone.html; sourceTree = "<group>"; };
 		552112A119DB41AC007DA071 /* glyphicons_343_thumbs_up_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = glyphicons_343_thumbs_up_selected.png; path = glyphicons/glyphicons_343_thumbs_up_selected.png; sourceTree = "<group>"; };
 		552112A219DB41AC007DA071 /* glyphicons_343_thumbs_up_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "glyphicons_343_thumbs_up_selected@2x.png"; path = "glyphicons/glyphicons_343_thumbs_up_selected@2x.png"; sourceTree = "<group>"; };
 		553F2F6B19CC646900A977D3 /* LICENCE_database.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = LICENCE_database.txt; path = database/LICENCE_database.txt; sourceTree = "<group>"; };
@@ -857,6 +863,8 @@
 		55EA7FEA19CA62DB007137BA /* HTML */ = {
 			isa = PBXGroup;
 			children = (
+				551B28871A58C26700633151 /* head_ipad.html */,
+				551B28881A58C26700633151 /* head_iphone.html */,
 				551B28391A5779DB00633151 /* a_propos.css */,
 				55EA7FEB19CA62EF007137BA /* a_propos.html */,
 				55EA7FED19CA62EF007137BA /* wikipedia.css */,
@@ -1082,8 +1090,10 @@
 				556F1C6419DF0C6700A8C73E /* LICENCE_assets.txt in Resources */,
 				551B28561A584EB000633151 /* mapboxlogo.png in Resources */,
 				551B28651A5860A100633151 /* glyphicons_374_claw_hammer@2x.png in Resources */,
+				551B288B1A58C26700633151 /* head_iphone.html in Resources */,
 				55EA7FC919CA61A9007137BA /* glyphicons_049_star_selected@2x.png in Resources */,
 				55EA7FF919CA6338007137BA /* tileJSON_retina.json in Resources */,
+				551B28891A58C26700633151 /* head_ipad.html in Resources */,
 				55EA7FF219CA62EF007137BA /* wikipedia.css in Resources */,
 				55EA7FD519CA61A9007137BA /* glyphicons_190_circle_plus@2x.png in Resources */,
 				55EA7FDB19CA61A9007137BA /* glyphicons_233_direction_selected.png in Resources */,
@@ -1168,6 +1178,8 @@
 				551B283B1A5779DB00633151 /* a_propos.css in Resources */,
 				554AB32F19D35AFA004EC22D /* PLMonumentView.xib in Resources */,
 				55EA7FF319CA62EF007137BA /* wikipedia.css in Resources */,
+				551B288A1A58C26700633151 /* head_ipad.html in Resources */,
+				551B288C1A58C26700633151 /* head_iphone.html in Resources */,
 				55EA7FC619CA61A9007137BA /* glyphicons_048_dislikes@2x.png in Resources */,
 				55ADA85318F9D7220002D913 /* Mapbox.bundle in Resources */,
 				553F2F7019CC6E8B00A977D3 /* LICENCE_glyphicons.txt in Resources */,
