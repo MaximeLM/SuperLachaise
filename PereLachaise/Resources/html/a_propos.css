@@ -48,8 +48,9 @@ img {
 }
 
 #rateThisAppImg {
+    zoom: 50%;
     width: 24px;
-    height: 24px;
+    height: 21px;
     margin-right: 10px;
     vertical-align: baseline;
 }
