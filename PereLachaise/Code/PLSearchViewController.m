@@ -40,11 +40,7 @@
 
 #pragma mark - Controleurs de recherche
 
-// iOS 7
 @property (nonatomic, strong) UISearchDisplayController *mySearchDisplayController;
-
-// iOS 8
-@property (nonatomic, strong) UISearchController *mySearchController;
 
 - (UITableView *)searchResultsTableView;
 
