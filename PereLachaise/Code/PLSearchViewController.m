@@ -387,8 +387,13 @@
     
     PLMonument *monument = nil;
     
+    // Si texte coupé => augmenter offset
+    // Si zone blanche sous texte => diminuer l'offet
+    
     CGFloat offset;
-    if (PLIPhone) {
+    if (PLIPhone6p) {
+        offset = 52.0;
+    } else if (PLIPhone) {
         offset = 48.0;
     } else {
         offset = 68.0;
