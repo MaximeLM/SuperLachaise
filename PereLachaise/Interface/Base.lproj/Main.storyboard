@@ -60,9 +60,8 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="7Dh-eW-WhJ" kind="popoverPresentation" identifier="" popoverAnchorView="lHZ-0o-ykf" id="lKX-ue-1Ps">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES"/>
-                                    </segue>
+                                    <action selector="aProposButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="AaE-Ls-3XG"/>
+                                    <segue destination="7Dh-eW-WhJ" kind="modal" identifier="iPhoneAProposSegue" id="lKX-ue-1Ps"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="80q-DF-LS4">
@@ -398,7 +397,8 @@
         <!--Propos Navigation Controller-->
         <scene sceneID="OWE-yT-mf2">
             <objects>
-                <navigationController definesPresentationContext="YES" id="7Dh-eW-WhJ" customClass="PLAProposNavigationController" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="aProposNavigationController" definesPresentationContext="YES" id="7Dh-eW-WhJ" customClass="PLAProposNavigationController" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="4bR-6v-6Pu"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="P88-uV-pE3">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

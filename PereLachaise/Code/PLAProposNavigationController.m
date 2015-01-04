@@ -62,7 +62,8 @@
     
     // Gestion de la taille du pop-over sur iPad (aucun effet sur iPhone)
     if ([viewController isKindOfClass:[PLWikipediaViewController class]]) {
-        self.preferredContentSize = CGSizeMake(self.presentingViewController.view.frame.size.width, self.presentingViewController.view.frame.size.height);
+        CGSize size = self.mapViewController.view.bounds.size;
+        self.preferredContentSize = CGSizeMake(size.width, size.height);
     } else {
         self.preferredContentSize = CGSizeMake(375.0, 680.0);
     }

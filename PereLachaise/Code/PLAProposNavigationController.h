@@ -19,7 +19,11 @@
 
 #import <UIKit/UIKit.h>
 
+#import "PLMapViewController.h"
+
 @interface PLAProposNavigationController : UINavigationController <UINavigationControllerDelegate>
+
+@property (nonatomic, weak) PLMapViewController *mapViewController;
 
 // Met à jour la taille de la vue pop-over en fonction de la vue affichée
 - (void)updateSizeForViewController:(UIViewController *)viewController;

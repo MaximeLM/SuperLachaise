@@ -36,7 +36,7 @@
 #import "PLAProposNavigationController.h"
 #import "PLIPadSplitViewController.h"
 
-@interface PLMapViewController () <NSFetchedResultsControllerDelegate, RMMapViewDelegate, UIActionSheetDelegate> {
+@interface PLMapViewController () <NSFetchedResultsControllerDelegate, RMMapViewDelegate, UIActionSheetDelegate, UIPopoverControllerDelegate> {
     BOOL _leftPanelVisible;
 }
 
@@ -145,6 +145,12 @@
 
 // Le bouton de recherche a été pressé
 - (IBAction)searchButtonPressed:(id)sender;
+
+// Le controleur de popover de la vue à propos
+@property (nonatomic, strong) UIPopoverController *aProposPopoverController;
+
+// Le bouton à propos a été pressé
+- (IBAction)aProposButtonPressed:(id)sender;
 
 // Repositionne si besoin la carte lors de la sélection d'une annotation
 - (void)scrollAnnotationToVisible:(RMAnnotation *)annotation;
@@ -267,8 +273,10 @@
             PLSearchViewController *searchViewController = (PLSearchViewController *)[segue.destinationViewController topViewController];
             searchViewController.mapViewController = self;
         } else if ([topViewController isKindOfClass:[PLAProposViewController class]]) {
-            PLAProposViewController *aProposViewController = (PLAProposViewController *)[segue.destinationViewController topViewController];
+            PLAProposNavigationController *aProposNavigationController = segue.destinationViewController;
+            PLAProposViewController *aProposViewController = (PLAProposViewController *)[aProposNavigationController topViewController];
             aProposViewController.mapViewController = self;
+            aProposNavigationController.mapViewController = self;
         }
     }
     
@@ -281,7 +289,7 @@
     
     BOOL result = [super shouldPerformSegueWithIdentifier:identifier sender:sender];
     
-    if (PLIPad && [identifier isEqualToString:@"iPhoneSearchSegue"]) {
+    if (PLIPad && ([identifier isEqualToString:@"iPhoneSearchSegue"] || [identifier isEqualToString:@"iPhoneAProposSegue"])) {
         result = NO;
     }
     
@@ -848,6 +856,9 @@
     
     [self dismissViewControllerAnimated:YES completion:nil];
     
+    [self.aProposPopoverController dismissPopoverAnimated:YES];
+    self.aProposPopoverController = nil;
+    
     PLTraceOut(@"");
 }
 
@@ -1353,6 +1364,32 @@
     PLTraceOut(@"");
 }
 
+- (void)aProposButtonPressed:(id)sender
+{
+    PLTraceIn(@"");
+    
+    if (PLIPad) {
+        if (self.aProposPopoverController) {
+            [self closeListeMonuments];
+        } else {
+            PLAProposNavigationController *aProposNavigationController = [[self storyboard] instantiateViewControllerWithIdentifier:@"aProposNavigationController"];
+            
+            self.mapView.userTrackingMode = RMUserTrackingModeNone;
+            
+            PLAProposViewController *aProposViewController = (PLAProposViewController *)[aProposNavigationController topViewController];
+            aProposViewController.mapViewController = self;
+            aProposNavigationController.mapViewController = self;
+            
+            self.aProposPopoverController = [[UIPopoverController alloc] initWithContentViewController:aProposNavigationController];
+            self.aProposPopoverController.delegate = self;
+            
+            [self.aProposPopoverController presentPopoverFromRect:self.infoButton.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+        }
+    }
+    
+    PLTraceOut(@"");
+}
+
 - (IBAction)trackingButtonAction:(id)sender
 {
     PLTraceIn(@"");
@@ -1629,6 +1666,26 @@
     
     [self.infoBoxTimer invalidate];
     self.infoBoxTimer = [NSTimer scheduledTimerWithTimeInterval:seconds invocation:invocation repeats:NO];
+    
+    PLTraceOut(@"");
+}
+
+#pragma mark - UIPopoverControllerDelegate
+
+- (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
+{
+    PLTraceIn(@"");
+    
+    self.aProposPopoverController = nil;
+    
+    PLTraceOut(@"");
+}
+
+- (void)popoverController:(UIPopoverController *)popoverController willRepositionPopoverToRect:(inout CGRect *)rect inView:(inout UIView **)view
+{
+    PLTraceIn(@"");
+    
+    *rect = self.infoButton.frame;
     
     PLTraceOut(@"");
 }
