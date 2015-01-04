@@ -28,7 +28,7 @@
 #import "PLIPadSplitViewController.h"
 #import "PLDeprecatedMethods.h"
 
-@interface PLSearchViewController () <NSFetchedResultsControllerDelegate>
+@interface PLSearchViewController () <NSFetchedResultsControllerDelegate, UISearchDisplayDelegate>
 
 #pragma mark - Chargement des monuments
 
@@ -37,6 +37,16 @@
 #pragma mark - Sélection
 
 @property (nonatomic, weak) PLMonument *selectedMonument;
+
+#pragma mark - Controleurs de recherche
+
+// iOS 7
+@property (nonatomic, strong) UISearchDisplayController *mySearchDisplayController;
+
+// iOS 8
+@property (nonatomic, strong) UISearchController *mySearchController;
+
+- (UITableView *)searchResultsTableView;
 
 @end
 
@@ -55,8 +65,12 @@
 {
     [super viewDidLoad];
     
+    self.mySearchDisplayController = [[UISearchDisplayController alloc] initWithSearchBar:self.searchBar contentsController:self];
+    self.mySearchDisplayController.delegate = self;
+    self.mySearchDisplayController.searchResultsDataSource = self;
+    self.mySearchDisplayController.searchResultsDelegate = self;
     
-    ((id<PLDeprecatedMethods>)self).searchDisplayController.searchResultsTableView.backgroundColor = self.tableView.backgroundColor;
+    self.searchResultsTableView.backgroundColor = self.tableView.backgroundColor;
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -142,7 +156,7 @@
     
     // Table filtrée
     indexPath = [self.filteredFetchedResultsController indexPathForObject:monument];
-    cell = (PLMonumentTableViewCell *)[((id<PLDeprecatedMethods>)self).searchDisplayController.searchResultsTableView cellForRowAtIndexPath:indexPath];
+    cell = (PLMonumentTableViewCell *)[self.searchResultsTableView cellForRowAtIndexPath:indexPath];
     [cell updateLabels];
     
     PLTraceOut(@"");
@@ -234,7 +248,7 @@
     
     NSInteger result;
     
-    if (tableView == ((id<PLDeprecatedMethods>)self).searchDisplayController.searchResultsTableView) {
+    if (tableView == self.searchResultsTableView) {
         PLInfo(@"filteredFetchedResultsController");
         result = [[self.filteredFetchedResultsController sections] count];
     } else {
@@ -441,7 +455,7 @@
         PLIPadSplitViewController *iPadSplitViewController = (PLIPadSplitViewController *)self.navigationController.parentViewController;
         [iPadSplitViewController showMonumentInDetailView:monument];
         
-        NSArray *tables = @[self.tableView, ((id<PLDeprecatedMethods>)self).searchDisplayController.searchResultsTableView];
+        NSArray *tables = @[self.tableView, self.searchResultsTableView];
         NSArray *fRCs = @[self.fetchedResultsController, self.filteredFetchedResultsController];
         for (int i = 0 ; i<2 ; i++) {
             UITableView *table = [tables objectAtIndex:i];
@@ -482,7 +496,7 @@
         tableView = self.tableView;
     } else {
         PLInfo(@"filteredFetchedResultsController");
-        tableView = ((id<PLDeprecatedMethods>)self).searchDisplayController.searchResultsTableView;
+        tableView = self.searchResultsTableView;
     }
     
     switch(type) {
@@ -520,7 +534,7 @@
         tableView = self.tableView;
     } else {
         PLInfo(@"filteredFetchedResultsController");
-        tableView = ((id<PLDeprecatedMethods>)self).searchDisplayController.searchResultsTableView;
+        tableView = self.searchResultsTableView;
     }
     
     switch(type) {
@@ -598,6 +612,19 @@
     // Return YES to cause the search result table view to be reloaded.
     PLTraceOut(@"return: YES");
     return YES;
+}
+
+#pragma mark - Controleurs de recherche
+
+- (UITableView *)searchResultsTableView
+{
+    PLTraceIn(@"");
+    UITableView *result;
+    
+    result = self.mySearchDisplayController.searchResultsTableView;
+    
+    PLTraceOut(@"result: %@", result);
+    return result;
 }
 
 @end

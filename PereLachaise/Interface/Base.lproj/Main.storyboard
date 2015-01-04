@@ -377,20 +377,11 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="searchDisplayController" destination="8ze-vS-esu" id="0Z6-JP-WjA"/>
+                        <outlet property="searchBar" destination="na0-Ht-tue" id="nVG-Ch-sHl"/>
                         <outlet property="tableView" destination="bZP-r1-JPv" id="wjJ-gn-gjt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C89-Bk-wc7" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="8ze-vS-esu">
-                    <connections>
-                        <outlet property="delegate" destination="gD0-EM-gE6" id="cLi-12-qdV"/>
-                        <outlet property="searchBar" destination="na0-Ht-tue" id="0jT-DF-jYd"/>
-                        <outlet property="searchContentsController" destination="gD0-EM-gE6" id="zAx-MM-4HY"/>
-                        <outlet property="searchResultsDataSource" destination="gD0-EM-gE6" id="oMY-Mh-gjs"/>
-                        <outlet property="searchResultsDelegate" destination="gD0-EM-gE6" id="2bC-2N-qSq"/>
-                    </connections>
-                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="1265" y="-18"/>
         </scene>
