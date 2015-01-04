@@ -340,6 +340,7 @@
         [self trySelectMonument:self.selectedMonument forcePosition:NO];
     }
     
+    [super viewDidAppear:animated];
     PLTraceOut(@"");
 }
 

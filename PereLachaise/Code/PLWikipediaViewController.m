@@ -54,7 +54,7 @@
     [self.webView stopLoading];
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     
-    [super viewWillDisappear:animated];
+    [super viewDidDisappear:animated];
     
     PLTraceOut(@"");
 }
