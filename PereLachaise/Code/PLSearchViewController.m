@@ -371,7 +371,7 @@
     
     CGFloat offset;
     if (PLIPhone) {
-        offset = 49.0;
+        offset = 48.0;
     } else {
         offset = 68.0;
     }
@@ -382,7 +382,6 @@
     } else {
         PLInfo(@"filteredFetchedResultsController");
         monument = [self.filteredFetchedResultsController objectAtIndexPath:indexPath];
-        offset = offset - 1.0;
     }
     PLInfo(@"monument: %@", monument);
     
