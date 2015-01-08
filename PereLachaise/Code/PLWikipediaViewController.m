@@ -63,6 +63,10 @@
 {
     [super viewDidLoad];
     
+    if (PLIPad && PLPreVersion8) {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+    }
+    
     // Modification du texte du bouton Safari (iPad)
     if (PLIPad) {
         self.navigationItem.rightBarButtonItem.title = @"Ouvrir dans Safari";

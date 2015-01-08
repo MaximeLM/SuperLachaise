@@ -66,6 +66,9 @@
 #define PLPostVersion7 (floor(NSFoundationVersionNumber) >  NSFoundationVersionNumber_iOS_6_1)
 #define PLPreVersion7  (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1)
 
+#define PLPostVersion8 (floor(NSFoundationVersionNumber) >  NSFoundationVersionNumber_iOS_7_1)
+#define PLPreVersion8  (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_7_1)
+
 #define PLIPhone (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
 #define PLIPad (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
 

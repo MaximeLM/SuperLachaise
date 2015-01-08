@@ -32,6 +32,10 @@
 {
     [super viewDidLoad];
     
+    if (PLIPad && PLPreVersion8) {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+    }
+    
     // Récupération du bundle de l'application
     NSBundle *mainBundle = [NSBundle mainBundle];
     
