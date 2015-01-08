@@ -77,10 +77,7 @@
 {
     [super viewDidAppear:animated];
     
-    // Corrige le bug de sélection qui reste parfois après retour de la vue détaillée
-    if (PLIPhone) {
-        [self.tableView reloadData];
-    }
+    [self.tableView reloadData];
 }
 
 - (void)viewWillAppear:(BOOL)animated
