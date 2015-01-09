@@ -63,7 +63,7 @@
 {
     [super viewDidLoad];
     
-    if (PLIPad && PLPreVersion8) {
+    if (PLIPad && PLPreVersion8 && [self.parentViewController isKindOfClass:[PLAProposNavigationController class]]) {
         self.edgesForExtendedLayout = UIRectEdgeNone;
     }
     
