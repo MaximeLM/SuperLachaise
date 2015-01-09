@@ -320,8 +320,9 @@
     [self.mapView frameAnimationDidFinish];
     
     // Mise à jour de la vue pop-over
-    if ([self.presentedViewController isKindOfClass:[PLAProposNavigationController class]]) {
-        PLAProposNavigationController *viewController = (PLAProposNavigationController *)self.presentedViewController;
+    UIViewController *popoverVC = self.aProposPopoverController.contentViewController;
+    if ([popoverVC isKindOfClass:[PLAProposNavigationController class]]) {
+        PLAProposNavigationController *viewController = (PLAProposNavigationController *)popoverVC;
         [viewController updateSizeForViewController:viewController.topViewController];
     }
     
