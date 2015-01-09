@@ -389,7 +389,8 @@
     } else if (PLIPhone) {
         offset = 48.0;
     } else {
-        offset = 68.0;
+        // iPad
+        offset = 64.0;
     }
     
     if (tableView == self.tableView) {
