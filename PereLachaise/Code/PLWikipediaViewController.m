@@ -19,6 +19,8 @@
 
 #import "PLWikipediaViewController.h"
 
+#import "PLAProposNavigationController.h"
+
 @interface PLWikipediaViewController () <UIActionSheetDelegate> {
     // Indique si les modifications de titre doivent être ignorées
     BOOL _ignoreTitleChange;
